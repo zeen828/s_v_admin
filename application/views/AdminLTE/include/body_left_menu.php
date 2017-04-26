@@ -52,7 +52,6 @@
             				<ul class="treeview-menu">
             					<li><a href="/backend/orders/search"><i class="fa fa-search"></i> 訂單查詢</a></li>
             					<li><a href="/backend/orders/paykit_search"><i class="fa fa-search"></i> paykit訂單查詢</a></li>
-            					<li><a href="/backend/orders/paykit_order"><i class="fa fa-building-o"></i> paykit訂單查詢紀錄</a></li>
             				</ul>
             			</li>
 <?php }?>

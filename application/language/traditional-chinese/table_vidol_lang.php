@@ -65,16 +65,6 @@ $lang['fields_p_item_type'] = '';
 $lang['fields_p_video_id'] = '';
 $lang['fields_p_tag'] = '';
 
-$lang['tabels_paykit_order_tbl'] = 'paykit訂單';
-$lang['fields_id'] = 'transtionID';
-$lang['fields_user_id'] = 'UID';
-$lang['fields_action'] = '訂單動作';
-$lang['fields_packageNames'] = '產品名稱';
-$lang['fields_comment'] = '註釋';
-$lang['fields_coupon'] = '優惠券';
-$lang['fields_createdAt'] = '建立時間';
-$lang['fields_updatedAt'] = '更新時間';
-
 $lang['tabels_Coupon_set_tbl'] = '序號設定';
 $lang['Coupon_set_tbl_fields_cs_package_no'] = '產品包';
 $lang['Coupon_set_tbl_fields_cs_discount'] = '折扣';
