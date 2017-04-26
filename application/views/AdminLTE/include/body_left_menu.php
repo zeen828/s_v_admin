@@ -27,10 +27,6 @@
 <?php if($this->flexi_auth->is_privileged(array('Orders View', 'Orders Add', 'Orders Edit', 'Orders Del'))) {?>
             					<li><a href="/backend/users/order"><i class="fa fa-credit-card"></i> 會員訂單紀錄</a></li>
 <?php }?>
-<?php if($this->flexi_auth->is_privileged(array('Accounts View', 'Accounts Add', 'Accounts Edit', 'Accounts De'))) {?>
-<!-- <li><a href="/backend/users/vidol"><i class="fa fa-users"></i> vidol會員管理</a></li> -->
-								<li><a href="/backend/users/user"><i class="fa fa-users"></i> 會員管理</a></li>
-<?php }?>
             				</ul>
             			</li>
 <?php }?>
