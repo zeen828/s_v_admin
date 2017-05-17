@@ -37,6 +37,7 @@ Class Mongo_db{
 	private $offset	= 0;
 	private $sorts	= array();
 	private $return_as = 'array';
+	private $replica = '';
 	public $benchmark = array();
 
 	/**
@@ -185,6 +186,15 @@ Class Mongo_db{
 			{
 				$this->return_as = $this->config[$this->activate]['return_as'];
 			}
+
+			if(empty($this->config[$this->activate]['replica']))
+			{
+				$this->replica = '';
+			}
+			else
+			{
+				$this->replica = $this->config[$this->activate]['replica'];
+			}
 		}
 		else
 		{
@@ -205,7 +215,7 @@ Class Mongo_db{
 		$this->prepare();
 		try
 		{
-			$dns = "mongodb://{$this->hostname}:{$this->port}/{$this->database}";
+			$dns = "mongodb://{$this->hostname}:{$this->port}/{$this->database}{$this->replica}";
 			if(isset($this->config[$this->activate]['no_auth']) == TRUE && $this->config[$this->activate]['no_auth'] == TRUE)
 			{
 				$options = array();

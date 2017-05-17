@@ -29,7 +29,8 @@ class Mongo_model extends CI_Model
         $dbuser = $this->mongo_config[$this->activate]['username'];
         $dbpass = $this->mongo_config[$this->activate]['password'];
         $dbname = $this->mongo_config[$this->activate]['database'];
-        $mongo_string = sprintf('mongodb://%s:%s', $dbhost, $dbport);
+        $replica = $this->mongo_config[$this->activate]['replica'];
+        $mongo_string = sprintf('mongodb://%s:%s/%s%s', $dbhost, $dbport, $dbname, $replica);
         // 連線
         $this->mongo = new MongoClient($mongo_string, [
                 'username' => $dbuser,
