@@ -36,6 +36,7 @@ class Mongo_model extends CI_Model
                 'password' => $dbpass,
                 'db' => $dbname
         ]);
+        $this->mongo->slaveOkay();
     }
 
     /**
