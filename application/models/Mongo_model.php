@@ -36,7 +36,7 @@ class Mongo_model extends CI_Model
                 'password' => $dbpass,
                 'db' => $dbname
         ]);
-        $this->mongo->slaveOkay();
+        //$this->mongo->slaveOkay();
     }
 
     /**
@@ -55,6 +55,7 @@ class Mongo_model extends CI_Model
         // 選擇資料庫
         $this->db = $this->mongo->$dbname;
         $Users = $this->db->$user_table;
+        $Users->slaveOkay();
         // $db->users->find(array('name' => new MongoRegex('/Joe/')));
         // $find = array('$or' => array(array('a' => 1), array('b' => 2))));
         $find = array(
@@ -90,6 +91,7 @@ class Mongo_model extends CI_Model
         // 選擇資料庫
         $this->db = $this->mongo->$dbname;
         $Users = $this->db->$user_table;
+        $Users->slaveOkay();
         $find['member_id'] = $member_id;
         $result = $Users->findOne($find);
         return $result;
@@ -114,6 +116,7 @@ class Mongo_model extends CI_Model
         // 選擇資料庫
         $this->db = $this->mongo->$dbname;
         $Users = $this->db->$user_table;
+        $Users->slaveOkay();
         $start = new MongoDate(strtotime($start_date));
         $end = new MongoDate(strtotime($end_date));
         $find['_created_at'] = array(
@@ -136,6 +139,7 @@ class Mongo_model extends CI_Model
         // 選擇資料庫
         $this->db = $this->mongo->$dbname;
         $Users = $this->db->$user_table;
+        $Users->slaveOkay();
         $start = new MongoDate(strtotime($start_date));
         $end = new MongoDate(strtotime($end_date));
         $find['_created_at'] = array(
@@ -168,6 +172,7 @@ class Mongo_model extends CI_Model
         // 選擇資料庫
         $this->db = $this->mongo->$dbname;
         $Users = $this->db->$user_table;
+        $Users->slaveOkay();
         $start = new MongoDate(strtotime($start_date));
         $end = new MongoDate(strtotime($end_date));
         $find['_created_at'] = array(
@@ -192,6 +197,7 @@ class Mongo_model extends CI_Model
         // 選擇資料庫
         $this->db = $this->mongo->$dbname;
         $Users = $this->db->$user_table;
+        $Users->slaveOkay();
         $find['_auth_data_facebook'] = array(
                 '$ne' => null
         );
@@ -209,6 +215,7 @@ class Mongo_model extends CI_Model
         // 選擇資料庫
         $this->db = $this->mongo->$dbname;
         $Users = $this->db->$user_table;
+        $Users->slaveOkay();
         $find = array('_p_user' => new MongoRegex($like_string));
         $result = $Users->find($find)->sort(array('_created_at'=>-1))->limit(20);
         return $result;
@@ -227,6 +234,7 @@ class Mongo_model extends CI_Model
     	// 選擇資料庫
     	$this->db = $this->mongo->$dbname;
     	$Users = $this->db->$user_table;
+    	$Users->slaveOkay();
     	$find['birth_date'] = array(
     			'$gt' => $start_date,
     			'$lte' => $end_date
