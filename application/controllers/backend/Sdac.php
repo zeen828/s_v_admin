@@ -243,7 +243,7 @@ class Sdac extends CI_Controller
     			}
     		}
     		//print_r($data_input);
-    		//redirect('/backend/sdac/vote');
+    		redirect('/backend/sdac/vote');
     	} catch (Exception $e) {
     		show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
     	}
