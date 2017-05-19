@@ -54,7 +54,7 @@ class vidol_production_model extends CI_Model
 		$this->w_db->set('ticket', $ticket);
 		$this->w_db->update('votes');
 		$result = $this->w_db->affected_rows();
-		//echo $this->w_db->last_query();
+		echo $this->w_db->last_query();
 		return $result;
     }
     
