@@ -230,21 +230,28 @@ class Sdac extends CI_Controller
     //華劇大賞-灌票
     public function awards($category_no){
     	try {
-    		echo 'debug';
+    		echo 'debug1';
     		$this->load->model ( 'postgre/vidol_production_model' );
+    		echo 'debug2';
     		// 變數
     		$data_input = array ();
+    		echo 'debug3';
     		if(count($this->vote_arr[$category_no]['countent'])>0){
+    			echo 'debug4';
     			foreach ($this->vote_arr[$category_no]['countent'] as $video_id_no=>$val){
+    				echo 'debug5';
     				if(isset($_POST['video_id_' . $video_id_no])){
+    					echo 'debug6';
     					$data_input['sum'] = $_POST['sum'];
     					$data_input['video_id_' . $video_id_no] = $_POST['video_id_' . $video_id_no];
     					if(($data_input['video_id_' . $video_id_no] / $data_input['sum'] * 100) <= 5 || true){
+    						echo 'debug7';
     							$query = $this->vidol_production_model->update_votes_by_category_video($category_no, $video_id_no, $data_input['video_id_' . $video_id_no]);    						
     					}
     				}
     			}
     		}
+    		echo 'debug8';
     		//print_r($data_input);
     		//redirect('/backend/sdac/vote');
     	} catch (Exception $e) {
