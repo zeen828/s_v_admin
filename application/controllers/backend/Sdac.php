@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+ini_set ( "display_errors", "On" ); // On, Off
+
 class Sdac extends CI_Controller
 {
 
@@ -228,6 +230,7 @@ class Sdac extends CI_Controller
     //華劇大賞-灌票
     public function awards($category_no){
     	try {
+    		echo 'debug';
     		$this->load->model ( 'postgre/vidol_production_model' );
     		// 變數
     		$data_input = array ();
