@@ -51,7 +51,10 @@ class Votes extends CI_Controller
 					$message = str_replace (' ', '', $message);
 					$message = str_replace (',', '', $message);
 					$message = str_replace ('，', '', $message);
+					$message = str_replace ('我的學校是', '', $message);
 					print_r($message);
+					$str_sec = explode ('我', $message);
+					print_r($str_sec);
 				}
 			}
 		} catch (Exception $e) {
