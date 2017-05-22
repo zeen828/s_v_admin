@@ -51,22 +51,19 @@ class Votes extends CI_Controller
 									'}', '~', '；', '﹔', '︰', '﹕', '：', '，', '﹐', '、',
 									'．', '﹒', '˙', '·', '。', '？', '！', '～', '‥', '‧',
 									'′', '〃', '〝', '〞', '‵', '‘', '’', '『', '』', '「',
-									'」', '“', '”', '…', '❞', '❝', '﹁', '﹂', '﹃', '﹄',
-									' ', '\n', '\t', '\r', '\r\n', '\n\r', '《', '》'
+									'」', '“', '”', '…', '❞', '❝', '﹁', '﹂', '﹃', '﹄'
 							),	'',	$message);
 					$message = trim($message);
-// 					$message = str_replace ('\'', '', $message);
-// 					$message = str_replace ('"', '', $message);
-// 					$message = str_replace (' ', '', $message);
-// 					$message = str_replace (',', '', $message);
-// 					$message = str_replace ('，', '', $message);
-// 					$message = str_replace ('。', '', $message);
-// 					$message = str_replace ('_', '', $message);
-					$message = str_replace ('我的學校是', '', $message);
+					$message = str_replace (
+							array(
+									' ', '\n', '\t', '\r', '\r\n', '\n\r', '《', '》',
+									'我的學校是', '因為'
+									
+							), '', $message);
 //print_r($message);
 					$str_sec = explode ('我', $message);
 //print_r($str_sec);
-					if(!empty($str_sec['0'])){
+					if(!empty($str_sec['0']) && mb_strlen( $string, "utf-8") >= 4 && mb_strlen( $string, "utf-8") <= 10){
 						$school = $str_sec['0'];
 //print_r($school);
 						$mrplay = $this->mrplay_model->get_row_Mrplay_by_school('*', $school);
