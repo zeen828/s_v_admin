@@ -63,7 +63,7 @@ if (! defined ( 'BASEPATH' ))
 			$this->r_db->select_max('cron_no');
 			$this->r_db->limit ( 1 );
 			$query = $this->r_db->get ( $this->table_name );
-			// echo $this->r_db->last_query();
+			echo $this->r_db->last_query();
 			if ($query->num_rows () > 0) {
 				return $query->row ();
 			}
