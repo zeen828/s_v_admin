@@ -32,15 +32,12 @@ class Votes extends CI_Controller
 			// 引入
 			$this->load->model ( 'vidol_websocket/boards_model' );
 			$this->load->model ( 'vidol_websocket/mrplay_model' );
-			echo 'HI';
 			$cron = $this->mrplay_model->get_row_Mrplay_cronno('cron_no');
-			print_r($cron);
 			if(empty($cron) || empty($cron->cron_no)){
 				$cron_no = 0;
 			}else{
 				$cron_no = $cron->cron_no;
 			}
-			print_r($cron_no);
 			$query = $this->boards_model->get_Board_by_type_typeno('b_no, b_message', 'episode', '17899', $cron_no, '10');
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
@@ -52,9 +49,27 @@ class Votes extends CI_Controller
 					$message = str_replace (',', '', $message);
 					$message = str_replace ('，', '', $message);
 					$message = str_replace ('我的學校是', '', $message);
-					print_r($message);
 					$str_sec = explode ('我', $message);
-					print_r($str_sec);
+					if(!empty($str_sec['0'])){
+						$school = $str_sec['0'];
+						$mrplay = $this->mrplay_model->get_row_Mrplay_by_school('*', $school);
+						if(empty($mrplay)){
+							//新增
+							$data = array(
+									'school '=>'$school',
+									'count '=>'1',
+									'cron_no '=>$row->b_no,
+							);
+							$this->mrplay_model->insert_Mrplay_for_data($data);
+						}else{
+							//更新
+							$data = array(
+									'count '=>$mrplay->count + 1,
+									'cron_no '=>$row->b_no,
+							);
+							$this->mrplay_model->update_Mrplay_for_data($mrplay->pk, $data);
+						}
+					}
 				}
 			}
 		} catch (Exception $e) {
