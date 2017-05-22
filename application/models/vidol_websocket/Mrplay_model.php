@@ -54,4 +54,16 @@ if (! defined ( 'BASEPATH' ))
 			}
 			return false;
 		}
+		public function get_row_Mrplay_by_cron($select) {
+			if (! empty ( $select )) {
+				$this->r_db->select ( $select );
+			}
+			$query = $this->r_db->get ( $this->table_name );
+			$this->r_db->limit ( 1 );
+			// echo $this->r_db->last_query();
+			if ($query->num_rows () > 0) {
+				return $query->row ();
+			}
+			return false;
+		}
 	}

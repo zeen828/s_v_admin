@@ -33,7 +33,14 @@ class Votes extends CI_Controller
 			$this->load->model ( 'vidol_websocket/boards_model' );
 			$this->load->model ( 'vidol_websocket/mrplay_model' );
 			echo 'HI';
-			$query = $this->boards_model->get_Board_by_type_typeno('*', 'episode', '17899', '0', '100');
+			$cron = $this->mrplay_model->get_row_Mrplay_by_cron('*');
+			if(empty($cron)){
+				$cron_no = 0;
+			}else{
+				$cron_no = $cron->cron_no;
+			}
+			print_r($cron_no);
+			$query = $this->boards_model->get_Board_by_type_typeno('*', 'episode', '17899', $cron_no, '100');
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
 					print_r($row);
