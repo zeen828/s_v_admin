@@ -34,6 +34,15 @@ class Boards_model extends CI_Model {
 		// echo $this->r_db->last_query();
 		return $result;
 	}
+	/**
+	 * 依節目查詢資料
+	 * @param unknown $select
+	 * @param unknown $type
+	 * @param unknown $typeno
+	 * @param number $limit_start
+	 * @param number $limit
+	 * @return unknown
+	 */
 	public function get_Board_by_type_typeno($select, $type, $typeno, $limit_start = 0, $limit = 100) {
 		if (! empty ( $select )) {
 			$this->r_db->select ( $select );

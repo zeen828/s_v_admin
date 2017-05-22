@@ -33,6 +33,8 @@ class Votes extends CI_Controller
 			$this->load->model ( 'vidol_websocket/boards_model' );
 			$this->load->model ( 'vidol_websocket/mrplay_model' );
 			$cron = $this->mrplay_model->get_row_Mrplay_cronno('cron_no');
+			//
+			$this->data_result['cron'] = $cron;
 			if(empty($cron) || empty($cron->cron_no)){
 				$cron_no = 0;
 			}else{
@@ -41,8 +43,8 @@ class Votes extends CI_Controller
 			$query = $this->boards_model->get_Board_by_type_typeno('b_no, b_message', 'episode', '17899', $cron_no, '500');
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
-//print_r($row);
 					$message = $row->b_message;
+					$message = rtrim($message);
 					$message = str_replace(
 							array(
 									'!', '"', '#', '$', '%', '&', '\'', '(', ')', '*',
@@ -60,16 +62,12 @@ class Votes extends CI_Controller
 									'我的學校是', '因為'
 									
 							), '', $message);
-//print_r($message);
 					$str_sec = explode ('我', $message);
-//print_r($str_sec);
 					$message = $str_sec['0'];
 					$strlen = mb_strlen( $message, "utf-8");
 					if(!empty($message) && $strlen >= 4 && $strlen <= 10){
 						$school = $message;
-//print_r($school);
 						$mrplay = $this->mrplay_model->get_row_Mrplay_by_school('*', $school);
-//print_r($mrplay);
 						if(empty($mrplay)){
 							//新增
 							$data = array(
