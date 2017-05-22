@@ -51,6 +51,7 @@ class Boards_model extends CI_Model
     	$this->r_db->where ( 'b_type', $type );
     	$this->r_db->where ( 'b_type_no', $typeno );
     	$this->r_db->where ( 'b_status', '1' );
+    	$this->r_db->order_by( 'b_no', 'ASC');
     	$this->r_db->limit ( $limit, $limit_start );
     	$query = $this->r_db->get ( 'Board_tbl' );
     	echo $this->r_db->last_query();
