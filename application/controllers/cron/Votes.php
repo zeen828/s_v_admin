@@ -38,7 +38,7 @@ class Votes extends CI_Controller
 			}else{
 				$cron_no = $cron->cron_no;
 			}
-			$query = $this->boards_model->get_Board_by_type_typeno('b_no, b_message', 'episode', '17899', $cron_no, '10');
+			$query = $this->boards_model->get_Board_by_type_typeno('b_no, b_message', 'episode', '17899', $cron_no, '500');
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
 					print_r($row);
@@ -48,6 +48,7 @@ class Votes extends CI_Controller
 					$message = str_replace (' ', '', $message);
 					$message = str_replace (',', '', $message);
 					$message = str_replace ('，', '', $message);
+					$message = str_replace ('。', '', $message);
 					$message = str_replace ('我的學校是', '', $message);
 					print_r($message);
 					$str_sec = explode ('我', $message);
