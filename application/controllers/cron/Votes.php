@@ -52,7 +52,7 @@ class Votes extends CI_Controller
 									'．', '﹒', '˙', '·', '。', '？', '！', '～', '‥', '‧',
 									'′', '〃', '〝', '〞', '‵', '‘', '’', '『', '』', '「',
 									'」', '“', '”', '…', '❞', '❝', '﹁', '﹂', '﹃', '﹄',
-									' '
+									' ', '\n', '\t', '\r'
 							),	'',	$message);
 					$message = trim($message);
 // 					$message = str_replace ('\'', '', $message);
