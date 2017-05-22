@@ -35,7 +35,7 @@ class Votes extends CI_Controller
 			echo 'HI';
 			$cron = $this->mrplay_model->get_row_Mrplay_cronno('cron_no');
 			print_r($cron);
-			if(empty($cron)){
+			if(empty($cron) || empty($cron->cron_no)){
 				$cron_no = 0;
 			}else{
 				$cron_no = $cron->cron_no;
