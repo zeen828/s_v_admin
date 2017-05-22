@@ -49,26 +49,29 @@ class Votes extends CI_Controller
 					$message = str_replace (',', '', $message);
 					$message = str_replace ('，', '', $message);
 					$message = str_replace ('我的學校是', '', $message);
+					print_r($message);
 					$str_sec = explode ('我', $message);
+					print_r($str_sec);
 					if(!empty($str_sec['0'])){
 						$school = $str_sec['0'];
-						$mrplay = $this->mrplay_model->get_row_Mrplay_by_school('*', $school);
-						if(empty($mrplay)){
-							//新增
-							$data = array(
-									'school '=>'$school',
-									'count '=>'1',
-									'cron_no '=>$row->b_no,
-							);
-							$this->mrplay_model->insert_Mrplay_for_data($data);
-						}else{
-							//更新
-							$data = array(
-									'count '=>$mrplay->count + 1,
-									'cron_no '=>$row->b_no,
-							);
-							$this->mrplay_model->update_Mrplay_for_data($mrplay->pk, $data);
-						}
+						print_r($school);
+// 						$mrplay = $this->mrplay_model->get_row_Mrplay_by_school('*', $school);
+// 						if(empty($mrplay)){
+// 							//新增
+// 							$data = array(
+// 									'school '=>'$school',
+// 									'count '=>'1',
+// 									'cron_no '=>$row->b_no,
+// 							);
+// 							$this->mrplay_model->insert_Mrplay_for_data($data);
+// 						}else{
+// 							//更新
+// 							$data = array(
+// 									'count '=>$mrplay->count + 1,
+// 									'cron_no '=>$row->b_no,
+// 							);
+// 							$this->mrplay_model->update_Mrplay_for_data($mrplay->pk, $data);
+// 						}
 					}
 				}
 			}
