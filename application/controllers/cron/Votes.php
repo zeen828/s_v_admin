@@ -43,13 +43,25 @@ class Votes extends CI_Controller
 				foreach ( $query->result () as $row ) {
 //print_r($row);
 					$message = $row->b_message;
-					$message = str_replace ('\'', '', $message);
-					$message = str_replace ('"', '', $message);
-					$message = str_replace (' ', '', $message);
-					$message = str_replace (',', '', $message);
-					$message = str_replace ('，', '', $message);
-					$message = str_replace ('。', '', $message);
-					$message = str_replace ('_', '', $message);
+					$message = str_replace(
+							array(
+									'!', '"', '#', '$', '%', '&', '\'', '(', ')', '*',
+									'+', ',', '-', '.', '/', ':', ';', '<', '=', '>',
+									'?', '@', '[', '\\', ']', '^', '_', '`', '{', '|',
+									'}', '~', '；', '﹔', '︰', '﹕', '：', '，', '﹐', '、',
+									'．', '﹒', '˙', '·', '。', '？', '！', '～', '‥', '‧',
+									'′', '〃', '〝', '〞', '‵', '‘', '’', '『', '』', '「',
+									'」', '“', '”', '…', '❞', '❝', '﹁', '﹂', '﹃', '﹄',
+									' '
+							),	'',	$message);
+					$message = trim($message);
+// 					$message = str_replace ('\'', '', $message);
+// 					$message = str_replace ('"', '', $message);
+// 					$message = str_replace (' ', '', $message);
+// 					$message = str_replace (',', '', $message);
+// 					$message = str_replace ('，', '', $message);
+// 					$message = str_replace ('。', '', $message);
+// 					$message = str_replace ('_', '', $message);
 					$message = str_replace ('我的學校是', '', $message);
 //print_r($message);
 					$str_sec = explode ('我', $message);
