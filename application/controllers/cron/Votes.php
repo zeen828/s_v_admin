@@ -41,7 +41,7 @@ class Votes extends CI_Controller
 			$query = $this->boards_model->get_Board_by_type_typeno('b_no, b_message', 'episode', '17899', $cron_no, '500');
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
-					print_r($row);
+//print_r($row);
 					$message = $row->b_message;
 					$message = str_replace ('\'', '', $message);
 					$message = str_replace ('"', '', $message);
@@ -49,15 +49,16 @@ class Votes extends CI_Controller
 					$message = str_replace (',', '', $message);
 					$message = str_replace ('，', '', $message);
 					$message = str_replace ('。', '', $message);
+					$message = str_replace ('_', '', $message);
 					$message = str_replace ('我的學校是', '', $message);
-					print_r($message);
+//print_r($message);
 					$str_sec = explode ('我', $message);
-					print_r($str_sec);
+//print_r($str_sec);
 					if(!empty($str_sec['0'])){
 						$school = $str_sec['0'];
-						print_r($school);
+//print_r($school);
 						$mrplay = $this->mrplay_model->get_row_Mrplay_by_school('*', $school);
-						print_r($mrplay);
+//print_r($mrplay);
 						if(empty($mrplay)){
 							//新增
 							$data = array(
@@ -77,6 +78,9 @@ class Votes extends CI_Controller
 					}
 				}
 			}
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($this->data_result));
 		} catch (Exception $e) {
 			show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
 		}
