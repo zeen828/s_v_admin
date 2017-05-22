@@ -42,6 +42,12 @@ class Mrplay_model extends CI_Model {
 		}
 		return false;
 	}
+	/**
+	 * 查詢學校
+	 * @param unknown $select
+	 * @param unknown $school
+	 * @return unknown|boolean
+	 */
 	public function get_row_Mrplay_by_school($select, $school) {
 		if (! empty ( $select )) {
 			$this->r_db->select ( $select );
@@ -62,18 +68,6 @@ class Mrplay_model extends CI_Model {
 	 */
 	public function get_row_Mrplay_cronno() {
 		$this->r_db->select_max ( 'cron_no' );
-		$query = $this->r_db->get ( $this->table_name );
-		// echo $this->r_db->last_query();
-		if ($query->num_rows () > 0) {
-			return $query->row ();
-		}
-		return false;
-	}
-	public function get_row_Mrplay_by_school($select, $school) {
-		if (! empty ( $select )) {
-			$this->r_db->select ( $select );
-		}
-		$this->r_db->where ( 'school ', $school );
 		$query = $this->r_db->get ( $this->table_name );
 		// echo $this->r_db->last_query();
 		if ($query->num_rows () > 0) {

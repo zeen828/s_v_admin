@@ -55,23 +55,24 @@ class Votes extends CI_Controller
 					if(!empty($str_sec['0'])){
 						$school = $str_sec['0'];
 						print_r($school);
-// 						$mrplay = $this->mrplay_model->get_row_Mrplay_by_school('*', $school);
-// 						if(empty($mrplay)){
-// 							//新增
-// 							$data = array(
-// 									'school '=>'$school',
-// 									'count '=>'1',
-// 									'cron_no '=>$row->b_no,
-// 							);
-// 							$this->mrplay_model->insert_Mrplay_for_data($data);
-// 						}else{
-// 							//更新
-// 							$data = array(
-// 									'count '=>$mrplay->count + 1,
-// 									'cron_no '=>$row->b_no,
-// 							);
-// 							$this->mrplay_model->update_Mrplay_for_data($mrplay->pk, $data);
-// 						}
+						$mrplay = $this->mrplay_model->get_row_Mrplay_by_school('*', $school);
+						print_r($mrplay);
+						if(empty($mrplay)){
+							//新增
+							$data = array(
+									'school' => $school,
+									'count' => '1',
+									'cron_no' => $row->b_no,
+							);
+							$this->mrplay_model->insert_Mrplay_for_data($data);
+						}else{
+							//更新
+							$data = array(
+									'count' => $mrplay->count + 1,
+									'cron_no' => $row->b_no,
+							);
+							$this->mrplay_model->update_Mrplay_for_data($mrplay->pk, $data);
+						}
 					}
 				}
 			}
