@@ -64,6 +64,7 @@ class Votes extends CI_Controller
 							), '', $message);
 					$str_sec = explode ('我', $message);
 					$message = $str_sec['0'];
+					$message = str_replace(PHP_EOL, '', $message);
 					$message = rtrim($message);
 					$strlen = mb_strlen( $message, "utf-8");
 					if(!empty($message) && $strlen >= 4 && $strlen <= 10){
