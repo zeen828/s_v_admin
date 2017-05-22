@@ -44,8 +44,9 @@ class Mrplay_model extends CI_Model {
 	}
 	/**
 	 * 查詢學校
-	 * @param unknown $select
-	 * @param unknown $school
+	 * 
+	 * @param unknown $select        	
+	 * @param unknown $school        	
 	 * @return unknown|boolean
 	 */
 	public function get_row_Mrplay_by_school($select, $school) {
@@ -62,7 +63,7 @@ class Mrplay_model extends CI_Model {
 	}
 	/**
 	 * 取得排程執行的編號
-	 * 
+	 *
 	 * @param unknown $select        	
 	 * @return unknown|boolean
 	 */
