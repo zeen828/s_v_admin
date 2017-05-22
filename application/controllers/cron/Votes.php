@@ -63,8 +63,10 @@ class Votes extends CI_Controller
 //print_r($message);
 					$str_sec = explode ('我', $message);
 //print_r($str_sec);
-					if(!empty($str_sec['0']) && mb_strlen( $string, "utf-8") >= 4 && mb_strlen( $string, "utf-8") <= 10){
-						$school = $str_sec['0'];
+					$message = $str_sec['0'];
+					$strlen = mb_strlen( $message, "utf-8");
+					if(!empty($message) && $strlen >= 4 && $strlen <= 10){
+						$school = $message;
 //print_r($school);
 						$mrplay = $this->mrplay_model->get_row_Mrplay_by_school('*', $school);
 //print_r($mrplay);
