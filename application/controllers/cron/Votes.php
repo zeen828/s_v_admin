@@ -46,11 +46,11 @@ class Votes extends CI_Controller
 				foreach ( $query->result () as $row ) {
 					print_r($row);
 					$message = $row->b_message;
-					str_replace ('\'', '', $message);
-					str_replace ('"', '', $message);
-					str_replace (' ', '', $message);
-					str_replace (',', '', $message);
-					str_replace ('，', '', $message);
+					$message = str_replace ('\'', '', $message);
+					$message = str_replace ('"', '', $message);
+					$message = str_replace (' ', '', $message);
+					$message = str_replace (',', '', $message);
+					$message = str_replace ('，', '', $message);
 					print_r($message);
 				}
 			}
