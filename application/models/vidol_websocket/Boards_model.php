@@ -43,4 +43,17 @@ class Boards_model extends CI_Model
     	//echo $this->r_db->last_query();
     	return $result;
     }
+
+    public function get_Board_by_type_typeno($select, $type, $typeno, $limit_start = 0, $limit = 100) {
+    	if (! empty ( $select )) {
+    		$this->r_db->select ( $select );
+    	}
+    	$this->r_db->where ( 'b_type', $type );
+    	$this->r_db->where ( 'b_type_no', $typeno );
+    	$this->r_db->where ( 'b_status', '1' );
+    	$this->r_db->limit ( $limit_start, $limit );
+    	$query = $this->r_db->get ( 'Board_tbl' );
+    	// echo $this->r_db->last_query();
+    	return $query;
+    }
 }

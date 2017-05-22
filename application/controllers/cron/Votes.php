@@ -27,7 +27,18 @@ class Votes extends CI_Controller
 	public function mrplay_boards ()
 	{
 		try {
+			// 開始時間標記
+			$this->benchmark->mark ( 'code_start' );
+			// 引入
+			$this->load->model ( 'vidol_websocket/boards_model' );
+			$this->load->model ( 'vidol_websocket/mrplay_model' );
 			echo 'HI';
+			$query = $this->boards_model->get_Board_by_type_typeno('*', 'episode', '17899', '0', '100');
+			if ($query->num_rows () > 0) {
+				foreach ( $query->result () as $row ) {
+					print_r($row);
+				}
+			}
 		} catch (Exception $e) {
 			show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
 		}
