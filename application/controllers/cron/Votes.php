@@ -41,6 +41,7 @@ class Votes extends CI_Controller
 				$cron_no = $cron->cron_no;
 			}
 			print_r($cron_no);
+/**
 			$query = $this->boards_model->get_Board_by_type_typeno('b_no, b_message', 'episode', '17899', $cron_no, '10');
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
@@ -50,6 +51,7 @@ class Votes extends CI_Controller
 					$this->mrplay_model->update_Mrplay_cronno($row->b_no);
 				}
 			}
+/**/
 		} catch (Exception $e) {
 			show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
 		}
