@@ -54,16 +54,32 @@ if (! defined ( 'BASEPATH' ))
 			}
 			return false;
 		}
-		public function get_row_Mrplay_by_cron($select) {
-			if (! empty ( $select )) {
-				$this->r_db->select ( $select );
-			}
-			$query = $this->r_db->get ( $this->table_name );
+		/**
+		 * 取得排程執行的編號
+		 * @param unknown $select
+		 * @return unknown|boolean
+		 */
+		public function get_row_Mrplay_cronno() {
+			$this->r_db->select_max('cron_no');
 			$this->r_db->limit ( 1 );
+			$query = $this->r_db->get ( $this->table_name );
 			// echo $this->r_db->last_query();
 			if ($query->num_rows () > 0) {
 				return $query->row ();
 			}
 			return false;
 		}
+		/**
+		 * 更新排程編號
+		 * @param unknown $cron_no
+		 * @return unknown
+		 */
+		public function update_Mrplay_cronno($cron_no) {
+			$this->w_db->set( 'cron_no', $cron_no );
+			$this->w_db->update ( $this->table_name );
+			$result = $this->w_db->affected_rows ();
+			// echo $this->w_db->last_query();
+			return $result;
+		}
+		
 	}
