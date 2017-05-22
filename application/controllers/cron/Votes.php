@@ -58,7 +58,7 @@ class Votes extends CI_Controller
 					$message = trim($message);
 					$message = str_replace (
 							array(
-									' ', '\n', '\t', '\r', '\r\n', '\n\r', '《', '》', '（', '）', '【', '】',
+									' ', '\n', '\t', '\r', '\r\n', '\n\r', '《', '》', '（', '）', '【', '】', '❤',
 									'我的學校是', '因為'
 									
 							), '', $message);
