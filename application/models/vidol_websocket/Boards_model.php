@@ -53,7 +53,7 @@ class Boards_model extends CI_Model
     	$this->r_db->where ( 'b_status', '1' );
     	$this->r_db->limit ( $limit, $limit_start );
     	$query = $this->r_db->get ( 'Board_tbl' );
-    	// echo $this->r_db->last_query();
+    	echo $this->r_db->last_query();
     	return $query;
     }
 }
