@@ -123,8 +123,8 @@ class Votes extends CI_Controller
 			$data_input = array ();
 			$data_cache = array ();
 			// 接收變數
-			$data_input ['cache'] = $this->get ( 'cache' );
-			$data_input ['debug'] = $this->get ( 'debug' );
+			$data_input ['cache'] = $this->input->get('cache');
+			$data_input ['debug'] = $this->input->get('debug');
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
