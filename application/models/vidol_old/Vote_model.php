@@ -75,4 +75,18 @@ class Vote_model extends CI_Model
     	//echo $this->w_db->last_query();
     	return $result;
     }
+    /**
+     * 清除資料
+     */
+    public function update_afternoon ($category_no, $video_id_no, $ticket, $ticket_add)
+    {
+    	$this->w_db->where('category_no', $category_no);
+    	$this->w_db->where('video_id_no', $video_id_no);
+    	$this->w_db->set('ticket', $ticket);
+    	$this->w_db->set('ticket_add', $ticket_add);
+    	$this->w_db->update('afternoon_tbl');
+    	$result = $this->w_db->affected_rows();
+    	//echo $this->w_db->last_query();
+    	return $result;
+    }
 }

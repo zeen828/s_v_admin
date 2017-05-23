@@ -111,6 +111,7 @@ class Votes extends CI_Controller
 			// 開始時間標記
 			$this->benchmark->mark ( 'code_start' );
 			// 引入
+			$this->config->load ( 'votes_mrplay_1' );
 			$this->load->model ( 'postgre/vidol_production_model' );
 			// 變數
 			$school_vote_arr = array(
@@ -129,8 +130,9 @@ class Votes extends CI_Controller
 			// 取得學校總數
 			$query = $this->vidol_production_model->cron_mrplay_subtotal();
 			if ($query->num_rows () > 0) {
-				$row = $query->row();
-				$this->data_result ['subtotal'] = $row;
+				foreach ( $query->result () as $row ) {
+					
+				}
 			}
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
