@@ -128,7 +128,8 @@ class Votes extends CI_Controller
 			$data_input ['debug'] = $this->input->get('debug');
 			// 取得學校總數
 			$subtotal = $this->vidol_production_model->cron_mrplay_subtotal();
-			$this->data_result ['subtotal'] = $subtotal;
+			//
+			//$this->data_result ['subtotal'] = $subtotal;
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
