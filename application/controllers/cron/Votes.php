@@ -176,6 +176,7 @@ class Votes extends CI_Controller {
 			// 引入
 			$this->config->load ( 'votes' );
 			$this->load->model ( 'postgre/vidol_production_model' );
+			$this->load->model ( 'vidol_old/vote_model' );
 			// 變數
 			$votes_arr = $this->config->item ( 'votes_mrplay_1' );
 			$data_input = array ();
@@ -186,7 +187,10 @@ class Votes extends CI_Controller {
 			// 取得學校總數
 			$query = $this->vidol_production_model->cron_mrplay_subtotal ();
 			if ($query->num_rows () > 0) {
+				$this->vote_model->truncate_vote_mrplay();
 				foreach ( $query->result () as $row ) {
+					print_r($row);
+					//$this->vote_model->insert_vote_mrplay(1, $row->code, $title, $row->, $row->);
 				}
 			}
 			// DEBUG印出

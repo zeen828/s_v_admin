@@ -69,14 +69,21 @@ class Vote_model extends CI_Model {
 	/**
 	 * 清除資料
 	 */
-	public function update_afternoon($category_no, $video_id_no, $ticket, $ticket_add) {
-		$this->w_db->where ( 'category_no', $category_no );
-		$this->w_db->where ( 'video_id_no', $video_id_no );
-		$this->w_db->set ( 'ticket', $ticket );
-		$this->w_db->set ( 'ticket_add', $ticket_add );
-		$this->w_db->update ( 'afternoon_tbl' );
-		$result = $this->w_db->affected_rows ();
+	public function truncate_vote_mrplay() {
+		$this->w_db->truncate ( 'vote_mrplay_tbl' );
 		// echo $this->w_db->last_query();
 		return $result;
+	}
+	
+	public function insert_vote_mrplay($category_no, $code, $title, $ticket, $ticket_add) {
+		$this->w_db->set ( 'category_no', $category_no );
+		$this->w_db->set ( 'code', $code );
+		$this->w_db->set ( 'title', $title );
+		$this->w_db->set ( 'ticket', $ticket );
+		$this->w_db->set ( 'ticket_add', $ticket_add );
+		$this->w_db->insert ( 'vote_mrplay_tbl' );
+		$id = $this->w_db->insert_id ();
+		// echo $this->w_db->last_query();
+		return $id;
 	}
 }
