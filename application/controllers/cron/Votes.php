@@ -129,7 +129,7 @@ class Votes extends CI_Controller
 			// 取得學校總數
 			$subtotal = $this->vidol_production_model->cron_mrplay_subtotal();
 			if ($query->num_rows () > 0) {
-				$row = $query->result();
+				$row = $query->row();
 				$this->data_result ['subtotal'] = $row;
 			}
 			// DEBUG印出
