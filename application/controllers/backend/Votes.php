@@ -95,7 +95,7 @@ class votes extends CI_Controller {
 	}
 	
 	// 華劇大賞-明星午茶-灌票
-	public function mrplayer_post($category_no) {
+	public function mrplay_post($category_no) {
 		try {
 			// 引入
 			$this->config->load ( 'votes' );
