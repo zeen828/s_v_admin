@@ -72,7 +72,7 @@ class Vote_model extends CI_Model {
 	public function truncate_vote_mrplay() {
 		$this->w_db->truncate ( 'vote_mrplay_tbl' );
 		// echo $this->w_db->last_query();
-		return $result;
+		return true;
 	}
 	
 	public function insert_vote_mrplay($category_no, $code, $title, $ticket, $ticket_add) {

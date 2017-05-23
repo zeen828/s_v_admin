@@ -189,8 +189,10 @@ class Votes extends CI_Controller {
 			if ($query->num_rows () > 0) {
 				$this->vote_model->truncate_vote_mrplay();
 				foreach ( $query->result () as $row ) {
-					print_r($row);
-					//$this->vote_model->insert_vote_mrplay(1, $row->code, $title, $row->, $row->);
+					//print_r($row);
+					if(isset($votes_arr['1']['countent'][$row->school_code])){
+						$this->vote_model->insert_vote_mrplay(1, $row->school_code, $votes_arr['1']['countent'][$row->school_code], $row->ticket_count, $row->ticket_sum);
+					}
 				}
 			}
 			// DEBUG印出
