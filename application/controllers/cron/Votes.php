@@ -44,6 +44,8 @@ class Votes extends CI_Controller
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
 					$message = $row->b_message;
+					preg_match_all('/[\x{4e00}-\x{9fff}]+/u', $message, $matches);
+					$message = join('', $matches[0]);
 					$message = rtrim($message);
 					$message = str_replace(
 							array(
@@ -58,7 +60,7 @@ class Votes extends CI_Controller
 					$message = trim($message);
 					$message = str_replace (
 							array(
-									' ', '\n', '\t', '\r', '\r\n', '\n\r', '《', '》', '（', '）', '【', '】', '❤',
+									' ', '\n', '\t', '\r', '\r\n', '\n\r', '《', '》', '（', '）', '【', '】', '❤', '★',
 									'我的學校是', '因為'
 									
 							), '', $message);
