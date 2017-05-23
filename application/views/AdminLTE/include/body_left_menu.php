@@ -29,7 +29,7 @@
 <?php }?>
             				</ul>
             			</li>
-            			<li class="Users treeview"><a href="#"> <i class="fa fa-line-chart"></i> <span>投票系統</span> <i class="fa fa-angle-left pull-right"></i></a>
+            			<li class="Votes treeview"><a href="#"> <i class="fa fa-line-chart"></i> <span>投票系統</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/votes/mrplay"><i class="fa fa-qrcode"></i> 玩很大進校園</a></li>
 							</ul>
