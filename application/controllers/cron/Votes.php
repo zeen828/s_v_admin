@@ -111,6 +111,7 @@ class Votes extends CI_Controller
 			// 開始時間標記
 			$this->benchmark->mark ( 'code_start' );
 			// 引入
+			$this->load->model ( 'postgre/vidol_production_model' );
 			// 變數
 			$school_vote_arr = array(
 					'1'=>array(
@@ -125,6 +126,9 @@ class Votes extends CI_Controller
 			// 接收變數
 			$data_input ['cache'] = $this->input->get('cache');
 			$data_input ['debug'] = $this->input->get('debug');
+			// 取得學校總數
+			$subtotal = $this->vidol_production_model->cron_mrplay_subtotal();
+			$this->data_result ['subtotal'] = $subtotal;
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
