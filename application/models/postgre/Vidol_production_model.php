@@ -173,4 +173,22 @@ VALUES ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'sch
 		// echo $this->r_db->last_query();
 		return $query;
 	}
+	
+	/**
+	 * 玩很大進校園
+	 * 灌票人員票數更新
+	 * @param unknown $school_code
+	 * @param unknown $ticket
+	 * @return unknown
+	 */
+	public function update_mrplay_by_school_code($school_code, $ticket) {
+		$ticket = $ticket + 1;
+		$this->w_db->where ( 'member_id', 'vidol_ai' );
+		$this->w_db->where ( 'school_code', $school_code );
+		$this->w_db->set ( 'ticket', $ticket );
+		$this->w_db->update ( 'mrplayer_votes' );
+		$result = $this->w_db->affected_rows ();
+		// echo $this->w_db->last_query();
+		return $result;
+	}
 }
