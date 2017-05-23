@@ -24,6 +24,9 @@ class Votes extends CI_Controller
 		show_404();
 	}
 
+	/**
+	 * 玩很大前進校園投票-統計學校名稱
+	 */
 	public function mrplay_boards ()
 	{
 		try {
@@ -91,6 +94,48 @@ class Votes extends CI_Controller
 					}
 				}
 			}
+			$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($this->data_result));
+		} catch (Exception $e) {
+			show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
+		}
+	}
+
+	/**
+	 * 統計投票數
+	 */
+	public function mrplay ()
+	{
+		try {
+			// 開始時間標記
+			$this->benchmark->mark ( 'code_start' );
+			// 引入
+			// 變數
+			$school_vote_arr = array(
+					'1'=>array(
+							'title' => '玩很大前進校園',
+							'countent' => array (
+									'fotech' => '和春技術學院',
+							)
+					)
+			);
+			$data_input = array ();
+			$data_cache = array ();
+			// 接收變數
+			$data_input ['cache'] = $this->get ( 'cache' );
+			$data_input ['debug'] = $this->get ( 'debug' );
+			// DEBUG印出
+			if ($data_input ['debug'] == 'debug') {
+				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
+				$this->data_result ['debug'] ['data_input'] = $data_input;
+				$this->data_result ['debug'] ['cache_time'] = date ( 'Y-m-d h:i:s' );
+			}
+			// 結束時間標記
+			$this->benchmark->mark ( 'code_end' );
+			// 標記時間計算
+			$this->data_result ['time'] = $this->benchmark->elapsed_time ( 'code_start', 'code_end' );
+			// 
 			$this->output
 			->set_content_type('application/json')
 			->set_output(json_encode($this->data_result));
