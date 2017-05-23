@@ -140,11 +140,19 @@ class vidol_production_model extends CI_Model {
 		// echo $this->w_db->last_query();
 		return $result;
 	}
+	public function get_mrplay_votes() {
+		$this->r_db->select ( '1 as category_no,school_code as video_id_no,COUNT(id) as couns,SUM(ticket) as tickets' );
+		$this->r_db->group_by ( 'school_code' );
+		$this->r_db->order_by ( 'school_code', 'ASC' );
+		$query = $this->r_db->get ( 'mrplayer_votes' );
+		// echo $this->r_db->last_query();
+		return $query;
+	}
 	
 	/**
 	 * 玩很大進校園
 	 * 統計排程用
-	 * 
+	 *
 	 * @return unknown
 	 */
 	public function cron_mrplay_subtotal() {

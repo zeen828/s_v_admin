@@ -193,8 +193,10 @@ class Votes extends CI_Controller {
 					if(isset($votes_arr['1']['countent'][$row->school_code])){
 						$this->vote_model->insert_vote_mrplay(1, $row->school_code, $votes_arr['1']['countent'][$row->school_code], $row->ticket_count, $row->ticket_sum);
 					}
+					unset($row);
 				}
 			}
+			unset($query);
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;

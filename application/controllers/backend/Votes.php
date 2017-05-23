@@ -45,7 +45,7 @@ class votes extends CI_Controller
 			//$this->fun->logs('觀看票數管理');
 			 
 			$this->load->model ( 'postgre/vidol_production_model' );
-			$query = $this->vidol_production_model->get_votes();
+			$query = $this->vidol_production_model->get_mrplay_votes();
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
 					//sum
