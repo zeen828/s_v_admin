@@ -29,9 +29,9 @@
 <?php }?>
             				</ul>
             			</li>
-            			<li class="Users treeview"><a href="#"> <i class="fa fa-line-chart"></i> <span>會員資料</span> <i class="fa fa-angle-left pull-right"></i></a>
+            			<li class="Users treeview"><a href="#"> <i class="fa fa-line-chart"></i> <span>投票系統</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
-            					<li><a href="/backend/users/registered_hour"><i class="fa fa-qrcode"></i> 註冊數(小時)</a></li>
+            					<li><a href="/backend/users/registered_hour"><i class="fa fa-qrcode"></i> 玩很大進校園</a></li>
 							</ul>
             			</li>
 <?php }?>
