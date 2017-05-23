@@ -151,7 +151,7 @@ class vidol_production_model extends CI_Model
     	$this->r_db->group_by('school_code');
     	$this->r_db->order_by('school_code', 'ASC');
     	$query = $this->r_db->get('mrplayer_votes');
-    	echo $this->r_db->last_query();
+    	//echo $this->r_db->last_query();
     	return $query;
     }
     
