@@ -5,6 +5,7 @@ class votes extends CI_Controller
 {
 
 	private $data_view;
+	private $vote_arr;
 
 	function __construct ()
 	{
@@ -43,7 +44,11 @@ class votes extends CI_Controller
 			//if ($this->flexi_auth->is_privileged('Tools View')) {
 			// 寫log
 			//$this->fun->logs('觀看票數管理');
-			 
+			// 引入
+			$this->config->load ( 'votes' );
+			// 變數
+			$this->vote_arr = $this->config->item ( 'votes_mrplay_1' );
+			//
 			$this->load->model ( 'postgre/vidol_production_model' );
 			$query = $this->vidol_production_model->get_mrplay_votes();
 			if ($query->num_rows () > 0) {
