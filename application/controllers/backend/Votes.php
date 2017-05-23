@@ -35,7 +35,7 @@ class votes extends CI_Controller {
 	/**
 	 * 玩很大進校園
 	 */
-	public function mrplayer() {
+	public function mrplay() {
 		try {
 			// if ($this->flexi_auth->is_privileged('Tools View')) {
 			// 寫log
@@ -116,7 +116,7 @@ class votes extends CI_Controller {
 				}
 			}
 			// print_r($data_input);
-			redirect ( '/backend/votes/mrplayer' );
+			redirect ( '/backend/votes/mrplay' );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
