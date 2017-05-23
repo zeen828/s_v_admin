@@ -140,6 +140,16 @@ class vidol_production_model extends CI_Model {
 		// echo $this->w_db->last_query();
 		return $result;
 	}
+	/**
+	 * 玩很大進校園-灌票員
+INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name,member_birthday,member_gender,school_code,ticket,year_at,month_at,day_at,hour_at,minute_at,created_at,updated_at)
+VALUES ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'school_1','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00');
+	 */
+	/**
+	 * 很大進校園
+	 * 查訊後台表格要用的資料
+	 * @return unknown
+	 */
 	public function get_mrplay_votes() {
 		$this->r_db->select ( '1 as category_no,school_code as video_id_no,COUNT(id) as couns,SUM(ticket) as tickets' );
 		$this->r_db->group_by ( 'school_code' );

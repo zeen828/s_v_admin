@@ -37,7 +37,9 @@ class votes extends CI_Controller
 		// $this->output->enable_profiler(TRUE);
 	}
 
-	//華劇大賞
+	/**
+	 * 玩很大進校園
+	 */
 	public function mrplayer ()
 	{
 		try {
@@ -50,6 +52,18 @@ class votes extends CI_Controller
 			$this->vote_arr = $this->config->item ( 'votes_mrplay_1' );
 			//
 			$this->load->model ( 'postgre/vidol_production_model' );
+			
+			
+			if(ENVIRONMENT == 'production'){
+				$this->data_view['right_countent']['api_domain'] = 'plugin-boards.vidol.tv';
+				$this->data_view['right_countent']['cron_domain'] = 'admin-background.vidol.tv';
+			}else{
+				$this->data_view['right_countent']['api_domain'] = 'cplugin-boards.vidol.tv';
+				$this->data_view['right_countent']['cron_domain'] = 'cadmin-background.vidol.tv';
+			}
+			$this->data_view['right_countent']['api_uri'] = 'api/votes/mrplay.json';
+			$this->data_view['right_countent']['cron_uri'] = 'cron/votes/mrplay';
+			//
 			$query = $this->vidol_production_model->get_mrplay_votes();
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
@@ -74,10 +88,10 @@ class votes extends CI_Controller
 			// 變數
 			$data_post = array();
 			// 資料整理
-			$this->data_view['right_countent']['view_path'] = 'AdminLTE/sdac/vote';
+			$this->data_view['right_countent']['view_path'] = 'AdminLTE/votes/vote';
 			$this->data_view['right_countent']['tags']['tag_3'] = array(
 					'title' => '票數管理',
-					'link' => '/backend/sdac/vote',
+					'link' => '/backend/votes/mrplay_post',
 					'class' => 'fa-qrcode'
 			);
 			// 套版

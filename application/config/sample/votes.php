@@ -11,7 +11,9 @@ $config ['votes_mrplay_1'] = array (
 		'1' => array (
 				'title' => '玩很大前進校園',
 				'countent' => array (
-						'fotech' => '和春技術學院' 
-				) 
-		) 
+						'school_1' => '三立技術學院',
+						'school_2' => 'vidol技術學院',
+						'fotech' => '和春技術學院',
+				)
+		)
 );
