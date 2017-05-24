@@ -97,26 +97,43 @@ class votes extends CI_Controller {
 	// 華劇大賞-明星午茶-灌票
 	public function mrplay_post($category_no) {
 		try {
+			// 開始時間標記
+			$this->benchmark->mark ( 'code_start' );
 			// 引入
 			$this->config->load ( 'votes' );
 			$this->load->model ( 'postgre/vidol_production_model' );
 			// 變數
 			$this->vote_arr = $this->config->item ( 'votes_mrplay_1' );
-			// 變數
 			$data_input = array ();
+			// 接收變數
+			$data_input ['sum'] = $this->post ( 'sum' );
+			$data_input ['debug'] = $this->get ( 'debug' );
 			if (count ( $this->vote_arr [$category_no] ['countent'] ) > 0) {
 				foreach ( $this->vote_arr [$category_no] ['countent'] as $video_id_no => $val ) {
 					if (isset ( $_POST ['video_id_' . $video_id_no] )) {
-						$data_input ['sum'] = $_POST ['sum'];
 						$data_input ['video_id_' . $video_id_no] = $_POST ['video_id_' . $video_id_no];
+						$data_input ['video_id_' . $video_id_no] = $this->post ( 'video_id_' . $video_id_no );
 						if (($data_input ['video_id_' . $video_id_no] / $data_input ['sum'] * 100) <= 5 || true) {
 							$query = $this->vidol_production_model->update_mrplay_by_school_code ( $video_id_no, $data_input ['video_id_' . $video_id_no] );
 						}
 					}
 				}
 			}
-			// print_r($data_input);
-			redirect ( '/backend/votes/mrplay' );
+			// DEBUG印出
+			if ($data_input ['debug'] == 'debug') {
+				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
+				$this->data_result ['debug'] ['data_input'] = $data_input;
+				$this->data_result ['debug'] ['cache_time'] = date ( 'Y-m-d h:i:s' );
+			} else {
+				redirect ( '/backend/votes/mrplay' );
+			}
+			unset ( $data_input );
+			// 結束時間標記
+			$this->benchmark->mark ( 'code_end' );
+			// 標記時間計算
+			$this->data_result ['time'] = $this->benchmark->elapsed_time ( 'code_start', 'code_end' );
+			//
+			$this->output->set_content_type ( 'application/json' )->set_output ( json_encode ( $this->data_result ) );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
