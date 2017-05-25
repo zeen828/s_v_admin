@@ -142,8 +142,27 @@ class vidol_production_model extends CI_Model {
 	}
 	/**
 	 * 玩很大進校園-灌票員
-INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name,member_birthday,member_gender,school_code,ticket,year_at,month_at,day_at,hour_at,minute_at,created_at,updated_at)
-VALUES ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'school_1','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00');
+INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name,member_birthday,member_gender,school_code,ticket,year_at,month_at,day_at,hour_at,minute_at,created_at,updated_at) VALUES 
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkfust','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'npust','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'fy','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'cnu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'stu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'fcu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'csic','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nutc','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'tut','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'cjshs','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'tcavs','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'feu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'hwai','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'ctas','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'must','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'hk','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'cyut','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'szmc','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'tpcu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00'),
+('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'pu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00');
 	 */
 	/**
 	 * 很大進校園
