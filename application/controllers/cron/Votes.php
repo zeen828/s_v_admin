@@ -258,7 +258,7 @@ class Votes extends CI_Controller {
 			// 不重複投票數
 			$data_insert['v_single_vote'] = $this->vidol_production_model->cron_mrplay_votel_day($data_date['yesterday_utc'], $data_date['big_yesterday_utc']);
 			// 累計投票數
-			$data_insert['v_total_vote'] = $this->vidol_production_model->cron_mrplay_votel_total($data_date['yesterday_utc']);
+			$data_insert['v_total_vote'] = $this->vidol_production_model->cron_mrplay_votel_total($data_date['yesterday_utc']) - 18;
 			// 投票註冊數
 			$data_insert['v_vote_registered'] = '';
 			// vidol投票註冊數
