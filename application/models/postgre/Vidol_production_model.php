@@ -214,8 +214,8 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 	/**
 	 * 日投票數
 	 */
-	public function cron_mrplay_votel_count($date) {
-		$this->r_db->where ( 'id', $id );
+	public function cron_mrplay_votel_day($date) {
+		$this->r_db->where ( "to_char(created_at + interval '8 hour','YYYY-MM-DD')", $id );
 		$this->r_db->from ( 'mrplayer_votes' );
 		$count = $this->r_db->count_all_results ();
 		// echo $this->r_db->last_query();
@@ -226,7 +226,7 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 	 * 總投票數
 	 * @return unknown
 	 */
-	public function cron_mrplay_votel_count() {
+	public function cron_mrplay_votel_total() {
 		$this->r_db->from ( 'mrplayer_votes' );
 		$count = $this->r_db->count_all_results ();
 		// echo $this->r_db->last_query();
