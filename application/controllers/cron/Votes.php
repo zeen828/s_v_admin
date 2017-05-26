@@ -225,6 +225,23 @@ class Votes extends CI_Controller {
 		try {
 			// 開始時間標記
 			$this->benchmark->mark ( 'code_start' );
+			// 引入
+			$this->config->load ( 'votes' );
+			$this->load->model ( 'postgre/vidol_production_model' );
+			$this->load->model ( 'vidol_old/vote_model' );
+			// 變數
+			$votes_arr = $this->config->item ( 'votes_mrplay_1' );
+			$data_input = array ();
+			$data_cache = array ();
+			// 接收變數
+			$data_input ['cache'] = $this->input->get ( 'cache' );
+			$data_input ['debug'] = $this->input->get ( 'debug' );
+			// DEBUG印出
+			if ($data_input ['debug'] == 'debug') {
+				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
+				$this->data_result ['debug'] ['data_input'] = $data_input;
+				$this->data_result ['debug'] ['cache_time'] = date ( 'Y-m-d h:i:s' );
+			}
 			// 結束時間標記
 			$this->benchmark->mark ( 'code_end' );
 			// 標記時間計算
