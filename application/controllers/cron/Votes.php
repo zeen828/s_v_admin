@@ -234,6 +234,7 @@ class Votes extends CI_Controller {
 			$data_date = array ();
 			$data_input = array ();
 			$data_insert = array ();
+			print_r($date);
 			// 接收變數
 			$data_input ['cache'] = $this->input->get ( 'cache' );
 			$data_input ['debug'] = $this->input->get ( 'debug' );
