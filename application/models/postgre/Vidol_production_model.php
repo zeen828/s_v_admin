@@ -143,32 +143,33 @@ class vidol_production_model extends CI_Model {
 	/**
 	 * 玩很大進校園-灌票員
 	 * phpPgAdmin清空->1.點選空2.序列修改結束值
-INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name,member_birthday,member_gender,school_code,ticket,year_at,month_at,day_at,hour_at,minute_at,created_at,updated_at,school_code_no) VALUES 
-('ooxx','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkfust','1','2017','1','1','0','0','2017-05-25 03:42:46.061707','2017-05-25 03:42:46.061707',1);
- 
-INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name,member_birthday,member_gender,school_code,ticket,year_at,month_at,day_at,hour_at,minute_at,created_at,updated_at,school_code_no) VALUES 
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkfust','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',1),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'npust','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',2),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'fy','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',3),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'cnu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',4),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'stu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',5),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'fcu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',6),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'tcavs','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',7),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'feu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',8),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'hwai','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',9),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'ctas','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',10),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'hk','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',11),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'cyut','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',12),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'pu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',13),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkuht','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',14),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'meiho','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',15),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'isu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',16),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'jente','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',17),
-('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkmu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',18);
+	 * INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name,member_birthday,member_gender,school_code,ticket,year_at,month_at,day_at,hour_at,minute_at,created_at,updated_at,school_code_no) VALUES
+	 * ('ooxx','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkfust','1','2017','1','1','0','0','2017-05-25 03:42:46.061707','2017-05-25 03:42:46.061707',1);
+	 *
+	 * INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name,member_birthday,member_gender,school_code,ticket,year_at,month_at,day_at,hour_at,minute_at,created_at,updated_at,school_code_no) VALUES
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkfust','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',1),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'npust','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',2),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'fy','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',3),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'cnu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',4),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'stu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',5),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'fcu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',6),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'tcavs','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',7),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'feu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',8),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'hwai','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',9),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'ctas','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',10),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'hk','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',11),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'cyut','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',12),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'pu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',13),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkuht','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',14),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'meiho','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',15),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'isu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',16),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'jente','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',17),
+	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkmu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',18);
 	 */
 	/**
 	 * 很大進校園
 	 * 查訊後台表格要用的資料
+	 * 
 	 * @return unknown
 	 */
 	public function get_mrplay_votes() {
@@ -199,8 +200,9 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 	/**
 	 * 玩很大進校園
 	 * 灌票人員票數更新
-	 * @param unknown $school_code
-	 * @param unknown $ticket
+	 * 
+	 * @param unknown $school_code        	
+	 * @param unknown $ticket        	
 	 * @return unknown
 	 */
 	public function update_mrplay_by_school_code_no($school_code_no, $ticket) {
@@ -230,6 +232,7 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 	 * 日投票數(昨天零晨到今天零晨)
 	 */
 	public function cron_mrplay_day_votel_single_count($yesterday, $now) {
+		$this->r_db->select ( 'member_id' );
 		$this->r_db->where ( 'created_at >=', $yesterday );
 		$this->r_db->where ( 'created_at <', $now );
 		$this->r_db->group_by ( 'member_id' );
@@ -241,6 +244,7 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 	
 	/**
 	 * 累計投票數(今天零晨以前)
+	 * 
 	 * @return unknown
 	 */
 	public function cron_mrplay_total_votel_count($now) {
