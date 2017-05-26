@@ -169,7 +169,7 @@ class vidol_production_model extends CI_Model {
 	/**
 	 * 很大進校園
 	 * 查訊後台表格要用的資料
-	 * 
+	 *
 	 * @return unknown
 	 */
 	public function get_mrplay_votes() {
@@ -200,7 +200,7 @@ class vidol_production_model extends CI_Model {
 	/**
 	 * 玩很大進校園
 	 * 灌票人員票數更新
-	 * 
+	 *
 	 * @param unknown $school_code        	
 	 * @param unknown $ticket        	
 	 * @return unknown
@@ -214,6 +214,18 @@ class vidol_production_model extends CI_Model {
 		$result = $this->w_db->affected_rows ();
 		// echo $this->w_db->last_query();
 		return $result;
+	}
+	
+	/**
+	 * 不重複投票(今天零晨以前)
+	 */
+	public function cron_mrplay_distinct_votel_count($now) {
+		$this->r_db->distinct ( 'member_id' );
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->from ( 'mrplayer_votes' );
+		$count = $this->r_db->count_all_results ();
+		echo $this->r_db->last_query ();
+		return $count;
 	}
 	
 	/**
@@ -244,7 +256,7 @@ class vidol_production_model extends CI_Model {
 	
 	/**
 	 * 累計投票數(今天零晨以前)
-	 * 
+	 *
 	 * @return unknown
 	 */
 	public function cron_mrplay_total_votel_count($now) {
@@ -256,19 +268,20 @@ class vidol_production_model extends CI_Model {
 	}
 	/**
 	 * 投票註冊(昨天零晨到今天零晨)(註冊投票時差5分鐘內)
-	 * @param unknown $now
+	 * 
+	 * @param unknown $now        	
 	 * @return unknown
 	 */
 	public function cron_mrplay_registered_votel_count($yesterday, $now) {
-		//SELECT member_id FROM mrplayer_votes WHERE created_at - member_created_at <interval '5 minute' AND created_at >= '2017-05-25 16:00:00' AND created_at < '2017-05-26 16:00:00' GROUP BY "member_id"
+		// SELECT member_id FROM mrplayer_votes WHERE created_at - member_created_at <interval '5 minute' AND created_at >= '2017-05-25 16:00:00' AND created_at < '2017-05-26 16:00:00' GROUP BY "member_id"
 		$this->r_db->select ( 'member_id' );
-		$this->r_db->where ( 'created_at - member_created_at < interval \'5 minute\'', null, false);
+		$this->r_db->where ( 'created_at - member_created_at < interval \'5 minute\'', null, false );
 		$this->r_db->where ( 'created_at >=', $yesterday );
 		$this->r_db->where ( 'created_at <', $now );
 		$this->r_db->group_by ( 'member_id' );
 		$this->r_db->from ( 'mrplayer_votes' );
 		$count = $this->r_db->count_all_results ();
-		echo $this->r_db->last_query();
+		echo $this->r_db->last_query ();
 		return $count;
 	}
 }

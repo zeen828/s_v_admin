@@ -188,22 +188,22 @@ class Votes extends CI_Controller {
 			$query = $this->vidol_production_model->cron_mrplay_subtotal ();
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
-					//print_r($row);
-					if(isset($votes_arr['1']['countent'][$row->school_code_no])){
-						$count = $this->vote_model->get_count_vote_mrplay(1, $row->school_code_no);
-						if(empty($count)){
-							//新增
-							$this->vote_model->insert_vote_mrplay(1, $row->school_code_no, $row->school_code, $votes_arr['1']['countent'][$row->school_code_no], $row->ticket_count, $row->ticket_sum);
-						}else{
-							//更新
-							$this->vote_model->update_vote_mrplay(1, $row->school_code_no, $row->ticket_count, $row->ticket_sum);
+					// print_r($row);
+					if (isset ( $votes_arr ['1'] ['countent'] [$row->school_code_no] )) {
+						$count = $this->vote_model->get_count_vote_mrplay ( 1, $row->school_code_no );
+						if (empty ( $count )) {
+							// 新增
+							$this->vote_model->insert_vote_mrplay ( 1, $row->school_code_no, $row->school_code, $votes_arr ['1'] ['countent'] [$row->school_code_no], $row->ticket_count, $row->ticket_sum );
+						} else {
+							// 更新
+							$this->vote_model->update_vote_mrplay ( 1, $row->school_code_no, $row->ticket_count, $row->ticket_sum );
 						}
-						unset($count);
+						unset ( $count );
 					}
-					unset($row);
+					unset ( $row );
 				}
 			}
-			unset($query);
+			unset ( $query );
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
@@ -220,7 +220,6 @@ class Votes extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
-	
 	public function mrplay_list($date = '') {
 		try {
 			// 開始時間標記
@@ -239,36 +238,36 @@ class Votes extends CI_Controller {
 			$data_input ['cache'] = $this->input->get ( 'cache' );
 			$data_input ['debug'] = $this->input->get ( 'debug' );
 			// 當天
-			$data_date['now_time'] = strtotime($date . "-1 hour");
-			$data_date['now'] = date("Y-m-d 00:00:00", $data_date['now_time']);
-			$data_date['now_utc'] = date("Y-m-d H:i:s", strtotime($data_date['now']  . "-8 hour"));
+			$data_date ['now_time'] = strtotime ( $date . "-1 hour" );
+			$data_date ['now'] = date ( "Y-m-d 00:00:00", $data_date ['now_time'] );
+			$data_date ['now_utc'] = date ( "Y-m-d H:i:s", strtotime ( $data_date ['now'] . "-8 hour" ) );
 			// 前天
-			$data_date['yesterday_time'] = strtotime($data_date['now'] . "-1 day");
-			$data_date['yesterday'] = date("Y-m-d 00:00:00", $data_date['yesterday_time']);
-			$data_date['yesterday_utc'] = date("Y-m-d H:i:s", strtotime($data_date['yesterday'] . "-8 hour"));
+			$data_date ['yesterday_time'] = strtotime ( $data_date ['now'] . "-1 day" );
+			$data_date ['yesterday'] = date ( "Y-m-d 00:00:00", $data_date ['yesterday_time'] );
+			$data_date ['yesterday_utc'] = date ( "Y-m-d H:i:s", strtotime ( $data_date ['yesterday'] . "-8 hour" ) );
 			// 大前天
-			$data_date['big_yesterday_time'] = strtotime($data_date['now'] . "-2 day");
-			$data_date['big_yesterday'] = date("Y-m-d 00:00:00", $data_date['big_yesterday_time']);
-			$data_date['big_yesterday_utc'] = date("Y-m-d H:i:s", strtotime($data_date['big_yesterday'] . "-8 hour"));
+			$data_date ['big_yesterday_time'] = strtotime ( $data_date ['now'] . "-2 day" );
+			$data_date ['big_yesterday'] = date ( "Y-m-d 00:00:00", $data_date ['big_yesterday_time'] );
+			$data_date ['big_yesterday_utc'] = date ( "Y-m-d H:i:s", strtotime ( $data_date ['big_yesterday'] . "-8 hour" ) );
 			// 時間
-			$data_insert['v_date'] = $data_date['yesterday'];
+			$data_insert ['v_date'] = $data_date ['yesterday'];
 			// 新投票會員
-			$data_insert['v_new_vote'] = '';
+			$data_insert ['v_new_vote'] = $this->vidol_production_model->cron_mrplay_distinct_votel_count ( $data_date ['now_utc'] );
 			// 日投票數(昨天零晨到今天零晨)
-			$data_insert['v_vote'] = $this->vidol_production_model->cron_mrplay_day_votel_count($data_date['yesterday_utc'], $data_date['now_utc']);
+			$data_insert ['v_vote'] = $this->vidol_production_model->cron_mrplay_day_votel_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			// 不重複投票數
-			$data_insert['v_single_vote'] = $this->vidol_production_model->cron_mrplay_day_votel_single_count($data_date['yesterday_utc'], $data_date['now_utc']);
+			$data_insert ['v_single_vote'] = $this->vidol_production_model->cron_mrplay_day_votel_single_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			// 累計投票數(今天零晨以前)
-			$data_insert['v_total_vote'] = $this->vidol_production_model->cron_mrplay_total_votel_count($data_date['now_utc']) - 18;
+			$data_insert ['v_total_vote'] = $this->vidol_production_model->cron_mrplay_total_votel_count ( $data_date ['now_utc'] ) - 18;
 			// 投票註冊數
-			$data_insert['v_vote_registered'] = $this->vidol_production_model->cron_mrplay_registered_votel_count($data_date['yesterday_utc'], $data_date['now_utc']);
+			$data_insert ['v_vote_registered'] = $this->vidol_production_model->cron_mrplay_registered_votel_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			// vidol註冊數(昨天零晨到今天零晨)
-			$registered_count_sum = $this->registered_model->get_row_registered_count_sum_by_date_utc($data_date['yesterday_utc'], $data_date['now_utc']);
-			$data_insert['v_registered'] =$registered_count_sum->r_count;
+			$registered_count_sum = $this->registered_model->get_row_registered_count_sum_by_date_utc ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
+			$data_insert ['v_registered'] = $registered_count_sum->r_count;
 			// 累計投票註冊數
-			$data_insert['v_total_registered '] = '';
+			$data_insert ['v_total_registered '] = '';
 			// 註冊占比
-			$data_insert['v_proportion  '] = '';
+			$data_insert ['v_proportion  '] = '';
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
