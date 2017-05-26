@@ -177,8 +177,8 @@ class votes extends CI_Controller {
 				$crud->display_as('v_single_vote', '不重複投票數');
 				$crud->display_as('v_total_vote', '累計投票數');
 				$crud->display_as('v_vote_registered', '投票註冊數');
-				$crud->display_as('v_registered', '投票註冊數');
-				$crud->display_as('v_total_registered', '投票註冊數');
+				$crud->display_as('v_registered', 'vidol註冊數');
+				$crud->display_as('v_total_registered', '累計投票註冊數');
 				$crud->display_as('v_proportion', '註冊占比');
 				$crud->display_as('v_created_at', $this->lang->line('fields_time_creat_utc'));
 				$crud->display_as('v_updated_at', $this->lang->line('fields_time_update_utc'));
