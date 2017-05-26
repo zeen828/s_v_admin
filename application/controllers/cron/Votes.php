@@ -234,7 +234,7 @@ class Votes extends CI_Controller {
 			$data_date = array ();
 			$data_input = array ();
 			$data_insert = array ();
-			print_r($date);
+			
 			// 接收變數
 			$data_input ['cache'] = $this->input->get ( 'cache' );
 			$data_input ['debug'] = $this->input->get ( 'debug' );
@@ -271,6 +271,8 @@ class Votes extends CI_Controller {
 			$data_insert ['v_total_registered '] = 0;
 			// 註冊占比
 			$data_insert ['v_proportion  '] = (empty($data_insert ['v_vote_registered']) || empty($data_insert ['v_registered']))? 0 : $data_insert ['v_vote_registered'] / $data_insert ['v_registered'];
+			//
+			$this->vote_model->insert_vote_mrplay_list($data_insert);
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
