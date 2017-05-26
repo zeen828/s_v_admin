@@ -29,6 +29,7 @@
 <?php }?>
             				</ul>
             			</li>
+<?php }?>
 <?php if($this->flexi_auth->is_privileged(array('Votes View', 'Votes Add', 'Votes Edit', 'Votes Del'))) {?>
             			<li class="Votes treeview"><a href="#"> <i class="fa fa-line-chart"></i> <span>投票系統</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
