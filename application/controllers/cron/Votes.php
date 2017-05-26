@@ -263,7 +263,7 @@ class Votes extends CI_Controller {
 			// 投票註冊數
 			$data_insert['v_vote_registered'] = '';
 			// vidol註冊數
-			$data_insert['v_registered'] = $this->registered_model->get_registered_sum_by_date_utc();
+			$data_insert['v_registered'] = $this->registered_model->get_registered_sum_by_date_utc($data_date['yesterday_utc'], $data_date['big_yesterday_utc']);
 			// 累計投票註冊數
 			$data_insert['v_total_registered '] = '';
 			// 註冊占比
