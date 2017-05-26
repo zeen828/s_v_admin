@@ -215,9 +215,9 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 	}
 	
 	/**
-	 * 日投票數
+	 * 日投票數(昨天零晨到今天零晨)
 	 */
-	public function cron_mrplay_votel_day($yesterday, $now) {
+	public function cron_mrplay_day_votel_count($yesterday, $now) {
 		$this->r_db->where ( 'created_at >=', $yesterday );
 		$this->r_db->where ( 'created_at <', $now );
 		$this->r_db->from ( 'mrplayer_votes' );
@@ -227,10 +227,23 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 	}
 	
 	/**
-	 * 總投票數
+	 * 日投票數(昨天零晨到今天零晨)
+	 */
+	public function cron_mrplay_day_votel_single_count($yesterday, $now) {
+		$this->r_db->where ( 'created_at >=', $yesterday );
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->group_by ( 'member_id' );
+		$this->r_db->from ( 'mrplayer_votes' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query();
+		return $count;
+	}
+	
+	/**
+	 * 累計投票數(今天零晨以前)
 	 * @return unknown
 	 */
-	public function cron_mrplay_votel_total($now) {
+	public function cron_mrplay_total_votel_count($now) {
 		$this->r_db->where ( 'created_at <', $now );
 		$this->r_db->from ( 'mrplayer_votes' );
 		$count = $this->r_db->count_all_results ();
