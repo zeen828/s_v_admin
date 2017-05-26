@@ -89,8 +89,9 @@ class Vote_model extends CI_Model {
 	 * @param unknown $ticket_add
 	 * @return unknown
 	 */
-	public function insert_vote_mrplay($category_no, $code, $title, $ticket, $ticket_add) {
+	public function insert_vote_mrplay($category_no, $code_no, $code, $title, $ticket, $ticket_add) {
 		$this->w_db->set ( 'category_no', $category_no );
+		$this->w_db->set ( 'code_no', $code_no );
 		$this->w_db->set ( 'code', $code );
 		$this->w_db->set ( 'title', $title );
 		$this->w_db->set ( 'ticket', $ticket );
