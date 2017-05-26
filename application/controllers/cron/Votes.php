@@ -261,8 +261,7 @@ class Votes extends CI_Controller {
 			// 累計投票數(今天零晨以前)
 			$data_insert['v_total_vote'] = $this->vidol_production_model->cron_mrplay_total_votel_count($data_date['now_utc']) - 18;
 			// 投票註冊數
-			//$data_insert['v_vote_registered'] = $this->vidol_production_model->cron_mrplay_registered_votel_count($data_date['yesterday_utc'], $data_date['now_utc']);
-			$data_insert['v_vote_registered'] = $this->vidol_production_model->cron_mrplay_registered_votel_count('2017-05-25 16:00:00', '2017-05-26 16:00:00');
+			$data_insert['v_vote_registered'] = $this->vidol_production_model->cron_mrplay_registered_votel_count($data_date['yesterday_utc'], $data_date['now_utc']);
 			// vidol註冊數(昨天零晨到今天零晨)
 			$registered_count_sum = $this->registered_model->get_row_registered_count_sum_by_date_utc($data_date['yesterday_utc'], $data_date['now_utc']);
 			$data_insert['v_registered'] =$registered_count_sum->r_count;

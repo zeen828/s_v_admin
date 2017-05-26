@@ -255,7 +255,7 @@ class vidol_production_model extends CI_Model {
 		return $count;
 	}
 	/**
-	 * 投票註冊
+	 * 投票註冊(昨天零晨到今天零晨)(註冊投票時差5分鐘內)
 	 * @param unknown $now
 	 * @return unknown
 	 */
