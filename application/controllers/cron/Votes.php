@@ -269,7 +269,7 @@ class Votes extends CI_Controller {
 			// 累計投票註冊數
 			$data_insert ['v_total_registered '] = 0;
 			// 註冊占比
-			$data_insert ['v_proportion  '] = '';
+			$data_insert ['v_proportion  '] = (empty($data_insert ['v_vote_registered']) || empty($data_insert ['v_registered']))? 0 : $data_insert ['v_vote_registered'] / $data_insert ['v_registered'];
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
