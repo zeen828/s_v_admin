@@ -188,14 +188,16 @@ class Votes extends CI_Controller {
 			$query = $this->vidol_production_model->cron_mrplay_subtotal ();
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
-					// print_r($row);
+					print_r($row);
 					if(isset($votes_arr['1']['countent'][$row->school_code])){
 						$count = $this->vote_model->get_count_vote_mrplay(1, $row->school_code);
 						if(empty($count)){
 							//更新
+							echo 'up';
 							$this->vote_model->update_vote_mrplay(1, $row->school_code, $row->ticket_count, $row->ticket_sum);
 						}else{
 							//新增
+							echo 'in';
 							$this->vote_model->insert_vote_mrplay(1, $row->school_code, $votes_arr['1']['countent'][$row->school_code], $row->ticket_count, $row->ticket_sum);
 						}
 						unset($count);
