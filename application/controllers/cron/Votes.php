@@ -220,4 +220,19 @@ class Votes extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	
+	public function mrplay_list() {
+		try {
+			// 開始時間標記
+			$this->benchmark->mark ( 'code_start' );
+			// 結束時間標記
+			$this->benchmark->mark ( 'code_end' );
+			// 標記時間計算
+			$this->data_result ['time'] = $this->benchmark->elapsed_time ( 'code_start', 'code_end' );
+			//
+			$this->output->set_content_type ( 'application/json' )->set_output ( json_encode ( $this->data_result ) );
+		} catch ( Exception $e ) {
+			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
+		}
+	}
 }
