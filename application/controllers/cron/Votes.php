@@ -188,7 +188,7 @@ class Votes extends CI_Controller {
 			$query = $this->vidol_production_model->cron_mrplay_subtotal ();
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
-					print_r($row);
+					//print_r($row);
 					if(isset($votes_arr['1']['countent'][$row->school_code_no])){
 						$count = $this->vote_model->get_count_vote_mrplay(1, $row->school_code_no);
 						if(empty($count)){
