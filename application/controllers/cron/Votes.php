@@ -250,7 +250,7 @@ class Votes extends CI_Controller {
 			$data_date['big_yesterday'] = date("Y-m-d 00:00:00", $data_date['big_yesterday_time']);
 			$data_date['big_yesterday_utc'] = date("Y-m-d H:i:s", strtotime($data_date['big_yesterday'] . "-8 hour"));
 			// 時間
-			$data_insert['v_date'] = date('Y-m-d');
+			$data_insert['v_date'] = $data_date['yesterday'];
 			// 新投票會員
 			$data_insert['v_new_vote'] = '';
 			// 投票數
