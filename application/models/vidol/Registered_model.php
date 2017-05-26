@@ -24,7 +24,8 @@ class Registered_model extends CI_Model {
 		$query = $this->r_db->get ( $this->table_name );
 		echo $this->r_db->last_query();
  		if ($query->num_rows () > 0) {
- 			return $query->row ();
+ 			$row = $query->row ();
+ 			return $row->r_count;
  		}
 		return false;
 	}
