@@ -171,17 +171,17 @@ class votes extends CI_Controller {
 				$crud->columns('v_pk','v_date','v_new_vote','v_vote','v_single_vote','v_total_vote','v_vote_registered','v_registered','v_total_registered','v_proportion','v_created_at','v_updated_at');
 				// 資料庫欄位文字替換
 				$crud->display_as('v_pk', $this->lang->line('fields_pk'));
-				$crud->display_as('v_date', $this->lang->line('fields_uacc_group_fk'));
-				$crud->display_as('v_new_vote', $this->lang->line('fields_uacc_email'));
-				$crud->display_as('v_vote', $this->lang->line('fields_uacc_username'));
-				$crud->display_as('v_single_vote', $this->lang->line('fields_uacc_password'));
-				$crud->display_as('v_total_vote', $this->lang->line('fields_uacc_ip_address'));
-				$crud->display_as('v_vote_registered', $this->lang->line('fields_uacc_salt'));
-				$crud->display_as('v_registered', $this->lang->line('fields_uacc_activation_token'));
-				$crud->display_as('v_total_registered', $this->lang->line('fields_uacc_forgotten_password_token'));
-				$crud->display_as('v_proportion', $this->lang->line('fields_uacc_forgotten_password_expire'));
-				$crud->display_as('v_created_at', $this->lang->line('fields_time_creat_tw'));
-				$crud->display_as('v_updated_at', $this->lang->line('fields_time_update_tw'));
+				$crud->display_as('v_date', '時間(UTC)');
+				$crud->display_as('v_new_vote', '新投票會員');
+				$crud->display_as('v_vote', '投票數');
+				$crud->display_as('v_single_vote', '不重複投票數');
+				$crud->display_as('v_total_vote', '累計投票數');
+				$crud->display_as('v_vote_registered', '投票註冊數');
+				$crud->display_as('v_registered', '投票註冊數');
+				$crud->display_as('v_total_registered', '投票註冊數');
+				$crud->display_as('v_proportion', '註冊占比');
+				$crud->display_as('v_created_at', $this->lang->line('fields_time_creat_utc'));
+				$crud->display_as('v_updated_at', $this->lang->line('fields_time_update_utc'));
 				// 產生表單
 				$output = $crud->render();
 				// 資料整理
