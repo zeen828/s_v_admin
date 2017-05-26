@@ -267,7 +267,7 @@ class Votes extends CI_Controller {
 			$registered_count_sum = $this->registered_model->get_row_registered_count_sum_by_date_utc ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			$data_insert ['v_registered'] = $registered_count_sum->r_count;
 			// 累計投票註冊數
-			$registered_total_sum = $this->registered_model->get_row_registered_total_by_date_utc ( '2017-05-26 00:00:00', $data_date ['now_utc'] );
+			$registered_total_sum = $this->registered_model->get_row_registered_total_by_date_utc ( '2017-05-26 12:00:00', $data_date ['now_utc'] );
 			$data_insert ['v_total_registered '] = $registered_total_sum->r_count;;
 			// 註冊占比
 			$data_insert ['v_proportion  '] = '';
