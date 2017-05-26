@@ -210,4 +210,26 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 		// echo $this->w_db->last_query();
 		return $result;
 	}
+	
+	/**
+	 * 日投票數
+	 */
+	public function cron_mrplay_votel_count($date) {
+		$this->r_db->where ( 'id', $id );
+		$this->r_db->from ( 'mrplayer_votes' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query();
+		return $count;
+	}
+	
+	/**
+	 * 總投票數
+	 * @return unknown
+	 */
+	public function cron_mrplay_votel_count() {
+		$this->r_db->from ( 'mrplayer_votes' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query();
+		return $count;
+	}
 }

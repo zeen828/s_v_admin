@@ -221,7 +221,7 @@ class Votes extends CI_Controller {
 		}
 	}
 	
-	public function mrplay_list() {
+	public function mrplay_list($date = '') {
 		try {
 			// 開始時間標記
 			$this->benchmark->mark ( 'code_start' );
@@ -231,14 +231,40 @@ class Votes extends CI_Controller {
 			$this->load->model ( 'vidol_old/vote_model' );
 			// 變數
 			$votes_arr = $this->config->item ( 'votes_mrplay_1' );
+			$data_date = array ();
 			$data_input = array ();
-			$data_cache = array ();
+			$data_insert = array ();
 			// 接收變數
 			$data_input ['cache'] = $this->input->get ( 'cache' );
 			$data_input ['debug'] = $this->input->get ( 'debug' );
+			// 當天
+			$data_date['now_time'] = strtotime();
+			$data_date['now'] = date("Y-m-d 00:00:00", $data_date['now_time']);
+			// 前天
+			$data_date['yesterday_time'] = strtotime($data_date['now'] . "-1 day");
+			$data_date['yesterday'] = date("Y-m-d 00:00:00", $data_date['yesterday_time']);
+			// 時間
+			$data_insert['v_date'] = date('Y-m-d');
+			// 新投票會員
+			$data_insert['v_new_vote'] = '';
+			// 投票數
+			$data_insert['v_vote'] = '';
+			// 不重複投票數
+			$data_insert['v_single_vote'] = '';
+			// 累計投票數
+			$data_insert['v_total_vote'] = '';
+			// 投票註冊數
+			$data_insert['v_vote_registered'] = '';
+			// vidol投票註冊數
+			$data_insert['v_registered'] = '';
+			// 累計投票註冊數
+			$data_insert['v_total_registered '] = '';
+			// 註冊占比
+			$data_insert['v_proportion  '] = '';
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
+				$this->data_result ['debug'] ['data_date'] = $data_date;
 				$this->data_result ['debug'] ['data_input'] = $data_input;
 				$this->data_result ['debug'] ['cache_time'] = date ( 'Y-m-d h:i:s' );
 			}
