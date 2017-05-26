@@ -240,15 +240,15 @@ class Votes extends CI_Controller {
 			// 當天
 			$data_date['now_time'] = strtotime($date . "-1 hour");
 			$data_date['now'] = date("Y-m-d 00:00:00", $data_date['now_time']);
-			$data_date['now_utc'] = date("Y-m-d H:i:s", strtotime($data_date['now_time'] . "-8 hour"));
+			$data_date['now_utc'] = date("Y-m-d H:i:s", strtotime($data_date['now']  . "-8 hour"));
 			// 前天
 			$data_date['yesterday_time'] = strtotime($data_date['now'] . "-1 day");
 			$data_date['yesterday'] = date("Y-m-d 00:00:00", $data_date['yesterday_time']);
-			$data_date['yesterday_utc'] = date("Y-m-d H:i:s", strtotime($data_date['yesterday_time'] . "-8 hour"));
+			$data_date['yesterday_utc'] = date("Y-m-d H:i:s", strtotime($data_date['yesterday'] . "-8 hour"));
 			// 大前天
 			$data_date['big_yesterday_time'] = strtotime($data_date['now'] . "-2 day");
 			$data_date['big_yesterday'] = date("Y-m-d 00:00:00", $data_date['big_yesterday_time']);
-			$data_date['big_yesterday_utc'] = date("Y-m-d H:i:s", strtotime($data_date['big_yesterday_time'] . "-8 hour"));
+			$data_date['big_yesterday_utc'] = date("Y-m-d H:i:s", strtotime($data_date['big_yesterday'] . "-8 hour"));
 			// 時間
 			$data_insert['v_date'] = date('Y-m-d');
 			// 新投票會員
