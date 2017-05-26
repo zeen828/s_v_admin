@@ -28,4 +28,16 @@ class Registered_model extends CI_Model {
  		}
 		return false;
 	}
+	
+	public function get_row_registered_total_by_date_utc($yesterday, $now) {
+		$this->r_db->select_sum('r_count');
+		$this->r_db->where ( 'r_date_utc >=', $yesterday );
+		$this->r_db->where ( 'r_date_utc <', $now );
+		$query = $this->r_db->get ( $this->table_name );
+		// echo $this->r_db->last_query();
+		if ($query->num_rows () > 0) {
+			return $query->row ();
+		}
+		return false;
+	}
 }

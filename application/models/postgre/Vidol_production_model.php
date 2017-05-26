@@ -224,7 +224,7 @@ class vidol_production_model extends CI_Model {
 		$this->r_db->where ( 'created_at <', $now );
 		$this->r_db->from ( 'mrplayer_votes' );
 		$count = $this->r_db->count_all_results ();
-		echo $this->r_db->last_query ();
+		// echo $this->r_db->last_query ();
 		return $count;
 	}
 	
@@ -281,7 +281,7 @@ class vidol_production_model extends CI_Model {
 		$this->r_db->group_by ( 'member_id' );
 		$this->r_db->from ( 'mrplayer_votes' );
 		$count = $this->r_db->count_all_results ();
-		echo $this->r_db->last_query ();
+		// echo $this->r_db->last_query ();
 		return $count;
 	}
 }
