@@ -262,7 +262,7 @@ class vidol_production_model extends CI_Model {
 	public function cron_mrplay_registered_votel_count($yesterday, $now) {
 		//SELECT * FROM mrplayer_votes WHERE created_at-member_created_at < interval '5 minute' AND created_at > '2017-05-26 00:00:00' AND created_at <= '2017-05-27 00:00:00'
 		$this->r_db->select ( 'member_id' );
-		$this->r_db->where ( 'created_at - member_created_at <', 'interval \'5 minute\'', true);
+		$this->r_db->where ( 'created_at - member_created_at <', 'interval \'5 minute\'', false);
 		$this->r_db->where ( 'created_at >=', $yesterday );
 		$this->r_db->where ( 'created_at <', $now );
 		$this->r_db->group_by ( 'member_id' );
