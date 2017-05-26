@@ -7,8 +7,8 @@ class Registered_model extends CI_Model {
 	private $fields_status = '';
 	public function __construct() {
 		parent::__construct ();
-		$this->r_db = $this->load->database ( 'vidol_read', TRUE );
-		$this->w_db = $this->load->database ( 'vidol_write', TRUE );
+		$this->r_db = $this->load->database ( 'read', TRUE );
+		$this->w_db = $this->load->database ( 'write', TRUE );
 	}
 	public function __destruct() {
 		$this->r_db->close ();
