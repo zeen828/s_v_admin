@@ -184,9 +184,9 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 	 * @return unknown
 	 */
 	public function cron_mrplay_subtotal() {
-		$this->r_db->select ( 'school_code,school_code_no,COUNT(id) as ticket_count,SUM(ticket) as ticket_sum' );
-		$this->r_db->group_by ( 'school_code' );
-		$this->r_db->order_by ( 'school_code', 'ASC' );
+		$this->r_db->select ( 'school_code_no,COUNT(id) as ticket_count,SUM(ticket) as ticket_sum' );
+		$this->r_db->group_by ( 'school_code_no' );
+		$this->r_db->order_by ( 'school_code_no', 'ASC' );
 		$query = $this->r_db->get ( 'mrplayer_votes' );
 		// echo $this->r_db->last_query();
 		return $query;
