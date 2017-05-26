@@ -187,8 +187,14 @@ class Votes extends CI_Controller {
 			// 取得學校總數
 			$query = $this->vidol_production_model->cron_mrplay_subtotal ();
 			if ($query->num_rows () > 0) {
-				$this->vote_model->truncate_vote_mrplay();
+				//$this->vote_model->truncate_vote_mrplay();
 				foreach ( $query->result () as $row ) {
+					$count = $this->vote_model->get_count_vote_mrplay(1, $row->school_code);
+					if(empty($count)){
+						
+					}else{
+						
+					}
 					//print_r($row);
 					if(isset($votes_arr['1']['countent'][$row->school_code])){
 						$this->vote_model->insert_vote_mrplay(1, $row->school_code, $votes_arr['1']['countent'][$row->school_code], $row->ticket_count, $row->ticket_sum);
