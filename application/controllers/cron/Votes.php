@@ -238,7 +238,7 @@ class Votes extends CI_Controller {
 			$data_input ['cache'] = $this->input->get ( 'cache' );
 			$data_input ['debug'] = $this->input->get ( 'debug' );
 			// 當天
-			$data_date['now_time'] = strtotime();
+			$data_date['now_time'] = strtotime($date . "-1 hour");
 			$data_date['now'] = date("Y-m-d 00:00:00", $data_date['now_time']);
 			// 前天
 			$data_date['yesterday_time'] = strtotime($data_date['now'] . "-1 day");
