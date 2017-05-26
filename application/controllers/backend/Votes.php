@@ -24,7 +24,7 @@ class votes extends CI_Controller {
 		$this->data_view = format_helper_backend_view_data ( 'sdac_content' );
 		$this->data_view ['system'] ['action'] = 'Votes';
 		$this->data_view ['right_countent'] ['tags'] ['tag_2'] = array (
-				'title' => '投票系統',
+				'title' => '玩很大進校園',
 				'link' => '/backend/votes',
 				'class' => 'fa-line-chart' 
 		);
@@ -82,7 +82,7 @@ class votes extends CI_Controller {
 			// 資料整理
 			$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/votes/vote';
 			$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
-					'title' => '票數管理',
+					'title' => '投票系統',
 					'link' => '/backend/votes/mrplay',
 					'class' => 'fa-qrcode' 
 			);
@@ -170,7 +170,7 @@ class votes extends CI_Controller {
 				// 清單顯示欄位
 				$crud->columns('v_pk','v_date','v_new_vote','v_vote','v_single_vote','v_total_vote','v_vote_registered','v_registered','v_total_registered','v_proportion','v_created_at','v_updated_at');
 				// 資料庫欄位文字替換
-				$crud->display_as('v_pk', $this->lang->line('fields_uacc_id'));
+				$crud->display_as('v_pk', $this->lang->line('fields_pk'));
 				$crud->display_as('v_date', $this->lang->line('fields_uacc_group_fk'));
 				$crud->display_as('v_new_vote', $this->lang->line('fields_uacc_email'));
 				$crud->display_as('v_vote', $this->lang->line('fields_uacc_username'));
@@ -180,17 +180,17 @@ class votes extends CI_Controller {
 				$crud->display_as('v_registered', $this->lang->line('fields_uacc_activation_token'));
 				$crud->display_as('v_total_registered', $this->lang->line('fields_uacc_forgotten_password_token'));
 				$crud->display_as('v_proportion', $this->lang->line('fields_uacc_forgotten_password_expire'));
-				$crud->display_as('v_created_at', $this->lang->line('fields_uacc_update_email_token'));
-				$crud->display_as('v_updated_at', $this->lang->line('fields_uacc_update_email'));
+				$crud->display_as('v_created_at', $this->lang->line('fields_time_creat_tw'));
+				$crud->display_as('v_updated_at', $this->lang->line('fields_time_update_tw'));
 				// 產生表單
 				$output = $crud->render();
 				// 資料整理
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '帳號管理',
-						'link' => '/backend/accounts/account',
-						'class' => 'fa-user'
+						'title' => '玩很大進校園報表',
+						'link' => '/backend/votes/mrplay_list',
+						'class' => 'fa-bar-chart'
 				);
 				// 套版
 				$this->load->view('AdminLTE/include/html5', $this->data_view);
