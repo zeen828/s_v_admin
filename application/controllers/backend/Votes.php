@@ -118,7 +118,7 @@ class votes extends CI_Controller {
 						$data_input ['video_id_' . $video_id_no] = $this->input->post ( 'video_id_' . $video_id_no );
 						if (($data_input ['video_id_' . $video_id_no] / $data_input ['sum'] * 100) <= 5 || true) {
 							echo '4';
-							$query = $this->vidol_production_model->update_mrplay_by_school_code ( $video_id_no, $data_input ['video_id_' . $video_id_no] );
+							$query = $this->vidol_production_model->update_mrplay_by_school_code_no ( $video_id_no, $data_input ['video_id_' . $video_id_no] );
 						}
 					}
 				}

@@ -169,9 +169,9 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 	 * @return unknown
 	 */
 	public function get_mrplay_votes() {
-		$this->r_db->select ( '1 as category_no,school_code as video_id_no,COUNT(id) as couns,SUM(ticket) as tickets' );
-		$this->r_db->group_by ( 'school_code' );
-		$this->r_db->order_by ( 'school_code', 'ASC' );
+		$this->r_db->select ( '1 as category_no,school_code_no as video_id_no,COUNT(id) as couns,SUM(ticket) as tickets' );
+		$this->r_db->group_by ( 'school_code_no' );
+		$this->r_db->order_by ( 'school_code_no', 'ASC' );
 		$query = $this->r_db->get ( 'mrplayer_votes' );
 		// echo $this->r_db->last_query();
 		return $query;
@@ -200,10 +200,10 @@ INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name
 	 * @param unknown $ticket
 	 * @return unknown
 	 */
-	public function update_mrplay_by_school_code($school_code, $ticket) {
+	public function update_mrplay_by_school_code_no($school_code_no, $ticket) {
 		$ticket = $ticket + 1;
 		$this->w_db->where ( 'member_id', 'vidol_ai' );
-		$this->w_db->where ( 'school_code', $school_code );
+		$this->w_db->where ( 'school_code_no', $school_code_no );
 		$this->w_db->set ( 'ticket', $ticket );
 		$this->w_db->update ( 'mrplayer_votes' );
 		$result = $this->w_db->affected_rows ();
