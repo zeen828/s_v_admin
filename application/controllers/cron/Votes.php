@@ -252,7 +252,9 @@ class Votes extends CI_Controller {
 			// 時間
 			$data_insert ['v_date'] = $data_date ['yesterday'];
 			// 新投票會員
-			$data_insert ['v_new_vote'] = $this->vidol_production_model->cron_mrplay_distinct_votel_count ( $data_date ['now_utc'] ) - 18;
+			$new_user_yesterday = $this->vidol_production_model->cron_mrplay_distinct_votel_count ( $data_date ['yesterday_utc'] );
+			$new_user_now =$this->vidol_production_model->cron_mrplay_distinct_votel_count ( $data_date ['now_utc'] );
+			$data_insert ['v_new_vote'] = $new_user_now - $new_user_yesterday;
 			// 日投票數(昨天零晨到今天零晨)
 			$data_insert ['v_vote'] = $this->vidol_production_model->cron_mrplay_day_votel_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			// 不重複投票數
