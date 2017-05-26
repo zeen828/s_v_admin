@@ -109,15 +109,11 @@ class votes extends CI_Controller {
 			$data_input ['sum'] = $this->input->post ( 'sum' );
 			$data_input ['debug'] = $this->input->get ( 'debug' );
 			if (count ( $this->vote_arr [$category_no] ['countent'] ) > 0) {
-				echo '1';
 				foreach ( $this->vote_arr [$category_no] ['countent'] as $video_id_no => $val ) {
-					echo '2';
 					if (isset ( $_POST ['video_id_' . $video_id_no] )) {
-						echo '3';
 						// $data_input ['video_id_' . $video_id_no] = $_POST ['video_id_' . $video_id_no];
 						$data_input ['video_id_' . $video_id_no] = $this->input->post ( 'video_id_' . $video_id_no );
 						if (($data_input ['video_id_' . $video_id_no] / $data_input ['sum'] * 100) <= 5 || true) {
-							echo '4';
 							$query = $this->vidol_production_model->update_mrplay_by_school_code_no ( $video_id_no, $data_input ['video_id_' . $video_id_no] );
 						}
 					}
@@ -129,8 +125,7 @@ class votes extends CI_Controller {
 				$this->data_result ['debug'] ['data_input'] = $data_input;
 				$this->data_result ['debug'] ['cache_time'] = date ( 'Y-m-d h:i:s' );
 			} else {
-				echo '5';
-				//redirect ( '/backend/votes/mrplay' );
+				redirect ( '/backend/votes/mrplay' );
 				exit ();
 			}
 			unset ( $data_input );
