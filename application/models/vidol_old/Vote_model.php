@@ -67,21 +67,28 @@ class Vote_model extends CI_Model {
 		return $result;
 	}
 	/**
-	 * 清除資料
+	 * 取得玩很大進校園投票查詢筆數
+	 * @param unknown $category_no
+	 * @param unknown $code
+	 * @return unknown
 	 */
-	public function truncate_vote_mrplay() {
-		$this->w_db->truncate ( 'vote_mrplay_tbl' );
-		// echo $this->w_db->last_query();
-		return true;
-	}
 	public function get_count_vote_mrplay($category_no, $code) {
 		$this->w_db->where ( 'category_no', $category_no );
 		$this->w_db->where ( 'code', $code );
 		$this->w_db->from ( 'vote_mrplay_tbl' );
 		$count = $this->w_db->count_all_results ();
-		echo $this->w_db->last_query ();
+		// echo $this->w_db->last_query ();
 		return $count;
 	}
+	/**
+	 * 新增玩很大進校園投票資料
+	 * @param unknown $category_no
+	 * @param unknown $code
+	 * @param unknown $title
+	 * @param unknown $ticket
+	 * @param unknown $ticket_add
+	 * @return unknown
+	 */
 	public function insert_vote_mrplay($category_no, $code, $title, $ticket, $ticket_add) {
 		$this->w_db->set ( 'category_no', $category_no );
 		$this->w_db->set ( 'code', $code );
@@ -93,6 +100,14 @@ class Vote_model extends CI_Model {
 		// echo $this->w_db->last_query();
 		return $id;
 	}
+	/**
+	 * 更新玩很大進校園投票投票資料
+	 * @param unknown $category_no
+	 * @param unknown $code
+	 * @param unknown $ticket
+	 * @param unknown $ticket_add
+	 * @return unknown
+	 */
 	public function update_vote_mrplay($category_no, $code, $ticket, $ticket_add) {
 		$this->w_db->set ( 'ticket', $ticket );
 		$this->w_db->set ( 'ticket_add', $ticket_add );
