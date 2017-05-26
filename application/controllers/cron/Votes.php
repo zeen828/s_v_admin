@@ -191,6 +191,7 @@ class Votes extends CI_Controller {
 					print_r($row);
 					if(isset($votes_arr['1']['countent'][$row->school_code])){
 						$count = $this->vote_model->get_count_vote_mrplay(1, $row->school_code);
+						print_r($count);
 						if(empty($count)){
 							//更新
 							echo 'up';
