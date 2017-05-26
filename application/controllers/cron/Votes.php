@@ -272,6 +272,7 @@ class Votes extends CI_Controller {
 				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
 				$this->data_result ['debug'] ['data_date'] = $data_date;
 				$this->data_result ['debug'] ['data_input'] = $data_input;
+				$this->data_result ['debug'] ['data_insert'] = $data_insert;
 				$this->data_result ['debug'] ['cache_time'] = date ( 'Y-m-d h:i:s' );
 			}
 			// 結束時間標記
