@@ -22,10 +22,11 @@ class Registered_model extends CI_Model {
 		$this->r_db->where ( 'r_date_utc <', $yesterday );
 		$this->r_db->where ( 'r_date_utc >=', $big_yesterday );
 		$query = $this->r_db->get ( $this->table_name );
+		return $query;
 		// echo $this->r_db->last_query();
-		if ($query->num_rows () > 0) {
-			return $query->row ();
-		}
-		return false;
+// 		if ($query->num_rows () > 0) {
+// 			return $query->row ();
+// 		}
+//		return false;
 	}
 }
