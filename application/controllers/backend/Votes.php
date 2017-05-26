@@ -139,4 +139,64 @@ class votes extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	
+	public function mrplay_list() {
+		try {
+			if ($this->flexi_auth->is_privileged('Votes View')) {
+				// 寫log
+				$this->fun->logs('觀看投票報表');
+				// 變數
+				$data_post = array();
+				// 強制切換資料庫
+				unset($this->db);
+				$this->db = $this->load->database('vidol_old_write', true);
+				// grocery_CRUD 自產表單
+				$this->load->library('grocery_CRUD'); // CI整合表單http://www.grocerycrud.com/
+				$crud = new grocery_CRUD();
+				// 語系
+				$crud->set_language('taiwan');
+				// 版型
+				$crud->set_theme('flexigrid');
+				// 表格
+				$crud->set_table('vote_mrplay_list_tbl');
+				// 標題
+				$crud->set_subject($this->lang->line('tabels_user_accounts'));
+				// 移除新增
+				$crud->unset_add();
+				// 移除編輯
+				$crud->unset_edit();
+				// 移除刪除
+				$crud->unset_delete();
+				// 清單顯示欄位
+				$crud->columns('v_pk','v_date','v_new_vote','v_vote','v_single_vote','v_total_vote','v_vote_registered','v_registered','v_total_registered','v_proportion','v_created_at','v_updated_at');
+				// 資料庫欄位文字替換
+				$crud->display_as('v_pk', $this->lang->line('fields_uacc_id'));
+				$crud->display_as('v_date', $this->lang->line('fields_uacc_group_fk'));
+				$crud->display_as('v_new_vote', $this->lang->line('fields_uacc_email'));
+				$crud->display_as('v_vote', $this->lang->line('fields_uacc_username'));
+				$crud->display_as('v_single_vote', $this->lang->line('fields_uacc_password'));
+				$crud->display_as('v_total_vote', $this->lang->line('fields_uacc_ip_address'));
+				$crud->display_as('v_vote_registered', $this->lang->line('fields_uacc_salt'));
+				$crud->display_as('v_registered', $this->lang->line('fields_uacc_activation_token'));
+				$crud->display_as('v_total_registered', $this->lang->line('fields_uacc_forgotten_password_token'));
+				$crud->display_as('v_proportion', $this->lang->line('fields_uacc_forgotten_password_expire'));
+				$crud->display_as('v_created_at', $this->lang->line('fields_uacc_update_email_token'));
+				$crud->display_as('v_updated_at', $this->lang->line('fields_uacc_update_email'));
+				// 產生表單
+				$output = $crud->render();
+				// 資料整理
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
+				$this->data_view['right_countent']['view_data'] = $output;
+				$this->data_view['right_countent']['tags']['tag_3'] = array(
+						'title' => '帳號管理',
+						'link' => '/backend/accounts/account',
+						'class' => 'fa-user'
+				);
+				// 套版
+				$this->load->view('AdminLTE/include/html5', $this->data_view);
+			}
+		} catch ( Exception $e ) {
+			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
+		}
+	}
 }
