@@ -17,10 +17,10 @@ class Registered_model extends CI_Model {
 		unset ( $this->w_db );
 		// parent::__destruct();
 	}
-	public function get_row_registered_count_sum_by_date_utc($yesterday, $big_yesterday) {
+	public function get_row_registered_count_sum_by_date_utc($yesterday, $now) {
 		$this->r_db->select_sum('r_count');
-		$this->r_db->where ( 'r_date_utc <', $yesterday );
-		$this->r_db->where ( 'r_date_utc >=', $big_yesterday );
+		$this->r_db->where ( 'r_date_utc >=', $yesterday );
+		$this->r_db->where ( 'r_date_utc <', $now );
 		$query = $this->r_db->get ( $this->table_name );
 		// echo $this->r_db->last_query();
  		if ($query->num_rows () > 0) {
