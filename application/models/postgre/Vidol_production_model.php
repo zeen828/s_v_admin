@@ -144,6 +144,9 @@ class vidol_production_model extends CI_Model {
 	 * 玩很大進校園-灌票員
 	 * phpPgAdmin清空->1.點選空2.序列修改結束值
 INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name,member_birthday,member_gender,school_code,ticket,year_at,month_at,day_at,hour_at,minute_at,created_at,updated_at,school_code_no) VALUES 
+('ooxx','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkfust','1','2017','1','1','0','0','2017-05-25 03:42:46.061707','2017-05-25 03:42:46.061707',1);
+ 
+INSERT INTO mrplayer_votes (member_id,member_created_at,member_email,member_name,member_birthday,member_gender,school_code,ticket,year_at,month_at,day_at,hour_at,minute_at,created_at,updated_at,school_code_no) VALUES 
 ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkfust','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',1),
 ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'npust','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',2),
 ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'fy','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',3),
