@@ -72,9 +72,9 @@ class Vote_model extends CI_Model {
 	 * @param unknown $code
 	 * @return unknown
 	 */
-	public function get_count_vote_mrplay($category_no, $code) {
+	public function get_count_vote_mrplay($category_no, $code_no) {
 		$this->w_db->where ( 'category_no', $category_no );
-		$this->w_db->where ( 'code', $code );
+		$this->w_db->where ( 'code_no', $code_no );
 		$this->w_db->from ( 'vote_mrplay_tbl' );
 		$count = $this->w_db->count_all_results ();
 		// echo $this->w_db->last_query ();
@@ -109,11 +109,11 @@ class Vote_model extends CI_Model {
 	 * @param unknown $ticket_add
 	 * @return unknown
 	 */
-	public function update_vote_mrplay($category_no, $code, $ticket, $ticket_add) {
+	public function update_vote_mrplay($category_no, $code_no, $ticket, $ticket_add) {
 		$this->w_db->set ( 'ticket', $ticket );
 		$this->w_db->set ( 'ticket_add', $ticket_add );
 		$this->w_db->where ( 'category_no', $category_no );
-		$this->w_db->where ( 'code', $code );
+		$this->w_db->where ( 'code_no', $code_no );
 		$this->w_db->update ( 'vote_mrplay_tbl' );
 		$id = $this->w_db->affected_rows ();
 		// echo $this->w_db->last_query();
