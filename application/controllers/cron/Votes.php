@@ -229,6 +229,7 @@ class Votes extends CI_Controller {
 			$this->config->load ( 'votes' );
 			$this->load->model ( 'postgre/vidol_production_model' );
 			$this->load->model ( 'vidol_old/vote_model' );
+			$this->load->model ( 'vidol/registered_model' );
 			// 變數
 			$votes_arr = $this->config->item ( 'votes_mrplay_1' );
 			$data_date = array ();
@@ -261,8 +262,8 @@ class Votes extends CI_Controller {
 			$data_insert['v_total_vote'] = $this->vidol_production_model->cron_mrplay_votel_total($data_date['yesterday_utc']) - 18;
 			// 投票註冊數
 			$data_insert['v_vote_registered'] = '';
-			// vidol投票註冊數
-			$data_insert['v_registered'] = '';
+			// vidol註冊數
+			$data_insert['v_registered'] = $this->registered_model->get_registered_sum_by_date_utc();
 			// 累計投票註冊數
 			$data_insert['v_total_registered '] = '';
 			// 註冊占比
