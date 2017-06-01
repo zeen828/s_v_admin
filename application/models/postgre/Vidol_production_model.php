@@ -166,8 +166,9 @@ class vidol_production_model extends CI_Model {
 	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'jente','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',17),
 	 * ('vidol_ai','2017-01-01 00:00:00','ai@vidol.tv','vidol_ai',NULL,NULL,'nkmu','1','2017','1','1','0','0','2017-01-01 00:00:00','2017-01-01 00:00:00',18);
 	 */
+// 玩很大進校園
 	/**
-	 * 很大進校園
+	 * 玩很大進校園
 	 * 查訊後台表格要用的資料
 	 *
 	 * @return unknown
@@ -217,6 +218,7 @@ class vidol_production_model extends CI_Model {
 	}
 	
 	/**
+	 * 玩很大進校園
 	 * 不重複投票(今天零晨以前)
 	 */
 	public function cron_mrplay_distinct_votel_count($now) {
@@ -229,6 +231,7 @@ class vidol_production_model extends CI_Model {
 	}
 	
 	/**
+	 * 玩很大進校園
 	 * 日投票數(昨天零晨到今天零晨)
 	 */
 	public function cron_mrplay_day_votel_count($yesterday, $now) {
@@ -241,6 +244,7 @@ class vidol_production_model extends CI_Model {
 	}
 	
 	/**
+	 * 玩很大進校園
 	 * 日投票數(昨天零晨到今天零晨)
 	 */
 	public function cron_mrplay_day_votel_single_count($yesterday, $now) {
@@ -255,6 +259,7 @@ class vidol_production_model extends CI_Model {
 	}
 	
 	/**
+	 * 玩很大進校園
 	 * 累計投票數(今天零晨以前)
 	 *
 	 * @return unknown
@@ -267,6 +272,7 @@ class vidol_production_model extends CI_Model {
 		return $count;
 	}
 	/**
+	 * 玩很大進校園
 	 * 投票註冊(昨天零晨到今天零晨)(註冊投票時差5分鐘內)
 	 * 
 	 * @param unknown $now        	
@@ -280,6 +286,131 @@ class vidol_production_model extends CI_Model {
 		$this->r_db->where ( 'created_at <', $now );
 		$this->r_db->group_by ( 'member_id' );
 		$this->r_db->from ( 'mrplayer_votes' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query ();
+		return $count;
+	}
+	
+// 玩粉感恩大放送
+	/**
+	 * 玩粉感恩大放送
+	 * 查訊後台表格要用的資料
+	 *
+	 * @return unknown
+	 */
+	public function get_mrplay_gifts_votes() {
+		$this->r_db->select ( '1 as category_no,school_code_no as video_id_no,COUNT(id) as couns,SUM(ticket) as tickets' );
+		$this->r_db->group_by ( 'school_code_no' );
+		$this->r_db->order_by ( 'school_code_no', 'ASC' );
+		$query = $this->r_db->get ( 'mrplayer_gifts' );
+		// echo $this->r_db->last_query();
+		return $query;
+	}
+	
+	/**
+	 * 玩粉感恩大放送
+	 * 統計排程用
+	 *
+	 * @return unknown
+	 */
+	public function cron_mrplay_gifts_subtotal() {
+		$this->r_db->select ( 'school_code,school_code_no,COUNT(id) as ticket_count,SUM(ticket) as ticket_sum' );
+		$this->r_db->group_by ( 'school_code' );
+		$this->r_db->group_by ( 'school_code_no' );
+		$this->r_db->order_by ( 'school_code_no', 'ASC' );
+		$query = $this->r_db->get ( 'mrplayer_gifts' );
+		// echo $this->r_db->last_query();
+		return $query;
+	}
+	
+	/**
+	 * 玩粉感恩大放送
+	 * 灌票人員票數更新
+	 *
+	 * @param unknown $school_code
+	 * @param unknown $ticket
+	 * @return unknown
+	 */
+	public function update_mrplay_gifts_by_school_code_no($school_code_no, $ticket) {
+		$ticket = $ticket + 1;
+		$this->w_db->where ( 'member_id', 'vidol_ai' );
+		$this->w_db->where ( 'school_code_no', $school_code_no );
+		$this->w_db->set ( 'ticket', $ticket );
+		$this->w_db->update ( 'mrplayer_gifts' );
+		$result = $this->w_db->affected_rows ();
+		// echo $this->w_db->last_query();
+		return $result;
+	}
+	
+	/**
+	 * 玩粉感恩大放送
+	 * 不重複投票(今天零晨以前)
+	 */
+	public function cron_mrplay_gifts_distinct_votel_count($now) {
+		$this->r_db->distinct ( 'member_id' );
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->from ( 'mrplayer_gifts' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query ();
+		return $count;
+	}
+	
+	/**
+	 * 玩粉感恩大放送
+	 * 日投票數(昨天零晨到今天零晨)
+	 */
+	public function cron_mrplay_gifts_day_votel_count($yesterday, $now) {
+		$this->r_db->where ( 'created_at >=', $yesterday );
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->from ( 'mrplayer_gifts' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query();
+		return $count;
+	}
+	
+	/**
+	 * 玩粉感恩大放送
+	 * 日投票數(昨天零晨到今天零晨)
+	 */
+	public function cron_mrplay_gifts_day_votel_single_count($yesterday, $now) {
+		$this->r_db->select ( 'member_id' );
+		$this->r_db->where ( 'created_at >=', $yesterday );
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->group_by ( 'member_id' );
+		$this->r_db->from ( 'mrplayer_gifts' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query();
+		return $count;
+	}
+	
+	/**
+	 * 玩粉感恩大放送
+	 * 累計投票數(今天零晨以前)
+	 *
+	 * @return unknown
+	 */
+	public function cron_mrplay_gifts_total_votel_count($now) {
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->from ( 'mrplayer_gifts' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query();
+		return $count;
+	}
+	/**
+	 * 玩粉感恩大放送
+	 * 投票註冊(昨天零晨到今天零晨)(註冊投票時差5分鐘內)
+	 *
+	 * @param unknown $now
+	 * @return unknown
+	 */
+	public function cron_mrplay_gifts_registered_votel_count($yesterday, $now) {
+		// SELECT member_id FROM mrplayer_votes WHERE created_at - member_created_at <interval '5 minute' AND created_at >= '2017-05-25 16:00:00' AND created_at < '2017-05-26 16:00:00' GROUP BY "member_id"
+		$this->r_db->select ( 'member_id' );
+		$this->r_db->where ( 'created_at - member_created_at < interval \'5 minute\'', null, false );
+		$this->r_db->where ( 'created_at >=', $yesterday );
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->group_by ( 'member_id' );
+		$this->r_db->from ( 'mrplayer_gifts' );
 		$count = $this->r_db->count_all_results ();
 		// echo $this->r_db->last_query ();
 		return $count;

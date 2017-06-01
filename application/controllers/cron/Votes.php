@@ -327,17 +327,17 @@ class Votes extends CI_Controller {
 			// 時間
 			$data_insert ['v_date'] = $data_date ['yesterday'];
 			// 新投票會員
-			$new_user_yesterday = $this->vidol_production_model->cron_mrplay_distinct_votel_count ( $data_date ['yesterday_utc'] );
-			$new_user_now =$this->vidol_production_model->cron_mrplay_distinct_votel_count ( $data_date ['now_utc'] );
+			$new_user_yesterday = $this->vidol_production_model->cron_mrplay_gifts_distinct_votel_count ( $data_date ['yesterday_utc'] );
+			$new_user_now =$this->vidol_production_model->cron_mrplay_gifts_distinct_votel_count ( $data_date ['now_utc'] );
 			$data_insert ['v_new_vote'] = $new_user_now - $new_user_yesterday;
 			// 日投票數(昨天零晨到今天零晨)
-			$data_insert ['v_vote'] = $this->vidol_production_model->cron_mrplay_day_votel_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
+			$data_insert ['v_vote'] = $this->vidol_production_model->cron_mrplay_gifts_day_votel_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			// 不重複投票數
-			$data_insert ['v_single_vote'] = $this->vidol_production_model->cron_mrplay_day_votel_single_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
+			$data_insert ['v_single_vote'] = $this->vidol_production_model->cron_mrplay_gifts_day_votel_single_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			// 累計投票數(今天零晨以前)
-			$data_insert ['v_total_vote'] = $this->vidol_production_model->cron_mrplay_total_votel_count ( $data_date ['now_utc'] ) - 18;
+			$data_insert ['v_total_vote'] = $this->vidol_production_model->cron_mrplay_gifts_total_votel_count ( $data_date ['now_utc'] ) - 18;
 			// 投票註冊數
-			$data_insert ['v_vote_registered'] = $this->vidol_production_model->cron_mrplay_registered_votel_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
+			$data_insert ['v_vote_registered'] = $this->vidol_production_model->cron_mrplay_gifts_registered_votel_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			// vidol註冊數(昨天零晨到今天零晨)
 			$registered_count_sum = $this->registered_model->get_row_registered_count_sum_by_date_utc ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			$data_insert ['v_registered'] = $registered_count_sum->r_count;
@@ -347,7 +347,7 @@ class Votes extends CI_Controller {
 			$data_insert ['v_proportion  '] = (empty($data_insert ['v_vote_registered']) || empty($data_insert ['v_registered']))? 0 : $data_insert ['v_vote_registered'] / $data_insert ['v_registered'];
 			//
 			if(empty($date)){
-				$this->vote_model->insert_vote_mrplay_list($data_insert);
+				$this->vote_model->insert_vote_mrplay_gifts_list($data_insert);
 			}
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
