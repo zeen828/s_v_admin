@@ -136,4 +136,21 @@ class Vote_model extends CI_Model {
 		// echo $this->w_db->last_query();
 		return $id;
 	}
+	
+	/**
+	 * 玩粉感恩大放送報表
+	 * @param unknown $category_no
+	 * @param unknown $code_no
+	 * @param unknown $code
+	 * @param unknown $title
+	 * @param unknown $ticket
+	 * @param unknown $ticket_add
+	 * @return unknown
+	 */
+	public function insert_vote_mrplay_gifts_list($data) {
+		$this->w_db->insert ( 'vote_mrplay_list_tbl', $data );
+		$id = $this->w_db->insert_id ();
+		// echo $this->w_db->last_query();
+		return $id;
+	}
 }
