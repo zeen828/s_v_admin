@@ -35,7 +35,7 @@
             				<ul class="treeview-menu">
             					<li><a href="/backend/votes/mrplay"><i class="fa fa-qrcode"></i> 玩很大進校園</a></li>
             					<li><a href="/backend/votes/mrplay_list"><i class="fa fa-bar-chart"></i> 玩很大進校園報表</a></li>
-            					<li><a href="/backend/votes/mrplay_gifts_list"><i class="fa fa-bar-chart"></i> 玩很大玩粉感恩大放送</a></li>
+            					<li><a href="/backend/votes/mrplay_gifts_list"><i class="fa fa-bar-chart"></i> 玩粉感恩大放送</a></li>
 							</ul>
             			</li>
 <?php }?>

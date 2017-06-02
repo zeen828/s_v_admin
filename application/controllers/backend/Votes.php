@@ -248,7 +248,7 @@ class votes extends CI_Controller {
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '玩很大玩粉感恩大放送',
+						'title' => '玩粉感恩大放送',
 						'link' => '/backend/votes/mrplay_gifts_list',
 						'class' => 'fa-bar-chart'
 				);
