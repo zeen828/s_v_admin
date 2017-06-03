@@ -148,7 +148,7 @@ class Vote_model extends CI_Model {
 	 * @return unknown
 	 */
 	public function insert_vote_mrplay_gifts_list($data) {
-		$this->w_db->insert ( 'vote_mrplay_list_tbl', $data );
+		$this->w_db->insert ( 'vote_mrplay_gifts_list_tbl', $data );
 		$id = $this->w_db->insert_id ();
 		// echo $this->w_db->last_query();
 		return $id;
