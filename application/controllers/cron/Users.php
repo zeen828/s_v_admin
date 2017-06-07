@@ -534,6 +534,7 @@ class Users extends CI_Controller
     		$this->load->library('mongo_db');
     		//
     		$this->r_db = $this->load->database('vidol_user_read', TRUE);
+    		$this->w_db = $this->load->database('vidol_user_write', TRUE);
     		//
    			$this->r_db->select('u_fb_id,count(u_fb_id) as fbc');
    			$this->r_db->group_by('u_fb_id');
@@ -547,14 +548,19 @@ class Users extends CI_Controller
     				if($row->fbc > 1){
     					//刪除
     					$this->mongo_db->where('_auth_data_facebook.id', $row->u_fb_id)->delete('_User');
+    					$this->w_db->delete('User_profile_tbl', array('u_fb_id' => $row->u_fb_id));
     				}
     				unset($row);
     			}
     		}
     		//SELECT `u_fb_id`,count(`u_fb_id`) as `fbc` FROM `User_profile_tbl` GROUP BY `u_fb_id` ORDER BY `fbc` DESC LIMIT 50
     		//SELECT `u_fb_id`,count(`u_fb_id`) as `fbc` FROM `User_profile_tbl` GROUP BY `u_fb_id` ORDER BY `fbc` DESC LIMIT 100
+    		//
     		$this->r_db->close();
     		unset($this->r_db);
+    		$this->w_db->close();
+    		unset($this->w_db);
+    		//
     		$this->output
     		->set_content_type('application/json')
     		->set_output(json_encode($this->data_result));
