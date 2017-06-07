@@ -539,7 +539,7 @@ class Users extends CI_Controller
    			$this->r_db->select('u_fb_id,count(u_fb_id) as fbc');
    			$this->r_db->group_by('u_fb_id');
    			$this->r_db->order_by('fbc', 'DESC');
-   			$this->r_db->limit(10);
+   			$this->r_db->limit(100);
     		$query = $this->r_db->get('User_profile_tbl');
     		echo $this->r_db->last_query();
     		if ($query->num_rows () > 0) {
