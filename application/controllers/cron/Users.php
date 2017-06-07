@@ -539,16 +539,18 @@ class Users extends CI_Controller
    			$this->r_db->select('u_fb_id,count(u_fb_id) as fbc');
    			$this->r_db->group_by('u_fb_id');
    			$this->r_db->order_by('fbc', 'DESC');
-   			$this->r_db->limit(50);
+   			$this->r_db->limit(10);
     		$query = $this->r_db->get('User_profile_tbl');
     		echo $this->r_db->last_query();
     		if ($query->num_rows () > 0) {
     			foreach ( $query->result () as $row ) {
     				print_r($row);
     				if($row->fbc > 1){
+    					$user = $this->mongo_db->where('_auth_data_facebook.id', $row->u_fb_id)->select(array('_id', 'member_id', '_auth_data_facebook.id'))->get('_User');
+    					print_r($user);
     					//刪除
-    					$this->mongo_db->where('_auth_data_facebook.id', $row->u_fb_id)->delete('_User');
-    					$this->w_db->delete('User_profile_tbl', array('u_fb_id' => $row->u_fb_id));
+    					//$this->mongo_db->where('_auth_data_facebook.id', $row->u_fb_id)->delete('_User');
+    					//$this->w_db->delete('User_profile_tbl', array('u_fb_id' => $row->u_fb_id));
     				}
     				unset($row);
     			}
