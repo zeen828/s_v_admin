@@ -167,7 +167,7 @@ class Vote_model extends CI_Model {
 	public function insert_vote_bromance_meetings_list($data) {
 		$this->w_db->insert ( 'vote_bromance_meetings_list_tbl', $data );
 		$id = $this->w_db->insert_id ();
-		echo $this->w_db->last_query();
+		// echo $this->w_db->last_query();
 		return $id;
 	}
 }
