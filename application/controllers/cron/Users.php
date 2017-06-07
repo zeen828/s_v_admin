@@ -530,16 +530,24 @@ class Users extends CI_Controller
     public function user_fbid_del ()
     {
     	try {
+    		//
+    		$this->load->library('mongo_db');
+    		//
     		$this->r_db = $this->load->database('vidol_user_read', TRUE);
+    		//
    			$this->r_db->select('u_fb_id,count(u_fb_id) as fbc');
    			$this->r_db->group_by('u_fb_id');
    			$this->r_db->order_by('fbc', 'DESC');
-   			$this->r_db->limit(100);
+   			$this->r_db->limit(3);
     		$query = $this->r_db->get('User_profile_tbl');
     		echo $this->r_db->last_query();
     		if ($query->num_rows () > 0) {
     			foreach ( $query->result () as $row ) {
     				print_r($row);
+    				if($row->fbc > 1){
+    					//刪除
+    					$this->mongo_db->where('_auth_data_facebook.id', $row->u_fb_id)->delete('_User');
+    				}
     				unset($row);
     			}
     		}
