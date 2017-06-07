@@ -170,4 +170,49 @@ class Vote_model extends CI_Model {
 		// echo $this->w_db->last_query();
 		return $id;
 	}
+//不重複新增共用
+	/**
+	 * 查詢投票表格
+	 * @param unknown $tables
+	 * @param unknown $where_fields
+	 * @param unknown $where_val
+	 * @return unknown
+	 */
+	public function get_count_vote_tables_list($tables, $where_fields, $where_val) {
+		$this->w_db->where ( $where_fields, $where_val );
+		$this->w_db->from ( $tables );
+		$count = $this->w_db->count_all_results ();
+		// echo $this->w_db->last_query ();
+		return $count;
+	}
+
+	/**
+	 * 新增資料到投票表格
+	 * @param unknown $tables	資料表
+	 * @param unknown $data		新增資料
+	 * @return unknown
+	 */
+	public function insert_vote_tables_list($tables, $data) {
+		$this->w_db->insert ( $tables, $data );
+		$id = $this->w_db->insert_id ();
+		// echo $this->w_db->last_query();
+		return $id;
+	}
+
+	/**
+	 * 更新資料到投票表格
+	 * @param unknown $tables		資料表
+	 * @param unknown $where_fields	查詢欄位
+	 * @param unknown $where_val	查詢值
+	 * @param unknown $data			更新資料
+	 * @return unknown
+	 */
+	public function update_vote_tables_list($tables, $where_fields, $where_val, $data) {
+		$this->w_db->where ( $where_fields, $where_val );
+		$this->w_db->update ( $tables, $data );
+		$id = $this->w_db->affected_rows ();
+		// echo $this->w_db->last_query();
+		return $id;
+	}
+	
 }

@@ -427,8 +427,11 @@ class Votes extends CI_Controller {
 			// 註冊占比
 			$data_insert ['v_proportion  '] = (empty($data_insert ['v_vote_registered']) || empty($data_insert ['v_registered']))? 0 : $data_insert ['v_vote_registered'] / $data_insert ['v_registered'];
 			//
-			if(empty($date)){
-				$this->vote_model->insert_vote_bromance_meetings_list($data_insert);
+			$count = $this->vote_model->get_count_vote_tables_list('vote_bromance_meetings_list_tbl', 'v_date', $data_date ['yesterday']);
+			if(empty($count)){
+				$this->vote_model->insert_vote_tables_list('vote_bromance_meetings_list_tbl', $data_insert);
+			}else{
+				$this->vote_model->update_vote_tables_list('vote_bromance_meetings_list_tbl', 'v_date', $data_date ['yesterday'], $data_insert);
 			}
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {
