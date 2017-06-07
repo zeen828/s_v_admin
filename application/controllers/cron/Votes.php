@@ -220,6 +220,8 @@ class Votes extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	
+	//玩很大進校園
 	public function mrplay_list($date = '') {
 		try {
 			// 開始時間標記
@@ -294,6 +296,7 @@ class Votes extends CI_Controller {
 		}
 	}
 	
+	//玩粉(沒上線)
 	public function mrplay_gifts_list($date = '') {
 		try {
 			// 開始時間標記
@@ -348,6 +351,81 @@ class Votes extends CI_Controller {
 			//
 			//if(empty($date)){
 				$this->vote_model->insert_vote_mrplay_gifts_list($data_insert);
+			//}
+			// DEBUG印出
+			if ($data_input ['debug'] == 'debug') {
+				$this->data_result ['debug'] ['ENVIRONMENT'] = ENVIRONMENT;
+				$this->data_result ['debug'] ['data_date'] = $data_date;
+				$this->data_result ['debug'] ['data_input'] = $data_input;
+				$this->data_result ['debug'] ['data_insert'] = $data_insert;
+				$this->data_result ['debug'] ['cache_time'] = date ( 'Y-m-d h:i:s' );
+			}
+			// 結束時間標記
+			$this->benchmark->mark ( 'code_end' );
+			// 標記時間計算
+			$this->data_result ['time'] = $this->benchmark->elapsed_time ( 'code_start', 'code_end' );
+			//
+			$this->output->set_content_type ( 'application/json' )->set_output ( json_encode ( $this->data_result ) );
+		} catch ( Exception $e ) {
+			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
+		}
+	}
+	
+	//愛上哥們
+	public function bromance_meetings_list($date = '') {
+		try {
+			// 開始時間標記
+			$this->benchmark->mark ( 'code_start' );
+			// 引入
+			$this->config->load ( 'votes' );
+			$this->load->model ( 'postgre/vidol_production_model' );
+			$this->load->model ( 'vidol_old/vote_model' );
+			$this->load->model ( 'vidol/registered_model' );
+			// 變數
+			$votes_arr = $this->config->item ( 'votes_mrplay_1' );
+			$data_date = array ();
+			$data_input = array ();
+			$data_insert = array ();
+	
+			// 接收變數
+			$data_input ['cache'] = $this->input->get ( 'cache' );
+			$data_input ['debug'] = $this->input->get ( 'debug' );
+			// 當天
+			$data_date ['now_time'] = strtotime ( $date . "-1 hour" );
+			$data_date ['now'] = date ( "Y-m-d 00:00:00", $data_date ['now_time'] );
+			$data_date ['now_utc'] = date ( "Y-m-d H:i:s", strtotime ( $data_date ['now'] . "-8 hour" ) );
+			// 前天
+			$data_date ['yesterday_time'] = strtotime ( $data_date ['now'] . "-1 day" );
+			$data_date ['yesterday'] = date ( "Y-m-d 00:00:00", $data_date ['yesterday_time'] );
+			$data_date ['yesterday_utc'] = date ( "Y-m-d H:i:s", strtotime ( $data_date ['yesterday'] . "-8 hour" ) );
+			// 大前天
+			$data_date ['big_yesterday_time'] = strtotime ( $data_date ['now'] . "-2 day" );
+			$data_date ['big_yesterday'] = date ( "Y-m-d 00:00:00", $data_date ['big_yesterday_time'] );
+			$data_date ['big_yesterday_utc'] = date ( "Y-m-d H:i:s", strtotime ( $data_date ['big_yesterday'] . "-8 hour" ) );
+			// 時間
+			$data_insert ['v_date'] = $data_date ['yesterday'];
+			// 新投票會員
+			$new_user_yesterday = $this->vidol_production_model->cron_mrplay_gifts_distinct_votel_count ( $data_date ['yesterday_utc'] );
+			$new_user_now =$this->vidol_production_model->cron_mrplay_gifts_distinct_votel_count ( $data_date ['now_utc'] );
+			$data_insert ['v_new_vote'] = $new_user_now - $new_user_yesterday;
+			// 日投票數(昨天零晨到今天零晨)
+			$data_insert ['v_vote'] = $this->vidol_production_model->cron_mrplay_gifts_day_votel_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
+			// 不重複投票數
+			$data_insert ['v_single_vote'] = $this->vidol_production_model->cron_mrplay_gifts_day_votel_single_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
+			// 累計投票數(今天零晨以前)
+			$data_insert ['v_total_vote'] = $this->vidol_production_model->cron_mrplay_gifts_total_votel_count ( $data_date ['now_utc'] );
+			// 投票註冊數
+			$data_insert ['v_vote_registered'] = $this->vidol_production_model->cron_mrplay_gifts_registered_votel_count ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
+			// vidol註冊數(昨天零晨到今天零晨)
+			$registered_count_sum = $this->registered_model->get_row_registered_count_sum_by_date_utc ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
+			$data_insert ['v_registered'] = $registered_count_sum->r_count;
+			// 累計投票註冊數
+			$data_insert ['v_total_registered '] = 0;
+			// 註冊占比
+			$data_insert ['v_proportion  '] = (empty($data_insert ['v_vote_registered']) || empty($data_insert ['v_registered']))? 0 : $data_insert ['v_vote_registered'] / $data_insert ['v_registered'];
+			//
+			//if(empty($date)){
+			$this->vote_model->insert_vote_mrplay_gifts_list($data_insert);
 			//}
 			// DEBUG印出
 			if ($data_input ['debug'] == 'debug') {

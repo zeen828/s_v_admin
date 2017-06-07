@@ -153,7 +153,7 @@ class Users extends CI_Controller
             $this->load->model('mongo_model');
             //$st = 1500;
             //$en = 0;
-            $st = 30;
+            $st = 150;
             $en = 0;
             
             for ($i = $st; $i > $en; $i --) {
@@ -527,6 +527,7 @@ class Users extends CI_Controller
     	}
     }
     
+    //FBID重複刪除用
     public function user_fbid_del ()
     {
     	try {
