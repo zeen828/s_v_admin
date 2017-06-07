@@ -539,7 +539,8 @@ class Users extends CI_Controller
     		echo $this->r_db->last_query();
     		if ($query->num_rows () > 0) {
     			foreach ( $query->result () as $row ) {
-    				var_dump($row);
+    				print_r($row);
+    				unset($row);
     			}
     		}
     		//SELECT `u_fb_id`,count(`u_fb_id`) as `fbc` FROM `User_profile_tbl` GROUP BY `u_fb_id` ORDER BY `fbc` DESC LIMIT 50
