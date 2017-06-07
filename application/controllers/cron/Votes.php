@@ -369,7 +369,7 @@ class Votes extends CI_Controller {
 		}
 	}
 	
-	//愛上哥們
+	//愛上哥們贈東京票
 	public function bromance_meetings_list($date = '') {
 		try {
 			// 開始時間標記
