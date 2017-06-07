@@ -547,12 +547,15 @@ class Users extends CI_Controller
     				print_r($row);
     				if($row->fbc > 1){
     					$users = $this->mongo_db->where('_auth_data_facebook.id', $row->u_fb_id)->select(array('_id', 'member_id', '_auth_data_facebook.id'))->get('_User');
+    					print_r($users);
     					if(count($users) >= 2){
     						foreach ( $users as $key=>$user ) {
+    							print_r($key);
+    							print_r($user);
     							if($key != 0){
     								//刪除
-    								$this->mongo_db->where('_id', $user->_id)->delete('_User');
-    								$this->w_db->delete('User_profile_tbl', array('u_mongo_id' => $user->_id));
+    								//$this->mongo_db->where('_id', $user->_id)->delete('_User');
+    								//$this->w_db->delete('User_profile_tbl', array('u_mongo_id' => $user->_id));
     							}
     							unset($key);
     							unset($user);
