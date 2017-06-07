@@ -415,4 +415,95 @@ class vidol_production_model extends CI_Model {
 		// echo $this->r_db->last_query ();
 		return $count;
 	}
+	
+// 愛上哥們贈東京票
+	/**
+	 * 愛上哥們贈東京票
+	 * 統計排程用
+	 *
+	 * @return unknown
+	 */
+	public function cron_bromance_meetings_subtotal() {
+		$this->r_db->select ( 'school_code,school_code_no,COUNT(id) as ticket_count,SUM(ticket) as ticket_sum' );
+		$this->r_db->group_by ( 'school_code' );
+		$this->r_db->group_by ( 'school_code_no' );
+		$this->r_db->order_by ( 'school_code_no', 'ASC' );
+		$query = $this->r_db->get ( 'bromance_meetings' );
+		// echo $this->r_db->last_query();
+		return $query;
+	}
+	
+	/**
+	 * 愛上哥們贈東京票
+	 * 不重複投票(今天零晨以前)
+	 */
+	public function cron_bromance_meetings_distinct_votel_count($now) {
+		$this->r_db->distinct ( 'member_id' );
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->from ( 'bromance_meetings' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query ();
+		return $count;
+	}
+	
+	/**
+	 * 愛上哥們贈東京票
+	 * 日投票數(昨天零晨到今天零晨)
+	 */
+	public function cron_bromance_meetings_day_votel_count($yesterday, $now) {
+		$this->r_db->where ( 'created_at >=', $yesterday );
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->from ( 'bromance_meetings' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query();
+		return $count;
+	}
+	
+	/**
+	 * 愛上哥們贈東京票
+	 * 日投票數(昨天零晨到今天零晨)
+	 */
+	public function cron_bromance_meetings_day_votel_single_count($yesterday, $now) {
+		$this->r_db->select ( 'member_id' );
+		$this->r_db->where ( 'created_at >=', $yesterday );
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->group_by ( 'member_id' );
+		$this->r_db->from ( 'bromance_meetings' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query();
+		return $count;
+	}
+	
+	/**
+	 * 愛上哥們贈東京票
+	 * 累計投票數(今天零晨以前)
+	 *
+	 * @return unknown
+	 */
+	public function cron_bromance_meetings_total_votel_count($now) {
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->from ( 'bromance_meetings' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query();
+		return $count;
+	}
+	/**
+	 * 愛上哥們贈東京票
+	 * 投票註冊(昨天零晨到今天零晨)(註冊投票時差5分鐘內)
+	 *
+	 * @param unknown $now
+	 * @return unknown
+	 */
+	public function cron_bromance_meetings_registered_votel_count($yesterday, $now) {
+		// SELECT member_id FROM mrplayer_votes WHERE created_at - member_created_at <interval '5 minute' AND created_at >= '2017-05-25 16:00:00' AND created_at < '2017-05-26 16:00:00' GROUP BY "member_id"
+		$this->r_db->select ( 'member_id' );
+		$this->r_db->where ( 'created_at - member_created_at < interval \'5 minute\'', null, false );
+		$this->r_db->where ( 'created_at >=', $yesterday );
+		$this->r_db->where ( 'created_at <', $now );
+		$this->r_db->group_by ( 'member_id' );
+		$this->r_db->from ( 'bromance_meetings' );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query ();
+		return $count;
+	}
 }
