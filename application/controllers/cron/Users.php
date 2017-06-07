@@ -45,6 +45,8 @@ class Users extends CI_Controller
      * http://xxx.xxx.xxx/cron/users/registered_hour
      * # 分 時 日 月 週 指令
      * 10 * * * * php /var/www/codeigniter/3.0.6/admin/index.php cron users registered_hour
+     * 日期跑掉的話重寫用SQL
+     * UPDATE `Registered_tbl` SET `r_date_utc` = concat(`r_year_utc`, '-', `r_month_utc`, '-', `r_day_utc`, ' ', `r_hour_utc`, ':00:00')
      */
     public function registered_hour ($date = '')
     {
