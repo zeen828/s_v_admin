@@ -160,7 +160,7 @@ class Votes extends CI_Controller {
 				// 表格
 				$crud->set_table('vote_mrplay_list_tbl');
 				// 標題
-				$crud->set_subject($this->lang->line('tabels_user_accounts'));
+				$crud->set_subject('玩很大進校園報表');
 				// 移除新增
 				$crud->unset_add();
 				// 移除編輯
@@ -220,7 +220,7 @@ class Votes extends CI_Controller {
 				// 表格
 				$crud->set_table('vote_mrplay_gifts_list_tbl');
 				// 標題
-				$crud->set_subject($this->lang->line('tabels_user_accounts'));
+				$crud->set_subject('玩粉感恩大放送');
 				// 移除新增
 				$crud->unset_add();
 				// 移除編輯
@@ -278,9 +278,9 @@ class Votes extends CI_Controller {
 				// 版型
 				$crud->set_theme('flexigrid');
 				// 表格
-				$crud->set_table('vote_mrplay_gifts_list_tbl');
+				$crud->set_table('vote_bromance_meetings_list_tbl');
 				// 標題
-				$crud->set_subject($this->lang->line('tabels_user_accounts'));
+				$crud->set_subject('愛上哥們贈東京票');
 				// 移除新增
 				$crud->unset_add();
 				// 移除編輯
