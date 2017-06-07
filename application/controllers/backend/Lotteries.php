@@ -22,7 +22,7 @@ class Lotteries extends CI_Controller {
 		// $this->config->load('vidol');
 		// 初始化
 		$this->data_view = format_helper_backend_view_data ( 'sdac_content' );
-		$this->data_view ['system'] ['action'] = 'Votes';
+		$this->data_view ['system'] ['action'] = 'Lottery';
 		$this->data_view ['right_countent'] ['tags'] ['tag_2'] = array (
 				'title' => '抽獎活動',
 				'link' => '/backend/lotteries',
