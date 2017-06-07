@@ -554,8 +554,8 @@ class Users extends CI_Controller
     							print_r($user);
     							if($key != 0){
     								//刪除
-    								//$this->mongo_db->where('_id', $user->_id)->delete('_User');
-    								//$this->w_db->delete('User_profile_tbl', array('u_mongo_id' => $user->_id));
+    								$this->mongo_db->where('_id', $user['_id'])->delete('_User');
+    								$this->w_db->delete('User_profile_tbl', array('u_mongo_id' => $user['_id']));
     							}
     							unset($key);
     							unset($user);
