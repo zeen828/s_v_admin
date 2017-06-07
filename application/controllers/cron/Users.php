@@ -526,4 +526,26 @@ class Users extends CI_Controller
     		show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
     	}
     }
+    
+    public function user_fbid_del ()
+    {
+    	try {
+    		$this->r_db = $this->load->database('vidol_user_read', TRUE);
+   			$this->r_db->select('u_fb_id,count(u_fb_id) as fbc');
+   			$this->r_db->group_by('fbc');
+   			$this->r_db->order_by('fbc', 'DESC');
+   			$this->r_db->limit(100);
+    		$query = $this->r_db->get('User_profile_tbl');
+    		echo $this->r_db->last_query();
+    		//SELECT `u_fb_id`,count(`u_fb_id`) as `fbc` FROM `User_profile_tbl` GROUP BY `u_fb_id` ORDER BY `fbc` DESC LIMIT 50
+
+    		$this->r_db->close();
+    		unset($this->r_db);
+    		$this->output
+    		->set_content_type('application/json')
+    		->set_output(json_encode($this->data_result));
+    	} catch (Exception $e) {
+    		show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
+    	}
+    }
 }
