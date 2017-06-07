@@ -532,7 +532,7 @@ class Users extends CI_Controller
     	try {
     		$this->r_db = $this->load->database('vidol_user_read', TRUE);
    			$this->r_db->select('u_fb_id,count(u_fb_id) as fbc');
-   			$this->r_db->group_by('fbc');
+   			$this->r_db->group_by('u_fb_id');
    			$this->r_db->order_by('fbc', 'DESC');
    			$this->r_db->limit(100);
     		$query = $this->r_db->get('User_profile_tbl');
@@ -544,7 +544,7 @@ class Users extends CI_Controller
     			}
     		}
     		//SELECT `u_fb_id`,count(`u_fb_id`) as `fbc` FROM `User_profile_tbl` GROUP BY `u_fb_id` ORDER BY `fbc` DESC LIMIT 50
-    		//SELECT `u_fb_id`, count(u_fb_id) as fbc FROM `User_profile_tbl` GROUP BY `fbc` ORDER BY `fbc` DESC LIMIT 100
+    		//SELECT `u_fb_id`,count(`u_fb_id`) as `fbc` FROM `User_profile_tbl` GROUP BY `u_fb_id` ORDER BY `fbc` DESC LIMIT 100
     		$this->r_db->close();
     		unset($this->r_db);
     		$this->output
