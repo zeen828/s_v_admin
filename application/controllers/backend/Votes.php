@@ -319,4 +319,64 @@ class Votes extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	
+	public function ob_iphone8_list() {
+		try {
+			if ($this->flexi_auth->is_privileged('Votes View')) {
+				// 寫log
+				$this->fun->logs('觀看投票報表');
+				// 變數
+				$data_post = array();
+				// 強制切換資料庫
+				unset($this->db);
+				$this->db = $this->load->database('vidol_old_write', true);
+				// grocery_CRUD 自產表單
+				$this->load->library('grocery_CRUD'); // CI整合表單http://www.grocerycrud.com/
+				$crud = new grocery_CRUD();
+				// 語系
+				$crud->set_language('taiwan');
+				// 版型
+				$crud->set_theme('flexigrid');
+				// 表格
+				$crud->set_table('vote_ob_iphone8_list_tbl');
+				// 標題
+				$crud->set_subject('OB嚴選送iphone8');
+				// 移除新增
+				$crud->unset_add();
+				// 移除編輯
+				$crud->unset_edit();
+				// 移除刪除
+				$crud->unset_delete();
+				// 清單顯示欄位
+				$crud->columns('v_pk','v_date','v_new_vote','v_vote','v_single_vote','v_total_vote','v_vote_registered','v_registered','v_total_registered','v_proportion','v_created_at','v_updated_at');
+				// 資料庫欄位文字替換
+				$crud->display_as('v_pk', $this->lang->line('fields_pk'));
+				$crud->display_as('v_date', '時間(TW)');
+				$crud->display_as('v_new_vote', '新投票會員');
+				$crud->display_as('v_vote', '投票數');
+				$crud->display_as('v_single_vote', '不重複投票數');
+				$crud->display_as('v_total_vote', '累計投票數');
+				$crud->display_as('v_vote_registered', '投票註冊數');
+				$crud->display_as('v_registered', 'vidol註冊數');
+				$crud->display_as('v_total_registered', '累計投票註冊數');
+				$crud->display_as('v_proportion', '註冊占比');
+				$crud->display_as('v_created_at', $this->lang->line('fields_time_creat_utc'));
+				$crud->display_as('v_updated_at', $this->lang->line('fields_time_update_utc'));
+				// 產生表單
+				$output = $crud->render();
+				// 資料整理
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
+				$this->data_view['right_countent']['view_data'] = $output;
+				$this->data_view['right_countent']['tags']['tag_3'] = array(
+						'title' => 'OB嚴選送iphone8',
+						'link' => '/backend/votes/ob_iphone8_list',
+						'class' => 'fa-bar-chart'
+				);
+				// 套版
+				$this->load->view('AdminLTE/include/html5', $this->data_view);
+			}
+		} catch ( Exception $e ) {
+			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
+		}
+	}
 }
