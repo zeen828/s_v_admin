@@ -64,6 +64,8 @@ class Accounts extends CI_Controller
                 $crud->set_table('user_accounts');
                 // 標題
                 $crud->set_subject($this->lang->line('tabels_user_accounts'));
+                // 目前狀態
+                $state = $crud->getState();
                 if (! $this->flexi_auth->is_privileged('Accounts Add')) {
                     // 移除新增
                     $crud->unset_add();
@@ -83,7 +85,11 @@ class Accounts extends CI_Controller
                 // 編輯欄位
                 $crud->edit_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_password', 'uacc_active');
                 // 表單必填欄位
-                $crud->required_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_password', 'uacc_active');
+                if($state == 'add'){
+                	$crud->required_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_password', 'uacc_active');
+                }else if($state == 'edit'){{
+                	$crud->required_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_active');
+                }
                 // 欄位特殊屬性
                 $crud->field_type('uacc_password', 'password');
                 // 關聯
