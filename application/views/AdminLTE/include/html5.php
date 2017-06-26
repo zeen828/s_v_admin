@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="robots" content="noindex,nofollow">
         <!-- Tell the browser to be responsive to screen width -->
-        <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="shortcut icon" href="/assets/img/favicon.ico">
         <title><?php echo $meta['title'];?></title>
 <?php $this->load->view(sprintf("%s/include/meta_javascript" , $system['themes']), $meta);?>
