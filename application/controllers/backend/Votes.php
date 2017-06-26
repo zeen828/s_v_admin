@@ -348,7 +348,8 @@ class Votes extends CI_Controller {
 				// 移除刪除
 				$crud->unset_delete();
 				// 清單顯示欄位
-				$crud->columns('v_pk','v_date','v_new_vote','v_vote','v_single_vote','v_total_vote','v_vote_registered','v_registered','v_total_registered','v_proportion','v_created_at','v_updated_at');
+				//$crud->columns('v_pk','v_date','v_new_vote','v_vote','v_single_vote','v_total_vote','v_vote_registered','v_registered','v_total_registered','v_proportion','v_created_at','v_updated_at');
+				$crud->columns('v_pk','v_date','v_new_vote','v_vote','v_single_vote','v_total_vote','v_total_registered','v_vote_registered','v_registered','v_proportion','v_created_at','v_updated_at');
 				// 資料庫欄位文字替換
 				$crud->display_as('v_pk', $this->lang->line('fields_pk'));
 				$crud->display_as('v_date', '時間(TW)');
@@ -356,10 +357,9 @@ class Votes extends CI_Controller {
 				$crud->display_as('v_vote', '投票數');
 				$crud->display_as('v_single_vote', '不重複投票數');
 				$crud->display_as('v_total_vote', '第一抽累計投票數');
-				$crud->display_as('v_total_registered', '第二抽累計投票數');
 				$crud->display_as('v_vote_registered', '投票註冊數');
 				$crud->display_as('v_registered', 'vidol註冊數');
-				//$crud->display_as('v_total_registered', '累計投票註冊數');
+				$crud->display_as('v_total_registered', '第二抽累計投票數');
 				$crud->display_as('v_proportion', '註冊占比');
 				$crud->display_as('v_created_at', $this->lang->line('fields_time_creat_utc'));
 				$crud->display_as('v_updated_at', $this->lang->line('fields_time_update_utc'));
