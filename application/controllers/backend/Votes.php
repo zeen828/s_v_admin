@@ -359,7 +359,7 @@ class Votes extends CI_Controller {
 				$crud->display_as('v_total_vote', '第一抽累計投票數');
 				$crud->display_as('v_vote_registered', '投票註冊數');
 				$crud->display_as('v_registered', 'vidol註冊數');
-				$crud->display_as('v_total_registered', '第二抽累計投票數');
+				$crud->display_as('v_total_registered', '第二抽累計投票數(6/20中午12:00)');
 				$crud->display_as('v_proportion', '註冊占比');
 				$crud->display_as('v_created_at', $this->lang->line('fields_time_creat_utc'));
 				$crud->display_as('v_updated_at', $this->lang->line('fields_time_update_utc'));
