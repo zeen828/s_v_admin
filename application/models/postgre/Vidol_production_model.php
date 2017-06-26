@@ -539,7 +539,8 @@ class vidol_production_model extends CI_Model {
 	 *
 	 * @return unknown
 	 */
-	public function cron_tables_total_votel_count($tables, $now) {
+	public function cron_tables_total_votel_count($tables, $status_date, $now) {
+		$this->r_db->where ( 'created_at >=', $status_date );
 		$this->r_db->where ( 'created_at <', $now );
 		$this->r_db->from ( $tables );
 		$count = $this->r_db->count_all_results ();

@@ -487,14 +487,14 @@ class Votes extends CI_Controller {
 			// 不重複投票數
 			$data_insert ['v_single_vote'] = $this->vidol_production_model->cron_tables_day_votel_single_count ( 'ob_iphones', $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			// 累計投票數(今天零晨以前)
-			$data_insert ['v_total_vote'] = $this->vidol_production_model->cron_tables_total_votel_count ( 'ob_iphones', $data_date ['now_utc'] );
+			$data_insert ['v_total_vote'] = $this->vidol_production_model->cron_tables_total_votel_count ( 'ob_iphones', '2017-06-08 00:00:00', $data_date ['now_utc'] );
 			// 投票註冊數
 			$data_insert ['v_vote_registered'] = $this->vidol_production_model->cron_tables_registered_votel_count ( 'ob_iphones', $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			// vidol註冊數(昨天零晨到今天零晨)
 			$registered_count_sum = $this->registered_model->get_row_registered_count_sum_by_date_utc ( $data_date ['yesterday_utc'], $data_date ['now_utc'] );
 			$data_insert ['v_registered'] = $registered_count_sum->r_count;
 			// 累計投票註冊數
-			$data_insert ['v_total_registered '] = 0;
+			$data_insert ['v_total_registered '] = $this->vidol_production_model->cron_tables_total_votel_count ( 'ob_iphones', '2017-06-20 04:00:00', $data_date ['now_utc'] );
 			// 註冊占比
 			$data_insert ['v_proportion  '] = (empty($data_insert ['v_vote_registered']) || empty($data_insert ['v_registered']))? 0 : $data_insert ['v_vote_registered'] / $data_insert ['v_registered'];
 			// 寫資料
