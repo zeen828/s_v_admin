@@ -25,7 +25,7 @@ class Lotters extends MY_REST_Controller {
 			// 開始時間標記
 			$this->benchmark->mark ( 'code_start' );
 			//
-			$this->w_db = $this->load->database ( 'vidol_old_read', TRUE );
+			$this->w_db = $this->load->database ( 'vidol_old_write', TRUE );
 			$sql = 'UPDATE lottery_iphone_tbl SET status = 1 WHERE id > 1';
 			$this->data_result ['status'] = $this->w_db->query($sql);
 			$this->w_db->close();
