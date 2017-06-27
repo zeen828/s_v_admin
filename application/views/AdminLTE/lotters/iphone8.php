@@ -1,10 +1,3 @@
-<script type="text/javascript">
-$(document).ready(function(){
-	$('#lotters_clear').off('click').on('click', function() {
-		alert('清空');
-	});
-});
-</script>
 					<div><button type="button" id="lotters_clear">清空得獎清單</button></div>
 					<div class="box-grocery_CRUD">
 <?php
@@ -27,3 +20,29 @@ if(count($view_data->css_files) > 0){
 echo $view_data->output;
 ?>
 					</div>
+					<script type="text/javascript">
+					$(document).ready(function(){
+						$('#lotters_clear').off('click').on('click', function() {
+							$.ajax({
+								url: '/api/lotters/clear.json',
+								type: 'GET',
+								cache: false,
+								headers: {
+									'Authorization' : 'sw84sc888kkcg0ogo8cw4swgkswkw048cc48swk8'
+								},
+								dataType: 'json',
+								data: {
+									'debug' : 'debug'
+								},
+								error: function(xhr){
+									alert('Ajax request error');
+								},
+								statusCode: {
+									200: function(json, statusText, xhr) {
+										console.log(json);
+									}
+								}
+							});
+						});
+					});
+					</script>
