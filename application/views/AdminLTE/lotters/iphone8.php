@@ -1,4 +1,4 @@
-					<div><button type="button" id="lotters_clear">清空得獎清單</button></div>
+					<div><button type="button" id="lotters_clear">清空得獎清單</button><a target="_blank" href="http://plugin-boards.vidol.tv/lottery/events/iphone8/20170701/20170620">抽獎頁</a></div>
 					<div class="box-grocery_CRUD">
 <?php
 if(count($view_data->js_files) > 0){
