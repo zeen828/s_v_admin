@@ -121,7 +121,7 @@ class Lotteries extends CI_Controller {
 				// 產生表單
 				$output = $crud->render();
 				// 資料整理
-				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/lotters/iphone8';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => 'OB嚴選送iphone8',
