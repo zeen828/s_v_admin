@@ -1,6 +1,8 @@
 <script type="text/javascript">
-$('#lotters_clear').off('click').on('click', function() {
-	alert('清空');
+$(document).ready(function(){
+	$('#lotters_clear').off('click').on('click', function() {
+		alert('清空');
+	});
 });
 </script>
 					<div><button type="button" id="lotters_clear">清空得獎清單</button></div>
