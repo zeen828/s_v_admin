@@ -40,6 +40,7 @@ echo $view_data->output;
 								statusCode: {
 									200: function(json, statusText, xhr) {
 										console.log(json);
+										location.reload();
 									}
 								}
 							});
