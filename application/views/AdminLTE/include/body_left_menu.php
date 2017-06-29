@@ -46,6 +46,9 @@
             				<ul class="treeview-menu">
             					<li><a href="/backend/lotteries/iphone8_week1"><i class="fa fa-space-shuttle"></i> OB嚴選送iphone8(第一周)</a></li>
             					<li><a href="/backend/lotteries/iphone8_week2"><i class="fa fa-space-shuttle"></i> OB嚴選送iphone8(第二周)</a></li>
+<?php if($this->flexi_auth->is_privileged(array('Lottery Config View', 'Lottery Config Add', 'Lottery Config Edit', 'Lottery Config Del'))) {?>
+            					<li><a href="/backend/lotteries/config"><i class="fa fa-cog"></i> 抽獎系統設定</a></li>
+<?php }?>
 							</ul>
             			</li>
 <?php }?>
