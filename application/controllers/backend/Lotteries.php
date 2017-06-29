@@ -55,11 +55,11 @@ class Lotteries extends CI_Controller {
 				// 標題
 				$crud->set_subject('抽獎系統設定檔');
 				// 移除新增
-				$crud->unset_add();
+				//$crud->unset_add();
 				// 移除編輯
-				$crud->unset_edit();
+				//$crud->unset_edit();
 				// 移除刪除
-				$crud->unset_delete();
+				//$crud->unset_delete();
 				// 清單顯示欄位
 				$crud->columns('lc_pk', 'lc_title', 'lc_des', 'lc_method', 'lc_status', 'lc_start_at', 'lc_end_at');
 				// 事件
