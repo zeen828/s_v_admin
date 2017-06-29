@@ -63,8 +63,8 @@ class Lotteries extends CI_Controller {
 				// 清單顯示欄位
 				$crud->columns('lc_pk', 'lc_title', 'lc_des', 'lc_method', 'lc_status', 'lc_start_at', 'lc_end_at');
 				// 事件
-				$crud->add_action('More', '', 'demo/action_more','ui-icon-plus');
-				$crud->add_action('開獎', '', '','ui-icon-image',array($this->grocery_callback,'callback_config_to_lotters_url'));
+				$crud->add_action('權限', '/assets/grocery_crud/themes/flexigrid/css/images/magnifier.png', '/backend/privileges/group_set');
+				//$crud->add_action('開獎', '', '','ui-icon-image',array($this->grocery_callback,'callback_config_to_lotters_url'));
 				// 資料庫欄位文字替換
 				$crud->display_as('lc_pk', $this->lang->line('fields_pk'));
 				$crud->display_as('lc_title', '標題');
