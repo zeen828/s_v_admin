@@ -32,6 +32,16 @@ class Lotteries extends CI_Controller {
 		// $this->output->enable_profiler(TRUE);
 	}
 
+	public function open_list() {
+		try {
+			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
+				
+			}
+		} catch ( Exception $e ) {
+			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
+		}
+	}
+
 	public function system() {
 		try {
 			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
