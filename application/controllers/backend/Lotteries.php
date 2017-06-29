@@ -34,7 +34,12 @@ class Lotteries extends CI_Controller {
 
 	public function open_list($pk) {
 		try {
+			echo $pk;
 			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
+				// 引入
+				$this->load->model ( 'vidol_old/lotters_config_model' );
+				$lotters_config = $this->lotters_config_model->get_row_lotters_config_by_pk('*', $pk);
+				print_r($lotters_config);
 				$this->data_view['right_countent']['view_path'] = '';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
