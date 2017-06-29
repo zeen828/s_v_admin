@@ -32,7 +32,7 @@ class Lotteries extends CI_Controller {
 		// $this->output->enable_profiler(TRUE);
 	}
 
-	public function list() {
+	public function system() {
 		try {
 			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
 				// 寫log
@@ -84,7 +84,7 @@ class Lotteries extends CI_Controller {
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '抽獎系統',
-						'link' => '/backend/lotteries/list',
+						'link' => '/backend/lotteries/system',
 						'class' => 'fa-cog'
 				);
 				// 套版
