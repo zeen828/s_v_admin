@@ -32,10 +32,18 @@ class Lotteries extends CI_Controller {
 		// $this->output->enable_profiler(TRUE);
 	}
 
-	public function open_list() {
+	public function open_list($pk) {
 		try {
 			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
-				
+				$this->data_view['right_countent']['view_path'] = '';
+				$this->data_view['right_countent']['view_data'] = $output;
+				$this->data_view['right_countent']['tags']['tag_3'] = array(
+						'title' => '抽獎系統-清單開獎',
+						'link' => '/backend/lotteries/open_list',
+						'class' => 'fa-object-group'
+				);
+				// 套版
+				$this->load->view('AdminLTE/include/html5', $this->data_view);
 			}
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
