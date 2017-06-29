@@ -111,4 +111,19 @@ class Grocery_callback
     	}
     	return $result;
     }
+    
+    
+    function callback_config_to_lotters_url($primary_key , $row)
+    {
+    	switch ($row->lc_method)
+    	{
+    		case 'one':
+    			return site_url('one').'?country='.$primary_key;
+    			break;
+    		case 'list':
+    		default:
+    			return site_url('list').'?country='.$primary_key;
+    			break;
+    	}
+    }
 }
