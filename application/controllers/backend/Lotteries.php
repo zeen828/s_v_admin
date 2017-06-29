@@ -66,7 +66,7 @@ class Lotteries extends CI_Controller {
 					$crud->unset_delete();
 				}
 				// 清單顯示欄位
-				$crud->columns('lc_pk','lc_title','lc_des','lc_status', 'lc_start_at', 'lc_end_at');
+				$crud->columns('lc_pk', 'lc_title', 'lc_des', 'lc_method', 'lc_status', 'lc_start_at', 'lc_end_at');
 				// 資料庫欄位文字替換
 				$crud->display_as('lc_pk', $this->lang->line('fields_pk'));
 				$crud->display_as('lc_title', '標題');
@@ -79,6 +79,7 @@ class Lotteries extends CI_Controller {
 				$crud->display_as('lc_value3', '數值3');
 				$crud->display_as('lc_value4', '數值4');
 				$crud->display_as('lc_value5', '數值5');
+				$crud->display_as('lc_method', '開講方法');
 				$crud->display_as('lc_status', '狀態');
 				$crud->display_as('lc_start_at', '開始時間');
 				$crud->display_as('lc_end_at', '結束時間');
