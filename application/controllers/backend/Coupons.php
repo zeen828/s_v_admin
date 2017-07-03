@@ -171,9 +171,9 @@ class Coupons extends CI_Controller
 				$crud->display_as('c_set_no', $this->lang->line('Coupon_tbl_fields_c_set_no'));
 				$crud->display_as('c_set_title', $this->lang->line('fields_title'));
 				$crud->display_as('c_set_type', $this->lang->line('fields_type'));
-				$crud->display_as('c_set_package_no', $this->lang->line('Coupon_tbl_fields_c_set_value'));
-				$crud->display_as('c_set_cs_discount', $this->lang->line('Coupon_tbl_fields_c_set_value'));
-				$crud->display_as('c_set_cash', $this->lang->line('Coupon_tbl_fields_c_set_value'));
+				$crud->display_as('c_set_package_no', $this->lang->line('Coupon_set_tbl_fields_cs_package_no'));
+				$crud->display_as('c_set_cs_discount', $this->lang->line('Coupon_set_tbl_fields_cs_discount'));
+				$crud->display_as('c_set_cash', $this->lang->line('Coupon_set_tbl_fields_cs_cash'));
 				$crud->display_as('c_sn', $this->lang->line('Coupon_tbl_fields_c_sn'));
 				$crud->display_as('c_repeat', $this->lang->line('Coupon_tbl_fields_c_repeat'));
 				$crud->display_as('c_assign', $this->lang->line('Coupon_tbl_fields_c_assign'));
