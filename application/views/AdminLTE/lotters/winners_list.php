@@ -22,7 +22,7 @@
 									<button type="button" class="clear_btn btn btn-info btn-flat">清空得獎清單</button>
 								</div>
 							</div>
-							<div class="col-xs-12 text-center loading">
+							<div class="col-xs-12 text-center loading" style="display:none">
 								<button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
 									<i class="fa fa-spin fa-refresh"></i>開獎中請稍候...
 								</button>

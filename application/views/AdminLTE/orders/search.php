@@ -39,7 +39,7 @@
 							</div>
 							<div class="col-xs-12 text-center loading">
 								<button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
-									<i class="fa fa-spin fa-refresh">資料讀取中請稍候...</i>
+									<i class="fa fa-spin fa-refresh"></i>資料讀取中請稍候...
 								</button>
 							</div>
 						</div>
