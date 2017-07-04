@@ -1,18 +1,10 @@
-					<div>
-						開始時間<input type="text" name="fname" />
-						結束時間<input type="text" name="fname" />
-						抽獎名額<input type="text" name="fname" />
-						<button type="button" id="lotters_clear">抽獎</button>
-						<br/>
-						<button type="button" id="lotters_clear">清空得獎清單</button>
-					</div>
                     <div class="box box-default">
 						<div class="box-header with-border">
 							<h3 class="box-title">開獎條件</h3>
 						</div>
                         <div class="box-body">
 							<div class="form-group">
-								<div class="col-lg-3">
+								<div class="col-lg-4">
 									<div class="input-group">
 										<div class="input-group-addon">
 											<i class="fa fa-calendar"></i>
@@ -21,13 +13,13 @@
 									</div>
 								</div>
 								<div class="col-lg-3">
-									<input type="text" name="oredr_sn" value="" class="form-control pull-right" id="reservation" placeholder="訂單號碼...">
+									<input type="text" name="lottery_count" value="" class="form-control pull-right" id="reservation" placeholder="抽獎名額...">
 								</div>
-								<div class="col-lg-1">
-									<button type="button" class="search_btn btn btn-info btn-flat">查詢</button>
+								<div class="col-lg-2">
+									<button type="button" class="search_btn btn btn-info btn-flat">抽獎</button>
 								</div>
-								<div class="col-lg-1">
-									<button type="button" class="search_btn btn btn-info btn-flat">查詢</button>
+								<div class="col-lg-2">
+									<button type="button" class="search_btn btn btn-info btn-flat">清空得獎清單</button>
 								</div>
 							</div>
 							<div class="col-xs-12 text-center loading">
