@@ -1,7 +1,7 @@
 <?php
 $lang['fields_pk'] = '主鍵';
-$lang['fields_user_no'] = 'User 編號';
-$lang['fields_mongo_id'] = 'User ID';
+$lang['fields_user_no'] = 'User No';
+$lang['fields_mongo_id'] = 'Mongo ID';
 $lang['fields_member_id'] = 'Member ID';
 $lang['fields_nick_name'] = '使用者暱稱';
 $lang['fields_title'] = '標題';

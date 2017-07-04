@@ -82,41 +82,30 @@ class Lotteries extends CI_Controller {
 				$crud->where('lw_lc_pk', $pk);
 				$crud->where('lw_status', 1);
 				// 標題
-				$crud->set_subject('抽獎系統設定檔');
+				$crud->set_subject('抽獎系統-中獎名單');
 				// 移除新增
-				//$crud->unset_add();
+				$crud->unset_add();
 				// 移除編輯
-				//$crud->unset_edit();
+				$crud->unset_edit();
 				// 移除刪除
-				//$crud->unset_delete();
+				$crud->unset_delete();
 				// 清單顯示欄位
-				$crud->columns('lc_pk', 'lc_title', 'lc_des', 'lc_method', 'lc_status', 'lc_start_at', 'lc_end_at');
-				// 事件
-				$crud->add_action('開獎頁', '/assets/grocery_crud/themes/flexigrid/css/images/export.png', '', '', array($this->grocery_callback,'callback_config_to_lotters_url'));
-				$crud->add_action('開獎名單', '/assets/grocery_crud/themes/flexigrid/css/images/export.png', 'openlist');
+				$crud->columns('lw_pk', 'lw_lc_pk', 'lw_lc_title', 'lw_mongo_id', 'lw_member_id', 'lw_status', 'lw_crated_at');
 				// 資料庫欄位文字替換
-				$crud->display_as('lc_pk', $this->lang->line('fields_pk'));
-				$crud->display_as('lc_title', '標題');
-				$crud->display_as('lc_des', '描述');
-				$crud->display_as('lc_db_type', '資料庫類型');
-				$crud->display_as('lc_db_table', '資料庫表');
-				$crud->display_as('lc_db_where', '條件');
-				$crud->display_as('lc_value1', '數值1');
-				$crud->display_as('lc_value2', '數值2');
-				$crud->display_as('lc_value3', '數值3');
-				$crud->display_as('lc_value4', '數值4');
-				$crud->display_as('lc_value5', '數值5');
-				$crud->display_as('lc_method', '開講方法');
-				$crud->display_as('lc_status', '狀態');
-				$crud->display_as('lc_start_at', '開始時間');
-				$crud->display_as('lc_end_at', '結束時間');
+				$crud->display_as('lw_pk', $this->lang->line('fields_pk'));
+				$crud->display_as('lw_lc_pk', '抽獎系統主建');
+				$crud->display_as('lw_lc_title', '抽獎系統標題');
+				$crud->display_as('lw_mongo_id', $this->lang->line('fields_mongo_id'));
+				$crud->display_as('lw_member_id', $this->lang->line('fields_member_id'));
+				$crud->display_as('lw_status', $this->lang->line('fields_status'));
+				$crud->display_as('lw_crated_at', $this->lang->line('fields_time_creat_tw'));
 				// 產生表單
 				$output = $crud->render();
 				// 資料整理
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '抽獎系統-中獎清單',
+						'title' => '抽獎系統-中獎名單',
 						'link' => '/backend/lotteries/winners_list',
 						'class' => 'fa-cog'
 				);
@@ -152,13 +141,13 @@ class Lotteries extends CI_Controller {
 				// 表格
 				$crud->set_table('lotters_config_tbl');
 				// 標題
-				$crud->set_subject('抽獎系統設定檔');
+				$crud->set_subject('抽獎系統');
 				// 移除新增
-				//$crud->unset_add();
+				$crud->unset_add();
 				// 移除編輯
-				//$crud->unset_edit();
+				$crud->unset_edit();
 				// 移除刪除
-				//$crud->unset_delete();
+				$crud->unset_delete();
 				// 清單顯示欄位
 				$crud->columns('lc_pk', 'lc_title', 'lc_des', 'lc_method', 'lc_status', 'lc_start_at', 'lc_end_at');
 				// 事件
