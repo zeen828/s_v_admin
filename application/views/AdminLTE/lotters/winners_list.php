@@ -16,10 +16,10 @@
 									<input type="text" name="lottery_count" value="" class="form-control pull-right" id="reservation" placeholder="抽獎名額...">
 								</div>
 								<div class="col-lg-2">
-									<button type="button" class="search_btn btn btn-info btn-flat">抽獎</button>
+									<button type="button" class="lottery_btn btn btn-info btn-flat">抽獎</button>
 								</div>
 								<div class="col-lg-2">
-									<button type="button" class="search_btn btn btn-info btn-flat">清空得獎清單</button>
+									<button type="button" class="clear_btn btn btn-info btn-flat">清空得獎清單</button>
 								</div>
 							</div>
 							<div class="col-xs-12 text-center loading">
@@ -50,33 +50,6 @@ if(count($view_data->css_files) > 0){
 echo $view_data->output;
 ?>
 					</div>
-					<script type="text/javascript">
-					$(document).ready(function(){
-						$('#lotters_clear').off('click').on('click', function() {
-							$.ajax({
-								url: '/api/lotters/clear.json',
-								type: 'GET',
-								cache: false,
-								headers: {
-									'Authorization' : 'sw84sc888kkcg0ogo8cw4swgkswkw048cc48swk8'
-								},
-								dataType: 'json',
-								data: {
-									'debug' : 'debug'
-								},
-								error: function(xhr){
-									alert('Ajax request error');
-								},
-								statusCode: {
-									200: function(json, statusText, xhr) {
-										console.log(json);
-										location.reload();
-									}
-								}
-							});
-						});
-					});
-					</script>
                     <!-- date-range-picker -->
                     <script src="/assets/plugins/daterangepicker/daterangepicker.js"></script>
                     <!-- page js -->
