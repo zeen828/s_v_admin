@@ -34,7 +34,7 @@
 if(count($view_data->js_files) > 0){
 	foreach($view_data->js_files as $file){
 		//echo sprintf('<script type="text/javascript" src="%s"></script>', $file);
-		?>
+?>
 <script type="text/javascript" src="<?php echo $file;?>?v=20160601"></script>
 <?php
     }
@@ -77,3 +77,7 @@ echo $view_data->output;
 						});
 					});
 					</script>
+                    <!-- date-range-picker -->
+                    <script src="/assets/plugins/daterangepicker/daterangepicker.js"></script>
+                    <!-- page js -->
+                    <script src="/assets/js/custom/lotteries/winners_list.js?<?php echo time();?>"></script>
