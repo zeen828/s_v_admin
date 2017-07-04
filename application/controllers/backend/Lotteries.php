@@ -78,8 +78,9 @@ class Lotteries extends CI_Controller {
 				// 版型
 				$crud->set_theme('flexigrid');
 				// 表格
-				$crud->set_table('lotters_config_tbl');
-				$crud->where('lc_pk', $pk);
+				$crud->set_table('lotters_winners_list_tbl');
+				$crud->where('lw_lc_pk', $pk);
+				$crud->where('lw_status', 1);
 				// 標題
 				$crud->set_subject('抽獎系統設定檔');
 				// 移除新增
