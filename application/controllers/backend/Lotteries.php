@@ -328,7 +328,7 @@ class Lotteries extends CI_Controller {
 				// 版型
 				$crud->set_theme('flexigrid');
 				// 表格
-				$crud->set_table('lottery_iphone_list_tbl');
+				$crud->set_table('lottery_iphone_2_list_tbl');
 				// 標題
 				$crud->set_subject($this->lang->line('tabels_user_accounts'));
 				// 移除新增
