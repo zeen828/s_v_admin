@@ -32,7 +32,7 @@ class Privileges extends CI_Controller
                 'class' => 'fa-cog'
         );
         // 效能檢查
-        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
     }
 
     public function index ()

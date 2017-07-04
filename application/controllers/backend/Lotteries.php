@@ -29,10 +29,10 @@ class Lotteries extends CI_Controller {
 				'class' => 'fa-star'
 		);
 		// 效能檢查
-		// $this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 	}
 
-	public function open_list($pk) {
+	public function list_lottery($pk) {
 		try {
 			echo $pk;
 			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
@@ -55,7 +55,11 @@ class Lotteries extends CI_Controller {
 		}
 	}
 
-	public function openlist($pk) {
+	/**
+	 * 中獎清單
+	 * @param unknown $pk
+	 */
+	public function winners_list($pk) {
 		try {
 			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
 				// 寫log
@@ -110,8 +114,8 @@ class Lotteries extends CI_Controller {
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '抽獎系統',
-						'link' => '/backend/lotteries/system',
+						'title' => '抽獎系統-中獎清單',
+						'link' => '/backend/lotteries/winners_list',
 						'class' => 'fa-cog'
 				);
 				// 套版
@@ -122,6 +126,9 @@ class Lotteries extends CI_Controller {
 		}
 	}
 
+	/**
+	 * 抽獎系統
+	 */
 	public function system() {
 		try {
 			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
@@ -154,7 +161,7 @@ class Lotteries extends CI_Controller {
 				$crud->columns('lc_pk', 'lc_title', 'lc_des', 'lc_method', 'lc_status', 'lc_start_at', 'lc_end_at');
 				// 事件
 				$crud->add_action('開獎頁', '/assets/grocery_crud/themes/flexigrid/css/images/export.png', '', '', array($this->grocery_callback,'callback_config_to_lotters_url'));
-				$crud->add_action('開獎名單', '/assets/grocery_crud/themes/flexigrid/css/images/export.png', 'backend/lotteries/openlist');
+				$crud->add_action('開獎名單', '/assets/grocery_crud/themes/flexigrid/css/images/export.png', 'backend/lotteries/winners_list');
 				// 資料庫欄位文字替換
 				$crud->display_as('lc_pk', $this->lang->line('fields_pk'));
 				$crud->display_as('lc_title', '標題');
@@ -189,6 +196,9 @@ class Lotteries extends CI_Controller {
 		}
 	}
 
+	/**
+	 * 抽獎系統設定
+	 */
 	public function config() {
 		try {
 			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
