@@ -67,6 +67,46 @@ class Lotters extends MY_REST_Controller {
 			}
 			$lottery_config = $this->lotters_config_model->get_row_lotters_config_by_pk('*', $data_input ['pk']);
 			$this->data_result['123'] = $lottery_config;
+			switch ($lottery_config->lc_db_type){
+				case 'mysql':
+					break;
+				case 'postgresql':
+					break;
+				case 'mongo':
+					break;
+				case 'model':
+					$model_group = $lottery_config->lc_db_group;
+					$model_name = $lottery_config->lc_db_table;
+					$model_function = $lottery_config->lc_db_where;
+					$model_select = '*';
+					$model_count = $data_input['count'];
+					$data_input['date_range'] = str_replace(' - ', ' AND ', $data_input['date_range']);
+					$model_where_string = sprintf('b_creat_utc BETWEEN ', $data_input['date_range']);
+					$this->load->model ( sprintf('%s/%s', $model_group, $model_name) );
+					switch ($lottery_config->lc_db_type){
+						default://0
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string);
+							break;
+						case '1':
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1);
+							break;
+						case '2':
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2);
+							break;
+						case '3':
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3);
+							break;
+						case '4':
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3, $lottery_config->lc_value4);
+							break;
+						case '5':
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3, $lottery_config->lc_value4, $lottery_config->lc_value5);
+							break;
+					}
+					break;
+				default:
+					break;
+			}
 			// 結束時間標記
 			$this->benchmark->mark ( 'code_end' );
 			// 標記時間計算

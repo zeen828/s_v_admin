@@ -36,11 +36,12 @@ class Boards_model extends CI_Model {
 	}
 	/**
 	 * 依節目查詢資料
-	 * @param unknown $select
-	 * @param unknown $type
-	 * @param unknown $typeno
-	 * @param number $limit_start
-	 * @param number $limit
+	 * 
+	 * @param unknown $select        	
+	 * @param unknown $type        	
+	 * @param unknown $typeno        	
+	 * @param number $limit_start        	
+	 * @param number $limit        	
 	 * @return unknown
 	 */
 	public function get_Board_by_type_typeno($select, $type, $typeno, $limit_start = 0, $limit = 100) {
@@ -55,6 +56,29 @@ class Boards_model extends CI_Model {
 		$this->r_db->where ( 'b_status', '1' );
 		$this->r_db->order_by ( 'b_no', 'ASC' );
 		$this->r_db->limit ( $limit );
+		$query = $this->r_db->get ( 'Board_tbl' );
+		// echo $this->r_db->last_query ();
+		return $query;
+	}
+	/**
+	 * 取得亂數留言資料
+	 * @param unknown $select
+	 * @param number $count
+	 * @param unknown $where_string
+	 * @param unknown $type
+	 * @param unknown $typeno
+	 * @return unknown
+	 */
+	public function get_rand_Board_by_type_typeno($select, $count = 1, $where_string, $type, $typeno) {
+		if (! empty ( $select )) {
+			$this->r_db->select ( $select );
+		}
+		$this->r_db->where ( 'b_type', $type );
+		$this->r_db->where ( 'b_type_no', $typeno );
+		$this->r_db->where ( 'b_status', '1' );
+		if (! empty ( $where_string )) {
+			$this->r_db->where ( $where_string );
+		}
 		$query = $this->r_db->get ( 'Board_tbl' );
 		echo $this->r_db->last_query ();
 		return $query;
