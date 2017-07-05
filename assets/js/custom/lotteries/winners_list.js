@@ -11,6 +11,7 @@ var LotteriesWinners = function LotteriesWinners() {
 		};
 	}
 	this.lottery = function (){
+		_this.get_value();
 		if(typeof(myData.pk) != 'undefined' && myData.pk != '0' && typeof(myData.lottery_count) != 'undefined' && myData.lottery_count != ''){
 			console.log('A');
 		}else{
@@ -19,6 +20,7 @@ var LotteriesWinners = function LotteriesWinners() {
 		_this.restart_event();
 	}
 	this.clear = function (){
+		_this.get_value();
 		if(typeof(myData.pk) != 'undefined' && myData.pk != '0'){
 			console.log('C');
 		}else{
