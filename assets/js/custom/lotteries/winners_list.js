@@ -18,6 +18,14 @@ var LotteriesWinners = function LotteriesWinners() {
 		}
 		_this.restart_event();
 	}
+	this.clear = function (){
+		if(typeof(myData.pk) != 'undefined' && myData.pk != '0'){
+			console.log('C');
+		}else{
+			console.log('D');
+		}
+		_this.restart_event();
+	}
 	this.restart_event = function (){
 		//查詢
 		$(myClass + ' .lottery_btn').off('click').on('click', function() {
@@ -26,6 +34,7 @@ var LotteriesWinners = function LotteriesWinners() {
 		});
 		$(myClass + ' .clear_btn').off('click').on('click', function() {
 			console.log('清空得獎清單');
+			_this.clear();
 		});
 	}
 }
