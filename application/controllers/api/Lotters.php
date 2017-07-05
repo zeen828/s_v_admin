@@ -69,12 +69,16 @@ class Lotters extends MY_REST_Controller {
 			$this->data_result['123'] = $lottery_config;
 			switch ($lottery_config->lc_db_type){
 				case 'mysql':
+					$this->data_result['mysql'] = 'mysql';
 					break;
 				case 'postgresql':
+					$this->data_result['postgresql'] = 'postgresql';
 					break;
 				case 'mongo':
+					$this->data_result['mongo'] = 'mongo';
 					break;
 				case 'model':
+					$this->data_result['model'] = 'model';
 					$model_group = $lottery_config->lc_db_group;
 					$model_name = $lottery_config->lc_db_table;
 					$model_function = $lottery_config->lc_db_where;
@@ -85,27 +89,34 @@ class Lotters extends MY_REST_Controller {
 					$this->load->model ( sprintf('%s/%s', $model_group, $model_name) );
 					switch ($lottery_config->lc_value_count){
 						default://0
+							$this->data_result['lc_value_count'] = '0';
 							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string);
 							break;
 						case '1':
+							$this->data_result['lc_value_count'] = '1';
 							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1);
 							break;
 						case '2':
+							$this->data_result['lc_value_count'] = '2';
 							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2);
 							break;
 						case '3':
+							$this->data_result['lc_value_count'] = '3';
 							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3);
 							break;
 						case '4':
+							$this->data_result['lc_value_count'] = '4';
 							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3, $lottery_config->lc_value4);
 							break;
 						case '5':
+							$this->data_result['lc_value_count'] = '5';
 							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3, $lottery_config->lc_value4, $lottery_config->lc_value5);
 							break;
 					}
 					$this->data_result['query'] = $query;
 					break;
 				default:
+					$this->data_result['default'] = 'default';
 					break;
 			}
 			// 結束時間標記
