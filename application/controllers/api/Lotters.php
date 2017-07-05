@@ -55,7 +55,7 @@ class Lotters extends MY_REST_Controller {
 			$data_input = array();
 			// input
 			$data_input['pk'] = $this->post('pk');
-			$data_input['date_range'] = $this->post('date_range');
+			$data_input['date_range'] = $this->post('date_range');//2017-06-27 - 2017-07-04
 			$data_input['count'] = $this->post('count');
 			// 必填檢查
 			if (empty ( $data_input ['pk'] )) {
@@ -85,7 +85,7 @@ class Lotters extends MY_REST_Controller {
 					$model_select = '*';
 					$model_count = $data_input['count'];
 					$data_input['date_range'] = str_replace(' - ', ' AND ', $data_input['date_range']);
-					$model_where_string = sprintf('b_creat_utc BETWEEN ', $data_input['date_range']);
+					$model_where_string = sprintf('b_creat_utc BETWEEN %s', $data_input['date_range']);
 					$this->load->model ( sprintf('%s/%s', $model_group, $model_name) );
 					switch ($lottery_config->lc_value_count){
 						default://0
