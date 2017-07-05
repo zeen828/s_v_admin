@@ -82,7 +82,7 @@ class Boards_model extends CI_Model {
 		$this->r_db->order_by( 'title', 'RANDOM' );
 		$this->r_db->limit( $count );
 		$query = $this->r_db->get ( 'Board_tbl' );
-		echo $this->r_db->last_query ();
+		// echo $this->r_db->last_query ();
 		return $query;
 	}
 }
