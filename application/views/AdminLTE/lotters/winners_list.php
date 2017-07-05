@@ -14,7 +14,7 @@
 									</div>
 								</div>
 								<div class="col-lg-3">
-									<input type="text" name="lottery_count" value="" class="form-control pull-right" id="reservation" placeholder="抽獎名額...">
+									<input type="text" name="count" value="" class="form-control pull-right" id="reservation" placeholder="抽獎名額...">
 								</div>
 								<div class="col-lg-2">
 									<button type="button" class="lottery_btn btn btn-info btn-flat">抽獎</button>

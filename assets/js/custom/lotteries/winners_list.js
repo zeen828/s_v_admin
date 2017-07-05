@@ -7,12 +7,12 @@ var LotteriesWinners = function LotteriesWinners() {
 		myData = {
 			'pk': $(myClass+ ' input[name="pk"]').val(),
 			'date_range': $(myClass+ ' input[name="date_range"]').val(),
-			'lottery_count': $(myClass+ ' input[name="lottery_count"]').val()
+			'count': $(myClass+ ' input[name="count"]').val()
 		};
 	}
 	this.lottery = function (){
 		_this.get_value();
-		if(typeof(myData.pk) != 'undefined' && myData.pk != '0' && typeof(myData.lottery_count) != 'undefined' && myData.lottery_count != ''){
+		if(typeof(myData.pk) != 'undefined' && myData.pk != '0' && typeof(myData.count) != 'undefined' && myData.count != ''){
 			console.log('A');
 		}else{
 			console.log('B');
