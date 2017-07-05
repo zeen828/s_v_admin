@@ -62,11 +62,11 @@ class Boards_model extends CI_Model {
 	}
 	/**
 	 * 取得亂數留言資料
-	 * @param unknown $select
-	 * @param number $count
-	 * @param unknown $where_string
-	 * @param unknown $type
-	 * @param unknown $typeno
+	 * @param unknown $select			查詢解果
+	 * @param number $count				查詢筆數
+	 * @param unknown $where_string		查詢額外條件最後
+	 * @param unknown $type				留言類型
+	 * @param unknown $typeno			流言號碼
 	 * @return unknown
 	 */
 	public function get_rand_Board_by_type_typeno($select, $count = 1, $where_string, $type, $typeno) {
@@ -81,7 +81,7 @@ class Boards_model extends CI_Model {
 		}
 		$this->r_db->order_by($count, 'RANDOM');
 		$query = $this->r_db->get ( 'Board_tbl' );
-		echo $this->r_db->last_query ();
+		// echo $this->r_db->last_query ();
 		return $query;
 	}
 }
