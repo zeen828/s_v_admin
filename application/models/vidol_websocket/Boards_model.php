@@ -80,7 +80,8 @@ class Boards_model extends CI_Model {
 			$this->r_db->where ( $where_string );
 		}
 		$query = $this->r_db->get ( 'Board_tbl' );
-		echo $this->r_db->last_query ();
-		return $query;
+		//echo $this->r_db->last_query ();
+		return $this->r_db->last_query ();
+		//return $query;
 	}
 }

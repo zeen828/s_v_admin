@@ -103,6 +103,7 @@ class Lotters extends MY_REST_Controller {
 							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3, $lottery_config->lc_value4, $lottery_config->lc_value5);
 							break;
 					}
+					$this->data_result['query'] = $query;
 					break;
 				default:
 					break;
