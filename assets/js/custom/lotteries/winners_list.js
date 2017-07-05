@@ -28,7 +28,7 @@ var LotteriesWinners = function LotteriesWinners() {
 				statusCode: {  
 					200: function(json, statusText, xhr) {
 						console.log(json);
-						location.reload();
+						//location.reload();
 					}
 				}
 			});
