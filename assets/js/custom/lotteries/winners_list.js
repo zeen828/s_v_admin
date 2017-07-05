@@ -3,6 +3,13 @@ var LotteriesWinners = function LotteriesWinners() {
 	var myClass = '.lotters_content';
 	var _this = this;
 	var _datatable;
+	this.get_value = function (){
+		myData = {
+			'pk': $('.lotters_content select[name="pk"]').val(),
+			'date_range': $('.lotters_content input[name="date_range"]').val(),
+			'lottery_count': $('.lotters_content input[name="lottery_count"]').val()
+		};
+	}
 	this.search = function (){
 		_this.restart_event();
 	}
@@ -23,18 +30,10 @@ $(document).ready(function(){
 		$('input[name="date_range"]').daterangepicker(
 				{
 					format: 'YYYY-MM-DD'
-					//minDate: '-10d',
-					//maxDate: '+10d'
 				}
 		);
 	}
-	myData = {
-		'date_range': $('.orders_content input[name="date_range"]').val(),
-		'status': $('.orders_content select[name="status"]').val(),
-		'oredr_sn': $('.orders_content input[name="oredr_sn"]').val(),
-		'user': $('.orders_content input[name="user"]').val()
-	};
 	var run = new LotteriesWinners();
+	run.get_value();
 	run.restart_event();
-	run.search();
 });

@@ -39,4 +39,26 @@ class Lotters extends MY_REST_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	/**
+	 * 抽獎活動 >> 抽獎系統-中獎名單 >> 抽獎AJAX
+	 */
+	public function lottery_post() {
+		try {
+			// 開始時間標記
+			$this->benchmark->mark ( 'code_start' );
+			//
+			$this->w_db = $this->load->database ( 'vidol_old_write', TRUE );
+			$this->w_db->truncate('lottery_iphone_list_tbl');
+			$sql = 'UPDATE lottery_iphone_tbl SET status = 1 WHERE id > 1';
+			$this->data_result ['status'] = $this->w_db->query($sql);
+			$this->w_db->close();
+			// 結束時間標記
+			$this->benchmark->mark ( 'code_end' );
+			// 標記時間計算
+			$this->data_result ['time'] = $this->benchmark->elapsed_time ( 'code_start', 'code_end' );
+			$this->response ( $this->data_result, 200 );
+		} catch ( Exception $e ) {
+			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
+		}
+	}
 }
