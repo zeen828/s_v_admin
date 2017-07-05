@@ -10,13 +10,19 @@ var LotteriesWinners = function LotteriesWinners() {
 			'lottery_count': $('.lotters_content input[name="lottery_count"]').val()
 		};
 	}
-	this.search = function (){
+	this.lottery = function (){
+		if(typeof(myData.pk) != 'undefined' && myData.pk != '0' && typeof(myData.lottery_count) != 'undefined' && myData.lottery_count != ''){
+			console.log('A');
+		}else{
+			console.log('B');
+		}
 		_this.restart_event();
 	}
 	this.restart_event = function (){
 		//查詢
 		$(myClass + ' .lottery_btn').off('click').on('click', function() {
 			console.log('抽獎');
+			_this.lottery();
 		});
 		$(myClass + ' .clear_btn').off('click').on('click', function() {
 			console.log('清空得獎清單');
