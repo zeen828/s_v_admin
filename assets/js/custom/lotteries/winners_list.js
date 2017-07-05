@@ -5,9 +5,9 @@ var LotteriesWinners = function LotteriesWinners() {
 	var _datatable;
 	this.get_value = function (){
 		myData = {
-			'pk': $('.lotters_content select[name="pk"]').val(),
-			'date_range': $('.lotters_content input[name="date_range"]').val(),
-			'lottery_count': $('.lotters_content input[name="lottery_count"]').val()
+			'pk': $(myClass+ ' input[name="pk"]').val(),
+			'date_range': $(myClass+ ' input[name="date_range"]').val(),
+			'lottery_count': $(myClass+ ' input[name="lottery_count"]').val()
 		};
 	}
 	this.lottery = function (){
