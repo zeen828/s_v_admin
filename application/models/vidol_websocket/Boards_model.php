@@ -79,7 +79,8 @@ class Boards_model extends CI_Model {
 		if (! empty ( $where_string )) {
 			$this->r_db->where ( $where_string );
 		}
-		$this->r_db->order_by($count, 'RANDOM');
+		$this->r_db->order_by( 'title', 'RANDOM' );
+		$this->r_db->limit( $count );
 		$query = $this->r_db->get ( 'Board_tbl' );
 		echo $this->r_db->last_query ();
 		return $query;
