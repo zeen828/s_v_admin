@@ -13,9 +13,27 @@ var LotteriesWinners = function LotteriesWinners() {
 	this.lottery = function (){
 		_this.get_value();
 		if(typeof(myData.pk) != 'undefined' && myData.pk != '0' && typeof(myData.count) != 'undefined' && myData.count != ''){
-			console.log('A');
+			$.ajax({
+				url: '/api/lotters/lottery.json',
+				type: 'POST',
+				cache: false,
+				headers: {
+					'Authorization' : 'sw84sc888kkcg0ogo8cw4swgkswkw048cc48swk8'
+				},
+				dataType: 'json',
+				data: myData,
+				error: function(xhr){
+					alert('Ajax request error');
+				},
+				statusCode: {  
+					200: function(json, statusText, xhr) {
+						console.log(json);
+						location.reload();
+					}
+				}
+			});
 		}else{
-			console.log('B');
+			alert('資料錯誤');
 		}
 		_this.restart_event();
 	}
