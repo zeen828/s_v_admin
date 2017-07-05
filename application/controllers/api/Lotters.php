@@ -83,7 +83,7 @@ class Lotters extends MY_REST_Controller {
 					$data_input['date_range'] = str_replace(' - ', ' AND ', $data_input['date_range']);
 					$model_where_string = sprintf('b_creat_utc BETWEEN ', $data_input['date_range']);
 					$this->load->model ( sprintf('%s/%s', $model_group, $model_name) );
-					switch ($lottery_config->lc_db_type){
+					switch ($lottery_config->lc_value_count){
 						default://0
 							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string);
 							break;
