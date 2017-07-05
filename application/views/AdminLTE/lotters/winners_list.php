@@ -13,6 +13,7 @@
 									</div>
 								</div>
 								<div class="col-lg-3">
+									<input type="hidden" name="pk" value="<?php echo $this->uri->segment(4, 0);?>">
 									<input type="text" name="lottery_count" value="" class="form-control pull-right" id="reservation" placeholder="抽獎名額...">
 								</div>
 								<div class="col-lg-2">
