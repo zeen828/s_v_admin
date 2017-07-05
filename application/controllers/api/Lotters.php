@@ -81,8 +81,8 @@ class Lotters extends MY_REST_Controller {
 					$this->data_result['model'] = 'model';
 					$model_group = $lottery_config->lc_db_group;
 					$model_name = $lottery_config->lc_db_table;
+					$model_select = $lottery_config->lc_db_select;
 					$model_function = $lottery_config->lc_db_where;
-					$model_select = '*';
 					$model_count = $data_input['count'];
 					$data_input['date_range'] = str_replace(' - ', '\' AND \'', $data_input['date_range']);
 					$model_where_string = sprintf('b_creat_utc BETWEEN \'%s\'', $data_input['date_range']);
@@ -114,6 +114,18 @@ class Lotters extends MY_REST_Controller {
 							break;
 					}
 					$this->data_result['query'] = $query;
+					if ($query->num_rows () > 0) {
+						foreach ( $query->result () as $row ) {
+							$data_input = array(
+									'lw_lc_pk'=>$lottery_config->lc_pk,
+									'lw_lc_title'=>$lottery_config->lc_title,
+									'lw_mongo_id'=>$row->mongo_id,
+									'lw_member_id'=>$row->member_id,
+									'lw_status'=>'1',
+							);
+							$this->lotters_winners_list_model->insert_lotters_winners_list_for_data($data_input);
+						}
+					}
 					break;
 				default:
 					$this->data_result['default'] = 'default';
