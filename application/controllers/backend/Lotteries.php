@@ -32,20 +32,59 @@ class Lotteries extends CI_Controller {
 		$this->output->enable_profiler(TRUE);
 	}
 
-	public function list_lottery($pk) {
+	/**
+	 * 抽獎清單
+	 * @param unknown $pk
+	 */
+	public function lottery_list($pk) {
 		try {
-			echo $pk;
 			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
-				// 引入
-				$this->load->model ( 'vidol_old/lotters_config_model' );
-				$lotters_config = $this->lotters_config_model->get_row_lotters_config_by_pk('*', $pk);
-				print_r($lotters_config);
-				$this->data_view['right_countent']['view_path'] = '';
+				// 寫log
+				$this->fun->logs('觀看抽獎系統設定結果');
+				// 變數
+				$data_post = array();
+				// 強制切換資料庫
+				unset($this->db);
+				$this->db = $this->load->database('vidol_old_write', true);
+				// grocery_CRUD 自產表單
+				$this->load->library('grocery_CRUD'); // CI整合表單http://www.grocerycrud.com/
+				$this->load->library('vidol/grocery_callback');
+				$crud = new grocery_CRUD();
+				// 語系
+				$crud->set_language('taiwan');
+				// 版型
+				$crud->set_theme('flexigrid');
+				// 表格
+				$crud->set_table('lotters_winners_list_tbl');
+				$crud->where('lw_lc_pk', $pk);
+				$crud->where('lw_status', 1);
+				// 標題
+				$crud->set_subject('抽獎系統-抽獎清單');
+				// 移除新增
+				$crud->unset_add();
+				// 移除編輯
+				$crud->unset_edit();
+				// 移除刪除
+				$crud->unset_delete();
+				// 清單顯示欄位
+				$crud->columns('lw_pk', 'lw_lc_pk', 'lw_lc_title', 'lw_mongo_id', 'lw_member_id', 'lw_status', 'lw_crated_at');
+				// 資料庫欄位文字替換
+				$crud->display_as('lw_pk', $this->lang->line('fields_pk'));
+				$crud->display_as('lw_lc_pk', '抽獎系統主建');
+				$crud->display_as('lw_lc_title', '抽獎系統標題');
+				$crud->display_as('lw_mongo_id', $this->lang->line('fields_mongo_id'));
+				$crud->display_as('lw_member_id', $this->lang->line('fields_member_id'));
+				$crud->display_as('lw_status', $this->lang->line('fields_status'));
+				$crud->display_as('lw_crated_at', $this->lang->line('fields_time_creat_tw'));
+				// 產生表單
+				$output = $crud->render();
+				// 資料整理
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/lotters/winners_list';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '抽獎系統-清單開獎',
-						'link' => '/backend/lotteries/open_list',
-						'class' => 'fa-object-group'
+						'title' => '抽獎系統-抽獎清單',
+						'link' => '/backend/lotteries/lottery_list',
+						'class' => 'fa-cog'
 				);
 				// 套版
 				$this->load->view('AdminLTE/include/html5', $this->data_view);
@@ -102,7 +141,7 @@ class Lotteries extends CI_Controller {
 				// 產生表單
 				$output = $crud->render();
 				// 資料整理
-				$this->data_view['right_countent']['view_path'] = 'AdminLTE/lotters/winners_list';
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '抽獎系統-中獎名單',
