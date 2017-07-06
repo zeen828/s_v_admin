@@ -165,7 +165,7 @@ $user_count = $this->mongo_db->count('_User');
     			print_r($status);
     		}
     		// 資料整理
-    		$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal';
+    		$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal_edit';
     		$this->data_view['right_countent']['tags']['tag_2'] = array(
     				'title' => '個人檔案',
     				'link' => '/backend/homes/personal',
