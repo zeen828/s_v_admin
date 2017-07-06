@@ -153,4 +153,39 @@ class Lotters extends MY_REST_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	
+	/**
+	 * 清除抽獎中獎名單
+	 */
+	public function lottery_clear_post() {
+		try {
+			// 開始時間標記
+			$this->benchmark->mark ( 'code_start' );
+			// 引入
+			$this->config->load ( 'restful_status_code' );
+			$this->load->model ( 'vidol_old/lotters_winners_list_model' );
+			$this->lang->load ( 'restful_status_lang', 'traditional-chinese' );
+			// 變數
+			$data_input = array();
+			// input
+			$data_input['pk'] = $this->post('pk');
+			// 必填檢查
+			if (empty ( $data_input ['pk'] )) {
+				// 必填錯誤
+				$this->data_result ['message'] = $this->lang->line ( 'input_required_error' );
+				$this->data_result ['code'] = $this->config->item ( 'input_required_error' );
+				$this->response ( $this->data_result, 416 );
+				return;
+			}
+			// 清除中獎名單
+			$this->lotters_winners_list_model->clear_winners_list_by_lw_lc_pk($data_input['pk']);
+			// 結束時間標記
+			$this->benchmark->mark ( 'code_end' );
+			// 標記時間計算
+			$this->data_result ['time'] = $this->benchmark->elapsed_time ( 'code_start', 'code_end' );
+			$this->response ( $this->data_result, 200 );
+		} catch ( Exception $e ) {
+			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
+		}
+	}
 }

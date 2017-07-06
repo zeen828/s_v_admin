@@ -23,7 +23,7 @@
 									<button type="button" class="lottery_btn btn btn-info btn-flat">抽獎</button>
 								</div>
 								<div class="col-lg-1">
-									<!-- button type="button" class="clear_btn btn btn-info btn-flat">清空得獎清單</button -->
+									<button type="button" class="clear_btn btn btn-info btn-flat">清空得獎清單</button>
 								</div>
 							</div>
 							<div class="col-xs-12 text-center loading" style="display:none">
