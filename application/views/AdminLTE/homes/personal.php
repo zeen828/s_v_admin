@@ -9,7 +9,7 @@
                                         <b>信箱</b> <a class="pull-right"><?php echo $user['email'];?></a>
                                     </li>
                                 </ul>
-                                <a href="#" class="btn btn-primary btn-block"><b>編輯資料</b></a>
+                                <a href="/backend/homes/personal_edit" class="btn btn-primary btn-block"><b>編輯資料</b></a>
                             </div>
                         </div>
                     </div>

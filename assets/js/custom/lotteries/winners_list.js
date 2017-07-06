@@ -25,10 +25,10 @@ var LotteriesWinners = function LotteriesWinners() {
 				error: function(xhr){
 					alert('Ajax request error');
 				},
-				statusCode: {  
+				statusCode: {
 					200: function(json, statusText, xhr) {
 						console.log(json);
-						//location.reload();
+						location.reload();
 					}
 				}
 			});
@@ -42,7 +42,7 @@ var LotteriesWinners = function LotteriesWinners() {
 		if(typeof(myData.pk) != 'undefined' && myData.pk != '0'){
 			console.log('C');
 		}else{
-			console.log('D');
+			alert('資料錯誤');
 		}
 		_this.restart_event();
 	}

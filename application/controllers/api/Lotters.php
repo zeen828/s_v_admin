@@ -70,12 +70,18 @@ class Lotters extends MY_REST_Controller {
 			switch ($lottery_config->lc_db_type){
 				case 'mysql':
 					$this->data_result['mysql'] = 'mysql';
+					$this->response ( $this->data_result, 404 );
+					return;
 					break;
 				case 'postgresql':
 					$this->data_result['postgresql'] = 'postgresql';
+					$this->response ( $this->data_result, 404 );
+					return;
 					break;
 				case 'mongo':
 					$this->data_result['mongo'] = 'mongo';
+					$this->response ( $this->data_result, 404 );
+					return;
 					break;
 				case 'model':
 					$this->data_result['model'] = 'model';
@@ -84,10 +90,15 @@ class Lotters extends MY_REST_Controller {
 					$model_select = $lottery_config->lc_db_select;
 					$model_function = $lottery_config->lc_db_where;
 					$model_count = $data_input['count'];
-					$data_input['date_range'] = str_replace(' - ', '\' AND \'', $data_input['date_range']);
-					$model_where_string = sprintf('b_creat_utc BETWEEN \'%s\'', $data_input['date_range']);
+					//日期處理沒自己加'會被CI變成`無法正確查詢
+					$model_where_string = '';
+					if(!empty($data_input['date_range'])){
+						$data_input['date_range'] = str_replace(' - ', '\' AND \'', $data_input['date_range']);
+						$model_where_string = sprintf('b_creat_utc BETWEEN \'%s\'', $data_input['date_range']);
+					}
 					$this->load->model ( sprintf('%s/%s', $model_group, $model_name) );
 					switch ($lottery_config->lc_value_count){
+						//資料塞選, 資料取得筆數, 額外條件, 設定變數1, 設定變數2, 設定變數3, 設定變數4, 設定變數5
 						default://0
 							$this->data_result['lc_value_count'] = '0';
 							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string);

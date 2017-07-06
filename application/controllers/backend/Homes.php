@@ -110,7 +110,7 @@ $user_count = $this->mongo_db->count('_User');
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
     }
-    
+
     // 帳戶個人資料
     public function personal ()
     {
@@ -143,5 +143,39 @@ $user_count = $this->mongo_db->count('_User');
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
+    }
+
+    // 帳戶個人資料編輯
+    public function personal_edit ()
+    {
+    	try {
+    		// 寫log
+    		$this->fun->logs('個人檔案');
+    		// 變數
+    		$data_post = array();
+    		// input
+    		$data_post['password'] = $this->input->post('password');
+    		$data_post['new_pass'] = $this->input->post('new_pass');
+    		$data_post['confirm_pass'] = $this->input->post('confirm_pass');
+    		//print_r($data_post);
+    		// 改密碼
+    		if (! empty($data_post['password']) && ! empty($data_post['new_pass']) && $data_post['new_pass'] == $data_post['confirm_pass']) {
+    			$identity = $this->flexi_auth->get_user_identity();
+    			$status = $this->flexi_auth->change_password($identity, $data_post['password'], $data_post['new_pass']);
+    			print_r($status);
+    		}
+    		// 資料整理
+    		$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal';
+    		$this->data_view['right_countent']['tags']['tag_2'] = array(
+    				'title' => '個人檔案',
+    				'link' => '/backend/homes/personal',
+    				'class' => 'fa-user'
+    		);
+    		//print_r($this->data_view);
+    		// 套版
+    		$this->load->view('AdminLTE/include/html5', $this->data_view);
+    	} catch (Exception $e) {
+    		show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
+    	}
     }
 }
