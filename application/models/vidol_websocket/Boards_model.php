@@ -69,7 +69,7 @@ class Boards_model extends CI_Model {
 	 * @param unknown $typeno			流言號碼
 	 * @return unknown
 	 */
-	public function get_rand_Board_by_type_typeno($select, $count = 1, $where_string, $type, $typeno) {
+	public function get_rand_Board_by_type_typeno($select, $count = 1, $like = '', $where_string, $type, $typeno) {
 		if (! empty ( $select )) {
 			$this->r_db->select ( $select );
 		}
@@ -78,6 +78,9 @@ class Boards_model extends CI_Model {
 		$this->r_db->where ( 'b_status', '1' );
 		if (! empty ( $where_string )) {
 			$this->r_db->where ( $where_string );
+		}
+		if (! empty ( $like )) {
+			$this->r_db->like('b_message', $like);
 		}
 		$this->r_db->order_by( 'title', 'RANDOM' );
 		$this->r_db->limit( $count );

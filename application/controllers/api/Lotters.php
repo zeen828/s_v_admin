@@ -56,6 +56,7 @@ class Lotters extends MY_REST_Controller {
 			// input
 			$data_input['pk'] = $this->post('pk');
 			$data_input['date_range'] = $this->post('date_range');//2017-06-27 - 2017-07-04
+			$data_input['like'] = $this->post('like');
 			$data_input['count'] = $this->post('count');
 			// 必填檢查
 			if (empty ( $data_input ['pk'] )) {
@@ -89,6 +90,7 @@ class Lotters extends MY_REST_Controller {
 					$model_name = $lottery_config->lc_db_table;
 					$model_select = $lottery_config->lc_db_select;
 					$model_function = $lottery_config->lc_db_where;
+					$model_like = $data_input['like'];
 					$model_count = $data_input['count'];
 					//日期處理沒自己加'會被CI變成`無法正確查詢
 					$model_where_string = '';
@@ -98,30 +100,30 @@ class Lotters extends MY_REST_Controller {
 					}
 					$this->load->model ( sprintf('%s/%s', $model_group, $model_name) );
 					switch ($lottery_config->lc_value_count){
-						//資料塞選, 資料取得筆數, 額外條件, 設定變數1, 設定變數2, 設定變數3, 設定變數4, 設定變數5
+						//資料塞選, 資料取得筆數, 額外條件, like額外條件, 設定變數1, 設定變數2, 設定變數3, 設定變數4, 設定變數5
 						default://0
 							$this->data_result['lc_value_count'] = '0';
-							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string);
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_like, $model_where_string);
 							break;
 						case '1':
 							$this->data_result['lc_value_count'] = '1';
-							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1);
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_like, $model_where_string, $lottery_config->lc_value1);
 							break;
 						case '2':
 							$this->data_result['lc_value_count'] = '2';
-							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2);
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_like, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2);
 							break;
 						case '3':
 							$this->data_result['lc_value_count'] = '3';
-							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3);
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_like, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3);
 							break;
 						case '4':
 							$this->data_result['lc_value_count'] = '4';
-							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3, $lottery_config->lc_value4);
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_like, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3, $lottery_config->lc_value4);
 							break;
 						case '5':
 							$this->data_result['lc_value_count'] = '5';
-							$query = $this->$model_name->$model_function($model_select, $model_count, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3, $lottery_config->lc_value4, $lottery_config->lc_value5);
+							$query = $this->$model_name->$model_function($model_select, $model_count, $model_like, $model_where_string, $lottery_config->lc_value1, $lottery_config->lc_value2, $lottery_config->lc_value3, $lottery_config->lc_value4, $lottery_config->lc_value5);
 							break;
 					}
 					$this->data_result['query'] = $query;

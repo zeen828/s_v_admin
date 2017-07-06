@@ -7,6 +7,7 @@ var LotteriesWinners = function LotteriesWinners() {
 		myData = {
 			'pk': $(myClass+ ' input[name="pk"]').val(),
 			'date_range': $(myClass+ ' input[name="date_range"]').val(),
+			'like': $(myClass+ ' input[name="like"]').val(),
 			'count': $(myClass+ ' input[name="count"]').val()
 		};
 	}

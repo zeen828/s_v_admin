@@ -14,13 +14,16 @@
 									</div>
 								</div>
 								<div class="col-lg-3">
+									<input type="text" name="like" value="" class="form-control pull-right" id="reservation" placeholder="留言內容...">
+								</div>
+								<div class="col-lg-3">
 									<input type="text" name="count" value="" class="form-control pull-right" id="reservation" placeholder="抽獎名額...">
 								</div>
-								<div class="col-lg-2">
+								<div class="col-lg-1">
 									<button type="button" class="lottery_btn btn btn-info btn-flat">抽獎</button>
 								</div>
-								<div class="col-lg-2">
-									<button type="button" class="clear_btn btn btn-info btn-flat">清空得獎清單</button>
+								<div class="col-lg-1">
+									<!-- button type="button" class="clear_btn btn btn-info btn-flat">清空得獎清單</button -->
 								</div>
 							</div>
 							<div class="col-xs-12 text-center loading" style="display:none">
