@@ -122,7 +122,7 @@ class Grocery_callback
     			break;
     		case 'list':
     		default:
-    			return site_url('/backend/lotteries/winners_list' . $primary_key);
+    			return site_url('/backend/lotteries/winners_list/' . $primary_key);
     			break;
     	}
     }
