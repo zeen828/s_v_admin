@@ -1,6 +1,6 @@
                     <div class="row">
+                    	<?php echo validation_errors(); ?>
                         <div class="box box-primary">
-                        <?php echo validation_errors(); ?>
                         <?php echo form_open('/backend/homes/personal'); ?>
                             <div class="box-body box-profile">
                                 <img class="profile-user-img img-responsive img-circle" src="<?php echo $user['user_img'];?>" alt="User profile picture">
