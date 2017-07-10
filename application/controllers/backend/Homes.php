@@ -146,7 +146,7 @@ $user_count = $this->mongo_db->count('_User');
            			$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal_success';
            		}else{
            			// 失敗提示
-           			$this->form_validation->set_message('system', '修改密碼錯誤!!');
+           			$this->form_validation->set_message('old_password', '修改密碼錯誤!!');
            		}
             }
             // 套版
