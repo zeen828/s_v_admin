@@ -138,7 +138,15 @@ $user_count = $this->mongo_db->count('_User');
                     'class' => 'fa-user'
             );
             // 套版
-            $this->load->view('AdminLTE/include/html5', $this->data_view);
+            //$this->load->view('AdminLTE/include/html5', $this->data_view);
+            if ($this->form_validation->run() == FALSE)
+            {
+            	$this->load->view('AdminLTE/include/html5', $this->data_view);
+            }
+            else
+            {
+            	$this->load->view('tests/formsuccess');
+            }
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
