@@ -29,7 +29,7 @@
                                         <input type="password" name="passconf" value="" size="50" />
                                     </li>
                                 </ul>
-                                <a href="/backend/homes/personal_edit" class="btn btn-primary btn-block"><b>修改密碼</b></a>
+                                <input type="submit" value="修改密碼" />
                             </div>
                         <?php echo form_close(); ?>
                         </div>
