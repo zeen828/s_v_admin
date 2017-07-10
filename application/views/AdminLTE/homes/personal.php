@@ -15,18 +15,21 @@
                                     <li class="list-group-item">
                                         <b>舊密碼</b>
                                         <input type="password" name="old_password" value="" size="50" />
+                                        <?php echo form_error('old_password'); ?>
                                     </li>
                                 </ul>
                                 <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item">
                                         <b>新密碼</b>
                                         <input type="password" name="new_password" value="" size="50" />
+                                        <?php echo form_error('new_password'); ?>
                                     </li>
                                 </ul>
                                 <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item">
                                         <b>確認密碼</b>
                                         <input type="password" name="confirm_password" value="" size="50" />
+                                        <?php echo form_error('confirm_password'); ?>
                                     </li>
                                 </ul>
                                 <input type="submit" value="修改密碼" />
