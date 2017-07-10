@@ -129,24 +129,23 @@ $user_count = $this->mongo_db->count('_User');
             $this->form_validation->set_rules('old_password', 'Old Password', 'required');
             $this->form_validation->set_rules('new_password', 'New Password', 'required');
             // 資料整理
-            //$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal';
-            if ($this->form_validation->run() == FALSE){
-            	$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal';
-            }else{
-            	//表單檢查通過
-            	// 改密碼
-            	if (! empty($data_post['old_password']) && ! empty($data_post['new_password'])) {
-            		$identity = $this->flexi_auth->get_user_identity();
-            		$status = $this->flexi_auth->change_password($identity, $data_post['old_password'], $data_post['new_password']);
-            		print_r($status);
-            	}
-            	$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal_edit';
-            }
+            $this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal';
             $this->data_view['right_countent']['tags']['tag_2'] = array(
             		'title' => '個人檔案',
             		'link' => '/backend/homes/personal',
             		'class' => 'fa-user'
             );
+            // 表單資料檢查
+            if ($this->form_validation->run() == TRUE){
+            	// 表單檢查通過
+           		// 改密碼
+           		$identity = $this->flexi_auth->get_user_identity();
+           		$status = $this->flexi_auth->change_password($identity, $data_post['old_password'], $data_post['new_password']);
+           		if(!empty($status)){
+           			// 成功
+           			$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal_success';
+           		}
+            }
             // 套版
             $this->load->view('AdminLTE/include/html5', $this->data_view);
         } catch (Exception $e) {
