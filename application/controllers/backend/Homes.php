@@ -117,19 +117,16 @@ $user_count = $this->mongo_db->count('_User');
         try {
         	// 寫log
         	$this->fun->logs('個人檔案');
+        	// 引用
+        	$this->load->helper(array('form', 'url'));
+        	$this->load->library('form_validation');
             // 變數
             $data_post = array();
-            // input
-            $data_post['password'] = $this->input->post('password');
-            $data_post['new_pass'] = $this->input->post('new_pass');
-            $data_post['confirm_pass'] = $this->input->post('confirm_pass');
-            //print_r($data_post);
-            // 改密碼
-            if (! empty($data_post['password']) && ! empty($data_post['new_pass']) && $data_post['new_pass'] == $data_post['confirm_pass']) {
-                $identity = $this->flexi_auth->get_user_identity();
-                $status = $this->flexi_auth->change_password($identity, $data_post['password'], $data_post['new_pass']);
-                print_r($status);
-            }
+            // form validation
+            $this->form_validation->set_rules('password', 'Password', 'required',
+            		array('required' => 'You must provide a %s.')
+            );
+            $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
             // 資料整理
             $this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal';
             $this->data_view['right_countent']['tags']['tag_2'] = array(
@@ -137,7 +134,6 @@ $user_count = $this->mongo_db->count('_User');
                     'link' => '/backend/homes/personal',
                     'class' => 'fa-user'
             );
-            //print_r($this->data_view);
             // 套版
             $this->load->view('AdminLTE/include/html5', $this->data_view);
         } catch (Exception $e) {
@@ -150,7 +146,40 @@ $user_count = $this->mongo_db->count('_User');
     {
     	try {
     		// 寫log
-    		$this->fun->logs('個人檔案');
+    		$this->fun->logs('編輯個人檔案');
+    		// 變數
+    		$data_post = array();
+    		// input
+    		$data_post['password'] = $this->input->post('password');
+    		$data_post['new_pass'] = $this->input->post('new_pass');
+    		$data_post['confirm_pass'] = $this->input->post('confirm_pass');
+    		//print_r($data_post);
+    		// 改密碼
+    		if (! empty($data_post['password']) && ! empty($data_post['new_pass']) && $data_post['new_pass'] == $data_post['confirm_pass']) {
+    			$identity = $this->flexi_auth->get_user_identity();
+    			$status = $this->flexi_auth->change_password($identity, $data_post['password'], $data_post['new_pass']);
+    			print_r($status);
+    		}
+    		// 資料整理
+    		$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal_edit';
+    		$this->data_view['right_countent']['tags']['tag_2'] = array(
+    				'title' => '個人檔案',
+    				'link' => '/backend/homes/personal',
+    				'class' => 'fa-user'
+    		);
+    		//print_r($this->data_view);
+    		// 套版
+    		$this->load->view('AdminLTE/include/html5', $this->data_view);
+    	} catch (Exception $e) {
+    		show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
+    	}
+    }
+    
+    public function personal_post ()
+    {
+    	try {
+    		// 寫log
+    		$this->fun->logs('編輯個人檔案{POST}');
     		// 變數
     		$data_post = array();
     		// input
