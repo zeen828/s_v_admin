@@ -131,22 +131,22 @@ $user_count = $this->mongo_db->count('_User');
             $this->form_validation->set_rules('new_password', 'New Password', 'required');
             $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required');
             // 資料整理
-            $this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal';
+            //$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal';
             $this->data_view['right_countent']['tags']['tag_2'] = array(
                     'title' => '個人檔案',
                     'link' => '/backend/homes/personal',
                     'class' => 'fa-user'
             );
-            // 套版
-            //$this->load->view('AdminLTE/include/html5', $this->data_view);
             if ($this->form_validation->run() == FALSE)
             {
-            	$this->load->view('AdminLTE/include/html5', $this->data_view);
+            	$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal';
             }
             else
             {
-            	$this->load->view('tests/formsuccess');
+            	$this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal_edit';
             }
+            // 套版
+            $this->load->view('AdminLTE/include/html5', $this->data_view);
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
