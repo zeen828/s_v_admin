@@ -20,7 +20,7 @@
                                         <?php echo form_error('new_password'); ?>
                                     </li>
                                 </ul>
-                                <input type="submit" value="修改密碼" />
+                                <input type="submit" value="修改密碼" class="btn-primary btn-block" />
                                 <?php echo $title;?>
                             </div>
                         <?php echo form_close(); ?>
