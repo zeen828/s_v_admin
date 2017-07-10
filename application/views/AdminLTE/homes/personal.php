@@ -25,6 +25,7 @@
                                     </li>
                                 </ul>
                                 <input type="submit" value="修改密碼" />
+                                <?php echo form_error('system'); ?>
                             </div>
                         <?php echo form_close(); ?>
                         </div>
