@@ -24,13 +24,6 @@
                                         <?php echo form_error('new_password'); ?>
                                     </li>
                                 </ul>
-                                <ul class="list-group list-group-unbordered">
-                                    <li class="list-group-item">
-                                        <b>確認密碼</b>
-                                        <input type="password" name="confirm_password" value="" size="50" />
-                                        <?php echo form_error('confirm_password'); ?>
-                                    </li>
-                                </ul>
                                 <input type="submit" value="修改密碼" />
                             </div>
                         <?php echo form_close(); ?>

@@ -9,10 +9,7 @@
                                         <b>信箱</b> <a class="pull-right"><?php echo $user['email'];?></a>
                                     </li>
                                     <li class="list-group-item">
-                                        <b>密碼</b> <a class="pull-right"><?php echo $user['email'];?></a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>確認密碼</b> <a class="pull-right"><?php echo $user['email'];?></a>
+                                        <b>密碼修改完成</b>
                                     </li>
                                 </ul>
                                 <a href="/backend/homes/personal_edit" class="btn btn-primary btn-block"><b>編輯資料</b></a>
