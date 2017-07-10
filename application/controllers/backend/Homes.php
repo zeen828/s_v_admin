@@ -124,7 +124,6 @@ $user_count = $this->mongo_db->count('_User');
             $data_post = array();
             $data_post['old_password'] = $this->input->post('old_password');
             $data_post['new_password'] = $this->input->post('new_password');
-            print_r($data_post);
             // form validation
             $this->form_validation->set_rules('old_password', 'Old Password', 'required');
             $this->form_validation->set_rules('new_password', 'New Password', 'required');
