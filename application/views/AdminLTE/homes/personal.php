@@ -1,5 +1,4 @@
                     <div class="row">
-                    	<?php echo validation_errors(); ?>
                         <div class="box box-primary">
                         <?php echo form_open('/backend/homes/personal'); ?>
                             <div class="box-body box-profile">
