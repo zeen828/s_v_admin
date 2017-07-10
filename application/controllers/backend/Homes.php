@@ -123,10 +123,9 @@ $user_count = $this->mongo_db->count('_User');
             // 變數
             $data_post = array();
             // form validation
-            $this->form_validation->set_rules('password', 'Password', 'required',
-            		array('required' => 'You must provide a %s.')
-            );
-            $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
+            $this->form_validation->set_rules('old_password', 'Old Password', 'required');
+            $this->form_validation->set_rules('new_password', 'New Password', 'required');
+            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required');
             // 資料整理
             $this->data_view['right_countent']['view_path'] = 'AdminLTE/homes/personal';
             $this->data_view['right_countent']['tags']['tag_2'] = array(

@@ -14,19 +14,19 @@
                                 <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item">
                                         <b>舊密碼</b>
-                                        <input type="password" name="password" value="" size="50" />
+                                        <input type="password" name="old_password" value="" size="50" />
                                     </li>
                                 </ul>
                                 <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item">
                                         <b>新密碼</b>
-                                        <input type="password" name="password" value="" size="50" />
+                                        <input type="password" name="new_password" value="" size="50" />
                                     </li>
                                 </ul>
                                 <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item">
                                         <b>確認密碼</b>
-                                        <input type="password" name="passconf" value="" size="50" />
+                                        <input type="password" name="confirm_password" value="" size="50" />
                                     </li>
                                 </ul>
                                 <input type="submit" value="修改密碼" />
