@@ -10,6 +10,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <b>密碼修改完成</b>
+                                        <b><?php echo $title;?></b>
                                     </li>
                                 </ul>
                             </div>
