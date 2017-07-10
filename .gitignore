@@ -68,3 +68,5 @@ application/controllers/api/Tests.php
 application/controllers/db/
 application/controllers/Tests.php
 application/views/tests*
+assets/uploads/captcha/*
+assets/uploads/qrcode/*
