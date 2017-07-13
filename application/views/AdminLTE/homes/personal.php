@@ -11,12 +11,12 @@
                                     </li>
                                     <li class="list-group-item">
                                         <b>舊密碼</b>
-                                        <input type="password" name="old_password" value="" class="pull-right" size="50" />
+                                        <input type="password" name="old_password" value="" class="" />
                                         <?php echo form_error('old_password'); ?>
                                     </li>
                                     <li class="list-group-item">
                                         <b>新密碼</b>
-                                        <input type="password" name="new_password" value="" class="pull-right" size="50" />
+                                        <input type="password" name="new_password" value="" class="" />
                                         <?php echo form_error('new_password'); ?>
                                     </li>
                                 </ul>
