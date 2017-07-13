@@ -77,11 +77,11 @@ class Accounts extends CI_Controller
                     $crud->unset_delete();
                 }
                 // 清單顯示欄位
-                $crud->columns('uacc_id', 'uacc_email', 'uacc_username', 'uacc_group_fk', 'uacc_active', 'uacc_ip_address');
+                $crud->columns('uacc_id', 'uacc_nickname', 'uacc_username', 'uacc_email', 'uacc_group_fk', 'uacc_active', 'uacc_ip_address');
                 // 新增欄位
-                $crud->add_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_password', 'uacc_active');
+                $crud->add_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_password', 'uacc_nickname', 'uacc_active');
                 // 編輯欄位
-                $crud->edit_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_password', 'uacc_active');
+                $crud->edit_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_password', 'uacc_nickname', 'uacc_active');
                 // 表單必填欄位
                	$crud->required_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_active');
                 // 欄位特殊屬性
@@ -109,6 +109,7 @@ class Accounts extends CI_Controller
                 $crud->display_as('uacc_date_last_login', $this->lang->line('fields_uacc_date_last_login'));
                 $crud->display_as('uacc_date_added', $this->lang->line('fields_uacc_date_added'));
                 $crud->display_as('uacc_personal_figure', $this->lang->line('fields_uacc_personal_figure'));
+                $crud->display_as('uacc_nickname', '暱稱');
                 // 欄位顯示改寫
                 $crud->callback_field('uacc_password', array(
                         $this->grocery_callback,
