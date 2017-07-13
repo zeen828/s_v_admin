@@ -16,7 +16,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <b>新密碼</b>
-                                        <input type="password" name="new_password" value="" class="" />
+                                        <input type="password" name="new_password" value="" class="pull-right" />
                                         <?php echo form_error('new_password'); ?>
                                     </li>
                                 </ul>
