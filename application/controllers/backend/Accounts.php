@@ -83,7 +83,7 @@ class Accounts extends CI_Controller
                 // 編輯欄位
                 $crud->edit_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_password', 'uacc_active');
                 // 表單必填欄位
-               	$crud->required_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_password', 'uacc_active');
+               	$crud->required_fields('uacc_group_fk', 'uacc_email', 'uacc_username', 'uacc_active');
                 // 欄位特殊屬性
                 $crud->field_type('uacc_password', 'password');
                 // 關聯
