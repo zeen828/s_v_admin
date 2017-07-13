@@ -39,5 +39,8 @@
 		.main-footer {
 				background-color: #c0c0c0;
 		}
+		input[type="text"] {
+			-webkit-appearance: none;
+		}
 		</style>
 
