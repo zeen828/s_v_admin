@@ -29,7 +29,7 @@ class Lotteries extends CI_Controller {
 				'class' => 'fa-star'
 		);
 		// 效能檢查
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 	}
 
 	/**
