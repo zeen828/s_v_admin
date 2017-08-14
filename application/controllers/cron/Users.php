@@ -146,18 +146,21 @@ class Users extends CI_Controller
      * 每小時註冊數
      * 補資料用
      */
-    public function test ()
+    public function test ($st=null, $en=null)
     {
         try {
             //
             $data = array();
             // 引用
             $this->load->model('mongo_model');
-            $st = 4200;
-            $en = 3500;
-            //$st = 150;
-            //$en = 0;
-            
+            if(empty($st)){
+            	$st = 150;
+            }
+            if(empty($en)){
+            	$en = 0;
+            }
+            $this->data_result['debug']['date']['st'] = $st;
+            $this->data_result['debug']['date']['en'] = $en;
             for ($i = $st; $i > $en; $i --) {
                 // 開始時間
                 $start_time = strtotime("-" . $i . " hour");
