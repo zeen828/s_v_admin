@@ -78,7 +78,7 @@ class Users extends CI_Controller
 		//
 		$count = $this->mongo_db->where ( '_created_at', 'null' )->count ( '_User' );
 		echo "沒有時間欄位的:", $count, "<br/>";
-		$count = $this->mongo_db->where ( array('_created_at'=>'{\$exists: true}') )->count ( '_User' );
+		$count = $this->mongo_db->where ( '_created_at', null )->count ( '_User' );
 		echo "有時間欄位的:", $count, "<br/>";
 		print_r($my_data);
 		exit();
