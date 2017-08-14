@@ -70,6 +70,11 @@ class Users extends CI_Controller
 		$tmp = new MongoDate( strtotime( '2017-09-01 00:00:01' ) );
 		$count = $this->mongo_db->where_gt( '_created_at', $tmp )->count ( '_User' );
 		echo "大於9月月總筆數:", $count, "<br/>";
+		//
+		$star_time = new MongoDate( strtotime( '2017-01-01 00:00:01' ) );
+		$end_time = new MongoDate( strtotime( '2018-01-01 00:00:01' ) );
+		$count = $this->mongo_db->where_gte ( '_created_at', $star_time )->where_lt( '_created_at', $end_time )->count ( '_User' );
+		echo $i, "年總筆數:", $count, "<br/>";
 		print_r($my_data);
 		exit();
 		$count = $this->mongo_db->count ( '_User' );
