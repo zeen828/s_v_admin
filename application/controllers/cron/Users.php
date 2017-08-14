@@ -323,7 +323,7 @@ class Users extends CI_Controller
     {
     	//db.getCollection('_User').find().limit(10).sort({_created_at:1})
     	//$limit = 10000;
-    	$limit = 50000;
+    	$limit = 10;
     	$user_count = $this->db->count_all('vidol_user.User_profile_tbl');
     	$data_arr = array(
     			'limit'=>$limit,
@@ -398,8 +398,10 @@ class Users extends CI_Controller
     				$this->db->set('u_status', $val['emailVerified']);
     			}
     			if (isset($val['_created_at'])) {
+					print_r($val['_created_at']);
     				if (isset($val['_created_at']->sec)) {
     					$tmp_date = date(DATE_ISO8601, $val['_created_at']->sec);
+						print_r($tmp_date);
     					$this->db->set('u_date_creat_utc', $tmp_date);
     					$this->db->set('u_date_creat_unix', $val['_created_at']->sec);
     				}
