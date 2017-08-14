@@ -334,10 +334,11 @@ class Users extends CI_Controller
      	$this->mongo_db->offset($user_count);
     	//$this->mongo_db->order_by(array('_created_at'=>'asc'));
     	$user = $this->mongo_db->get('_User');
-    	print_r($user);
+    	//print_r($user);
     	//exit();
     	if (count($user) > 0) {
     		foreach ($user as $val) {
+				print_r($val);
     			if (isset($val['_id'])) {
     				$this->db->set('u_mongo_id', $val['_id']);
     			}
