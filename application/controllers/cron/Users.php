@@ -41,7 +41,7 @@ class Users extends CI_Controller
 		$this->load->library ( 'mongo_db' );
 		$user = $this->mongo_db->where ( array ('member_id' => 'Bjdxmz', ) )->get ( '_User' );
 		print_r($user);
-		$created_at = date(DATE_ISO8601, $user['_created_at']->sec);
+		$created_at = date(DATE_ISO8601, $user['0']['_created_at']->sec);
 		print_r($created_at);
     }
 
