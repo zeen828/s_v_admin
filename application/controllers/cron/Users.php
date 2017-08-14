@@ -36,36 +36,13 @@ class Users extends CI_Controller
     {
     	print_r(array('DEMO'));
     }
-
-    public function mongo_test ($date = '')
+    public function mongo_test ()
     {
-    	$this->load->library ( 'mongo_db' );
-		$data = array();
-		$start_time = strtotime($date . "-1 hour");
-		$start_date = date("Y-m-d H:00:00", $start_time);
-		echo "開始時間:", $start_date, "<br/>";
-		// 記錄時間
-		$tmp_data = date("Y-m-d H:00:00", $start_time);
-		$tmp_time = strtotime($tmp_data);
-		echo "紀錄時間", $tmp_data, "<br/>";
-		// 結束時間
-		$end_time = strtotime($date . "-0 hour");
-		$end_date = date("Y-m-d H:00:00", $end_time);
-		echo "結束時間:", $end_date, "<br/>";
-		// 寫入資料庫用
-		// Y年,n月,j日,G時
-		$data['r_date_utc'] = date("Y-m-d H:i:s", strtotime($tmp_data . "-8 hour"));
-		$data['r_year_utc'] = date("Y", strtotime($tmp_data . "-8 hour"));
-		$data['r_month_utc'] = date("n", strtotime($tmp_data . "-8 hour"));
-		$data['r_day_utc'] = date("j", strtotime($tmp_data . "-8 hour"));
-		$data['r_hour_utc'] = date("G", strtotime($tmp_data . "-8 hour"));
-		$data['r_date_tw'] = date("Y-m-d H:i:s", $tmp_time);
-		$data['r_year_tw'] = date("Y", $tmp_time);
-		$data['r_month_tw'] = date("n", $tmp_time);
-		$data['r_day_tw'] = date("j", $tmp_time);
-		$data['r_hour_tw'] = date("G", $tmp_time);
-		print_r($data);
+		$this->load->library ( 'mongo_db' );
+		$user = $this->mongo_db->where ( array ('member_id' => 'Bjdxmz', ) )->get ( '_User' );
+		print_r($user);
     }
+
     /**
      * 每小時註冊數
      * 
@@ -323,7 +300,7 @@ class Users extends CI_Controller
     {
     	//db.getCollection('_User').find().limit(10).sort({_created_at:1})
     	//$limit = 10000;
-    	$limit = 10;
+    	$limit = 50000;
     	$user_count = $this->db->count_all('vidol_user.User_profile_tbl');
     	$data_arr = array(
     			'limit'=>$limit,
@@ -338,7 +315,6 @@ class Users extends CI_Controller
     	//exit();
     	if (count($user) > 0) {
     		foreach ($user as $val) {
-				print_r($val);
     			if (isset($val['_id'])) {
     				$this->db->set('u_mongo_id', $val['_id']);
     			}
@@ -399,10 +375,8 @@ class Users extends CI_Controller
     				$this->db->set('u_status', $val['emailVerified']);
     			}
     			if (isset($val['_created_at'])) {
-					print_r($val['_created_at']);
     				if (isset($val['_created_at']->sec)) {
     					$tmp_date = date(DATE_ISO8601, $val['_created_at']->sec);
-						print_r($tmp_date);
     					$this->db->set('u_date_creat_utc', $tmp_date);
     					$this->db->set('u_date_creat_unix', $val['_created_at']->sec);
     				}
