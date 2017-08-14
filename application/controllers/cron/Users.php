@@ -48,7 +48,7 @@ class Users extends CI_Controller
 		$count = $this->mongo_db->count ( '_User' );
 		echo "總筆數:", $count, "<br/>";
 		//每個月
-		for ($i = $my_data['start_m']; $i >= $my_data['end_m']; $i ++) {
+		for ($i = $my_data['start_m']; $i <= $my_data['end_m']; $i ++) {
 			echo $i;
 		}
 		exit();
