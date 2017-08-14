@@ -74,7 +74,10 @@ class Users extends CI_Controller
 		$star_time = new MongoDate( strtotime( '2017-01-01 00:00:01' ) );
 		$end_time = new MongoDate( strtotime( '2018-01-01 00:00:01' ) );
 		$count = $this->mongo_db->where_gte ( '_created_at', $star_time )->where_lt( '_created_at', $end_time )->count ( '_User' );
-		echo $i, "年總筆數:", $count, "<br/>";
+		echo "2017年總筆數:", $count, "<br/>";
+		//
+		$count = $this->mongo_db->where ( '_created_at', '{$exists: false}' )->count ( '_User' );
+		echo "沒有時間欄位的:", $count, "<br/>";
 		print_r($my_data);
 		exit();
 		$count = $this->mongo_db->count ( '_User' );
