@@ -50,8 +50,17 @@ class Users extends CI_Controller
 		//每個月
 		for ($i = $my_data['start_m']; $i <= $my_data['end_m']; $i ++) {
 			$star = sprintf('2017-%s-01 00:00:01', $i);
+			$star_time = new MongoDate( strtotime( $star ) );
 			$end = sprintf('2017-%s-01 00:00:01', $i + 1);
-			$my_data['where_date'][$i] = array( 'star'=>$star, 'end'=>$end );
+			$end_time = new MongoDate( strtotime( $end ) );
+			$my_data['where_date'][$i] = array(
+				'star'=>$star,
+				'star_time'=>$star_time,
+				'end'=>$end,
+				'end_time'=>$end_time,
+			);
+			$count = $this->mongo_db->where_gte ( '_created_at', $star_time )->where_lt( '_created_at', $end_time )->count ( '_User' );
+			echo $i, "月總筆數:", $count, "<br/>";
 		}
 		print_r($my_data);
 		exit();
