@@ -38,6 +38,22 @@ class Users extends CI_Controller
     }
     public function mongo_test ()
     {
+		$this->load->library ( 'mongo_db' );
+		$my_data = array(
+			'start_m' => 2,
+			'end_m' => date('m'),
+		);
+		print_r();
+		//總比數
+		$count = $this->mongo_db->count ( '_User' );
+		echo "總比數:", $count, "<br/>";
+		//每個月
+		for ($i = $my_data['start_m']; $i = $my_data['end_m']; $i ++) {
+			echo $i;
+		}
+		exit();
+		$count = $this->mongo_db->count ( '_User' );
+		echo "總比數:", $count, "<br/>";
 		//2017年8月14日星期一 23:28:34 GMT+08:00
 		$my_data = array(
 			'member_id' => '',
@@ -49,7 +65,7 @@ class Users extends CI_Controller
 			'end_mongo_time'=>'0',
 		);
 		//
-		$this->load->library ( 'mongo_db' );
+		
 		$my_data['start_mongo_time'] = new MongoDate( strtotime( $my_data['start'] ) );
 		$my_data['end_mongo_time'] = new MongoDate( strtotime( $my_data['end'] ) );
 		$count = $this->mongo_db->where_gt ( '_created_at', $my_data['start_mongo_time'] )->where_lte( '_created_at', $my_data['end_mongo_time'])->count ( '_User' );
