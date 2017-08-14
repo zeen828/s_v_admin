@@ -38,19 +38,38 @@ class Users extends CI_Controller
     }
     public function mongo_test ()
     {
+		$my_data = array(
+			'member_id' => 'Bjdxmz',
+			'start' => '2017-08-14 13:28:34',
+			'start_time'=>'0',
+			'start_mongo_time'=>'0',
+			'end' => '2017-08-14 13:29:00',
+			'end_time'=>'0',
+			'end_mongo_time'=>'0',
+		);
+		//
 		$this->load->library ( 'mongo_db' );
-		$user = $this->mongo_db->where ( array ('member_id' => 'Bjdxmz', ) )->get ( '_User' );
+		$user = $this->mongo_db->where ( array ('member_id' => $my_data['member_id'], ) )->get ( '_User' );
+		echo "user", "<br/>\n";
+		print_r($user);
+		echo "", "<br/>\n";
+		
+		$created_at = date(DATE_ISO8601, $user['0']['_created_at']->sec);
+		echo "created_at", "<br/>\n";
+		print_r($created_at);
+		echo "", "<br/>\n";
+		
+		$my_data['start_time'] strtotime($my_data['start']);
+		$my_data['start_mongo_time'] = new MongoDate(strtotime($my_data['start']));
+		
+		$my_data['end_time'] = strtotime($my_data['end']);
+		$my_data['end_mongo_time'] = new MongoDate(strtotime($my_data['end']));
+		$user = $this->mongo_db->where_gt ( '_created_at', $start )->where_lte( '_created_at', $end)->get ( '_User' );
 		print_r($user);
 		$created_at = date(DATE_ISO8601, $user['0']['_created_at']->sec);
 		print_r($created_at);
-		$start = new MongoDate(strtotime('2017-08-14 13:28:34'));
-		print_r($start);
-		$end = new MongoDate(strtotime('2017-08-14 13:29:00'));
-		print_r($end);
-		$user = $this->mongo_db->where_gt ( '_created_at', '2017-08-14 13:28:34' )->where_lte( '_created_at', '2017-08-14 13:29:00')->get ( '_User' );
-		print_r($user);
-		$created_at = date(DATE_ISO8601, $user['0']['_created_at']->sec);
-		print_r($created_at);
+		
+		print_r($my_data);
     }
 
     /**
