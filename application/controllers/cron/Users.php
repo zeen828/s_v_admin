@@ -153,10 +153,10 @@ class Users extends CI_Controller
             $data = array();
             // 引用
             $this->load->model('mongo_model');
-            //$st = 1500;
+            $st = 4200;
+            $en = 3500;
+            //$st = 150;
             //$en = 0;
-            $st = 150;
-            $en = 0;
             
             for ($i = $st; $i > $en; $i --) {
                 // 開始時間
