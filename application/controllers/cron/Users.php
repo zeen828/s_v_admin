@@ -77,6 +77,7 @@ class Users extends CI_Controller
 		echo "2017年總筆數:", $count, "<br/>";
 		//
 		$count = $this->mongo_db->where ( array('_created_at'=>'{$exists: false}') )->count ( '_User' );
+		print_r($this->mongo_db);
 		echo "沒有時間欄位的:", $count, "<br/>";
 		print_r($my_data);
 		exit();
