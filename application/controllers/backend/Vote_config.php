@@ -176,6 +176,8 @@ class Vote_config extends CI_Controller {
 				$this->load->view ( 'AdminLTE/include/html5', $this->data_view );
 			} else {
 				echo 'abc';
+				var_dump(is_integer ( $config_id ));
+				var_dump($this->flexi_auth->is_privileged ( 'Votes Config View' ));
 			}
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
