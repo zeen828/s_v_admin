@@ -42,15 +42,18 @@ class Users extends CI_Controller
 		$my_data = array(
 			'start_m' => 2,
 			'end_m' => date('m'),
+			'where_date'=>array(),
 		);
-		print_r();
 		//總比數
 		$count = $this->mongo_db->count ( '_User' );
 		echo "總筆數:", $count, "<br/>";
 		//每個月
 		for ($i = $my_data['start_m']; $i <= $my_data['end_m']; $i ++) {
-			echo $i;
+			$star = sprintf('2017-%s-01 00:00:01', $i);
+			$end = sprintf('2017-%s-01 00:00:01', $i + 1);
+			$my_data['where_date'][$i] = array( 'star'=>$star, 'end'=>$end );
 		}
+		print_r($my_data);
 		exit();
 		$count = $this->mongo_db->count ( '_User' );
 		echo "總比數:", $count, "<br/>";
