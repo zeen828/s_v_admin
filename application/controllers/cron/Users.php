@@ -38,12 +38,13 @@ class Users extends CI_Controller
     }
     public function mongo_test ()
     {
+		//2017年8月14日星期一 23:28:34 GMT+08:00
 		$my_data = array(
 			'member_id' => 'Bjdxmz',
-			'start' => '2017-08-14 13:28:34',
+			'start' => '2017-08-14 23:28:34',
 			'start_time'=>'0',
 			'start_mongo_time'=>'0',
-			'end' => '2017-08-14 13:29:00',
+			'end' => '2017-08-14 23:29:00',
 			'end_time'=>'0',
 			'end_mongo_time'=>'0',
 		);
