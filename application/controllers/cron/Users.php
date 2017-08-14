@@ -37,6 +37,35 @@ class Users extends CI_Controller
     	print_r(array('DEMO'));
     }
 
+    public function mongo_test ($date = '')
+    {
+    	$this->load->library ( 'mongo_db' );
+		$data = array();
+		$start_time = strtotime($date . "-1 hour");
+		$start_date = date("Y-m-d H:00:00", $start_time);
+		echo "開始時間:", $start_date, "<br/>";
+		// 記錄時間
+		$tmp_data = date("Y-m-d H:00:00", $start_time);
+		$tmp_time = strtotime($tmp_data);
+		echo "紀錄時間", $tmp_data, "<br/>";
+		// 結束時間
+		$end_time = strtotime($date . "-0 hour");
+		$end_date = date("Y-m-d H:00:00", $end_time);
+		echo "結束時間:", $end_date, "<br/>";
+		// 寫入資料庫用
+		// Y年,n月,j日,G時
+		$data['r_date_utc'] = date("Y-m-d H:i:s", strtotime($tmp_data . "-8 hour"));
+		$data['r_year_utc'] = date("Y", strtotime($tmp_data . "-8 hour"));
+		$data['r_month_utc'] = date("n", strtotime($tmp_data . "-8 hour"));
+		$data['r_day_utc'] = date("j", strtotime($tmp_data . "-8 hour"));
+		$data['r_hour_utc'] = date("G", strtotime($tmp_data . "-8 hour"));
+		$data['r_date_tw'] = date("Y-m-d H:i:s", $tmp_time);
+		$data['r_year_tw'] = date("Y", $tmp_time);
+		$data['r_month_tw'] = date("n", $tmp_time);
+		$data['r_day_tw'] = date("j", $tmp_time);
+		$data['r_hour_tw'] = date("G", $tmp_time);
+		print_r($data);
+    }
     /**
      * 每小時註冊數
      * 
