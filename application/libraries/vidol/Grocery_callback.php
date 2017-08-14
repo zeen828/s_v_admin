@@ -100,7 +100,7 @@ class Grocery_callback {
 		return $result;
 	}
 	function callback_config_to_item_url($primary_key, $row) {
-		return site_url ( '/backend/vote_config/config_item' . $primary_key );
+		return site_url ( '/backend/vote_config/config_item/' . $primary_key );
 	}
 	function callback_config_to_lotters_url($primary_key, $row) {
 		switch ($row->lc_method) {

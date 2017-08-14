@@ -110,7 +110,7 @@ class Vote_config extends CI_Controller {
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Votes Config View' ) && is_integer ( $config_id )) {
 				// 寫log
-				$this->fun->logs ( '觀看投票系統設定-項目' );
+				$this->fun->logs ( '觀看投票項目設定' );
 				// 變數
 				$data_post = array ();
 				// 強制切換資料庫
@@ -124,7 +124,8 @@ class Vote_config extends CI_Controller {
 				// 版型
 				$crud->set_theme ( 'flexigrid' );
 				// 表格
-				$crud->set_table ( 'event_vote_config_tbl' );
+				$crud->set_table ( 'event_vote_item_tbl' );
+				$crud->where ( 'id', $config_id );
 				// 標題
 				$crud->set_subject ( '抽獎系統設定檔' );
 				if (! $this->flexi_auth->is_privileged ( 'Votes Config Add' )) {
@@ -140,22 +141,25 @@ class Vote_config extends CI_Controller {
 					$crud->unset_delete ();
 				}
 				// 清單顯示欄位
-				$crud->columns ( 'id', 'title', 'login_where', 'vote_where', 'vote_int', 'status', 'start_at', 'end_at' );
+				$crud->columns ( 'id', 'config_id', 'group_no', 'sort', 'title', 'ticket', 'ticket_add', 'proportion', 'status' );
 				// 欄位控制
-				$crud->add_fields ( 'title', 'login_where', 'vote_where', 'vote_int', 'status', 'start_at', 'end_at' );
-				$crud->edit_fields ( 'title', 'login_where', 'vote_where', 'vote_int', 'status', 'start_at', 'end_at' );
+				$crud->add_fields ( 'config_id', 'group_no', 'sort', 'title', 'des', 'img_url', 'click_url', 'status' );
+				$crud->edit_fields ( 'group_no', 'sort', 'title', 'des', 'img_url', 'click_url', 'status' );
 				// 表單必填欄位
 				$crud->required_fields ( 'cs_title', 'cs_type', 'cs_word', 'cs_count', 'cs_repeat', 'cs_user_repeat', 'cs_time_start', 'cs_time_end' );
 				// 資料庫欄位文字替換
 				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
+				$crud->display_as ( 'config_id', '設定檔id' );
+				$crud->display_as ( 'group_no', '群組' );
+				$crud->display_as ( 'sort', '排序' );
 				$crud->display_as ( 'title', '標題' );
 				$crud->display_as ( 'des', '描述' );
-				$crud->display_as ( 'login_where', '登入規則' );
-				$crud->display_as ( 'vote_where', '投票規則' );
-				$crud->display_as ( 'vote_int', '每天可投票次數' );
+				$crud->display_as ( 'img_url', '圖片' );
+				$crud->display_as ( 'click_url', '網址' );
+				$crud->display_as ( 'ticket', '總投票數' );
+				$crud->display_as ( 'ticket_add', '灌票數' );
+				$crud->display_as ( 'proportion', '得票機率' );
 				$crud->display_as ( 'status', '狀態' );
-				$crud->display_as ( 'start_at', '開始時間(+8)' );
-				$crud->display_as ( 'end_at', '結束時間(+8)' );
 				$crud->display_as ( 'created_at', '建立時間(+8)' );
 				$crud->display_as ( 'updated_at', '建立時間(+8)' );
 				// 產生表單
@@ -164,8 +168,8 @@ class Vote_config extends CI_Controller {
 				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view ['right_countent'] ['view_data'] = $output;
 				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
-						'title' => '投票系統設定',
-						'link' => '/backend/vote_config/config',
+						'title' => '投票項目設定',
+						'link' => '/backend/vote_config/config_item/' . $config_id,
 						'class' => 'fa-cog' 
 				);
 				// 套版
