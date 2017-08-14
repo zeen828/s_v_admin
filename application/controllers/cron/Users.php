@@ -43,7 +43,11 @@ class Users extends CI_Controller
 		print_r($user);
 		$created_at = date(DATE_ISO8601, $user['0']['_created_at']->sec);
 		print_r($created_at);
-		$user = $this->mongo_db->where_gt ( array ('_created_at' => '2017-08-14 13:28:34', ) )->where_lte(array ('_created_at' => '2017-08-14 13:29:00', ))->get ( '_User' );
+		$start = new MongoDate(strtotime('2017-08-14 13:28:34'));
+		print_r($start);
+		$end = new MongoDate(strtotime('2017-08-14 13:29:00'));
+		print_r($end);
+		$user = $this->mongo_db->where_gt ( array ('_created_at' => '2017-08-14 13:28:34') )->where_lte(array ('_created_at' => '2017-08-14 13:29:00'))->get ( '_User' );
 		print_r($user);
 		$created_at = date(DATE_ISO8601, $user['0']['_created_at']->sec);
 		print_r($created_at);
