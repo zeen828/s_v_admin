@@ -38,6 +38,9 @@
             					<li><a href="/backend/votes/mrplay_gifts_list"><i class="fa fa-bar-chart"></i> 玩粉感恩大放送</a></li>
             					<li><a href="/backend/votes/bromance_meetings_list"><i class="fa fa-bar-chart"></i> 愛上哥們贈東京票</a></li>
             					<li><a href="/backend/votes/ob_iphone8_list"><i class="fa fa-bar-chart"></i> OB嚴選送iphone8</a></li>
+<?php if($this->flexi_auth->is_privileged(array('Votes Config View', 'Votes Config Add', 'Votes Config Edit', 'Votes Config Del'))) {?>
+            					<li><a href="/backend/vote_config/config"><i class="fa fa-cog"></i> 投票系統設定</a></li>
+<?php }?>
 							</ul>
             			</li>
 <?php }?>
