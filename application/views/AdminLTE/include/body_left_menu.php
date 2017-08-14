@@ -27,6 +27,7 @@
 <?php if($this->flexi_auth->is_privileged(array('Orders View', 'Orders Add', 'Orders Edit', 'Orders Del'))) {?>
             					<li><a href="/backend/users/order"><i class="fa fa-credit-card"></i> 會員訂單紀錄</a></li>
 <?php }?>
+								<li><a href="/backend/report_event/vote/1"><i class="fa fa-align-center"></i> 活動報表[Now鬼了]</a></li>
             				</ul>
             			</li>
 <?php }?>
