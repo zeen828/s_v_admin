@@ -47,12 +47,15 @@ class Report_event extends CI_Controller
 			// 開始時間
 			$start_time = strtotime($date . "-1 hour");
 			$start_date = date("Y-m-d H:00:00", $start_time);
+			print_r($start_date);
 			// 記錄時間
 			$tmp_data = date("Y-m-d H:00:00", $start_time);
 			$tmp_time = strtotime($tmp_data);
+			print_r($tmp_time);
 			// 結束時間
 			$end_time = strtotime($date . "-0 hour");
 			$end_date = date("Y-m-d H:00:00", $end_time);
+			print_r($end_date);
 			// 寫入資料庫用
 			// Y年,n月,j日,G時
 			$data['r_date_utc'] = date("Y-m-d H:i:s", strtotime($tmp_data . "-8 hour"));
