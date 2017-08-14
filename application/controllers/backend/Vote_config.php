@@ -174,6 +174,8 @@ class Vote_config extends CI_Controller {
 				);
 				// 套版
 				$this->load->view ( 'AdminLTE/include/html5', $this->data_view );
+			} else {
+				echo 'abc';
 			}
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
