@@ -49,8 +49,11 @@ class Users extends CI_Controller
 		echo "總筆數:", $count, "<br/>";
 		//小於2月
 		$tmp = new MongoDate( strtotime( '2017-02-01 00:00:01' ) );
+		$count = $this->mongo_db->where_gt( '_created_at', $tmp )->count ( '_User' );
+		echo "小於2月總筆數gt:", $count, "<br/>";
+		$tmp = new MongoDate( strtotime( '2017-02-01 00:00:01' ) );
 		$count = $this->mongo_db->where_lt( '_created_at', $tmp )->count ( '_User' );
-		echo "小於2月總筆數:", $count, "<br/>";
+		echo "小於2月總筆數lt:", $count, "<br/>";
 		//每個月
 		for ($i = $my_data['start_m']; $i <= $my_data['end_m']; $i ++) {
 			$star = sprintf('2017-%s-01 00:00:01', $i);
