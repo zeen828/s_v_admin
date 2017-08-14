@@ -125,7 +125,7 @@ class Vote_config extends CI_Controller {
 				$crud->set_theme ( 'flexigrid' );
 				// 表格
 				$crud->set_table ( 'event_vote_item_tbl' );
-				$crud->where ( 'id', $config_id );
+				$crud->where ( 'config_id', $config_id );
 				// 標題
 				$crud->set_subject ( '抽獎系統設定檔' );
 				if (! $this->flexi_auth->is_privileged ( 'Votes Config Add' )) {
@@ -174,11 +174,6 @@ class Vote_config extends CI_Controller {
 				);
 				// 套版
 				$this->load->view ( 'AdminLTE/include/html5', $this->data_view );
-			} else {
-				echo 'abc';
-				var_dump ( $config_id );
-				var_dump ( is_integer ( $config_id ) );
-				var_dump ( $this->flexi_auth->is_privileged ( 'Votes Config View' ) );
 			}
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
