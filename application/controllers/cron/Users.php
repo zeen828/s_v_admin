@@ -65,7 +65,7 @@ class Users extends CI_Controller
 		$my_data['end_time'] = strtotime( $my_data['end'] );
 		$my_data['end_mongo_time'] = new MongoDate( strtotime( $my_data['end'] ) );
 		
-		$user = $this->mongo_db->where_gt ( '_created_at', $start )->where_lte( '_created_at', $end)->get ( '_User' );
+		$user = $this->mongo_db->where_gt ( '_created_at', $my_data['start_mongo_time'] )->where_lte( '_created_at', $my_data['end_mongo_time'])->get ( '_User' );
 		print_r($user);
 		$created_at = date(DATE_ISO8601, $user['0']['_created_at']->sec);
 		print_r($created_at);
