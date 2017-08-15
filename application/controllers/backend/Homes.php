@@ -81,7 +81,8 @@ $this->load->model('mongo_model');
             // $this->dashboard_model->memory_peak_usage(TRUE);
             //*$memory_usepercent = $this->dashboard_model->memory_usepercent(TRUE, FALSE);
             // facebook註冊數
-$user_fb_count = $this->mongo_model->get_user_count_by_facebook();
+//$user_fb_count = $this->mongo_model->get_user_count_by_facebook();
+$user_fb_count = $this->mongo_model->get_user_count_by_now_day();
 //$user_fb_count = 0;
             // 註冊會員總數
 $user_count = $this->mongo_db->count('_User');

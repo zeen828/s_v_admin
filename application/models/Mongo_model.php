@@ -234,4 +234,23 @@ class Mongo_model extends CI_Model
     	$result = $Users->find($find)->count();
     	return $result;
     }
+    
+    //取得今天註冊會員數
+    public function get_user_count_by_now_day ()
+    {
+    	$start_date = new MongoDate( strtotime( date('Y-m-d 00:00:01') ) );
+    	$end_date = new MongoDate( strtotime( date('Y-m-d 00:00:01') . ' +1 day' ) );
+    	$find = array();
+    	$dbname = $this->mongo_config[$this->activate]['database'];
+    	$user_table = '_User';
+    	// 選擇資料庫
+    	$this->db = $this->mongo->$dbname;
+    	$Users = $this->db->$user_table;
+    	$find['_created_at'] = array(
+    			'$gt' => $start_date,
+    			'$lte' => $end_date
+    	);
+    	$result = $Users->find($find)->count();
+    	return $result;
+    }
 }
