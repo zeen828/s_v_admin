@@ -537,7 +537,7 @@ class Votes extends CI_Controller {
 			$this->data_result['date_arr'] = $date_arr;
 			//設定檔id
 			$data_insert['config_id'] = $config_id;
-			//投票數
+			//投票數(昨天零晨到今天零晨)
 			$data_insert['vote'] = $this->event_vote_select_model->get_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//新投票會員
 			$data_insert['new_vote'] = $this->event_vote_select_model->get_new_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
@@ -545,7 +545,7 @@ class Votes extends CI_Controller {
 			$data_insert['single_vote'] = $this->event_vote_select_model->get_single_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票數
 			$data_insert['total_vote'] = $this->event_vote_select_model->get_total_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
-			//投票註冊數
+			//投票註冊數(昨天零晨到今天零晨)
 			$data_insert['registered'] = $this->event_vote_select_model->get_registered_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票註冊數
 			$data_insert['total_registered'] = $this->event_vote_select_model->get_total_registered_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);

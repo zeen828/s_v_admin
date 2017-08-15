@@ -67,12 +67,16 @@ class Event_vote_select_model extends CI_Model {
 	}
 	//不重複投票數
 	public function get_single_vote_count_by_configid_date($config_id, $start_date, $end_date) {
+		$this->r_db->select ( '*' );
 		$this->r_db->where ( 'config_id', $config_id );
+		$this->r_db->group_by ( 'config_id' );
+		$this->r_db->order_by('created_at', 'ASC');
+		$sql = $this->r_db->get_compiled_select ( 'event_vote_select_tbl' );
 		$this->r_db->where ( 'created_at >=', $start_date );
 		$this->r_db->where ( 'created_at <', $end_date );
-		$this->r_db->from ( $this->table_name );
+		$this->r_db->from ( '(' . $sql . ')' );
 		$count = $this->r_db->count_all_results ();
-		// echo $this->r_db->last_query ();
+		echo $this->r_db->last_query ();
 		return $count;
 	}
 	//累計投票數
@@ -88,7 +92,7 @@ class Event_vote_select_model extends CI_Model {
 	//投票註冊數
 	public function get_registered_count_by_configid_date($config_id, $start_date, $end_date) {
 		$this->r_db->where ( 'config_id', $config_id );
-		//$this->r_db->where ( 'created_at >=', $start_date );
+		$this->r_db->where ( 'created_at >=', $start_date );
 		$this->r_db->where ( 'created_at <', $end_date );
 		$this->r_db->from ( $this->table_name );
 		$count = $this->r_db->count_all_results ();
