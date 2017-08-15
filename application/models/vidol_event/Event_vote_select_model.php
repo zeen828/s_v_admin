@@ -43,6 +43,6 @@ class Event_vote_select_model extends CI_Model {
 		return false;
 	}
 	public function get_($config_id, $start, $end) {
-		return ''OX;
+		return 'OX';
 	}
 }
