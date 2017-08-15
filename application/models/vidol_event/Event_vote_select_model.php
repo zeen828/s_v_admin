@@ -45,6 +45,7 @@ class Event_vote_select_model extends CI_Model {
 	public function get_($config_id, $start, $end) {
 		return 'OX';
 	}
+	//投票數
 	public function get_vote_count_by_configid_date($config_id, $start_date, $end_date) {
 		$this->r_db->where ( 'config_id', $config_id );
 		$this->r_db->where ( 'created_at >=', $start_date );
@@ -54,9 +55,50 @@ class Event_vote_select_model extends CI_Model {
 		// echo $this->r_db->last_query ();
 		return $count;
 	}
-	
-	public function get_total_vote_count_by_configid($config_id, $end_date) {
+	//新投票會員
+	public function get_new_vote_count_by_configid_date($config_id, $start_date, $end_date) {
 		$this->r_db->where ( 'config_id', $config_id );
+		$this->r_db->where ( 'created_at >=', $start_date );
+		$this->r_db->where ( 'created_at <', $end_date );
+		$this->r_db->from ( $this->table_name );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query ();
+		return $count;
+	}
+	//不重複投票數
+	public function get_single_vote_count_by_configid_date($config_id, $start_date, $end_date) {
+		$this->r_db->where ( 'config_id', $config_id );
+		$this->r_db->where ( 'created_at >=', $start_date );
+		$this->r_db->where ( 'created_at <', $end_date );
+		$this->r_db->from ( $this->table_name );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query ();
+		return $count;
+	}
+	//累計投票數
+	public function get_total_vote_count_by_configid_date($config_id, $start_date, $end_date) {
+		$this->r_db->where ( 'config_id', $config_id );
+		//$this->r_db->where ( 'created_at >=', $start_date );
+		$this->r_db->where ( 'created_at <', $end_date );
+		$this->r_db->from ( $this->table_name );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query ();
+		return $count;
+	}
+	//投票註冊數
+	public function get_registered_count_by_configid_date($config_id, $start_date, $end_date) {
+		$this->r_db->where ( 'config_id', $config_id );
+		//$this->r_db->where ( 'created_at >=', $start_date );
+		$this->r_db->where ( 'created_at <', $end_date );
+		$this->r_db->from ( $this->table_name );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->r_db->last_query ();
+		return $count;
+	}
+	//累計投票註冊數
+	public function get_total_registered_count_by_configid_date($config_id, $start_date, $end_date) {
+		$this->r_db->where ( 'config_id', $config_id );
+		//$this->r_db->where ( 'created_at >=', $start_date );
 		$this->r_db->where ( 'created_at <', $end_date );
 		$this->r_db->from ( $this->table_name );
 		$count = $this->r_db->count_all_results ();

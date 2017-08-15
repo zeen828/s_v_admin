@@ -535,23 +535,23 @@ class Votes extends CI_Controller {
 			$date_arr['end_time'] = strtotime($date_arr['start'] . ' +1 day');
 			$date_arr['end'] = date("Y-m-d 00:00:00", $date_arr['end_time']);
 			$this->data_result['date_arr'] = $date_arr;
-			//
-			$data_insert['config'] = $config_id;
-			//今日投票數
+			//設定檔id
+			$data_insert['config_id'] = $config_id;
+			//投票數
 			$data_insert['vote'] = $this->event_vote_select_model->get_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
-			//累計首次投票數
-			$data_insert['new_vote'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
-			//累計不重複投票數
-			$data_insert['single_vote'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
+			//新投票會員
+			$data_insert['new_vote'] = $this->event_vote_select_model->get_new_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
+			//不重複投票數
+			$data_insert['single_vote'] = $this->event_vote_select_model->get_single_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票數
-			$data_insert['total_vote'] = $this->event_vote_select_model->get_total_vote_count_by_configid($config_id, $date_arr['end']);
+			$data_insert['total_vote'] = $this->event_vote_select_model->get_total_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//投票註冊數
-			$data_insert['registered'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
+			$data_insert['registered'] = $this->event_vote_select_model->get_registered_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票註冊數
 			$data_insert['total_registered'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
-			//註冊佔比
+			//註冊占比
 			$data_insert['proportion'] = 0;
-			//今日
+			//時間(+8)
 			$data_insert['date_at'] = date("Y-m-d", $date_arr['start_time']);
 			//
 			$this->data_result['data_insert'] = $data_insert;
