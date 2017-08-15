@@ -82,7 +82,7 @@ $this->load->model('mongo_model');
             //*$memory_usepercent = $this->dashboard_model->memory_usepercent(TRUE, FALSE);
             // facebook註冊數
 //$user_fb_count = $this->mongo_model->get_user_count_by_facebook();
-$user_fb_count = $this->mongo_model->get_user_count_by_now_day();
+$user_now_day_count = $this->mongo_model->get_user_count_by_now_day();
 //$user_fb_count = 0;
             // 註冊會員總數
 $user_count = $this->mongo_db->count('_User');
@@ -95,7 +95,8 @@ $user_count = $this->mongo_db->count('_User');
                     		'metro'=>$metro,
                             //'disk' => $disk_usepercent,
                             //'memory' => $memory_usepercent,
-                            'user_fb_count' => number_format($user_fb_count),
+                            //'user_fb_count' => number_format($user_fb_count),
+                    		'users_now_day_count' => number_format($user_now_day_count),
                             'users_count' => number_format($user_count)
                     ),
                     'tip' => '補發認證信 更改為 會員查詢.',

@@ -20,7 +20,7 @@
                             <div class="info-box">
                                 <span class="info-box-icon bg-aqua"><i class="fa fa-facebook"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">FB會員數</span> <span class="info-box-number"><?php echo $view_data['header']['user_fb_count'];?></span>
+                                    <span class="info-box-text">今日會員數</span> <span class="info-box-number"><?php echo $view_data['header']['users_now_day_count'];?></span>
                                 </div>
                             </div>
                         </div>
