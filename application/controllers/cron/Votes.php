@@ -526,6 +526,7 @@ class Votes extends CI_Controller {
 	//
 	public function config_report ($config_id) {
 		try {
+			$this->data_result['config'] = $config_id;
 			//輸出
 			$this->output->set_content_type ( 'application/json' )->set_output ( json_encode ( $this->data_result ) );
 		} catch ( Exception $e ) {
