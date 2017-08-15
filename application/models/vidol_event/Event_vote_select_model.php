@@ -45,4 +45,11 @@ class Event_vote_select_model extends CI_Model {
 	public function get_($config_id, $start, $end) {
 		return 'OX';
 	}
+	public function get_total_vote_count_by_configid($config_id) {
+		$this->r_db->where ( 'config_id', $config_id );
+		$this->r_db->from ( $this->table_name );
+		$count = $this->r_db->count_all_results ();
+		// echo $this->w_db->last_query ();
+		return $count;
+	}
 }

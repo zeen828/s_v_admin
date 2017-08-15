@@ -544,7 +544,7 @@ class Votes extends CI_Controller {
 			//累計不重複投票數
 			$data_insert['single_vote'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票數
-			$data_insert['total_vote'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
+			$data_insert['total_vote'] = $this->event_vote_select_model->get_total_vote_count_by_configid($config_id);
 			//投票註冊數
 			$data_insert['registered'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票註冊數
