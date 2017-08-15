@@ -73,11 +73,12 @@ class Event_vote_select_model extends CI_Model {
 		$this->r_db->order_by('created_at', 'ASC');
 		$sql = $this->r_db->get_compiled_select ( 'event_vote_select_tbl' );
 		echo $sql;
-// 		$this->r_db->where ( 'created_at >=', $start_date );
-// 		$this->r_db->where ( 'created_at <', $end_date );
-// 		$this->r_db->from ( '(' . $sql . ')' );
+		$this->r_db->where ( 'count', '1' );
+ 		$this->r_db->where ( 'created_at >=', $start_date );
+ 		$this->r_db->where ( 'created_at <', $end_date );
+ 		$this->r_db->from ( '(' . $sql . ')' );
 // 		$count = $this->r_db->count_all_results ();
-// 		echo $this->r_db->last_query ();
+ 		echo $this->r_db->last_query ();
 		$count = 0;
 		return $count;
 	}
