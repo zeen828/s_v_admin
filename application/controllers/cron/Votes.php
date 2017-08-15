@@ -538,7 +538,7 @@ class Votes extends CI_Controller {
 			//
 			$data_insert['config'] = $config_id;
 			//今日投票數
-			$data_insert['vote'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
+			$data_insert['vote'] = $this->event_vote_select_model->get_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//累計首次投票數
 			$data_insert['new_vote'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
 			//累計不重複投票數
