@@ -50,7 +50,7 @@ class Event_vote_select_model extends CI_Model {
 		$this->r_db->where ( 'created_at <', $config_id );
 		$this->r_db->from ( $this->table_name );
 		$count = $this->r_db->count_all_results ();
-		// echo $this->w_db->last_query ();
+		echo $this->w_db->last_query ();
 		return $count;
 	}
 }
