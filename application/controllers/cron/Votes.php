@@ -548,7 +548,7 @@ class Votes extends CI_Controller {
 			//投票註冊數
 			$data_insert['registered'] = $this->event_vote_select_model->get_registered_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票註冊數
-			$data_insert['total_registered'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
+			$data_insert['total_registered'] = $this->event_vote_select_model->get_total_registered_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//註冊占比
 			$data_insert['proportion'] = 0;
 			//時間(+8)
