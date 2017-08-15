@@ -534,16 +534,26 @@ class Votes extends CI_Controller {
 			$date_arr['start'] = date("Y-m-d 00:00:00", $date_arr['start_time']);
 			$date_arr['end'] = date("Y-m-d 00:00:00");
 			$this->data_result['date_arr'] = $date_arr;
-			//今日
-			$data_insert[''] = date('');
+			//
+			$data_insert['config'] = $config_id;
 			//今日投票數
+			$data_insert['vote'] = '';
 			//累計首次投票數
+			$data_insert['new_vote'] = '';
 			//累計不重複投票數
+			$data_insert['single_vote'] = '';
 			//累計投票數
+			$data_insert['total_vote'] = '';
 			//投票註冊數
+			$data_insert['registered'] = '';
 			//累計投票註冊數
+			$data_insert['total_registered'] = '';
 			//註冊佔比
-			
+			$data_insert['proportion'] = '';
+			//今日
+			$data_insert['date_at'] = date("Y-m-d", $date_arr['start_time']);
+			//
+			$this->data_result['data_insert'] = $data_insert;
 			//輸出
 			$this->output->set_content_type ( 'application/json' )->set_output ( json_encode ( $this->data_result ) );
 		} catch ( Exception $e ) {
