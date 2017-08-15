@@ -72,11 +72,13 @@ class Event_vote_select_model extends CI_Model {
 		$this->r_db->group_by ( 'config_id' );
 		$this->r_db->order_by('created_at', 'ASC');
 		$sql = $this->r_db->get_compiled_select ( 'event_vote_select_tbl' );
-		$this->r_db->where ( 'created_at >=', $start_date );
-		$this->r_db->where ( 'created_at <', $end_date );
-		$this->r_db->from ( '(' . $sql . ')' );
-		$count = $this->r_db->count_all_results ();
-		echo $this->r_db->last_query ();
+		echo $sql;
+// 		$this->r_db->where ( 'created_at >=', $start_date );
+// 		$this->r_db->where ( 'created_at <', $end_date );
+// 		$this->r_db->from ( '(' . $sql . ')' );
+// 		$count = $this->r_db->count_all_results ();
+// 		echo $this->r_db->last_query ();
+		$count = 0;
 		return $count;
 	}
 	//累計投票數
