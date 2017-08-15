@@ -50,10 +50,10 @@ class Users extends CI_Controller
 		//小於2月
 		$tmp = new MongoDate( strtotime( '2017-02-01 00:00:01' ) );
 		$count = $this->mongo_db->where_gt( '_created_at', $tmp )->count ( '_User' );
-		echo "小於2月總筆數gt:", $count, "<br/>";
+		echo "大於2017-2月總筆數gt:", $count, "<br/>";
 		$tmp = new MongoDate( strtotime( '2017-02-01 00:00:01' ) );
 		$count = $this->mongo_db->where_lt( '_created_at', $tmp )->count ( '_User' );
-		echo "小於2月總筆數lt:", $count, "<br/>";
+		echo "小於2017-2月總筆數lt:", $count, "<br/>";
 		//每個月
 		for ($i = $my_data['start_m']; $i <= $my_data['end_m']; $i ++) {
 			$star = sprintf('2017-%s-01 00:00:01', $i);
@@ -67,14 +67,14 @@ class Users extends CI_Controller
 				'end_time'=>$end_time,
 			);
 			$count = $this->mongo_db->where_gte ( '_created_at', $star_time )->where_lt( '_created_at', $end_time )->count ( '_User' );
-			echo $i, "月總筆數:", $count, "<br/>";
+			echo "2017-", $i, "月總筆數:", $count, "<br/>";
 		}
 		//大於9月
 		$tmp = new MongoDate( strtotime( '2017-09-01 00:00:01' ) );
 		$count = $this->mongo_db->where_gt( '_created_at', $tmp )->count ( '_User' );
-		echo "大於9月月總筆數gt:", $count, "<br/>";
+		echo "大於2017-9月月總筆數gt:", $count, "<br/>";
 		$count = $this->mongo_db->where_lt( '_created_at', $tmp )->count ( '_User' );
-		echo "大於9月月總筆數lt:", $count, "<br/>";
+		echo "小於2017-9月月總筆數lt:", $count, "<br/>";
 		//
 		$star_time = new MongoDate( strtotime( '2017-01-01 00:00:01' ) );
 		$end_time = new MongoDate( strtotime( '2018-01-01 00:00:01' ) );
