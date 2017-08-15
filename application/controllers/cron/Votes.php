@@ -526,8 +526,8 @@ class Votes extends CI_Controller {
 	//
 	public function config_report ( $config_id, $date = '' ) {
 		try {
-			$this->data_result['config'] = $config_id;
-			//id	config_id 設定檔id	vote 投票數	new_vote 新投票會員	single_vote 不重複投票數	total_vote 累計投票數	registered 投票註冊數	total_registered 累計投票註冊數	proportion 註冊占比	date_at 時間(+8)	created_at 建立時間(+8)
+			//
+			$this->load->model ( 'vidol_event/event_vote_select_model' );
 			$data_insert = array();
 			$date_arr = array();
 			$date_arr['start_time'] = strtotime($date . ' -1 day');
@@ -538,19 +538,19 @@ class Votes extends CI_Controller {
 			//
 			$data_insert['config'] = $config_id;
 			//今日投票數
-			$data_insert['vote'] = '';
+			$data_insert['vote'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
 			//累計首次投票數
-			$data_insert['new_vote'] = '';
+			$data_insert['new_vote'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
 			//累計不重複投票數
-			$data_insert['single_vote'] = '';
+			$data_insert['single_vote'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票數
-			$data_insert['total_vote'] = '';
+			$data_insert['total_vote'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
 			//投票註冊數
-			$data_insert['registered'] = '';
+			$data_insert['registered'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票註冊數
-			$data_insert['total_registered'] = '';
+			$data_insert['total_registered'] = $this->event_vote_select_model->get_($config_id, $date_arr['start'], $date_arr['end']);
 			//註冊佔比
-			$data_insert['proportion'] = '';
+			$data_insert['proportion'] = 0;
 			//今日
 			$data_insert['date_at'] = date("Y-m-d", $date_arr['start_time']);
 			//
