@@ -57,10 +57,18 @@ class Event_vote_select_model extends CI_Model {
 	}
 	//新投票會員
 	public function get_new_vote_count_by_configid_date($config_id, $start_date, $end_date) {
+		//子查詢
+		$this->r_db->select ( '*, count(id) as count_no' );
 		$this->r_db->where ( 'config_id', $config_id );
+		$this->r_db->group_by ( 'user_id' );
+		$this->r_db->order_by('created_at', 'ASC');
+		$sql = $this->r_db->get_compiled_select ( 'event_vote_select_tbl' );
+		//$sql = sprintf("SELECT count(*) FROM ( %s ) as t WHERE count_no = 1 AND created_at >= '%s' AND created_at < '%s' ", $sql, $start_date, $end_date);
+		//echo $sql;
+		$this->r_db->where ( 'count_no', '1' );
 		$this->r_db->where ( 'created_at >=', $start_date );
 		$this->r_db->where ( 'created_at <', $end_date );
-		$this->r_db->from ( $this->table_name );
+		$this->r_db->from ( '(' . $sql . ') as t ' );
 		$count = $this->r_db->count_all_results ();
 		// echo $this->r_db->last_query ();
 		return $count;
