@@ -527,6 +527,7 @@ class Votes extends CI_Controller {
 	public function config_report ( $config_id, $date = '' ) {
 		try {
 			//
+			$this->load->model ( 'vidol/registered_model' );
 			$this->load->model ( 'vidol_event/event_vote_select_model' );
 			$this->load->model ( 'vidol_event/event_vote_report_model' );
 			$data_insert = array();
@@ -538,7 +539,9 @@ class Votes extends CI_Controller {
 			$this->data_result['date_arr'] = $date_arr;
 			//設定檔id
 			$data_insert['config_id'] = $config_id;
-			//投票數(昨天零晨到今天零晨)
+			//時間(+8)
+			$data_insert['date_at'] = date("Y-m-d", $date_arr['start_time']);
+			//當日投票數(昨天零晨到今天零晨)
 			$data_insert['vote'] = $this->event_vote_select_model->get_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//新投票會員
 			$data_insert['new_vote'] = $this->event_vote_select_model->get_new_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
@@ -546,18 +549,24 @@ class Votes extends CI_Controller {
 			$data_insert['single_vote'] = $this->event_vote_select_model->get_single_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票數(到今天零晨)
 			$data_insert['total_vote'] = $this->event_vote_select_model->get_total_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
-			//投票註冊數(昨天零晨到今天零晨)
+			//當日投票註冊數(昨天零晨到今天零晨)
 			$data_insert['registered'] = $this->event_vote_select_model->get_registered_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//累計投票註冊數
 			$data_insert['total_registered'] = $this->event_vote_select_model->get_total_registered_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
-			//註冊占比
+			//vidol當日總註冊數
+			$data_insert['vidol_registered'] = $this->registered_model->get_registered_sum_by_day($data_insert['date_at']);
+			//投票註冊/投票數占比%	
 			if(empty($data_insert['vote']) || empty($data_insert['registered'])){
 				$data_insert['proportion'] = 0;
 			}else{
 				$data_insert['proportion'] = $data_insert['registered'] / $data_insert['vote'] * 100;
 			}
-			//時間(+8)
-			$data_insert['date_at'] = date("Y-m-d", $date_arr['start_time']);
+			//投票註冊/當日總註冊數占比%
+			if(empty($data_insert['vote']) || empty($data_insert['vidol_registered'])){
+				$data_insert['vidol_proportion'] = 0;
+			}else{
+				$data_insert['vidol_proportion'] = $data_insert['vidol_registered'] / $data_insert['vote'] * 100;
+			}
 			//
 			$count = $this->event_vote_report_model->get_count_by_configid_dateat($data_insert['config_id'], $data_insert['date_at']);
 			if(empty($count)){

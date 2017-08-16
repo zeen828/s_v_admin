@@ -70,7 +70,9 @@ class Report_event extends CI_Controller {
 				$crud->display_as ( 'total_vote', '累計投票數' );
 				$crud->display_as ( 'registered', '當日投票註冊數' );
 				$crud->display_as ( 'total_registered', '累計投票註冊數' );
-				$crud->display_as ( 'proportion', '註冊占比' );
+				$crud->display_as ( 'vidol_registered', 'vidol當日總註冊數' );
+				$crud->display_as ( 'proportion', '投票註冊/投票數占比%' );
+				$crud->display_as ( 'vidol_proportion', '投票註冊/當日總註冊數占比%' );
 				$crud->display_as ( 'date_at', '時間(+8)' );
 				$crud->display_as ( 'created_at', '建立時間(+8)' );
 				// 產生表單
