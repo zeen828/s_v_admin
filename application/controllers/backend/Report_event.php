@@ -66,7 +66,7 @@ class Report_event extends CI_Controller {
 				$crud->display_as ( 'config_id', '設定檔id' );
 				$crud->display_as ( 'vote', '當日投票數' );
 				$crud->display_as ( 'new_vote', '第一次投票會員' );
-				$crud->display_as ( 'single_vote', '不重複投票數' );
+				$crud->display_as ( 'single_vote', '累計不重複投票數' );
 				$crud->display_as ( 'total_vote', '累計投票數' );
 				$crud->display_as ( 'registered', '當日投票註冊數' );
 				$crud->display_as ( 'total_registered', '累計投票註冊數' );
