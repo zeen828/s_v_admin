@@ -554,7 +554,8 @@ class Votes extends CI_Controller {
 			//累計投票註冊數
 			$data_insert['total_registered'] = $this->event_vote_select_model->get_total_registered_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//vidol當日總註冊數
-			$data_insert['vidol_registered'] = $this->registered_model->get_registered_sum_by_day($data_insert['date_at']);
+			$sum = $this->registered_model->get_registered_sum_by_day($data_insert['date_at']);
+			$data_insert['vidol_registered'] = $sum->r_count;
 			//投票註冊/投票數占比%	
 			if(empty($data_insert['vote']) || empty($data_insert['registered'])){
 				$data_insert['proportion'] = 0;
