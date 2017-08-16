@@ -67,6 +67,7 @@ class Event_vote_select_model extends CI_Model {
 	}
 	//不重複投票數
 	public function get_single_vote_count_by_configid_date($config_id, $start_date, $end_date) {
+		//子查詢
 		$this->r_db->select ( '*, count(id) as count_no' );
 		$this->r_db->where ( 'config_id', $config_id );
 		$this->r_db->group_by ( 'user_id' );
@@ -79,8 +80,7 @@ class Event_vote_select_model extends CI_Model {
 		$this->r_db->where ( 'created_at <', $end_date );
 		$this->r_db->from ( '(' . $sql . ') as t ' );
 		$count = $this->r_db->count_all_results ();
-		echo $this->r_db->last_query ();
-		//$count = 0;
+		// echo $this->r_db->last_query ();
 		return $count;
 	}
 	//累計投票數
