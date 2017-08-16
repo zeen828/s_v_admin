@@ -528,6 +528,7 @@ class Votes extends CI_Controller {
 		try {
 			//
 			$this->load->model ( 'vidol_event/event_vote_select_model' );
+			$this->load->model ( 'vidol_event/event_vote_report_model' );
 			$data_insert = array();
 			$date_arr = array();
 			$date_arr['start_time'] = strtotime($date . ' -1 day');
@@ -554,6 +555,11 @@ class Votes extends CI_Controller {
 			//時間(+8)
 			$data_insert['date_at'] = date("Y-m-d", $date_arr['start_time']);
 			//
+			if(empty($this->event_vote_report_model->get_count_by_configid_dateat($data_insert['config_id'], $data_insert['date_at']))){
+				$this->event_vote_report_model->insert_data($data_insert);
+			}else{
+				$this->event_vote_report_model->update_data_by_configid_dateat($data_insert['config_id'], $data_insert['date_at'], $data_insert);
+			}
 			$this->data_result['data_insert'] = $data_insert;
 			//輸出
 			$this->output->set_content_type ( 'application/json' )->set_output ( json_encode ( $this->data_result ) );
