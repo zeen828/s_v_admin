@@ -58,6 +58,13 @@
             			</li>
 <?php }?>
 <?php if($this->flexi_auth->is_privileged(array('Analytics View', 'Analytics Add', 'Analytics Edit', 'Analytics Del'))) {?>
+            			<li class="Analytics treeview"><a href="#"> <i class="fa fa-jsfiddle"></i> <span>活動頁面</span> <i class="fa fa-angle-left pull-right"></i></a>
+            				<ul class="treeview-menu">
+            					<li><a href="/backend/analytics/brightcove"><i class="fa fa-jsfiddle"></i> 跳轉頁資料設定</a></li>
+            				</ul>
+            			</li>
+<?php }?>
+<?php if($this->flexi_auth->is_privileged(array('Analytics View', 'Analytics Add', 'Analytics Edit', 'Analytics Del'))) {?>
             			<li class="Analytics treeview"><a href="#"> <i class="fa fa-jsfiddle"></i> <span>數據報表</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/analytics/brightcove"><i class="fa fa-jsfiddle"></i> Brightcove</a></li>
