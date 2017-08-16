@@ -566,7 +566,7 @@ class Votes extends CI_Controller {
 			if(empty($data_insert['vote']) || empty($data_insert['vidol_registered'])){
 				$data_insert['vidol_proportion'] = 0;
 			}else{
-				$data_insert['vidol_proportion'] = $data_insert['vidol_registered'] / $data_insert['vote'] * 100;
+				$data_insert['vidol_proportion'] = $data_insert['registered'] / $data_insert['vidol_registered'] * 100;
 			}
 			//
 			$count = $this->event_vote_report_model->get_count_by_configid_dateat($data_insert['config_id'], $data_insert['date_at']);
