@@ -60,7 +60,7 @@ class Report_event extends CI_Controller {
 				// 移除刪除
 				$crud->unset_delete ();
 				// 清單顯示欄位
-				$crud->columns ( 'id', 'config_id', 'vote', 'new_vote', 'single_vote', 'total_vote', 'registered', 'total_registered', 'proportion', 'date_at', 'created_at' );
+				$crud->columns ( 'id', 'config_id', 'vote', 'new_vote', 'single_vote', 'total_vote', 'registered', 'total_registered', 'proportion', 'date_at' );
 				// 資料庫欄位文字替換
 				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
 				$crud->display_as ( 'config_id', '設定檔id' );
