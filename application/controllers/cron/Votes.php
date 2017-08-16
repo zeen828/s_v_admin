@@ -541,9 +541,9 @@ class Votes extends CI_Controller {
 			$data_insert['vote'] = $this->event_vote_select_model->get_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//新投票會員
 			$data_insert['new_vote'] = $this->event_vote_select_model->get_new_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
-			//不重複投票數
+			//不重複投票數(全部GROUP BY後再查昨天零晨到今天零晨只有一筆的)
 			$data_insert['single_vote'] = $this->event_vote_select_model->get_single_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
-			//累計投票數
+			//累計投票數(到今天零晨)
 			$data_insert['total_vote'] = $this->event_vote_select_model->get_total_vote_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
 			//投票註冊數(昨天零晨到今天零晨)
 			$data_insert['registered'] = $this->event_vote_select_model->get_registered_count_by_configid_date($config_id, $date_arr['start'], $date_arr['end']);
