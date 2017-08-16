@@ -45,7 +45,7 @@ class Event_vote_select_model extends CI_Model {
 	public function get_($config_id, $start, $end) {
 		return 'OX';
 	}
-	//投票數
+	// 投票數
 	public function get_vote_count_by_configid_date($config_id, $start_date, $end_date) {
 		$this->r_db->where ( 'config_id', $config_id );
 		$this->r_db->where ( 'created_at >=', $start_date );
@@ -55,17 +55,17 @@ class Event_vote_select_model extends CI_Model {
 		// echo $this->r_db->last_query ();
 		return $count;
 	}
-	//新投票會員
+	// 新投票會員
 	public function get_new_vote_count_by_configid_date($config_id, $start_date, $end_date) {
-		//子查詢
+		// 子查詢
 		$this->r_db->select ( '*, count(id) as count_no' );
 		$this->r_db->where ( 'config_id', $config_id );
 		$this->r_db->where ( 'created_at <', $end_date );
 		$this->r_db->group_by ( 'user_id' );
-		$this->r_db->order_by('created_at', 'ASC');
+		$this->r_db->order_by ( 'created_at', 'ASC' );
 		$sql = $this->r_db->get_compiled_select ( 'event_vote_select_tbl' );
-		//$sql = sprintf("SELECT count(*) FROM ( %s ) as t WHERE count_no = 1 AND created_at >= '%s' AND created_at < '%s' ", $sql, $start_date, $end_date);
-		//echo $sql;
+		// $sql = sprintf("SELECT count(*) FROM ( %s ) as t WHERE count_no = 1 AND created_at >= '%s' AND created_at < '%s' ", $sql, $start_date, $end_date);
+		// echo $sql;
 		$this->r_db->where ( 'count_no', '1' );
 		$this->r_db->where ( 'created_at >=', $start_date );
 		$this->r_db->where ( 'created_at <', $end_date );
@@ -74,17 +74,17 @@ class Event_vote_select_model extends CI_Model {
 		// echo $this->r_db->last_query ();
 		return $count;
 	}
-	//不重複投票數
+	// 不重複投票數
 	public function get_single_vote_count_by_configid_date($config_id, $start_date, $end_date) {
-		//子查詢
+		// 子查詢
 		$this->r_db->select ( '*, count(id) as count_no' );
 		$this->r_db->where ( 'config_id', $config_id );
 		$this->r_db->where ( 'created_at <', $end_date );
 		$this->r_db->group_by ( 'user_id' );
-		$this->r_db->order_by('created_at', 'ASC');
+		$this->r_db->order_by ( 'created_at', 'ASC' );
 		$sql = $this->r_db->get_compiled_select ( 'event_vote_select_tbl' );
-		//$sql = sprintf("SELECT count(*) FROM ( %s ) as t WHERE count_no = 1 AND created_at >= '%s' AND created_at < '%s' ", $sql, $start_date, $end_date);
-		//echo $sql;
+		// $sql = sprintf("SELECT count(*) FROM ( %s ) as t WHERE count_no = 1 AND created_at >= '%s' AND created_at < '%s' ", $sql, $start_date, $end_date);
+		// echo $sql;
 		$this->r_db->where ( 'count_no', '1' );
 		$this->r_db->where ( 'created_at >=', $start_date );
 		$this->r_db->where ( 'created_at <', $end_date );
@@ -93,19 +93,19 @@ class Event_vote_select_model extends CI_Model {
 		// echo $this->r_db->last_query ();
 		return $count;
 	}
-	//累計投票數
+	// 累計投票數
 	public function get_total_vote_count_by_configid_date($config_id, $start_date, $end_date) {
 		$this->r_db->where ( 'config_id', $config_id );
-		//$this->r_db->where ( 'created_at >=', $start_date );
+		// $this->r_db->where ( 'created_at >=', $start_date );
 		$this->r_db->where ( 'created_at <', $end_date );
 		$this->r_db->from ( $this->table_name );
 		$count = $this->r_db->count_all_results ();
 		// echo $this->r_db->last_query ();
 		return $count;
 	}
-	//投票註冊數
+	// 投票註冊數
 	public function get_registered_count_by_configid_date($config_id, $start_date, $end_date) {
-		//子查詢
+		// 子查詢
 		$this->r_db->select ( 'datediff(`created_at`, date_add(`user_created_at`, interval 8 hour)) as user_date' );
 		$this->r_db->where ( 'config_id', $config_id );
 		$this->r_db->where ( 'created_at >=', $start_date );
@@ -117,9 +117,9 @@ class Event_vote_select_model extends CI_Model {
 		// echo $this->r_db->last_query ();
 		return $count;
 	}
-	//累計投票註冊數
+	// 累計投票註冊數
 	public function get_total_registered_count_by_configid_date($config_id, $start_date, $end_date) {
-		//子查詢
+		// 子查詢
 		$this->r_db->select ( 'datediff(`created_at`, date_add(`user_created_at`, interval 8 hour)) as user_date' );
 		$this->r_db->where ( 'config_id', $config_id );
 		$this->r_db->where ( 'created_at <', $end_date );

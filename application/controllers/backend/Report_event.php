@@ -26,7 +26,7 @@ class Report_event extends CI_Controller {
 		$this->data_view ['right_countent'] ['tags'] ['tag_2'] = array (
 				'title' => '活動報表',
 				'link' => '/backend/report_event',
-				'class' => 'fa-line-chart'
+				'class' => 'fa-line-chart' 
 		);
 		// 效能檢查
 		// $this->output->enable_profiler(TRUE);
@@ -78,12 +78,13 @@ class Report_event extends CI_Controller {
 				// 產生表單
 				$output = $crud->render ();
 				// 資料整理
+				$this->data_view ['system'] ['action'] = 'Users';
 				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view ['right_countent'] ['view_data'] = $output;
 				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
 						'title' => '活動報表',
 						'link' => '/backend/report_event/vote/' . $config_id,
-						'class' => 'fa-cog'
+						'class' => 'fa-cog' 
 				);
 				// 套版
 				$this->load->view ( 'AdminLTE/include/html5', $this->data_view );
