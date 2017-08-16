@@ -109,10 +109,13 @@ class Event_vote_select_model extends CI_Model {
 	}
 	//累計投票註冊數
 	public function get_total_registered_count_by_configid_date($config_id, $start_date, $end_date) {
+		//子查詢
+		$this->r_db->select ( 'datediff(`created_at`, date_add(`user_created_at`, interval 8 hour)) as user_date' );
 		$this->r_db->where ( 'config_id', $config_id );
-		//$this->r_db->where ( 'created_at >=', $start_date );
 		$this->r_db->where ( 'created_at <', $end_date );
-		$this->r_db->from ( $this->table_name );
+		$sql = $this->r_db->get_compiled_select ( 'event_vote_select_tbl' );
+		$this->r_db->where ( 'user_date', '0' );
+		$this->r_db->from ( '(' . $sql . ') as t ' );
 		$count = $this->r_db->count_all_results ();
 		// echo $this->r_db->last_query ();
 		return $count;
