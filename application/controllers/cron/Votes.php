@@ -554,7 +554,7 @@ class Votes extends CI_Controller {
 			if(empty($data_insert['vote']) || empty($data_insert['registered'])){
 				$data_insert['proportion'] = 0;
 			}else{
-				$data_insert['proportion'] = $data_insert['vote'] / $data_insert['registered'] * 100;
+				$data_insert['proportion'] = $data_insert['registered'] / $data_insert['vote'] * 100;
 			}
 			//時間(+8)
 			$data_insert['date_at'] = date("Y-m-d", $date_arr['start_time']);
