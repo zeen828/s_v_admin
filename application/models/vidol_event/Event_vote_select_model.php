@@ -60,6 +60,7 @@ class Event_vote_select_model extends CI_Model {
 		//子查詢
 		$this->r_db->select ( '*, count(id) as count_no' );
 		$this->r_db->where ( 'config_id', $config_id );
+		$this->r_db->where ( 'created_at <', $end_date );
 		$this->r_db->group_by ( 'user_id' );
 		$this->r_db->order_by('created_at', 'ASC');
 		$sql = $this->r_db->get_compiled_select ( 'event_vote_select_tbl' );
@@ -78,6 +79,7 @@ class Event_vote_select_model extends CI_Model {
 		//子查詢
 		$this->r_db->select ( '*, count(id) as count_no' );
 		$this->r_db->where ( 'config_id', $config_id );
+		$this->r_db->where ( 'created_at <', $end_date );
 		$this->r_db->group_by ( 'user_id' );
 		$this->r_db->order_by('created_at', 'ASC');
 		$sql = $this->r_db->get_compiled_select ( 'event_vote_select_tbl' );
