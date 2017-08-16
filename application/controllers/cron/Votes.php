@@ -555,7 +555,8 @@ class Votes extends CI_Controller {
 			//時間(+8)
 			$data_insert['date_at'] = date("Y-m-d", $date_arr['start_time']);
 			//
-			if(empty($this->event_vote_report_model->get_count_by_configid_dateat($data_insert['config_id'], $data_insert['date_at']))){
+			$count = $this->event_vote_report_model->get_count_by_configid_dateat($data_insert['config_id'], $data_insert['date_at']);
+			if(empty($count)){
 				$this->event_vote_report_model->insert_data($data_insert);
 			}else{
 				$this->event_vote_report_model->update_data_by_configid_dateat($data_insert['config_id'], $data_insert['date_at'], $data_insert);
