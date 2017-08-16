@@ -6,6 +6,7 @@ ini_set ( "display_errors", "On" ); // On, Off
  * crontab -l 查詢任務
  * crontab -e 編輯任務
  * /etc/init.d/cron restart 重啟
+ * 分 時 日 月 星期 要執行的指令
  */
 class Votes extends CI_Controller {
 	private $data_debug;
