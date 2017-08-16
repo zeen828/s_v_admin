@@ -52,7 +52,7 @@ class Report_event extends CI_Controller {
 				$crud->set_table ( 'event_vote_report_tbl' );
 				$crud->where ( 'config_id', $config_id );
 				// 標題
-				$crud->set_subject ( '抽獎系統設定檔' );
+				$crud->set_subject ( '活動成效報表' );
 				// 移除新增
 				$crud->unset_add ();
 				// 移除編輯
@@ -82,7 +82,7 @@ class Report_event extends CI_Controller {
 				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view ['right_countent'] ['view_data'] = $output;
 				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
-						'title' => '活動報表',
+						'title' => '活動成效報表',
 						'link' => '/backend/report_event/vote/' . $config_id,
 						'class' => 'fa-cog' 
 				);
