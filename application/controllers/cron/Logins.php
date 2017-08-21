@@ -111,13 +111,11 @@ class Logins extends CI_Controller
     		// 變數
     		$data_tmpe = array();
     		// 迴圈
-    		//for ($i = $st; $i > 0; $i --) {
-    		for ($i = $st; $i > $en; $i --) {
-    			$j = 0 - $i;
-    			$data_tmpe['start_str'] = sprintf('%s %d month', date('Y-m-01'), $j);
+    		for ($i = $st; $i > 0; $i --) {
+    			$data_tmpe['start_str'] = sprintf('%s -%d month', date('Y-m-01'), $i);
     			$data_tmpe['start_time'] = strtotime($data_tmpe['start_str']);
     			$data_tmpe['start_date'] = date('Y-m-1', $data_tmpe['start_time']);
-    			$data_tmpe['end_str'] = sprintf('%s %d month', date('Y-m-01'), ($j - 1));
+    			$data_tmpe['end_str'] = sprintf('%s -%d month', date('Y-m-01'), ($i - 1));
     			$data_tmpe['end_time'] = strtotime($data_tmpe['end_str']);
     			$data_tmpe['end_date'] = date('Y-m-1', $data_tmpe['end_time']);
     			// UTC不重複登入數
