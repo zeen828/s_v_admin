@@ -152,6 +152,8 @@ class Logins extends CI_Controller
     		}
     		// 成功
     		$this->data_result['status'] = true;
+    		// echo
+    		$this->data_result['data_tmpe'] = $data_tmpe;
     		// 輸出
     		$this->output->set_content_type('application/json');
     		$this->output->set_output(json_encode($this->data_result));
