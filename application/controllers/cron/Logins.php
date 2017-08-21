@@ -99,6 +99,8 @@ class Logins extends CI_Controller
 	 * 每月不重複登入數計算
 	 * @param number $st
 	 * http://xxx.xxx.xxx/cron/logins/month
+	 * 算當月
+	 * http://xxx.xxx.xxx/cron/logins/month/0/0
 	 * # 分 時 日 月 週 指令
 	 * 11 10 1 * * php /var/www/codeigniter/3.0.6/admin/index.php cron logins month
 	 */

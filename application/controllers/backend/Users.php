@@ -253,6 +253,8 @@ class Users extends CI_Controller
 	
 	/**
 	 * 會員每月不重複登入數
+	 * 用來跑當月資料
+	 * http://xxx.xxx.xxx/cron/logins/month/0/0
 	 */
 	public function login_month ()
 	{
