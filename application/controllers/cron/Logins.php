@@ -102,7 +102,7 @@ class Logins extends CI_Controller
      * # 分 時 日 月 週 指令
      * 11 10 1 * * php /var/www/codeigniter/3.0.6/admin/index.php cron logins month
      */
-    public function month ($st = 1)
+    public function month ($st = 1, $en = 0)
     {
     	try {
     		// 引用
@@ -111,11 +111,13 @@ class Logins extends CI_Controller
     		// 變數
     		$data_tmpe = array();
     		// 迴圈
-    		for ($i = $st; $i > 0; $i --) {
-    			$data_tmpe['start_str'] = sprintf('%s -%d month', date('Y-m-01'), $i);
+    		//for ($i = $st; $i > 0; $i --) {
+    		for ($i = $st; $i > $en; $i --) {
+    			$j = 0 - $i;
+    			$data_tmpe['start_str'] = sprintf('%s %d month', date('Y-m-01'), $j);
     			$data_tmpe['start_time'] = strtotime($data_tmpe['start_str']);
     			$data_tmpe['start_date'] = date('Y-m-1', $data_tmpe['start_time']);
-    			$data_tmpe['end_str'] = sprintf('%s -%d month', date('Y-m-01'), ($i - 1));
+    			$data_tmpe['end_str'] = sprintf('%s %d month', date('Y-m-01'), ($j - 1));
     			$data_tmpe['end_time'] = strtotime($data_tmpe['end_str']);
     			$data_tmpe['end_date'] = date('Y-m-1', $data_tmpe['end_time']);
     			// UTC不重複登入數
@@ -142,6 +144,8 @@ class Logins extends CI_Controller
     			$data_tmpe['count'] = $this->login_model->check_date_month($data_tmpe['start_date']);
     			if($data_tmpe['count'] == 0){
     				$data_tmpe['action'] = $this->login_model->insert_login_month ($data_tmpe['start_date'], $data_tmpe['count_utc'], $data_tmpe['count_tw'], $data_tmpe['count_repeat_utc'], $data_tmpe['count_repeat_tw']);
+    			}else{
+    				$data_tmpe['action'] = $this->login_model->update_login_month_by_date ($data_tmpe['start_date'], $data_tmpe['count_utc'], $data_tmpe['count_tw'], $data_tmpe['count_repeat_utc'], $data_tmpe['count_repeat_tw']);
     			}
     			//print_r($data_tmpe);
     			// 銷毀

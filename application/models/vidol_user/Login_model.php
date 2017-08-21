@@ -88,6 +88,27 @@ class Login_model extends CI_Model
     	return $id;
     }
     
+    public function update_login_month_by_date($date, $count_utc, $count_tw, $count_repeat_utc, $count_repeat_tw)
+    {
+    	$time = strtotime($date . ' +0');
+    	$year = date('Y', $time);
+    	$month = date('m', $time);
+    	$day = date('d', $time);
+    	$this->w_db->where ( 'l_date', $date );
+    	$this->w_db->set('l_year', $year);
+    	$this->w_db->set('l_month', $month);
+    	$this->w_db->set('l_day', $day);
+    	$this->w_db->set('l_time', $time);
+    	$this->w_db->set('l_count_utc', $count_utc);
+    	$this->w_db->set('l_count_tw', $count_tw);
+    	$this->w_db->set('l_count_repeat_utc', $count_repeat_utc);
+    	$this->w_db->set('l_count_repeat_tw', $count_repeat_tw);
+    	$this->w_db->update ( 'Login_month_tbl' );
+    	$result = $this->w_db->affected_rows ();
+    	// echo $this->w_db->last_query();
+    	return $result;
+    }
+    
     // 確認是否已有資料(每月)
     public function check_date_month ($date)
     {
