@@ -102,7 +102,7 @@ class Logins extends CI_Controller
 	 * # 分 時 日 月 週 指令
 	 * 11 10 1 * * php /var/www/codeigniter/3.0.6/admin/index.php cron logins month
 	 */
-	public function month ($type = 0, $st = 1)
+	public function month ($type = 1, $st = 1)
 	{
 		try {
 			// 引用
