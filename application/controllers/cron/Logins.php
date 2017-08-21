@@ -110,7 +110,7 @@ class Logins extends CI_Controller
 			$this->load->model('vidol_user/login_model');
 			// 變數
 			$data_tmpe = array();
-			switch ($data_api->status) {
+			switch ( $type ) {
 				case 0:
 				case '0':
 					//當月也計算
