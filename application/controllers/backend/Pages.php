@@ -27,7 +27,7 @@ class Orders extends CI_Controller
 		$this->data_view = format_helper_backend_view_data('orders_content');
 		$this->data_view['system']['action'] = 'Pages';
 		$this->data_view['right_countent']['tags']['tag_2'] = array(
-				'title' => '頁面管理',
+				'title' => '活動頁面管理',
 				'link' => '/backend/pages',
 				'class' => 'fa-money'
 		);
@@ -36,6 +36,11 @@ class Orders extends CI_Controller
 	}
 
 	public function index ()
+	{
+		//show_404();
+		echo "Hi";
+	}
+	public function load ()
 	{
 		//show_404();
 		echo "Hi";
