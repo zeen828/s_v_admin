@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Orders extends CI_Controller
+class Pages extends CI_Controller
 {
 
 	private $data_view;
