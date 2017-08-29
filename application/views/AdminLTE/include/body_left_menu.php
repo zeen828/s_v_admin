@@ -57,10 +57,10 @@
 							</ul>
             			</li>
 <?php }?>
-<?php if($this->flexi_auth->is_privileged(array('Analytics View', 'Analytics Add', 'Analytics Edit', 'Analytics Del'))) {?>
-            			<li class="Analytics treeview"><a href="#"> <i class="fa fa-jsfiddle"></i> <span>活動頁面</span> <i class="fa fa-angle-left pull-right"></i></a>
+<?php if($this->flexi_auth->is_privileged(array('Pages View', 'Pages Add', 'Pages Edit', 'Pages Del'))) {?>
+            			<li class="Pages treeview"><a href="#"> <i class="fa fa-building-o"></i> <span>頁面管理</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
-            					<li><a href="/backend/analytics/brightcove"><i class="fa fa-jsfiddle"></i> 跳轉頁資料設定</a></li>
+            					<li><a href="/backend/pages/load"><i class="fa fa-building-o"></i> 讀取跳轉頁面</a></li>
             				</ul>
             			</li>
 <?php }?>
