@@ -27,7 +27,7 @@ class Send_sms extends CI_Controller {
 	
 	/**
 	 * 執行發簡訊的資料
-	 * http://xxx.xxx.xxx/cron/send_mail/send
+	 * http://xxx.xxx.xxx/cron/send_sms/send
 	 * # 分 時 日 月 週 指令
 	 * (1) * * * * php /var/www/codeigniter/3.0.6/admin/index.php cron send_sms send
 	 */
@@ -56,15 +56,18 @@ class Send_sms extends CI_Controller {
 					// print_r ( $row );
 					$sms_array ['dstaddr'] = $row->ss_phone;
 					$sms_array ['smbody'] = $row->ss_msm;
-					$url_query = http_build_query ( $sms_array );
+					$api_url_query = http_build_query ( $sms_array );
 					// 發送
+					$api_url = sprintf ( '%s?%s', $send_api_url, $api_url_query );
 					$ch = curl_init ();
-					curl_setopt ( $ch, CURLOPT_URL, sprintf ( '%s?%s', $send_api_url, $url_query ) );
+					curl_setopt ( $ch, CURLOPT_URL, $api_url );
 					curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
 					$output = curl_exec ( $ch );
 					curl_close ( $ch );
 					//
 					$this->send_sms_model->update_for_data_by_pk ( $row->ss_pk, array (
+							'ss_url' => $api_url,
+							'ss_data' => $api_url_query,
 							'ss_response' => $output,
 							'ss_status' => '1' 
 					) );
