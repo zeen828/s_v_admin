@@ -669,7 +669,7 @@ class Users extends CI_Controller
     		if(count($users) > 0){
     			foreach($users as $user){
     				var_dump($user);
-    				//$this->mongo_db->where(array('_id'=>$user['_id']))->set(array('emailVerified'=>true, 'mobile'=>true, 'mobile_phone'=>$mobile_phone))->update('_User');
+    				$this->mongo_db->where(array('_id'=>$user['_id']))->set(array('emailVerified'=>true, 'mobile'=>'aaaaa', 'mobile_phone'=>$mobile_phone))->update('_User');
     			}
     		}
     	} catch (Exception $e) {
