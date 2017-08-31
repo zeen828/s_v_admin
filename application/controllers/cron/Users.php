@@ -668,7 +668,7 @@ class Users extends CI_Controller
     		$users = $this->mongo_db->like('username' ,'@mobile.vidol.tv', 'i', TRUE, TRUE)->get('_User');
     		if(count($users) > 0){
     			foreach($users as $user){
-    				var_dump($user);
+    				print_r($user);
     				$this->mongo_db->where(array('_id'=>$user['_id']))->set(array('emailVerified'=>true, 'mobile'=>'aaaaa', 'mobile_phone'=>$mobile_phone))->update('_User');
     			}
     		}
