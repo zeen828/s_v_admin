@@ -664,7 +664,7 @@ class Users extends CI_Controller
     	try {
     		//load
     		$this->load->library('mongo_db');
-    		$users = $this->mongo_db->like('username' ,'@mobile.vidol.tv', 'i', TRUE, TRUE)->get('_User');
+    		$users = $this->mongo_db->where(array('mobile'=>true))->like('username' ,'@mobile.vidol.tv', 'i', TRUE, TRUE)->get('_User');
     		if(count($users) > 0){
     			foreach($users as $user){
     				var_dump($user);
