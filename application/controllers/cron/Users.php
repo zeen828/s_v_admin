@@ -664,14 +664,17 @@ class Users extends CI_Controller
     	try {
     		//load
     		$this->load->library('mongo_db');
-    		$this->mongo_db->like('username' ,'@mobile.vidol.tv', 'i', TRUE, TRUE)->set(array('emailVerified'=>true, 'mobile'=>'mytest'))->update_all('_User');
-    		$users = $this->mongo_db->like('username' ,'@mobile.vidol.tv', 'i', TRUE, TRUE)->get('_User');
-    		if(count($users) > 0){
-    			foreach($users as $user){
-    				print_r($user);
+    		$this->mongo_db->like('username' ,'@mobile.vidol.tv', 'i', TRUE, TRUE)->set(array('emailVerified'=>true, 'mobile'=>true))->update_all('_User');
+    		//$users = $this->mongo_db->like('username' ,'@mobile.vidol.tv', 'i', TRUE, TRUE)->get('_User');
+    		//if(count($users) > 0){
+    			//foreach($users as $user){
+    				//print_r($user);
     				//$this->mongo_db->where(array('_id'=>$user['_id']))->set(array('emailVerified'=>true, 'mobile'=>'aaaaa', 'mobile_phone'=>$mobile_phone))->update('_User');
-    			}
-    		}
+    			//}
+    		//}
+    		$this->output
+    		->set_content_type('application/json')
+    		->set_output(json_encode($this->data_result));
     	} catch (Exception $e) {
     		show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
     	}
