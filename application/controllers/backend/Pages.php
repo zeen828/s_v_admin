@@ -37,12 +37,10 @@ class Pages extends CI_Controller
 
 	public function index ()
 	{
-		//show_404();
-		echo "Hi";
+		show_404();
 	}
-	public function load ()
+	public function load_page ()
 	{
-		//show_404();
 		echo "Hi";
 	}
 }
