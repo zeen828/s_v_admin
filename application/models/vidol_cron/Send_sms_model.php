@@ -24,7 +24,7 @@ class Send_sms_model extends CI_Model {
 		// echo $this->w_db->last_query();
 		return $id;
 	}
-	public function update_data($pk, $data) {
+	public function update_data_by_pk($pk, $data) {
 		$this->w_db->where ( $this->fields_pk, $pk );
 		$this->w_db->update ( $this->table_name, $data );
 		$result = $this->w_db->affected_rows ();

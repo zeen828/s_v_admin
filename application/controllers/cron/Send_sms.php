@@ -65,7 +65,7 @@ class Send_sms extends CI_Controller {
 					$output = curl_exec ( $ch );
 					curl_close ( $ch );
 					//
-					$this->send_sms_model->update_for_data_by_pk ( $row->ss_pk, array (
+					$this->send_sms_model->update_data_by_pk ( $row->ss_pk, array (
 							'ss_url' => $api_url,
 							'ss_data' => $api_url_query,
 							'ss_response' => $output,
