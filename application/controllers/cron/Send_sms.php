@@ -50,7 +50,7 @@ class Send_sms extends CI_Controller {
 			);
 			$send_api_url = $this->config->item ( 'sms_send_api_url' );
 			// 取要寄簡訊的資料
-			$query = $this->send_sms_model->get_rows_by_status ( '*', '0', '50' );
+			$query = $this->send_sms_model->get_rows_by_status ( '*', '0', '10' );
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
 					// print_r ( $row );
