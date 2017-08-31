@@ -658,4 +658,21 @@ class Users extends CI_Controller
     		show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
     	}
     }
+    
+    public function phone_email_verified ()
+    {
+    	try {
+    		//load
+    		$this->load->library('mongo_db');
+    		$users = $this->mongo_db->like('username' ,'@mobile.vidol.tv', 'i', TRUE, TRUE)->get('_User');
+    		if(count($users) > 0){
+    			foreach($users as $user){
+    				var_dump($user);
+    				$this->mongo_db->where(array('_id'=>$user['_id']))->set(array('emailVerified'=>true, 'mobile'=>true, 'mobile_phone'=>$mobile_phone))->update('_User');
+    			}
+    		}
+    	} catch (Exception $e) {
+    		show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
+    	}
+    }
 }
