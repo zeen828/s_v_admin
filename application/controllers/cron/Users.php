@@ -658,7 +658,14 @@ class Users extends CI_Controller
     		show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
     	}
     }
-    
+
+    /**
+     * 每10分鐘開通認證
+     *
+     * http://xxx.xxx.xxx/cron/users/registered_hour
+     * # 分 時 日 月 週 指令
+     * *10 * * * * php /var/www/codeigniter/3.0.6/admin/index.php cron users phone_email_verified
+     */
     public function phone_email_verified ()
     {
     	try {
