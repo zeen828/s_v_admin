@@ -67,6 +67,8 @@ application/controllers/api/Middle_layer.php
 application/controllers/api/Tests.php
 application/controllers/db/
 application/controllers/Tests.php
+application/controllers/Mongo_test.php
+application/controllers/cron/Systems.php
 application/views/tests*
 assets/uploads/captcha/*
 assets/uploads/qrcode/*
