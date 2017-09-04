@@ -11,14 +11,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select class="form-control">
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
+						<select name="" class="form-control">
+							<option value="channel">channel</option>
+							<option value="programmes">programmes</option>
+							<option value="episode">episode</option>
+							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" class="form-control" placeholder="">
+						<input type="text" name="" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -27,14 +28,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select class="form-control">
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
+						<select name="" class="form-control">
+							<option value="channel">channel</option>
+							<option value="programmes">programmes</option>
+							<option value="episode">episode</option>
+							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" class="form-control" placeholder="">
+						<input type="text" name="" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -59,14 +61,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select class="form-control">
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
+						<select name="" class="form-control">
+							<option value="channel">channel</option>
+							<option value="programmes">programmes</option>
+							<option value="episode">episode</option>
+							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" class="form-control" placeholder="">
+						<input type="text" name="" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -75,14 +78,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select class="form-control">
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
+						<select name="" class="form-control">
+							<option value="channel">channel</option>
+							<option value="programmes">programmes</option>
+							<option value="episode">episode</option>
+							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" class="form-control" placeholder="">
+						<input type="text" name="" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -91,14 +95,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select class="form-control">
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
+						<select name="" class="form-control">
+							<option value="channel">channel</option>
+							<option value="programmes">programmes</option>
+							<option value="episode">episode</option>
+							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" class="form-control" placeholder="">
+						<input type="text" name="" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -123,14 +128,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select class="form-control">
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
+						<select name="" class="form-control">
+							<option value="channel">channel</option>
+							<option value="programmes">programmes</option>
+							<option value="episode">episode</option>
+							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" class="form-control" placeholder="">
+						<input type="text" name="" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
