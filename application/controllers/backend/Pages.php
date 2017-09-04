@@ -41,6 +41,26 @@ class Pages extends CI_Controller
 	}
 	public function load_page ()
 	{
-		echo "Hi";
+		//$this->output->enable_profiler(TRUE);
+		try {
+			if ($this->flexi_auth->is_privileged('Orders View')) {
+				// 寫log
+				$this->fun->logs('觀看訂單查詢紀錄');
+				// 變數
+				$data_post = array();
+				// 資料整理
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/orders/search';
+				//$this->data_view['right_countent']['view_data'] = $output;
+				$this->data_view['right_countent']['tags']['tag_3'] = array(
+						'title' => '訂單查詢紀錄',
+						'link' => '/backend/pages/load_page',
+						'class' => 'fa-building-o'
+				);
+				// 套版
+				$this->load->view('AdminLTE/pages/load_page', $this->data_view);
+			}
+		} catch (Exception $e) {
+			show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
+		}
 	}
 }
