@@ -11,15 +11,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select name="" class="form-control">
+						<select name="channel_type_1" class="form-control">
 							<option value="channel">channel</option>
-							<option value="programmes">programmes</option>
+							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="" class="form-control" placeholder="">
+						<input type="text" name="channel_id_1" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -28,15 +28,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select name="" class="form-control">
+						<select name="channel_type_2" class="form-control">
 							<option value="channel">channel</option>
-							<option value="programmes">programmes</option>
+							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="" class="form-control" placeholder="">
+						<input type="text" name="channel_id_2" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -61,15 +61,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select name="" class="form-control">
+						<select name="programme_type_1" class="form-control">
 							<option value="channel">channel</option>
-							<option value="programmes">programmes</option>
+							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="" class="form-control" placeholder="">
+						<input type="text" name="programme_id_1" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -78,15 +78,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select name="" class="form-control">
+						<select name="programme_type_2" class="form-control">
 							<option value="channel">channel</option>
-							<option value="programmes">programmes</option>
+							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="" class="form-control" placeholder="">
+						<input type="text" name="programme_id_2" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -95,15 +95,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select name="" class="form-control">
+						<select name="programme_type_3" class="form-control">
 							<option value="channel">channel</option>
-							<option value="programmes">programmes</option>
+							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="" class="form-control" placeholder="">
+						<input type="text" name="programme_id_3" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -128,15 +128,15 @@
 			<div class="box-body">
 				<div class="row">
 					<div class="col-xs-6">
-						<select name="" class="form-control">
+						<select name="event_type" class="form-control">
 							<option value="channel">channel</option>
-							<option value="programmes">programmes</option>
+							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="" class="form-control" placeholder="">
+						<input type="text" name="event_id" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
