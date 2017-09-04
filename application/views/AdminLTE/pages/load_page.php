@@ -6,133 +6,27 @@
 			<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
 		</div>
 	</div>
-	<!-- /.box-header -->
+	<div class="box-body">
+<div class="box box-danger">
+	<div class="box-header with-border">
+		<h3 class="box-title">Different Width</h3>
+	</div>
 	<div class="box-body">
 		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group">
-					<label>Minimal</label>
-<div class="input-group-btn">
-	<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action
-	<span class="fa fa-caret-down"></span></button>
-	<ul class="dropdown-menu">
-		<li><a href="#">Action</a></li>
-		<li><a href="#">Another action</a></li>
-		<li><a href="#">Something else here</a></li>
-		<li class="divider"></li>
-		<li><a href="#">Separated link</a></li>
-	</ul>
-</div>
-					<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-						<option selected="selected">Alabama</option>
-						<option>Alaska</option>
-						<option>California</option>
-						<option>Delaware</option>
-						<option>Tennessee</option>
-						<option>Texas</option>
-						<option>Washington</option>
-					</select>
-					<span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
-						<span class="selection">
-							<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-qumy-container">
-								<span class="select2-selection__rendered" id="select2-qumy-container" title="Alabama">
-									Alabama
-								</span>
-								<span class="select2-selection__arrow" role="presentation">
-									<b role="presentation"></b>
-								</span>
-							</span>
-						</span>
-						<span class="dropdown-wrapper" aria-hidden="true">
-						</span>
-					</span>
-				</div>
-				<!-- /.form-group -->
-				<div class="form-group">
-					<label>Disabled</label>
-					<select class="form-control select2 select2-hidden-accessible" disabled="" style="width: 100%;" tabindex="-1" aria-hidden="true">
-						<option selected="selected">Alabama</option>
-						<option>Alaska</option>
-						<option>California</option>
-						<option>Delaware</option>
-						<option>Tennessee</option>
-						<option>Texas</option>
-						<option>Washington</option>
-					</select>
-					<span class="select2 select2-container select2-container--default select2-container--disabled" dir="ltr" style="width: 100%;">
-						<span class="selection">
-							<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-labelledby="select2-a964-container">
-								<span class="select2-selection__rendered" id="select2-a964-container" title="Alabama">Alabama</span>
-								<span class="select2-selection__arrow" role="presentation">
-									<b role="presentation"></b>
-								</span>
-							</span>
-						</span>
-						<span class="dropdown-wrapper" aria-hidden="true">
-						</span>
-					</span>
-				</div>
-				<!-- /.form-group -->
+			<div class="col-xs-3">
+				<input type="text" class="form-control" placeholder=".col-xs-3">
 			</div>
-			<!-- /.col -->
-			<div class="col-md-6">
-				<div class="form-group">
-					<label>Multiple</label>
-					<select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true">
-						<option>Alabama</option>
-						<option>Alaska</option>
-						<option>California</option>
-						<option>Delaware</option>
-						<option>Tennessee</option>
-						<option>Texas</option>
-						<option>Washington</option>
-					</select>
-					<span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
-						<span class="selection">
-							<span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1">
-								<ul class="select2-selection__rendered">
-									<li class="select2-search select2-search--inline">
-										<input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="Select a State" style="width: 794.5px;">
-									</li>
-								</ul>
-							</span>
-						</span>
-						<span class="dropdown-wrapper" aria-hidden="true">
-						</span>
-					</span>
-				</div>
-				<!-- /.form-group -->
-				<div class="form-group">
-					<label>Disabled Result</label>
-					<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-						<option selected="selected">Alabama</option>
-						<option>Alaska</option>
-						<option disabled="disabled">California (disabled)</option>
-						<option>Delaware</option>
-						<option>Tennessee</option>
-						<option>Texas</option>
-						<option>Washington</option>
-					</select>
-					<span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
-						<span class="selection">
-							<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-mmap-container">
-								<span class="select2-selection__rendered" id="select2-mmap-container" title="Alabama">Alabama</span>
-								<span class="select2-selection__arrow" role="presentation">
-									<b role="presentation"></b>
-								</span>
-							</span>
-						</span>
-						<span class="dropdown-wrapper" aria-hidden="true">
-						</span>
-					</span>
-				</div>
-				<!-- /.form-group -->
+			<div class="col-xs-4">
+				<input type="text" class="form-control" placeholder=".col-xs-4">
 			</div>
-		<!-- /.col -->
+			<div class="col-xs-5">
+				<input type="text" class="form-control" placeholder=".col-xs-5">
+			</div>
 		</div>
-	<!-- /.row -->
 	</div>
-	<!-- /.box-body -->
+</div>
+
+	</div>
 	<div class="box-footer">
 		Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
 		the plugin.
