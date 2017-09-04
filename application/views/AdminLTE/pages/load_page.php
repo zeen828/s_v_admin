@@ -1,72 +1,129 @@
-                    <div class="callout callout-info">
-                        <h4>提示</h4>
-                        <p><a href="/cron/coupons/coupon_sn" target="_blank">序號產生(1分鐘)</a></p>
-                        <p><a href="/cron/coupons/coupon_sn_expired" target="_blank">序號過期處理(2小時)</a></p>
-                    </div>
-
-                    <div class="box box-default">
-						<div class="box-header with-border">
-							<h3 class="box-title">篩選條件</h3>
-						</div>
-                        <div class="box-body">
-							<div class="form-group">
-								<div class="col-lg-3">
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="fa fa-calendar"></i>
-										</div>
-										<input type="text" name="date_range" value="<?php echo date('Y-m-d', strtotime(date('Y-m-d H:i:s') . " -8 day")), ' - ', date('Y-m-d', strtotime(date('Y-m-d H:i:s') . " -1 day"));?>" class="form-control pull-right" id="reservation" placeholder="請選擇日期...">
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<select name="status" class="form-control">
-										<option value="all">全部</option>
-										<option value="0">等待付款</option>
-										<option value="1">付款成功</option>
-										<option value="2">退訂單</option>
-										<option value="-1">付款失敗</option>
-									</select>
-								</div>
-								<div class="col-lg-3">
-									<input type="text" name="oredr_sn" value="" class="form-control pull-right" id="reservation" placeholder="訂單號碼...">
-								</div>
-								<div class="col-lg-2">
-									<input type="text" name="user" value="" class="form-control pull-right" id="reservation" placeholder="會員...">
-								</div>
-								<div class="col-lg-1">
-									<button type="button" class="search_btn btn btn-info btn-flat">查詢</button>
-								</div>
-							</div>
-							<div class="col-xs-12 text-center loading">
-								<button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
-									<i class="fa fa-spin fa-refresh"></i>資料讀取中請稍候...
-								</button>
-							</div>
-						</div>
-                    </div>
-					
-					<table id="example" class="display" cellspacing="0" width="100%">
-						<thead>
-							<tr>
-								<th><?php echo $this->lang->line('fields_pk');?></th>
-								<th><?php echo $this->lang->line('fields_order_sn');?></th>
-								<th><?php echo $this->lang->line('fields_mongo_id');?></th>
-								<th><?php echo $this->lang->line('fields_member_id');?></th>
-								<th><?php echo $this->lang->line('fields_package_title');?></th>
-								<th><?php echo $this->lang->line('fields_coupon_title');?></th>
-								<th><?php echo $this->lang->line('fields_cost');?></th>
-								<th><?php echo $this->lang->line('fields_price');?></th>
-								<th><?php echo $this->lang->line('fields_invoice');?></th>
-								<th><?php echo $this->lang->line('fields_status');?></th>
-								<th><?php echo $this->lang->line('fields_time_creat_utc');?></th>
-							</tr>
-						</thead>
-					</table>
-                    <!-- date-range-picker -->
-                    <script src="/assets/plugins/daterangepicker/daterangepicker.js"></script>
-                    <!-- datatable -->
-					<link type="text/css" rel="stylesheet" href="/assets/jquery_plugind/DataTables-1.10.13/media/css/dataTables.jqueryui.min.css" />
-					<script src="/assets/jquery_plugind/DataTables-1.10.13/media/js/jquery.dataTables.min.js"></script>
-					<script src="/assets/jquery_plugind/DataTables-1.10.13/media/js/dataTables.jqueryui.min.js"></script>
-                    <!-- page js -->
-                    <script src="/assets/js/custom/orders/search.js?<?php echo time();?>"></script>
+<div class="box box-default">
+	<div class="box-header with-border">
+		<h3 class="box-title">Select2</h3>
+		<div class="box-tools pull-right">
+			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+		</div>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Minimal</label>
+					<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+						<option selected="selected">Alabama</option>
+						<option>Alaska</option>
+						<option>California</option>
+						<option>Delaware</option>
+						<option>Tennessee</option>
+						<option>Texas</option>
+						<option>Washington</option>
+					</select>
+					<span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+						<span class="selection">
+							<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-qumy-container">
+								<span class="select2-selection__rendered" id="select2-qumy-container" title="Alabama">
+									Alabama
+								</span>
+								<span class="select2-selection__arrow" role="presentation">
+									<b role="presentation"></b>
+								</span>
+							</span>
+						</span>
+						<span class="dropdown-wrapper" aria-hidden="true">
+						</span>
+					</span>
+				</div>
+				<!-- /.form-group -->
+				<div class="form-group">
+					<label>Disabled</label>
+					<select class="form-control select2 select2-hidden-accessible" disabled="" style="width: 100%;" tabindex="-1" aria-hidden="true">
+						<option selected="selected">Alabama</option>
+						<option>Alaska</option>
+						<option>California</option>
+						<option>Delaware</option>
+						<option>Tennessee</option>
+						<option>Texas</option>
+						<option>Washington</option>
+					</select>
+					<span class="select2 select2-container select2-container--default select2-container--disabled" dir="ltr" style="width: 100%;">
+						<span class="selection">
+							<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-labelledby="select2-a964-container">
+								<span class="select2-selection__rendered" id="select2-a964-container" title="Alabama">Alabama</span>
+								<span class="select2-selection__arrow" role="presentation">
+									<b role="presentation"></b>
+								</span>
+							</span>
+						</span>
+						<span class="dropdown-wrapper" aria-hidden="true">
+						</span>
+					</span>
+				</div>
+				<!-- /.form-group -->
+			</div>
+			<!-- /.col -->
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Multiple</label>
+					<select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a State" style="width: 100%;" tabindex="-1" aria-hidden="true">
+						<option>Alabama</option>
+						<option>Alaska</option>
+						<option>California</option>
+						<option>Delaware</option>
+						<option>Tennessee</option>
+						<option>Texas</option>
+						<option>Washington</option>
+					</select>
+					<span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+						<span class="selection">
+							<span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+								<ul class="select2-selection__rendered">
+									<li class="select2-search select2-search--inline">
+										<input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="Select a State" style="width: 794.5px;">
+									</li>
+								</ul>
+							</span>
+						</span>
+						<span class="dropdown-wrapper" aria-hidden="true">
+						</span>
+					</span>
+				</div>
+				<!-- /.form-group -->
+				<div class="form-group">
+					<label>Disabled Result</label>
+					<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+						<option selected="selected">Alabama</option>
+						<option>Alaska</option>
+						<option disabled="disabled">California (disabled)</option>
+						<option>Delaware</option>
+						<option>Tennessee</option>
+						<option>Texas</option>
+						<option>Washington</option>
+					</select>
+					<span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+						<span class="selection">
+							<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-mmap-container">
+								<span class="select2-selection__rendered" id="select2-mmap-container" title="Alabama">Alabama</span>
+								<span class="select2-selection__arrow" role="presentation">
+									<b role="presentation"></b>
+								</span>
+							</span>
+						</span>
+						<span class="dropdown-wrapper" aria-hidden="true">
+						</span>
+					</span>
+				</div>
+				<!-- /.form-group -->
+			</div>
+		<!-- /.col -->
+		</div>
+	<!-- /.row -->
+	</div>
+	<!-- /.box-body -->
+	<div class="box-footer">
+		Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
+		the plugin.
+	</div>
+</div>
