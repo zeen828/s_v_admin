@@ -10,18 +10,15 @@
 		<div class="box box-info">
 			<div class="box-body">
 				<div class="row">
-					<div class="col-xs-4">
+					<div class="col-xs-6">
 						<select class="form-control">
-							<option>option 1</option>
-							<option>option 2</option>
-							<option>option 3</option>
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
 						</select>
 					</div>
-					<div class="col-xs-5">
+					<div class="col-xs-6">
 						<input type="text" class="form-control" placeholder="">
-					</div>
-					<div class="col-xs-3">
-						<input type="text" class="form-control" placeholder=".col-xs-5">
 					</div>
 				</div>
 			</div>
@@ -29,14 +26,15 @@
 		<div class="box box-info">
 			<div class="box-body">
 				<div class="row">
-					<div class="col-xs-3">
-						<input type="text" class="form-control" placeholder=".col-xs-3">
+					<div class="col-xs-6">
+						<select class="form-control">
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
+						</select>
 					</div>
-					<div class="col-xs-4">
-						<input type="text" class="form-control" placeholder=".col-xs-4">
-					</div>
-					<div class="col-xs-5">
-						<input type="text" class="form-control" placeholder=".col-xs-5">
+					<div class="col-xs-6">
+						<input type="text" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -60,29 +58,15 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
-					<div class="col-xs-3">
-						<input type="text" class="form-control" placeholder=".col-xs-3">
+					<div class="col-xs-6">
+						<select class="form-control">
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
+						</select>
 					</div>
-					<div class="col-xs-4">
-						<input type="text" class="form-control" placeholder=".col-xs-4">
-					</div>
-					<div class="col-xs-5">
-						<input type="text" class="form-control" placeholder=".col-xs-5">
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="box box-success">
-			<div class="box-body">
-				<div class="row">
-					<div class="col-xs-3">
-						<input type="text" class="form-control" placeholder=".col-xs-3">
-					</div>
-					<div class="col-xs-4">
-						<input type="text" class="form-control" placeholder=".col-xs-4">
-					</div>
-					<div class="col-xs-5">
-						<input type="text" class="form-control" placeholder=".col-xs-5">
+					<div class="col-xs-6">
+						<input type="text" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -90,14 +74,31 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
-					<div class="col-xs-3">
-						<input type="text" class="form-control" placeholder=".col-xs-3">
+					<div class="col-xs-6">
+						<select class="form-control">
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
+						</select>
 					</div>
-					<div class="col-xs-4">
-						<input type="text" class="form-control" placeholder=".col-xs-4">
+					<div class="col-xs-6">
+						<input type="text" class="form-control" placeholder="">
 					</div>
-					<div class="col-xs-5">
-						<input type="text" class="form-control" placeholder=".col-xs-5">
+				</div>
+			</div>
+		</div>
+		<div class="box box-success">
+			<div class="box-body">
+				<div class="row">
+					<div class="col-xs-6">
+						<select class="form-control">
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
+						</select>
+					</div>
+					<div class="col-xs-6">
+						<input type="text" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
@@ -121,14 +122,15 @@
 		<div class="box box-warning">
 			<div class="box-body">
 				<div class="row">
-					<div class="col-xs-3">
-						<input type="text" class="form-control" placeholder=".col-xs-3">
+					<div class="col-xs-6">
+						<select class="form-control">
+							<option value=""></option>
+							<option value=""></option>
+							<option value=""></option>
+						</select>
 					</div>
-					<div class="col-xs-4">
-						<input type="text" class="form-control" placeholder=".col-xs-4">
-					</div>
-					<div class="col-xs-5">
-						<input type="text" class="form-control" placeholder=".col-xs-5">
+					<div class="col-xs-6">
+						<input type="text" class="form-control" placeholder="">
 					</div>
 				</div>
 			</div>
