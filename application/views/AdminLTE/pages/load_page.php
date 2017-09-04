@@ -26,6 +26,25 @@
 	</div>
 </div>
 
+<div class="box box-danger">
+	<div class="box-header with-border">
+		<h3 class="box-title">Different Width</h3>
+	</div>
+	<div class="box-body">
+		<div class="row">
+			<div class="col-xs-3">
+				<input type="text" class="form-control" placeholder=".col-xs-3">
+			</div>
+			<div class="col-xs-4">
+				<input type="text" class="form-control" placeholder=".col-xs-4">
+			</div>
+			<div class="col-xs-5">
+				<input type="text" class="form-control" placeholder=".col-xs-5">
+			</div>
+		</div>
+	</div>
+</div>
+
 	</div>
 	<div class="box-footer">
 		Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
