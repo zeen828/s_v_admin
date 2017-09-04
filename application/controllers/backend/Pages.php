@@ -49,7 +49,7 @@ class Pages extends CI_Controller
 				// 變數
 				$data_post = array();
 				// 資料整理
-				$this->data_view['right_countent']['view_path'] = 'AdminLTE/orders/search';
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
 				//$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '訂單查詢紀錄',
@@ -57,7 +57,7 @@ class Pages extends CI_Controller
 						'class' => 'fa-building-o'
 				);
 				// 套版
-				$this->load->view('AdminLTE/pages/load_page', $this->data_view);
+				$this->load->view('AdminLTE/include/html5', $this->data_view);
 			}
 		} catch (Exception $e) {
 			show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
