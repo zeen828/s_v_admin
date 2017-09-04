@@ -8,7 +8,7 @@
 	</div>
 	<div class="box-body">
 
-<div class="box box-danger">
+<div class="box box-info">
 	<div class="box-body">
 		<div class="row">
 			<div class="col-xs-3">
@@ -24,7 +24,7 @@
 	</div>
 </div>
 
-<div class="box box-danger">
+<div class="box box-info">
 	<div class="box-body">
 		<div class="row">
 			<div class="col-xs-3">
@@ -57,7 +57,7 @@
 	</div>
 	<div class="box-body">
 
-<div class="box box-danger">
+<div class="box box-success">
 	<div class="box-body">
 		<div class="row">
 			<div class="col-xs-3">
@@ -73,7 +73,7 @@
 	</div>
 </div>
 
-<div class="box box-danger">
+<div class="box box-success">
 	<div class="box-body">
 		<div class="row">
 			<div class="col-xs-3">
@@ -89,7 +89,7 @@
 	</div>
 </div>
 
-<div class="box box-danger">
+<div class="box box-success">
 	<div class="box-body">
 		<div class="row">
 			<div class="col-xs-3">
@@ -105,7 +105,7 @@
 	</div>
 </div>
 
-<div class="box box-danger">
+<div class="box box-success">
 	<div class="box-body">
 		<div class="row">
 			<div class="col-xs-3">
@@ -138,7 +138,7 @@
 	</div>
 	<div class="box-body">
 
-<div class="box box-danger">
+<div class="box box-warning">
 	<div class="box-body">
 		<div class="row">
 			<div class="col-xs-3">
@@ -154,7 +154,7 @@
 	</div>
 </div>
 
-<div class="box box-danger">
+<div class="box box-warning">
 	<div class="box-body">
 		<div class="row">
 			<div class="col-xs-3">
