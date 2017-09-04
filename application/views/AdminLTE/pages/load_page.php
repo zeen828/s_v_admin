@@ -10,13 +10,17 @@
 		<div class="box box-info">
 			<div class="box-body">
 				<div class="row">
-					<div class="col-xs-3">
-						<input type="text" class="form-control" placeholder=".col-xs-3">
-					</div>
 					<div class="col-xs-4">
-						<input type="text" class="form-control" placeholder=".col-xs-4">
+						<select class="form-control">
+							<option>option 1</option>
+							<option>option 2</option>
+							<option>option 3</option>
+						</select>
 					</div>
 					<div class="col-xs-5">
+						<input type="text" class="form-control" placeholder="">
+					</div>
+					<div class="col-xs-3">
 						<input type="text" class="form-control" placeholder=".col-xs-5">
 					</div>
 				</div>
@@ -39,6 +43,8 @@
 		</div>
 	</div>
 	<div class="box-footer">
+		<button type="submit" class="btn btn-default">Cancel</button>
+		<button type="submit" class="btn btn-info pull-right">Sign in</button>
 	</div>
 </div>
 
@@ -98,6 +104,8 @@
 		</div>
 	</div>
 	<div class="box-footer">
+		<button type="submit" class="btn btn-default">Cancel</button>
+		<button type="submit" class="btn btn-info pull-right">Sign in</button>
 	</div>
 </div>
 
@@ -127,5 +135,7 @@
 		</div>
 	</div>
 	<div class="box-footer">
+		<button type="submit" class="btn btn-default">Cancel</button>
+		<button type="submit" class="btn btn-info pull-right">Sign in</button>
 	</div>
 </div>
