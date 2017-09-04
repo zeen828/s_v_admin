@@ -12,6 +12,17 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<label>Minimal</label>
+<div class="input-group-btn">
+	<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action
+	<span class="fa fa-caret-down"></span></button>
+	<ul class="dropdown-menu">
+		<li><a href="#">Action</a></li>
+		<li><a href="#">Another action</a></li>
+		<li><a href="#">Something else here</a></li>
+		<li class="divider"></li>
+		<li><a href="#">Separated link</a></li>
+	</ul>
+</div>
 					<select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
 						<option selected="selected">Alabama</option>
 						<option>Alaska</option>
