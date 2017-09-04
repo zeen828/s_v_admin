@@ -43,8 +43,7 @@
 		</div>
 	</div>
 	<div class="box-footer">
-		<button type="submit" class="btn btn-default">Cancel</button>
-		<button type="submit" class="btn btn-info pull-right">Sign in</button>
+		<button type="submit" class="btn btn-info pull-right btn_channel">Send</button>
 	</div>
 </div>
 
@@ -110,8 +109,7 @@
 		</div>
 	</div>
 	<div class="box-footer">
-		<button type="submit" class="btn btn-default">Cancel</button>
-		<button type="submit" class="btn btn-info pull-right">Sign in</button>
+		<button type="submit" class="btn btn-info pull-right btn_programme">Send</button>
 	</div>
 </div>
 
@@ -143,7 +141,6 @@
 		</div>
 	</div>
 	<div class="box-footer">
-		<button type="submit" class="btn btn-default">Cancel</button>
-		<button type="submit" class="btn btn-info pull-right">Sign in</button>
+		<button type="submit" class="btn btn-info pull-right btn_event">Send</button>
 	</div>
 </div>
