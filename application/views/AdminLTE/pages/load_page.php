@@ -183,18 +183,14 @@
 													<input type="text" name="event_des[]" value="<?php echo $view_data['6']['des'];?>" class="form-control" placeholder="描述">
 												</div>
 											</div>
-										</div>
-									</div>
-								</div>
-								<div class="box-body">
-									<div class="row">
-										<div class="col-xs-2">
-										</div>
-										<div class="col-xs-6">
-											<input type="text" name="event_img[]" value="<?php echo $view_data['6']['image'];?>" class="form-control" placeholder="圖片網址">
-										</div>
-										<div class="col-xs-6">
-											<input type="text" name="event_url[]" value="<?php echo $view_data['6']['url'];?>" class="form-control" placeholder="連結位置">
+											<div class="row">
+												<div class="col-xs-6">
+													<input type="text" name="event_img[]" value="<?php echo $view_data['6']['image'];?>" class="form-control" placeholder="圖片網址">
+												</div>
+												<div class="col-xs-6">
+													<input type="text" name="event_url[]" value="<?php echo $view_data['6']['url'];?>" class="form-control" placeholder="連結位置">
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
