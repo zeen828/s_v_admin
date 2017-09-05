@@ -83,9 +83,16 @@ class Pages extends CI_Controller {
 				) );
 				$output = curl_exec ( $ch );
 				curl_close ( $ch );
-				// 改資料
 				$output = json_decode ( $output );
-				print_r ($output);
+				// 判斷取得資料數當作取得資料正確判斷
+				if (count ( $output ) == 2) {
+					foreach ( $output as $channel ) {
+					}
+				}
+				// 改資料
+				$data_input = $this->input->post ();
+				print_r ( $data_input );
+				print_r ( $output );
 			}
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );

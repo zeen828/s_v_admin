@@ -11,14 +11,14 @@
 		<div class="box box-info">
 			<div class="box-body">
 				<div class="row">
-					<input type="hidden" name="channel_pk_1" value="1">
+					<input type="hidden" name="channel_pk[]" value="1">
 					<div class="col-xs-6">
-						<select name="channel_type_1" class="form-control">
+						<select name="channel_type[]" class="form-control">
 							<option value="channel">channel</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="channel_id_1" class="form-control" placeholder="影片編號">
+						<input type="text" name="channel_id[]" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -26,14 +26,14 @@
 		<div class="box box-info">
 			<div class="box-body">
 				<div class="row">
-					<input type="hidden" name="channel_pk_2" value="2">
+					<input type="hidden" name="channel_pk[]" value="2">
 					<div class="col-xs-6">
-						<select name="channel_type_2" class="form-control">
+						<select name="channel_type[]" class="form-control">
 							<option value="channel">channel</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="channel_id_2" class="form-control" placeholder="影片編號">
+						<input type="text" name="channel_id[]" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -58,15 +58,15 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
-					<input type="hidden" name="video_pk_1" value="3">
+					<input type="hidden" name="video_pk[]" value="3">
 					<div class="col-xs-6">
-						<select name="video_type_1" class="form-control">
+						<select name="video_type[]" class="form-control">
 							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="video_id_1" class="form-control" placeholder="影片編號">
+						<input type="text" name="video_id[]" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -74,15 +74,15 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
-					<input type="hidden" name="video_pk_2" value="4">
+					<input type="hidden" name="video_pk[]" value="4">
 					<div class="col-xs-6">
-						<select name="video_type_2" class="form-control">
+						<select name="video_type[]" class="form-control">
 							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="video_id_2" class="form-control" placeholder="影片編號">
+						<input type="text" name="video_id[]" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -90,15 +90,15 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
-					<input type="hidden" name="video_pk_3" value="5">
+					<input type="hidden" name="video_pk[]" value="5">
 					<div class="col-xs-6">
-						<select name="video_type_3" class="form-control">
+						<select name="video_type[]" class="form-control">
 							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="video_id_3" class="form-control" placeholder="影片編號">
+						<input type="text" name="video_id[]" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -123,20 +123,20 @@
 		<div class="box box-warning">
 			<div class="box-body">
 				<div class="row">
-					<input type="hidden" name="event_pk" value="6">
+					<input type="hidden" name="event_pk[]" value="6">
 					<div class="col-xs-6">
-						<input type="text" name="event_title" class="form-control" placeholder="標題">
+						<input type="text" name="event_title[]" class="form-control" placeholder="標題">
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="event_des" class="form-control" placeholder="描述">
+						<input type="text" name="event_des[]" class="form-control" placeholder="描述">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-6">
-						<input type="text" name="event_img" class="form-control" placeholder="圖片網址">
+						<input type="text" name="event_img[]" class="form-control" placeholder="圖片網址">
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="event_url" class="form-control" placeholder="連結位置">
+						<input type="text" name="event_url[]" class="form-control" placeholder="連結位置">
 					</div>
 				</div>
 			</div>
