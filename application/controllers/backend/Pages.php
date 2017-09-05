@@ -63,13 +63,11 @@ class Pages extends CI_Controller {
 				$this->fun->logs ( '觀看中繼頁' );
 				// 變數
 				$data_input = array ();
+				$data_tmp = array ();
 				// 接收變數
-				$data_input ['channel_pk_1'] = $this->input->post ( 'channel_pk_1' );
-				$data_input ['channel_type_1'] = $this->input->post ( 'channel_type_1' );
-				$data_input ['channel_id_1'] = $this->input->post ( 'channel_id_1' );
-				$data_input ['channel_pk_2'] = $this->input->post ( 'channel_pk_2' );
-				$data_input ['channel_type_2'] = $this->input->post ( 'channel_type_2' );
-				$data_input ['channel_id_2'] = $this->input->post ( 'channel_id_2' );
+				$data_input ['channel_pk'] = $this->input->post ( 'channel_pk' );
+				$data_input ['channel_type'] = $this->input->post ( 'channel_type' );
+				$data_input ['channel_id'] = $this->input->post ( 'channel_id' );
 				// CALL API
 				$api_url = 'http://api-background.vidol.tv/v1/channels/';
 				$ch = curl_init ();
@@ -87,10 +85,13 @@ class Pages extends CI_Controller {
 				// 判斷取得資料數當作取得資料正確判斷
 				if (count ( $output ) == 2) {
 					foreach ( $output as $channel ) {
+						$data_tmp[$channel->id] = $channel;
+					}
+					for($i=0;$i<=count($data_input ['channel_pk']);$i++){
+						echo $i;
 					}
 				}
 				// 改資料
-				$data_input = $this->input->post ();
 				print_r ( $data_input );
 				print_r ( $output );
 			}
