@@ -1,4 +1,5 @@
 <div class="box box-default">
+<form action="/action_page.php" method="post">
 	<div class="box-header with-border">
 		<h3 class="box-title">頻道</h3>
 		<div class="box-tools pull-right">
@@ -42,6 +43,7 @@
 		<button type="submit" class="btn btn-info pull-right btn_channel">Submit</button>
 		<input type="submit" class="btn btn-info pull-right btn_channel">Submit</button>
 	</div>
+</form>
 </div>
 
 <div class="box box-default">
