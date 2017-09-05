@@ -61,6 +61,8 @@ class Pages extends CI_Controller {
 			if ($this->flexi_auth->is_privileged ( 'Orders View' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
+				// 引入
+				$this->load->model ( 'vidol_event/page_load_model' );
 				// 變數
 				$data_input = array ();
 				$data_tmp = array ();
@@ -85,13 +87,25 @@ class Pages extends CI_Controller {
 				// 判斷取得資料數當作取得資料正確判斷
 				if (count ( $output ) == 2) {
 					foreach ( $output as $channel ) {
-						$data_tmp[$channel->id] = $channel;
+						$data_tmp [$channel->id] = $channel;
 					}
-					for($i=0;$i<=count($data_input ['channel_pk']);$i++){
-						echo $i;
+					// 改資料
+					for($i = 0; $i < count ( $data_input ['channel_pk'] ); $i ++) {
+						$video_id = $data_input ['channel_id'] [$i];
+						if (! empty ( $video_id ) && isset ( $data_tmp [$video_id] )) {
+							$data_update = array (
+									'video_id' => $video_id,
+									'title' => $data_tmp [$video_id]->title,
+									'des' => $data_tmp [$video_id]->title,
+									'image' => $data_tmp [$video_id]->url,
+									'url' => sprintf ( 'http://vidol.tv/channel/%d', $video_id ) 
+							);
+							$this->page_load_model->update_data ( $data_input ['channel_pk'] [$i], $data_update );
+						} else {
+							echo 'XX';
+						}
 					}
 				}
-				// 改資料
 				print_r ( $data_input );
 				print_r ( $output );
 			}
