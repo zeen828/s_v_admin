@@ -149,20 +149,29 @@ class Pages extends CI_Controller {
 			if ($this->flexi_auth->is_privileged ( 'Orders View' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
+				// 引入
+				$this->load->model ( 'vidol_event/page_load_model' );
 				// 變數
-				$data_post = array ();
-				
-				print_r ( $_POST );
-				// 資料整理
-				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/pages/load_page';
-				// $this->data_view['right_countent']['view_data'] = $output;
-				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
-						'title' => '中繼頁',
-						'link' => '/backend/pages/load_page',
-						'class' => 'fa-building-o' 
-				);
-				// 套版
-				$this->load->view ( 'AdminLTE/include/html5', $this->data_view );
+				$data_input = array ();
+				// 接收變數
+				$data_input ['event_pk'] = $this->input->post ( 'event_pk' );
+				$data_input ['event_title'] = $this->input->post ( 'event_title' );
+				$data_input ['event_des'] = $this->input->post ( 'event_des' );
+				$data_input ['event_img'] = $this->input->post ( 'event_img' );
+				$data_input ['event_url'] = $this->input->post ( 'event_url' );
+				// 改資料
+				for($i = 0; $i < count ( $data_input ['event_pk'] ); $i ++) {
+					$data_update = array (
+							'title' => $data_input ['event_title'] [$i],
+							'des' => $data_input ['event_des'] [$i],
+							'image' => $data_input ['event_img'] [$i],
+							'url' => $data_input ['event_url'] [$i] 
+					);
+					$this->page_load_model->update_data ( $data_input ['channel_pk'] [$i], $data_update );
+					unset ( $data_update );
+				}
+				unset ( $data_input );
+				redirect ( '/backend/pages/load_page' );
 			}
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
