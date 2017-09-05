@@ -35,7 +35,7 @@ class Pages extends CI_Controller {
 	public function load_page() {
 		// $this->output->enable_profiler(TRUE);
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Orders View' )) {
+			if ($this->flexi_auth->is_privileged ( 'Pages View' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
@@ -75,7 +75,7 @@ class Pages extends CI_Controller {
 	public function load_page_channel() {
 		// $this->output->enable_profiler(TRUE);
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Orders View' )) {
+			if ($this->flexi_auth->is_privileged ( 'Pages Edit' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
@@ -129,8 +129,8 @@ class Pages extends CI_Controller {
 				unset ( $output );
 				unset ( $data_tmp );
 				unset ( $data_input );
-				redirect ( '/backend/pages/load_page' );
 			}
+			redirect ( '/backend/pages/load_page' );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
@@ -138,7 +138,7 @@ class Pages extends CI_Controller {
 	public function load_page_video() {
 		// $this->output->enable_profiler(TRUE);
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Orders View' )) {
+			if ($this->flexi_auth->is_privileged ( 'Pages Edit' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
@@ -219,8 +219,8 @@ class Pages extends CI_Controller {
 						}
 					}
 				}
-				redirect ( '/backend/pages/load_page' );
 			}
+			redirect ( '/backend/pages/load_page' );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
@@ -228,7 +228,7 @@ class Pages extends CI_Controller {
 	public function load_page_event() {
 		// $this->output->enable_profiler(TRUE);
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Orders View' )) {
+			if ($this->flexi_auth->is_privileged ( 'Pages Edit' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
@@ -253,8 +253,8 @@ class Pages extends CI_Controller {
 					unset ( $data_update );
 				}
 				unset ( $data_input );
-				redirect ( '/backend/pages/load_page' );
 			}
+			redirect ( '/backend/pages/load_page' );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
