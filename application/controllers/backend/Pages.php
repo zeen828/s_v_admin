@@ -167,7 +167,7 @@ class Pages extends CI_Controller {
 							'image' => $data_input ['event_img'] [$i],
 							'url' => $data_input ['event_url'] [$i] 
 					);
-					$this->page_load_model->update_data ( $data_input ['channel_pk'] [$i], $data_update );
+					$this->page_load_model->update_data ( $data_input ['event_pk'] [$i], $data_update );
 					unset ( $data_update );
 				}
 				unset ( $data_input );
