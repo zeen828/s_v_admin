@@ -83,11 +83,14 @@ class Pages extends CI_Controller {
 				) );
 				$output = curl_exec ( $ch );
 				curl_close ( $ch );
+				unset ( $ch );
+				unset ( $api_url );
 				$output = json_decode ( $output );
 				// 判斷取得資料數當作取得資料正確判斷
 				if (count ( $output ) == 2) {
 					foreach ( $output as $channel ) {
 						$data_tmp [$channel->id] = $channel;
+						unset ( $channel );
 					}
 					// 改資料
 					for($i = 0; $i < count ( $data_input ['channel_pk'] ); $i ++) {
@@ -101,13 +104,15 @@ class Pages extends CI_Controller {
 									'url' => sprintf ( 'http://vidol.tv/channel/%d', $video_id ) 
 							);
 							$this->page_load_model->update_data ( $data_input ['channel_pk'] [$i], $data_update );
-						} else {
-							echo 'XX';
+							unset ( $data_update );
 						}
+						unset ( $video_id );
 					}
 				}
-				print_r ( $data_input );
-				print_r ( $output );
+				unset ( $output );
+				unset ( $data_tmp );
+				unset ( $data_input );
+				redirect ( '/backend/pages/load_page' );
 			}
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
