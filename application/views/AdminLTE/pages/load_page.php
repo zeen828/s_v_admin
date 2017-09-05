@@ -13,7 +13,7 @@
 									<div class="row">
 										<input type="hidden" name="channel_pk[]" value="1">
 										<div class="col-xs-2">
-											<a href="<?php echo $view_data['1']['url'];?>">
+											<a href="<?php echo $view_data['1']['url'];?>" target="_blank">
 												<img src="<?php echo $view_data['1']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
 											</a>
 										</div>
@@ -33,7 +33,7 @@
 									<div class="row">
 										<input type="hidden" name="channel_pk[]" value="2">
 										<div class="col-xs-2">
-											<a href="<?php echo $view_data['2']['url'];?>">
+											<a href="<?php echo $view_data['2']['url'];?>" target="_blank">
 												<img src="<?php echo $view_data['2']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
 											</a>
 										</div>
@@ -70,7 +70,7 @@
 									<div class="row">
 										<input type="hidden" name="video_pk[]" value="3">
 										<div class="col-xs-2">
-											<a href="<?php echo $view_data['3']['url'];?>">
+											<a href="<?php echo $view_data['3']['url'];?>" target="_blank">
 												<img src="<?php echo $view_data['3']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
 											</a>
 										</div>
@@ -91,7 +91,7 @@
 									<div class="row">
 										<input type="hidden" name="video_pk[]" value="4">
 										<div class="col-xs-2">
-											<a href="<?php echo $view_data['4']['url'];?>">
+											<a href="<?php echo $view_data['4']['url'];?>" target="_blank">
 												<img src="<?php echo $view_data['4']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
 											</a>
 										</div>
@@ -112,7 +112,7 @@
 									<div class="row">
 										<input type="hidden" name="video_pk[]" value="5">
 										<div class="col-xs-2">
-											<a href="<?php echo $view_data['5']['url'];?>">
+											<a href="<?php echo $view_data['5']['url'];?>" target="_blank">
 												<img src="<?php echo $view_data['5']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
 											</a>
 										</div>
@@ -150,7 +150,7 @@
 									<div class="row">
 										<input type="hidden" name="event_pk[]" value="6">
 										<div class="col-xs-2">
-											<a href="<?php echo $view_data['6']['url'];?>">
+											<a href="<?php echo $view_data['6']['url'];?>" target="_blank">
 												<img src="<?php echo $view_data['6']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
 											</a>
 										</div>
