@@ -147,9 +147,56 @@ class Pages extends CI_Controller {
 				$data_input = array ();
 				$data_tmp = array ();
 				// 接收變數
-				$data_input ['channel_pk'] = $this->input->post ( 'channel_pk' );
-				$data_input = $this->input->post ();
+				$data_input ['video_pk'] = $this->input->post ( 'video_pk' );
+				$data_input ['video_type'] = $this->input->post ( 'video_type' );
+				$data_input ['video_id'] = $this->input->post ( 'video_id' );
 				print_r ( $data_input );
+				for($i = 0; $i < count ( $data_input ['video_pk'] ); $i ++) {
+					if (! empty ( $data_input ['video_type'] [$i] ) && ! empty ( $data_input ['video_id'] [$i] )) {
+						switch ($data_input ['video_type'] [$i]) {
+							case 'programme' :
+								// CALL API
+								$api_url = sprintf('http://api-background.vidol.tv/v1/programmes/%d', $data_input ['video_id'] [$i]);
+								$ch = curl_init ();
+								curl_setopt ( $ch, CURLOPT_URL, $api_url );
+								curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+								curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
+										'Content-Type: application/json',
+										'Accept: application/json',
+										'Authorization: Basic MWIyNjZkNjI0OWJiYjljM2M2ZDdkYjM0YWU1YzU5YzZhMzYyZmQxODgxOGJkMzM2NmNiYjY5YTUzOGYwZmU2NDpjODNlMDkxMmQ5MWI1NjAzM2RlNmFmODdjZDIxZGZkODk1NTBkNzA4M2Q3ODM0ZDIyMWVmNmNkZGM5ODg4ZjM2',
+										'locale: zh-tw'
+								) );
+								$output = curl_exec ( $ch );
+								curl_close ( $ch );
+								unset ( $ch );
+								unset ( $api_url );
+								$output = json_decode ( $output );
+								print_r($output);
+								break;
+							case 'episode' :
+								// CALL API
+								$api_url = sprintf('http://api-background.vidol.tv/v1/episodes/%d', $data_input ['video_id'] [$i]);
+								$ch = curl_init ();
+								curl_setopt ( $ch, CURLOPT_URL, $api_url );
+								curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+								curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
+										'Content-Type: application/json',
+										'Accept: application/json',
+										'Authorization: Basic MWIyNjZkNjI0OWJiYjljM2M2ZDdkYjM0YWU1YzU5YzZhMzYyZmQxODgxOGJkMzM2NmNiYjY5YTUzOGYwZmU2NDpjODNlMDkxMmQ5MWI1NjAzM2RlNmFmODdjZDIxZGZkODk1NTBkNzA4M2Q3ODM0ZDIyMWVmNmNkZGM5ODg4ZjM2',
+										'locale: zh-tw'
+								) );
+								$output = curl_exec ( $ch );
+								curl_close ( $ch );
+								unset ( $ch );
+								unset ( $api_url );
+								$output = json_decode ( $output );
+								print_r($output);
+								break;
+							default :
+								break;
+						}
+					}
+				}
 				// 資料整理
 				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/pages/load_page';
 				// $this->data_view['right_countent']['view_data'] = $output;
