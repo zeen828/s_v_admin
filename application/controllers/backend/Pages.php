@@ -172,15 +172,17 @@ class Pages extends CI_Controller {
 								unset ( $api_url );
 								$output = json_decode ( $output );
 								// print_r ( $output );
-								$data_update = array (
-										'video_type' => $data_input ['video_type'] [$i],
-										'video_id' => $data_input ['video_id'] [$i],
-										'title' => $output->title,
-										'des' => $output->synopsis,
-										'image' => $output->image_url,
-										'url' => sprintf ( 'http://vidol.tv/programmes/%d', $data_input ['video_id'] [$i] ) 
-								);
-								$this->page_load_model->update_data ( $data_input ['video_pk'] [$i], $data_update );
+								if (empty ( $output->message )) {
+									$data_update = array (
+											'video_type' => $data_input ['video_type'] [$i],
+											'video_id' => $data_input ['video_id'] [$i],
+											'title' => $output->title,
+											'des' => $output->synopsis,
+											'image' => $output->image_url,
+											'url' => sprintf ( 'http://vidol.tv/programmes/%d', $data_input ['video_id'] [$i] ) 
+									);
+									$this->page_load_model->update_data ( $data_input ['video_pk'] [$i], $data_update );
+								}
 								break;
 							case 'episode' :
 								// CALL API
@@ -200,15 +202,17 @@ class Pages extends CI_Controller {
 								unset ( $api_url );
 								$output = json_decode ( $output );
 								// print_r ( $output );
-								$data_update = array (
-										'video_type' => $data_input ['video_type'] [$i],
-										'video_id' => $data_input ['video_id'] [$i],
-										'title' => $output->title,
-										'des' => $output->synopsis,
-										'image' => $output->image_url,
-										'url' => sprintf ( 'http://vidol.tv/programmes/%d?episode_id=%d', $output->programme_id, $data_input ['video_id'] [$i] ) 
-								);
-								$this->page_load_model->update_data ( $data_input ['video_pk'] [$i], $data_update );
+								if (empty ( $output->message )) {
+									$data_update = array (
+											'video_type' => $data_input ['video_type'] [$i],
+											'video_id' => $data_input ['video_id'] [$i],
+											'title' => $output->title,
+											'des' => $output->synopsis,
+											'image' => $output->image_url,
+											'url' => sprintf ( 'http://vidol.tv/programmes/%d?episode_id=%d', $output->programme_id, $data_input ['video_id'] [$i] ) 
+									);
+									$this->page_load_model->update_data ( $data_input ['video_pk'] [$i], $data_update );
+								}
 								break;
 							default :
 								break;
