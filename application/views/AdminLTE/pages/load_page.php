@@ -39,13 +39,14 @@
 		</div>
 	</div>
 	<div class="box-footer">
-		<button type="submit" class="btn btn-info pull-right btn_channel">Send</button>
+		<button type="submit" class="btn btn-info pull-right btn_channel">Submit</button>
+		<input type="submit" class="btn btn-info pull-right btn_channel">Submit</button>
 	</div>
 </div>
 
 <div class="box box-default">
 	<div class="box-header with-border">
-		<h3 class="box-title">推廣</h3>
+		<h3 class="box-title">影片</h3>
 		<div class="box-tools pull-right">
 			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 			<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
@@ -55,16 +56,15 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
-					<input type="hidden" name="programme_pk_1" value="3">
+					<input type="hidden" name="video_pk_1" value="3">
 					<div class="col-xs-6">
-						<select name="programme_type_1" class="form-control">
+						<select name="video_type_1" class="form-control">
 							<option value="programme">programme</option>
 							<option value="episode">episode</option>
-							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="programme_id_1" class="form-control" placeholder="影片編號">
+						<input type="text" name="video_id_1" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -72,16 +72,15 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
-					<input type="hidden" name="programme_pk_2" value="4">
+					<input type="hidden" name="video_pk_2" value="4">
 					<div class="col-xs-6">
-						<select name="programme_type_2" class="form-control">
+						<select name="video_type_2" class="form-control">
 							<option value="programme">programme</option>
 							<option value="episode">episode</option>
-							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="programme_id_2" class="form-control" placeholder="影片編號">
+						<input type="text" name="video_id_2" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -89,23 +88,22 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
-					<input type="hidden" name="programme_pk_3" value="5">
+					<input type="hidden" name="video_pk_3" value="5">
 					<div class="col-xs-6">
-						<select name="programme_type_3" class="form-control">
+						<select name="video_type_3" class="form-control">
 							<option value="programme">programme</option>
 							<option value="episode">episode</option>
-							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="programme_id_3" class="form-control" placeholder="影片編號">
+						<input type="text" name="video_id_3" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="box-footer">
-		<button type="submit" class="btn btn-info pull-right btn_programme">Send</button>
+		<button type="submit" class="btn btn-info pull-right btn_programme">Submit</button>
 	</div>
 </div>
 
@@ -141,6 +139,6 @@
 		</div>
 	</div>
 	<div class="box-footer">
-		<button type="submit" class="btn btn-info pull-right btn_event">Send</button>
+		<button type="submit" class="btn btn-info pull-right btn_event">Submit</button>
 	</div>
 </div>
