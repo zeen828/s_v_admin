@@ -15,11 +15,11 @@
 					<input type="hidden" name="channel_pk[]" value="1">
 					<div class="col-xs-6">
 						<select name="channel_type[]" class="form-control">
-							<option value="channel">channel</option>
+							<option value="channel"<?php if($view_data['1']['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="channel_id[]" class="form-control" placeholder="影片編號">
+						<input type="text" name="channel_id[]" value="<?php echo $view_data['1']['video_id'];?>" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -30,11 +30,11 @@
 					<input type="hidden" name="channel_pk[]" value="2">
 					<div class="col-xs-6">
 						<select name="channel_type[]" class="form-control">
-							<option value="channel">channel</option>
+							<option value="channel"<?php if($view_data['2']['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="channel_id[]" class="form-control" placeholder="影片編號">
+						<input type="text" name="channel_id[]" value="<?php echo $view_data['2']['video_id'];?>" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -62,12 +62,12 @@
 					<input type="hidden" name="video_pk[]" value="3">
 					<div class="col-xs-6">
 						<select name="video_type[]" class="form-control">
-							<option value="programme">programme</option>
-							<option value="episode">episode</option>
+							<option value="programme"<?php if($view_data['3']['video_type'] == 'programme'){ echo ' selected'; }?>>programme</option>
+							<option value="episode"<?php if($view_data['3']['video_type'] == 'episode'){ echo ' selected'; }?>>episode</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="video_id[]" class="form-control" placeholder="影片編號">
+						<input type="text" name="video_id[]" value="<?php echo $view_data['3']['video_id'];?>" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -78,12 +78,12 @@
 					<input type="hidden" name="video_pk[]" value="4">
 					<div class="col-xs-6">
 						<select name="video_type[]" class="form-control">
-							<option value="programme">programme</option>
-							<option value="episode">episode</option>
+							<option value="programme"<?php if($view_data['4']['video_type'] == 'programme'){ echo ' selected'; }?>>programme</option>
+							<option value="episode"<?php if($view_data['4']['video_type'] == 'episode'){ echo ' selected'; }?>>episode</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="video_id[]" class="form-control" placeholder="影片編號">
+						<input type="text" name="video_id[]" value="<?php echo $view_data['4']['video_id'];?>" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -94,12 +94,12 @@
 					<input type="hidden" name="video_pk[]" value="5">
 					<div class="col-xs-6">
 						<select name="video_type[]" class="form-control">
-							<option value="programme">programme</option>
-							<option value="episode">episode</option>
+							<option value="programme"<?php if($view_data['5']['video_type'] == 'programme'){ echo ' selected'; }?>>programme</option>
+							<option value="episode"<?php if($view_data['5']['video_type'] == 'episode'){ echo ' selected'; }?>>episode</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="video_id[]" class="form-control" placeholder="影片編號">
+						<input type="text" name="video_id[]" value="<?php echo $view_data['5']['video_id'];?>" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -126,18 +126,18 @@
 				<div class="row">
 					<input type="hidden" name="event_pk[]" value="6">
 					<div class="col-xs-6">
-						<input type="text" name="event_title[]" class="form-control" placeholder="標題">
+						<input type="text" name="event_title[]" value="<?php echo $view_data['6']['title'];?>" class="form-control" placeholder="標題">
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="event_des[]" class="form-control" placeholder="描述">
+						<input type="text" name="event_des[]" value="<?php echo $view_data['6']['des'];?>" class="form-control" placeholder="描述">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-6">
-						<input type="text" name="event_img[]" class="form-control" placeholder="圖片網址">
+						<input type="text" name="event_img[]" value="<?php echo $view_data['6']['image'];?>" class="form-control" placeholder="圖片網址">
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="event_url[]" class="form-control" placeholder="連結位置">
+						<input type="text" name="event_url[]" value="<?php echo $view_data['6']['url'];?>" class="form-control" placeholder="連結位置">
 					</div>
 				</div>
 			</div>
