@@ -12,12 +12,11 @@
 								<div class="box-body">
 									<div class="row">
 										<input type="hidden" name="channel_pk[]" value="1">
-
-<div class="col-xs-2">
-	<a href="<?php echo $view_data['1']['url'];?>">
-		<img src="<?php echo $view_data['1']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
-	</a>
-</div>
+										<div class="col-xs-2">
+											<a href="<?php echo $view_data['1']['url'];?>">
+												<img src="<?php echo $view_data['1']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											</a>
+										</div>
 										<div class="col-xs-5">
 											<select name="channel_type[]" class="form-control">
 												<option value="channel"<?php if($view_data['1']['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
@@ -33,12 +32,17 @@
 								<div class="box-body">
 									<div class="row">
 										<input type="hidden" name="channel_pk[]" value="2">
-										<div class="col-xs-6">
+										<div class="col-xs-2">
+											<a href="<?php echo $view_data['2']['url'];?>">
+												<img src="<?php echo $view_data['2']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											</a>
+										</div>
+										<div class="col-xs-5">
 											<select name="channel_type[]" class="form-control">
 												<option value="channel"<?php if($view_data['2']['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
 											</select>
 										</div>
-										<div class="col-xs-6">
+										<div class="col-xs-5">
 											<input type="text" name="channel_id[]" value="<?php echo $view_data['2']['video_id'];?>" class="form-control" placeholder="影片編號">
 										</div>
 									</div>
@@ -65,13 +69,18 @@
 								<div class="box-body">
 									<div class="row">
 										<input type="hidden" name="video_pk[]" value="3">
-										<div class="col-xs-6">
+										<div class="col-xs-2">
+											<a href="<?php echo $view_data['3']['url'];?>">
+												<img src="<?php echo $view_data['3']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											</a>
+										</div>
+										<div class="col-xs-5">
 											<select name="video_type[]" class="form-control">
 												<option value="programme"<?php if($view_data['3']['video_type'] == 'programme'){ echo ' selected'; }?>>programme</option>
 												<option value="episode"<?php if($view_data['3']['video_type'] == 'episode'){ echo ' selected'; }?>>episode</option>
 											</select>
 										</div>
-										<div class="col-xs-6">
+										<div class="col-xs-5">
 											<input type="text" name="video_id[]" value="<?php echo $view_data['3']['video_id'];?>" class="form-control" placeholder="影片編號">
 										</div>
 									</div>
@@ -81,13 +90,18 @@
 								<div class="box-body">
 									<div class="row">
 										<input type="hidden" name="video_pk[]" value="4">
-										<div class="col-xs-6">
+										<div class="col-xs-2">
+											<a href="<?php echo $view_data['4']['url'];?>">
+												<img src="<?php echo $view_data['4']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											</a>
+										</div>
+										<div class="col-xs-5">
 											<select name="video_type[]" class="form-control">
 												<option value="programme"<?php if($view_data['4']['video_type'] == 'programme'){ echo ' selected'; }?>>programme</option>
 												<option value="episode"<?php if($view_data['4']['video_type'] == 'episode'){ echo ' selected'; }?>>episode</option>
 											</select>
 										</div>
-										<div class="col-xs-6">
+										<div class="col-xs-5">
 											<input type="text" name="video_id[]" value="<?php echo $view_data['4']['video_id'];?>" class="form-control" placeholder="影片編號">
 										</div>
 									</div>
@@ -97,13 +111,18 @@
 								<div class="box-body">
 									<div class="row">
 										<input type="hidden" name="video_pk[]" value="5">
-										<div class="col-xs-6">
+										<div class="col-xs-2">
+											<a href="<?php echo $view_data['5']['url'];?>">
+												<img src="<?php echo $view_data['5']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											</a>
+										</div>
+										<div class="col-xs-5">
 											<select name="video_type[]" class="form-control">
 												<option value="programme"<?php if($view_data['5']['video_type'] == 'programme'){ echo ' selected'; }?>>programme</option>
 												<option value="episode"<?php if($view_data['5']['video_type'] == 'episode'){ echo ' selected'; }?>>episode</option>
 											</select>
 										</div>
-										<div class="col-xs-6">
+										<div class="col-xs-5">
 											<input type="text" name="video_id[]" value="<?php echo $view_data['5']['video_id'];?>" class="form-control" placeholder="影片編號">
 										</div>
 									</div>
@@ -130,18 +149,25 @@
 								<div class="box-body">
 									<div class="row">
 										<input type="hidden" name="event_pk[]" value="6">
-										<div class="col-xs-6">
+										<div class="col-xs-2">
+											<a href="<?php echo $view_data['6']['url'];?>">
+												<img src="<?php echo $view_data['6']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											</a>
+										</div>
+										<div class="col-xs-5">
 											<input type="text" name="event_title[]" value="<?php echo $view_data['6']['title'];?>" class="form-control" placeholder="標題">
 										</div>
-										<div class="col-xs-6">
+										<div class="col-xs-5">
 											<input type="text" name="event_des[]" value="<?php echo $view_data['6']['des'];?>" class="form-control" placeholder="描述">
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-xs-6">
+										<div class="col-xs-2">
+										</div>
+										<div class="col-xs-5">
 											<input type="text" name="event_img[]" value="<?php echo $view_data['6']['image'];?>" class="form-control" placeholder="圖片網址">
 										</div>
-										<div class="col-xs-6">
+										<div class="col-xs-5">
 											<input type="text" name="event_url[]" value="<?php echo $view_data['6']['url'];?>" class="form-control" placeholder="連結位置">
 										</div>
 									</div>
