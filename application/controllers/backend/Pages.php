@@ -73,6 +73,8 @@ class Pages extends CI_Controller
 				$this->fun->logs('觀看訂單查詢紀錄');
 				// 變數
 				$data_post = array();
+				
+				print_r($_POST);
 				// 資料整理
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
 				//$this->data_view['right_countent']['view_data'] = $output;
@@ -98,6 +100,8 @@ class Pages extends CI_Controller
 				$this->fun->logs('觀看訂單查詢紀錄');
 				// 變數
 				$data_post = array();
+				
+				print_r($_POST);
 				// 資料整理
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
 				//$this->data_view['right_countent']['view_data'] = $output;
@@ -123,6 +127,8 @@ class Pages extends CI_Controller
 				$this->fun->logs('觀看訂單查詢紀錄');
 				// 變數
 				$data_post = array();
+				
+				print_r($_POST);
 				// 資料整理
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
 				//$this->data_view['right_countent']['view_data'] = $output;
