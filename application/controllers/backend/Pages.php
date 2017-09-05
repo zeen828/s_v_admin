@@ -156,7 +156,7 @@ class Pages extends CI_Controller {
 						switch ($data_input ['video_type'] [$i]) {
 							case 'programme' :
 								// CALL API
-								$api_url = sprintf('http://api-background.vidol.tv/v1/programmes/%d', $data_input ['video_id'] [$i]);
+								$api_url = sprintf ( 'http://api-background.vidol.tv/v1/programmes/%d', $data_input ['video_id'] [$i] );
 								$ch = curl_init ();
 								curl_setopt ( $ch, CURLOPT_URL, $api_url );
 								curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
@@ -164,18 +164,27 @@ class Pages extends CI_Controller {
 										'Content-Type: application/json',
 										'Accept: application/json',
 										'Authorization: Basic MWIyNjZkNjI0OWJiYjljM2M2ZDdkYjM0YWU1YzU5YzZhMzYyZmQxODgxOGJkMzM2NmNiYjY5YTUzOGYwZmU2NDpjODNlMDkxMmQ5MWI1NjAzM2RlNmFmODdjZDIxZGZkODk1NTBkNzA4M2Q3ODM0ZDIyMWVmNmNkZGM5ODg4ZjM2',
-										'locale: zh-tw'
+										'locale: zh-tw' 
 								) );
 								$output = curl_exec ( $ch );
 								curl_close ( $ch );
 								unset ( $ch );
 								unset ( $api_url );
 								$output = json_decode ( $output );
-								print_r($output);
+								print_r ( $output );
+								$data_update = array (
+										'video_type' => $data_input ['video_type'] [$i],
+										'video_id' => $data_input ['video_id'] [$i],
+										'title' => $output->title,
+										'des' => $output->synopsis,
+										'image' => $output->image_url,
+										'url' => sprintf ( 'http://vidol.tv/programmes/%d', $data_input ['video_id'] [$i] ) 
+								);
+								$this->page_load_model->update_data ( $data_input ['video_pk'] [$i], $data_update );
 								break;
 							case 'episode' :
 								// CALL API
-								$api_url = sprintf('http://api-background.vidol.tv/v1/episodes/%d', $data_input ['video_id'] [$i]);
+								$api_url = sprintf ( 'http://api-background.vidol.tv/v1/episodes/%d', $data_input ['video_id'] [$i] );
 								$ch = curl_init ();
 								curl_setopt ( $ch, CURLOPT_URL, $api_url );
 								curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
@@ -183,30 +192,30 @@ class Pages extends CI_Controller {
 										'Content-Type: application/json',
 										'Accept: application/json',
 										'Authorization: Basic MWIyNjZkNjI0OWJiYjljM2M2ZDdkYjM0YWU1YzU5YzZhMzYyZmQxODgxOGJkMzM2NmNiYjY5YTUzOGYwZmU2NDpjODNlMDkxMmQ5MWI1NjAzM2RlNmFmODdjZDIxZGZkODk1NTBkNzA4M2Q3ODM0ZDIyMWVmNmNkZGM5ODg4ZjM2',
-										'locale: zh-tw'
+										'locale: zh-tw' 
 								) );
 								$output = curl_exec ( $ch );
 								curl_close ( $ch );
 								unset ( $ch );
 								unset ( $api_url );
 								$output = json_decode ( $output );
-								print_r($output);
+								print_r ( $output );
+								$data_update = array (
+										'video_type' => $data_input ['video_type'] [$i],
+										'video_id' => $data_input ['video_id'] [$i],
+										'title' => $output->title,
+										'des' => $output->synopsis,
+										'image' => $output->image_url,
+										'url' => sprintf ( 'http://vidol.tv/programmes/%d?episode_id=%d', $output->programme_id, $data_input ['video_id'] [$i] ) 
+								);
+								$this->page_load_model->update_data ( $data_input ['video_pk'] [$i], $data_update );
 								break;
 							default :
 								break;
 						}
 					}
 				}
-				// 資料整理
-				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/pages/load_page';
-				// $this->data_view['right_countent']['view_data'] = $output;
-				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
-						'title' => '中繼頁',
-						'link' => '/backend/pages/load_page',
-						'class' => 'fa-building-o' 
-				);
-				// 套版
-				$this->load->view ( 'AdminLTE/include/html5', $this->data_view );
+				redirect ( '/backend/pages/load_page' );
 			}
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
