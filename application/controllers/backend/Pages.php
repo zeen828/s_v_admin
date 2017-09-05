@@ -150,7 +150,7 @@ class Pages extends CI_Controller {
 				$data_input ['video_pk'] = $this->input->post ( 'video_pk' );
 				$data_input ['video_type'] = $this->input->post ( 'video_type' );
 				$data_input ['video_id'] = $this->input->post ( 'video_id' );
-				print_r ( $data_input );
+				//
 				for($i = 0; $i < count ( $data_input ['video_pk'] ); $i ++) {
 					if (! empty ( $data_input ['video_type'] [$i] ) && ! empty ( $data_input ['video_id'] [$i] )) {
 						switch ($data_input ['video_type'] [$i]) {
@@ -171,7 +171,7 @@ class Pages extends CI_Controller {
 								unset ( $ch );
 								unset ( $api_url );
 								$output = json_decode ( $output );
-								print_r ( $output );
+								// print_r ( $output );
 								$data_update = array (
 										'video_type' => $data_input ['video_type'] [$i],
 										'video_id' => $data_input ['video_id'] [$i],
@@ -199,7 +199,7 @@ class Pages extends CI_Controller {
 								unset ( $ch );
 								unset ( $api_url );
 								$output = json_decode ( $output );
-								print_r ( $output );
+								// print_r ( $output );
 								$data_update = array (
 										'video_type' => $data_input ['video_type'] [$i],
 										'video_id' => $data_input ['video_id'] [$i],
