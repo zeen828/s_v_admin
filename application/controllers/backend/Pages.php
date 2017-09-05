@@ -59,7 +59,7 @@ class Pages extends CI_Controller {
 				}
 				// 資料整理
 				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/pages/load_page';
-				$this->data_view['right_countent']['view_data'] = $output;
+				$this->data_view ['right_countent'] ['view_data'] = $output;
 				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
 						'title' => '中繼頁',
 						'link' => '/backend/pages/load_page',
@@ -141,10 +141,15 @@ class Pages extends CI_Controller {
 			if ($this->flexi_auth->is_privileged ( 'Orders View' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
+				// 引入
+				$this->load->model ( 'vidol_event/page_load_model' );
 				// 變數
-				$data_post = array ();
-				
-				print_r ( $_POST );
+				$data_input = array ();
+				$data_tmp = array ();
+				// 接收變數
+				$data_input ['channel_pk'] = $this->input->post ( 'channel_pk' );
+				$data_input = $this->input->post ();
+				print_r ( $data_input );
 				// 資料整理
 				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/pages/load_page';
 				// $this->data_view['right_countent']['view_data'] = $output;
