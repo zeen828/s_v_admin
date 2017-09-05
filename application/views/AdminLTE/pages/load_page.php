@@ -10,16 +10,14 @@
 		<div class="box box-info">
 			<div class="box-body">
 				<div class="row">
+					<input type="hidden" name="channel_pk_1" value="1">
 					<div class="col-xs-6">
 						<select name="channel_type_1" class="form-control">
 							<option value="channel">channel</option>
-							<option value="programme">programme</option>
-							<option value="episode">episode</option>
-							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="channel_id_1" class="form-control" placeholder="">
+						<input type="text" name="channel_id_1" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -27,16 +25,14 @@
 		<div class="box box-info">
 			<div class="box-body">
 				<div class="row">
+					<input type="hidden" name="channel_pk_2" value="2">
 					<div class="col-xs-6">
 						<select name="channel_type_2" class="form-control">
 							<option value="channel">channel</option>
-							<option value="programme">programme</option>
-							<option value="episode">episode</option>
-							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="channel_id_2" class="form-control" placeholder="">
+						<input type="text" name="channel_id_2" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -59,16 +55,16 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
+					<input type="hidden" name="programme_pk_1" value="3">
 					<div class="col-xs-6">
 						<select name="programme_type_1" class="form-control">
-							<option value="channel">channel</option>
 							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="programme_id_1" class="form-control" placeholder="">
+						<input type="text" name="programme_id_1" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -76,16 +72,16 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
+					<input type="hidden" name="programme_pk_2" value="4">
 					<div class="col-xs-6">
 						<select name="programme_type_2" class="form-control">
-							<option value="channel">channel</option>
 							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="programme_id_2" class="form-control" placeholder="">
+						<input type="text" name="programme_id_2" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -93,16 +89,16 @@
 		<div class="box box-success">
 			<div class="box-body">
 				<div class="row">
+					<input type="hidden" name="programme_pk_3" value="5">
 					<div class="col-xs-6">
 						<select name="programme_type_3" class="form-control">
-							<option value="channel">channel</option>
 							<option value="programme">programme</option>
 							<option value="episode">episode</option>
 							<option value="live">live</option>
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="programme_id_3" class="form-control" placeholder="">
+						<input type="text" name="programme_id_3" class="form-control" placeholder="影片編號">
 					</div>
 				</div>
 			</div>
@@ -125,16 +121,20 @@
 		<div class="box box-warning">
 			<div class="box-body">
 				<div class="row">
+					<input type="hidden" name="event_pk" value="6">
 					<div class="col-xs-6">
-						<select name="event_type" class="form-control">
-							<option value="channel">channel</option>
-							<option value="programme">programme</option>
-							<option value="episode">episode</option>
-							<option value="live">live</option>
-						</select>
+						<input type="text" name="event_title" class="form-control" placeholder="標題">
 					</div>
 					<div class="col-xs-6">
-						<input type="text" name="event_id" class="form-control" placeholder="">
+						<input type="text" name="event_des" class="form-control" placeholder="描述">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<input type="text" name="event_img" class="form-control" placeholder="圖片網址">
+					</div>
+					<div class="col-xs-6">
+						<input type="text" name="event_url" class="form-control" placeholder="連結位置">
 					</div>
 				</div>
 			</div>
