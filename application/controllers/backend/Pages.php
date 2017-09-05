@@ -45,14 +45,14 @@ class Pages extends CI_Controller
 		try {
 			if ($this->flexi_auth->is_privileged('Orders View')) {
 				// 寫log
-				$this->fun->logs('觀看訂單查詢紀錄');
+				$this->fun->logs('觀看中繼頁');
 				// 變數
 				$data_post = array();
 				// 資料整理
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
 				//$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '訂單查詢紀錄',
+						'title' => '中繼頁',
 						'link' => '/backend/pages/load_page',
 						'class' => 'fa-building-o'
 				);
@@ -70,16 +70,18 @@ class Pages extends CI_Controller
 		try {
 			if ($this->flexi_auth->is_privileged('Orders View')) {
 				// 寫log
-				$this->fun->logs('觀看訂單查詢紀錄');
+				$this->fun->logs('觀看中繼頁');
 				// 變數
 				$data_post = array();
 				
+				$data_post = $this->input->post();
+				print_r($data_post);
 				print_r($_POST);
 				// 資料整理
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
 				//$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '訂單查詢紀錄',
+						'title' => '中繼頁',
 						'link' => '/backend/pages/load_page',
 						'class' => 'fa-building-o'
 				);
@@ -97,7 +99,7 @@ class Pages extends CI_Controller
 		try {
 			if ($this->flexi_auth->is_privileged('Orders View')) {
 				// 寫log
-				$this->fun->logs('觀看訂單查詢紀錄');
+				$this->fun->logs('觀看中繼頁');
 				// 變數
 				$data_post = array();
 				
@@ -106,7 +108,7 @@ class Pages extends CI_Controller
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
 				//$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '訂單查詢紀錄',
+						'title' => '中繼頁',
 						'link' => '/backend/pages/load_page',
 						'class' => 'fa-building-o'
 				);
@@ -124,7 +126,7 @@ class Pages extends CI_Controller
 		try {
 			if ($this->flexi_auth->is_privileged('Orders View')) {
 				// 寫log
-				$this->fun->logs('觀看訂單查詢紀錄');
+				$this->fun->logs('觀看中繼頁');
 				// 變數
 				$data_post = array();
 				
@@ -133,7 +135,7 @@ class Pages extends CI_Controller
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
 				//$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '訂單查詢紀錄',
+						'title' => '中繼頁',
 						'link' => '/backend/pages/load_page',
 						'class' => 'fa-building-o'
 				);
