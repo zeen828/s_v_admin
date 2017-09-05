@@ -63,4 +63,79 @@ class Pages extends CI_Controller
 			show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
 		}
 	}
+	
+	public function load_page_channel ()
+	{
+		//$this->output->enable_profiler(TRUE);
+		try {
+			if ($this->flexi_auth->is_privileged('Orders View')) {
+				// 寫log
+				$this->fun->logs('觀看訂單查詢紀錄');
+				// 變數
+				$data_post = array();
+				// 資料整理
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
+				//$this->data_view['right_countent']['view_data'] = $output;
+				$this->data_view['right_countent']['tags']['tag_3'] = array(
+						'title' => '訂單查詢紀錄',
+						'link' => '/backend/pages/load_page',
+						'class' => 'fa-building-o'
+				);
+				// 套版
+				$this->load->view('AdminLTE/include/html5', $this->data_view);
+			}
+		} catch (Exception $e) {
+			show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
+		}
+	}
+	
+	public function load_page_video ()
+	{
+		//$this->output->enable_profiler(TRUE);
+		try {
+			if ($this->flexi_auth->is_privileged('Orders View')) {
+				// 寫log
+				$this->fun->logs('觀看訂單查詢紀錄');
+				// 變數
+				$data_post = array();
+				// 資料整理
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
+				//$this->data_view['right_countent']['view_data'] = $output;
+				$this->data_view['right_countent']['tags']['tag_3'] = array(
+						'title' => '訂單查詢紀錄',
+						'link' => '/backend/pages/load_page',
+						'class' => 'fa-building-o'
+				);
+				// 套版
+				$this->load->view('AdminLTE/include/html5', $this->data_view);
+			}
+		} catch (Exception $e) {
+			show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
+		}
+	}
+
+	public function load_page_event ()
+	{
+		//$this->output->enable_profiler(TRUE);
+		try {
+			if ($this->flexi_auth->is_privileged('Orders View')) {
+				// 寫log
+				$this->fun->logs('觀看訂單查詢紀錄');
+				// 變數
+				$data_post = array();
+				// 資料整理
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/pages/load_page';
+				//$this->data_view['right_countent']['view_data'] = $output;
+				$this->data_view['right_countent']['tags']['tag_3'] = array(
+						'title' => '訂單查詢紀錄',
+						'link' => '/backend/pages/load_page',
+						'class' => 'fa-building-o'
+				);
+				// 套版
+				$this->load->view('AdminLTE/include/html5', $this->data_view);
+			}
+		} catch (Exception $e) {
+			show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
+		}
+	}
 }

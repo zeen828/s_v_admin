@@ -1,5 +1,5 @@
 <div class="box box-default">
-<form action="/action_page.php" method="post">
+	<form action="/backend/pages/load_page_channel" method="post">
 	<div class="box-header with-border">
 		<h3 class="box-title">頻道</h3>
 		<div class="box-tools pull-right">
@@ -40,13 +40,13 @@
 		</div>
 	</div>
 	<div class="box-footer">
-		<button type="submit" class="btn btn-info pull-right btn_channel">Submit</button>
-		<input type="submit" value="Submit" class="btn btn-info pull-right btn_channel">
+		<input type="submit" value="Submit" class="btn btn-info pull-right">
 	</div>
-</form>
+	</form>
 </div>
 
 <div class="box box-default">
+	<form action="/backend/pages/load_page_video" method="post">
 	<div class="box-header with-border">
 		<h3 class="box-title">影片</h3>
 		<div class="box-tools pull-right">
@@ -105,11 +105,13 @@
 		</div>
 	</div>
 	<div class="box-footer">
-		<button type="submit" class="btn btn-info pull-right btn_programme">Submit</button>
+		<input type="submit" value="Submit" class="btn btn-info pull-right">
 	</div>
+	</form>
 </div>
 
 <div class="box box-default">
+	<form action="/backend/pages/load_page_event" method="post">
 	<div class="box-header with-border">
 		<h3 class="box-title">活動</h3>
 		<div class="box-tools pull-right">
@@ -141,6 +143,7 @@
 		</div>
 	</div>
 	<div class="box-footer">
-		<button type="submit" class="btn btn-info pull-right btn_event">Submit</button>
+		<input type="submit" value="Submit" class="btn btn-info pull-right">
 	</div>
+	</form>
 </div>
