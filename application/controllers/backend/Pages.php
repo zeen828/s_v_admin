@@ -38,11 +38,28 @@ class Pages extends CI_Controller {
 			if ($this->flexi_auth->is_privileged ( 'Orders View' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
+				// 引入
+				$this->load->model ( 'vidol_event/page_load_model' );
 				// 變數
-				$data_post = array ();
+				$output = array ();
+				// 取資料
+				$query = $this->page_load_model->get_query_limit ( '*', '30' );
+				if ($query->num_rows () > 0) {
+					foreach ( $query->result () as $row ) {
+						$output [$row->id] = array (
+								'pk' => $row->id,
+								'video_type' => $row->video_type,
+								'video_id' => $row->video_id,
+								'title' => $row->title,
+								'des' => $row->des,
+								'image' => $row->image,
+								'url' => $row->url 
+						);
+					}
+				}
 				// 資料整理
 				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/pages/load_page';
-				// $this->data_view['right_countent']['view_data'] = $output;
+				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
 						'title' => '中繼頁',
 						'link' => '/backend/pages/load_page',

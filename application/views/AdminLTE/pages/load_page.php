@@ -1,3 +1,4 @@
+<?php print_r($view_data);?>
 <div class="box box-default">
 	<form action="/backend/pages/load_page_channel" method="post">
 	<div class="box-header with-border">
