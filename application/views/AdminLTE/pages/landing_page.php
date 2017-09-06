@@ -9,18 +9,8 @@
 						</div>
 						<div class="box-body">
 							<div class="col-xs-12 text-center">
-								<button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
-									<i class="fa fa-spin fa-refresh"></i>&nbsp; 資料更新中
-								</button>
-							</div>
-							<div class="col-xs-12 text-center">
-								<button type="button" class="btn btn-default btn-lrg" title="Ajax Request">
-									<i class="fa fa-spin fa-refresh"></i>&nbsp; Get External Content
-								</button>
-							</div>
-							<div class="col-xs-12 text-center">
-								<button type="button" class="btn btn-default" title="Ajax Request">
-									<i class="fa fa-spin fa-refresh"></i>&nbsp; Get External Content
+								<button type="button" class="btn btn-default btn-update">
+									<i class="fa fa-spin fa-refresh"></i>&nbsp; 更新資料
 								</button>
 							</div>
 						</div>
@@ -231,7 +221,8 @@
 					</div>
 					<script type="text/javascript">
 					$(document).ready(function(){
-						$('#lotters_clear').off('click').on('click', function() {
+						$('.btn-update').off('click').on('click', function() {
+							$('.btn-update i').addClass('fa-refresh').;
 							$.ajax({
 								url: 'http://event.api.vidol.tv/crontab/pages/landing_cached',
 								type: 'GET',
@@ -249,6 +240,7 @@
 								statusCode: {
 									200: function(json, statusText, xhr) {
 										alert('已更新資料!!');
+										$('.btn-update i').removeClass('fa-refresh').;
 									}
 								}
 							});
