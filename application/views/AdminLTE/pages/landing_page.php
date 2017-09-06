@@ -1,24 +1,6 @@
 					<div class="box box-default">
 						<form action="/backend/pages/landing_page_channel" method="post">
 						<div class="box-header with-border">
-							<h3 class="box-title">控制</h3>
-							<div class="box-tools pull-right">
-								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-							</div>
-						</div>
-						<div class="box-body">
-							<div class="col-xs-12 text-center">
-								<button type="button" class="btn btn-default btn-update">
-									<i class="fa fa-spin fa-refresh"></i>&nbsp; 更新資料
-								</button>
-							</div>
-						</div>
-					</div>
-
-					<div class="box box-default">
-						<form action="/backend/pages/landing_page_channel" method="post">
-						<div class="box-header with-border">
 							<h3 class="box-title">頻道</h3>
 							<div class="box-tools pull-right">
 								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -219,10 +201,50 @@
 						</div>
 						</form>
 					</div>
+					
+					<div class="box box-default">
+						<form action="/backend/pages/landing_page_channel" method="post">
+						<div class="box-header with-border">
+							<h3 class="box-title">控制</h3>
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+							</div>
+						</div>
+						<div class="box-body">
+							<div class="col-xs-12 text-center">
+								<button type="button" class="btn btn-default btn-update">
+									<i class="fa fa-spin"></i>&nbsp; 更新資料
+								</button>
+							</div>
+						</div>
+					</div>
+					
 					<script type="text/javascript">
 					$(document).ready(function(){
 						$('.btn-update').off('click').on('click', function() {
-alert('a');
+							$('.btn-update i').addClass('fa-refresh');
+							$.ajax({
+								url: 'http://event.api.vidol.tv/crontab/pages/landing_cached',
+								type: 'GET',
+								cache: false,
+								headers: {
+									'Authorization' : 'sw84sc888kkcg0ogo8cw4swgkswkw048cc48swk8'
+								},
+								dataType: 'json',
+								data: {
+									'debug' : 'debug'
+								},
+								error: function(xhr){
+									alert('Ajax request error');
+								},
+								statusCode: {
+									200: function(json, statusText, xhr) {
+										alert('已更新資料!!');
+										$('.btn-update i').removeClass('fa-refresh');
+									}
+								}
+							});
 						});
 					});
 					</script>
