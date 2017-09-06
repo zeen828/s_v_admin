@@ -32,18 +32,18 @@ class Pages extends CI_Controller {
 	public function index() {
 		show_404 ();
 	}
-	public function load_page() {
+	public function landing_page() {
 		// $this->output->enable_profiler(TRUE);
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Pages View' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
-				$this->load->model ( 'vidol_event/page_load_model' );
+				$this->load->model ( 'vidol_event/page_landing_model' );
 				// 變數
 				$output = array ();
 				// 取資料
-				$query = $this->page_load_model->get_query_limit ( '*', '30' );
+				$query = $this->page_landing_model->get_query_limit ( '*', '30' );
 				if ($query->num_rows () > 0) {
 					foreach ( $query->result () as $row ) {
 						$output [$row->id] = array (
@@ -58,11 +58,11 @@ class Pages extends CI_Controller {
 					}
 				}
 				// 資料整理
-				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/pages/load_page';
+				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/pages/landing_page';
 				$this->data_view ['right_countent'] ['view_data'] = $output;
 				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
 						'title' => '中繼頁',
-						'link' => '/backend/pages/load_page',
+						'link' => '/backend/pages/landing_page',
 						'class' => 'fa-building-o' 
 				);
 				// 套版
@@ -72,14 +72,14 @@ class Pages extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
-	public function load_page_channel() {
+	public function landing_page_channel() {
 		// $this->output->enable_profiler(TRUE);
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Pages Edit' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
-				$this->load->model ( 'vidol_event/page_load_model' );
+				$this->load->model ( 'vidol_event/page_landing_model' );
 				// 變數
 				$data_input = array ();
 				$data_tmp = array ();
@@ -120,7 +120,7 @@ class Pages extends CI_Controller {
 									'image' => $data_tmp [$video_id]->url,
 									'url' => sprintf ( 'http://vidol.tv/channel/%d', $video_id ) 
 							);
-							$this->page_load_model->update_data ( $data_input ['channel_pk'] [$i], $data_update );
+							$this->page_landing_model->update_data ( $data_input ['channel_pk'] [$i], $data_update );
 							unset ( $data_update );
 						}
 						unset ( $video_id );
@@ -130,19 +130,19 @@ class Pages extends CI_Controller {
 				unset ( $data_tmp );
 				unset ( $data_input );
 			}
-			redirect ( '/backend/pages/load_page' );
+			redirect ( '/backend/pages/landing_page' );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
-	public function load_page_video() {
+	public function landing_page_video() {
 		// $this->output->enable_profiler(TRUE);
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Pages Edit' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
-				$this->load->model ( 'vidol_event/page_load_model' );
+				$this->load->model ( 'vidol_event/page_landing_model' );
 				// 變數
 				$data_input = array ();
 				$data_tmp = array ();
@@ -181,7 +181,7 @@ class Pages extends CI_Controller {
 											'image' => $output->image_url,
 											'url' => sprintf ( 'http://vidol.tv/programmes/%d', $data_input ['video_id'] [$i] ) 
 									);
-									$this->page_load_model->update_data ( $data_input ['video_pk'] [$i], $data_update );
+									$this->page_landing_model->update_data ( $data_input ['video_pk'] [$i], $data_update );
 								}
 								break;
 							case 'episode' :
@@ -211,7 +211,7 @@ class Pages extends CI_Controller {
 											'image' => $output->image_url,
 											'url' => sprintf ( 'http://vidol.tv/programmes/%d?episode_id=%d', $output->programme_id, $data_input ['video_id'] [$i] ) 
 									);
-									$this->page_load_model->update_data ( $data_input ['video_pk'] [$i], $data_update );
+									$this->page_landing_model->update_data ( $data_input ['video_pk'] [$i], $data_update );
 								}
 								break;
 							default :
@@ -220,19 +220,19 @@ class Pages extends CI_Controller {
 					}
 				}
 			}
-			redirect ( '/backend/pages/load_page' );
+			redirect ( '/backend/pages/landing_page' );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
-	public function load_page_event() {
+	public function landing_page_event() {
 		// $this->output->enable_profiler(TRUE);
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Pages Edit' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
-				$this->load->model ( 'vidol_event/page_load_model' );
+				$this->load->model ( 'vidol_event/page_landing_model' );
 				// 變數
 				$data_input = array ();
 				// 接收變數
@@ -249,12 +249,12 @@ class Pages extends CI_Controller {
 							'image' => $data_input ['event_img'] [$i],
 							'url' => $data_input ['event_url'] [$i] 
 					);
-					$this->page_load_model->update_data ( $data_input ['event_pk'] [$i], $data_update );
+					$this->page_landing_model->update_data ( $data_input ['event_pk'] [$i], $data_update );
 					unset ( $data_update );
 				}
 				unset ( $data_input );
 			}
-			redirect ( '/backend/pages/load_page' );
+			redirect ( '/backend/pages/landing_page' );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}

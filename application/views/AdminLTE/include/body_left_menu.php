@@ -60,7 +60,7 @@
 <?php if($this->flexi_auth->is_privileged(array('Pages View', 'Pages Add', 'Pages Edit', 'Pages Del'))) {?>
             			<li class="Pages treeview"><a href="#"> <i class="fa fa-building-o"></i> <span>活動頁面管理</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
-            					<li><a href="/backend/pages/load_page"><i class="fa fa-building-o"></i> 讀取跳轉頁面</a></li>
+            					<li><a href="/backend/pages/landing_page"><i class="fa fa-building-o"></i> 登陸跳轉頁面</a></li>
             				</ul>
             			</li>
 <?php }?>
