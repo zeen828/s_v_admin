@@ -10,6 +10,16 @@
 						<div class="box-body">
 							<div class="col-xs-12 text-center">
 								<button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
+									<i class="fa fa-spin fa-refresh"></i>&nbsp; 資料更新中
+								</button>
+							</div>
+							<div class="col-xs-12 text-center">
+								<button type="button" class="btn btn-default btn-lrg" title="Ajax Request">
+									<i class="fa fa-spin fa-refresh"></i>&nbsp; Get External Content
+								</button>
+							</div>
+							<div class="col-xs-12 text-center">
+								<button type="button" class="btn btn-default" title="Ajax Request">
 									<i class="fa fa-spin fa-refresh"></i>&nbsp; Get External Content
 								</button>
 							</div>
