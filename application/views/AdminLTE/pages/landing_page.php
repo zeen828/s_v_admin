@@ -48,7 +48,7 @@
 										<div class="media-body">
 											<div class="row">
 												<div class="col-xs-12">
-													<input type="text" name="channel_title[]" value="<?php echo $view_data['1']['title'];?>" class="form-control" disabled>
+													<input type="text" name="channel_title[]" value="<?php echo $view_data['2']['title'];?>" class="form-control" disabled>
 												</div>
 											</div>
 											<div class="row">
@@ -93,6 +93,11 @@
 										</div>
 										<div class="media-body">
 											<div class="row">
+												<div class="col-xs-12">
+													<input type="text" name="video_title[]" value="<?php echo $view_data['3']['title'];?>" class="form-control" disabled>
+												</div>
+											</div>
+											<div class="row">
 												<input type="hidden" name="video_pk[]" value="3">
 												<div class="col-xs-6">
 													<select name="video_type[]" class="form-control">
@@ -118,6 +123,11 @@
 										</div>
 										<div class="media-body">
 											<div class="row">
+												<div class="col-xs-12">
+													<input type="text" name="video_title[]" value="<?php echo $view_data['4']['title'];?>" class="form-control" disabled>
+												</div>
+											</div>
+											<div class="row">
 												<input type="hidden" name="video_pk[]" value="4">
 												<div class="col-xs-6">
 													<select name="video_type[]" class="form-control">
@@ -142,6 +152,11 @@
 											</a>
 										</div>
 										<div class="media-body">
+											<div class="row">
+												<div class="col-xs-12">
+													<input type="text" name="video_title[]" value="<?php echo $view_data['5']['title'];?>" class="form-control" disabled>
+												</div>
+											</div>
 											<div class="row">
 												<input type="hidden" name="video_pk[]" value="5">
 												<div class="col-xs-6">
