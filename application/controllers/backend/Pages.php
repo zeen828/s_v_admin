@@ -35,7 +35,7 @@ class Pages extends CI_Controller {
 	public function landing_page() {
 		// $this->output->enable_profiler(TRUE);
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Pages View' )) {
+			if ($this->flexi_auth->is_privileged ( 'Events View' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
@@ -75,7 +75,7 @@ class Pages extends CI_Controller {
 	public function landing_page_channel() {
 		// $this->output->enable_profiler(TRUE);
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Pages Edit' )) {
+			if ($this->flexi_auth->is_privileged ( 'Events Edit' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
@@ -138,7 +138,7 @@ class Pages extends CI_Controller {
 	public function landing_page_video() {
 		// $this->output->enable_profiler(TRUE);
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Pages Edit' )) {
+			if ($this->flexi_auth->is_privileged ( 'Events Edit' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
@@ -228,7 +228,7 @@ class Pages extends CI_Controller {
 	public function landing_page_event() {
 		// $this->output->enable_profiler(TRUE);
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Pages Edit' )) {
+			if ($this->flexi_auth->is_privileged ( 'Events Edit' )) {
 				// 寫log
 				$this->fun->logs ( '觀看中繼頁' );
 				// 引入
