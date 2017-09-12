@@ -20,11 +20,11 @@
             					<li><a href="/backend/charts/registered_day"><i class="fa fa-bar-chart"></i> 註冊數(每日)</a></li>
             					<li><a href="/backend/charts/login_day"><i class="fa fa-bar-chart"></i> 登入數(每日)</a></li>
             					<li><a href="/backend/charts/login_month"><i class="fa fa-bar-chart"></i> 登入數(每月)</a></li>
-								<li><a href="/backend/report_event/vote/1"><i class="fa fa-bar-chart"></i> 活動報表[PM伯寧-Now鬼了]</a></li>
-								<li><a href="/backend/report_event/ob_iphone8_list"><i class="fa fa-bar-chart"></i> 活動報表[PM伊達-OB嚴選送iphone8]</a></li>
-								<li><a href="/backend/report_event/bromance_meetings_list"><i class="fa fa-bar-chart"></i> 活動報表[PM伯寧-愛上哥們贈東京票]</a></li>
-            					<li><a href="/backend/report_event/mrplay_gifts_list"><i class="fa fa-bar-chart"></i> 活動報表[玩粉感恩大放送]</a></li>
-            					<li><a href="/backend/report_event/mrplay_list"><i class="fa fa-bar-chart"></i> 活動報表[PM亦銘-玩很大進校園]</a></li>
+								<li><a href="/backend/report_event/vote/1"><i class="fa fa-bar-chart"></i> 伯寧活動[Now鬼了]</a></li>
+								<li><a href="/backend/report_event/ob_iphone8_list"><i class="fa fa-bar-chart"></i> 伊達活動[OB嚴選送iphone8]</a></li>
+								<li><a href="/backend/report_event/bromance_meetings_list"><i class="fa fa-bar-chart"></i> 伯寧活動[愛上哥們贈東京票]</a></li>
+            					<li><a href="/backend/report_event/mrplay_gifts_list"><i class="fa fa-bar-chart"></i> 活動停擺[玩粉感恩大放送]</a></li>
+            					<li><a href="/backend/report_event/mrplay_list"><i class="fa fa-bar-chart"></i> 亦銘活動[玩很大進校園]</a></li>
             				</ul>
             			</li>
 <?php }?>
