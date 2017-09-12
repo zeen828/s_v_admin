@@ -242,7 +242,7 @@
                                     headers: {
                                         'VIDOL-API-KEY' : 'sw84sc888kkcg0ogo8cw4swgkswkw048cc48swk8'
                                     },
-                                    dataType: 'html',
+                                    dataType: 'jsonp',
                                     error: function(xhr){
                                         //alert('Ajax request error');
                                     },
