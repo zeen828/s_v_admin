@@ -1,3 +1,8 @@
+                    <div class="callout callout-info">
+                        <h4>提示</h4>
+                        <p><a href="http://event.vidol.tv/landingPage/index.html" target="_blank">中繼頁</a></p>
+                        <p>api有做20分鐘的cache,更新需<a href="#" class="cancel_cache">清除cache</a>重整.</p>
+                    </div>
 					<div class="box box-default">
 						<form action="/backend/pages/landing_page_channel" method="post">
 						<div class="box-header with-border">
@@ -226,3 +231,28 @@
 						</div>
 						</form>
 					</div>
+                    <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('.cancel_cache').off('click').on('click', function() {
+                            if (confirm('清除cache？')) {
+                                $.ajax({
+                                    url: 'http://event.api.vidol.tv/crontab/pages/landing_cached',
+                                    type: 'GET',
+                                    cache: false,
+                                    headers: {
+                                        'VIDOL-API-KEY' : 'sw84sc888kkcg0ogo8cw4swgkswkw048cc48swk8'
+                                    },
+                                    dataType: 'html',
+                                    error: function(xhr){
+                                        //alert('Ajax request error');
+                                    },
+                                    statusCode: {  
+                                        200: function(data, statusText, xhr) {
+                                            //alert('清除cache!');
+                                        } 
+                                    } 
+                                });
+                            }
+                        });
+                    });
+                    </script>
