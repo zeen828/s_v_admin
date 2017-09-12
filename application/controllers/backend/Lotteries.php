@@ -38,7 +38,7 @@ class Lotteries extends CI_Controller {
 	 */
 	public function lottery_list($pk) {
 		try {
-			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
+			if ($this->flexi_auth->is_privileged('Events Config View')) {
 				// 寫log
 				$this->fun->logs('觀看抽獎系統設定結果');
 				// 變數
@@ -100,7 +100,7 @@ class Lotteries extends CI_Controller {
 	 */
 	public function winners_list($pk) {
 		try {
-			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
+			if ($this->flexi_auth->is_privileged('Events Config View')) {
 				// 寫log
 				$this->fun->logs('觀看抽獎系統設定結果');
 				// 變數
@@ -161,7 +161,7 @@ class Lotteries extends CI_Controller {
 	 */
 	public function system() {
 		try {
-			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
+			if ($this->flexi_auth->is_privileged('Events Config View')) {
 				// 寫log
 				$this->fun->logs('觀看抽獎系統設定結果');
 				// 變數
@@ -231,7 +231,7 @@ class Lotteries extends CI_Controller {
 	 */
 	public function config() {
 		try {
-			if ($this->flexi_auth->is_privileged('Lottery Config View')) {
+			if ($this->flexi_auth->is_privileged('Events Config View')) {
 				// 寫log
 				$this->fun->logs('觀看抽獎系統設定結果');
 				// 變數
@@ -289,110 +289,6 @@ class Lotteries extends CI_Controller {
 						'title' => '抽獎系統設定',
 						'link' => '/backend/lotteries/config',
 						'class' => 'fa-cog'
-				);
-				// 套版
-				$this->load->view('AdminLTE/include/html5', $this->data_view);
-			}
-		} catch ( Exception $e ) {
-			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
-		}
-	}
-
-	public function iphone8_week1() {
-		try {
-			if ($this->flexi_auth->is_privileged('Lottery View')) {
-				// 寫log
-				$this->fun->logs('觀看抽獎結果');
-				// 變數
-				$data_post = array();
-				// 強制切換資料庫
-				unset($this->db);
-				$this->db = $this->load->database('vidol_old_write', true);
-				// grocery_CRUD 自產表單
-				$this->load->library('grocery_CRUD'); // CI整合表單http://www.grocerycrud.com/
-				$crud = new grocery_CRUD();
-				// 語系
-				$crud->set_language('taiwan');
-				// 版型
-				$crud->set_theme('flexigrid');
-				// 表格
-				$crud->set_table('lottery_iphone_1_list_tbl');
-				// 標題
-				$crud->set_subject($this->lang->line('tabels_user_accounts'));
-				// 移除新增
-				$crud->unset_add();
-				// 移除編輯
-				$crud->unset_edit();
-				// 移除刪除
-				$crud->unset_delete();
-				// 清單顯示欄位
-				$crud->columns('id','mongo_id','member_id','created_at');
-				// 資料庫欄位文字替換
-				$crud->display_as('id', $this->lang->line('fields_pk'));
-				$crud->display_as('mongo_id', 'mondo_id');
-				$crud->display_as('member_id', 'member_id');
-				$crud->display_as('created_at', '抽獎時間');
-				// 產生表單
-				$output = $crud->render();
-				// 資料整理
-				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
-				$this->data_view['right_countent']['view_data'] = $output;
-				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => 'OB嚴選送iphone8',
-						'link' => '/backend/lotteries/iphone8',
-						'class' => 'fa-space-shuttle'
-				);
-				// 套版
-				$this->load->view('AdminLTE/include/html5', $this->data_view);
-			}
-		} catch ( Exception $e ) {
-			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
-		}
-	}
-	
-	public function iphone8_week2() {
-		try {
-			if ($this->flexi_auth->is_privileged('Lottery View')) {
-				// 寫log
-				$this->fun->logs('觀看抽獎結果');
-				// 變數
-				$data_post = array();
-				// 強制切換資料庫
-				unset($this->db);
-				$this->db = $this->load->database('vidol_old_write', true);
-				// grocery_CRUD 自產表單
-				$this->load->library('grocery_CRUD'); // CI整合表單http://www.grocerycrud.com/
-				$crud = new grocery_CRUD();
-				// 語系
-				$crud->set_language('taiwan');
-				// 版型
-				$crud->set_theme('flexigrid');
-				// 表格
-				$crud->set_table('lottery_iphone_2_list_tbl');
-				// 標題
-				$crud->set_subject($this->lang->line('tabels_user_accounts'));
-				// 移除新增
-				$crud->unset_add();
-				// 移除編輯
-				$crud->unset_edit();
-				// 移除刪除
-				$crud->unset_delete();
-				// 清單顯示欄位
-				$crud->columns('id','mongo_id','member_id','created_at');
-				// 資料庫欄位文字替換
-				$crud->display_as('id', $this->lang->line('fields_pk'));
-				$crud->display_as('mongo_id', 'mondo_id');
-				$crud->display_as('member_id', 'member_id');
-				$crud->display_as('created_at', '抽獎時間');
-				// 產生表單
-				$output = $crud->render();
-				// 資料整理
-				$this->data_view['right_countent']['view_path'] = 'AdminLTE/lotters/iphone8';
-				$this->data_view['right_countent']['view_data'] = $output;
-				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => 'OB嚴選送iphone8',
-						'link' => '/backend/lotteries/iphone8',
-						'class' => 'fa-space-shuttle'
 				);
 				// 套版
 				$this->load->view('AdminLTE/include/html5', $this->data_view);
