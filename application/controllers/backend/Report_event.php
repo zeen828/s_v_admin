@@ -24,9 +24,9 @@ class Report_event extends CI_Controller {
 		$this->data_view = format_helper_backend_view_data ( 'vote_config' );
 		$this->data_view ['system'] ['action'] = 'Charts';
 		$this->data_view ['right_countent'] ['tags'] ['tag_2'] = array (
-				'title' => '活動報表',
+				'title' => '數據報表',
 				'link' => '/backend/charts',
-				'class' => 'fa-line-chart' 
+				'class' => 'fa-bar-chart'
 		);
 		// 效能檢查
 		// $this->output->enable_profiler(TRUE);

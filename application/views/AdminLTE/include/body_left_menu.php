@@ -36,7 +36,7 @@
             			</li>
 <?php }?>
 <?php if($this->flexi_auth->is_privileged(array('Events View', 'Events Add', 'Events Edit', 'Events Del'))) {?>
-            			<li class="Votes treeview"><a href="#"> <i class="fa fa-line-chart"></i> <span>投票活動</span> <i class="fa fa-angle-left pull-right"></i></a>
+            			<li class="Votes treeview"><a href="#"> <i class="fa fa-star"></i> <span>投票活動</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/votes/mrplay"><i class="fa fa-line-chart"></i> 玩很大進校園</a></li>
             					<li><a href="/backend/votes/mrplay_list"><i class="fa fa-line-chart"></i> 玩很大進校園報表</a></li>
@@ -53,8 +53,8 @@
 <?php if($this->flexi_auth->is_privileged(array('Events View', 'Events Add', 'Events Edit', 'Events Del'))) {?>
             			<li class="Lottery treeview"><a href="#"> <i class="fa fa-star"></i> <span>抽獎活動</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
-            					<li><a href="/backend/report_event/iphone8_week1"><i class="fa fa-space-shuttle"></i> OB嚴選送iphone8(第一周)</a></li>
-            					<li><a href="/backend/report_event/iphone8_week2"><i class="fa fa-space-shuttle"></i> OB嚴選送iphone8(第二周)</a></li>
+            					<li><a href="/backend/report_event/iphone8_week1"><i class="fa fa-line-chart"></i> OB嚴選送iphone8(第一周)</a></li>
+            					<li><a href="/backend/report_event/iphone8_week2"><i class="fa fa-line-chart"></i> OB嚴選送iphone8(第二周)</a></li>
             					<li><a href="/backend/lotteries/system"><i class="fa fa-star"></i> 抽獎系統</a></li>
 <?php if($this->flexi_auth->is_privileged(array('Events Config View', 'Events Config Add', 'Events Config Edit', 'Events Config Del'))) {?>
             					<li><a href="/backend/lotteries/config"><i class="fa fa-cog"></i> 抽獎系統設定</a></li>
