@@ -33,7 +33,7 @@ class Vote_config extends CI_Controller {
 	}
 	public function config() {
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Votes Config View' )) {
+			if ($this->flexi_auth->is_privileged ( 'Events Config View' )) {
 				// 寫log
 				$this->fun->logs ( '觀看投票系統設定' );
 				// 變數
@@ -108,7 +108,7 @@ class Vote_config extends CI_Controller {
 	}
 	public function config_item($config_id) {
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Votes Config View' ) && ! empty ( $config_id )) {
+			if ($this->flexi_auth->is_privileged ( 'Events Config View' ) && ! empty ( $config_id )) {
 				// 寫log
 				$this->fun->logs ( '觀看投票項目設定' );
 				// 變數
