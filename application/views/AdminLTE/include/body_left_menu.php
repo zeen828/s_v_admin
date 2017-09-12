@@ -13,7 +13,7 @@
             		<!-- sidebar menu: : style can be found in sidebar.less -->
             		<ul class="sidebar-menu">
             			<li class="header">MAIN NAVIGATION</li>
-<?php if($this->flexi_auth->is_privileged(array('Users View', 'Users Add', 'Users Edit', 'Users Del'))) {?>
+<?php if($this->flexi_auth->is_privileged(array('Analytics View', 'Analytics Add', 'Analytics Edit', 'Analytics Del'))) {?>
             			<li class="Charts treeview"><a href="#"> <i class="fa fa-bar-chart"></i> <span>數據報表</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/charts/registered_hour"><i class="fa fa-bar-chart"></i> 註冊數(小時)</a></li>
@@ -35,7 +35,7 @@
             				</ul>
             			</li>
 <?php }?>
-<?php if($this->flexi_auth->is_privileged(array('Votes View', 'Votes Add', 'Votes Edit', 'Votes Del'))) {?>
+<?php if($this->flexi_auth->is_privileged(array('Events View', 'Events Add', 'Events Edit', 'Events Del'))) {?>
             			<li class="Votes treeview"><a href="#"> <i class="fa fa-line-chart"></i> <span>投票活動</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/votes/mrplay"><i class="fa fa-line-chart"></i> 玩很大進校園</a></li>
@@ -44,25 +44,25 @@
             					<li><a href="/backend/votes/bromance_meetings_list"><i class="fa fa-line-chart"></i> 愛上哥們贈東京票</a></li>
             					<li><a href="/backend/votes/ob_iphone8_list"><i class="fa fa-line-chart"></i> OB嚴選送iphone8</a></li>
             					<li><a href="/backend/report_event/vote/1"><i class="fa fa-line-chart"></i> 活動報表[Now鬼了]</a></li>
-<?php if($this->flexi_auth->is_privileged(array('Votes Config View', 'Votes Config Add', 'Votes Config Edit', 'Votes Config Del'))) {?>
+<?php if($this->flexi_auth->is_privileged(array('Events Config View', 'Events Config Add', 'Events Config Edit', 'Events Config Del'))) {?>
             					<li><a href="/backend/vote_config/config"><i class="fa fa-cog"></i> 投票系統設定</a></li>
 <?php }?>
 							</ul>
             			</li>
 <?php }?>
-<?php if($this->flexi_auth->is_privileged(array('Lottery View', 'Lottery Add', 'Lottery Edit', 'Lottery Del'))) {?>
+<?php if($this->flexi_auth->is_privileged(array('Events View', 'Events Add', 'Events Edit', 'Events Del'))) {?>
             			<li class="Lottery treeview"><a href="#"> <i class="fa fa-star"></i> <span>抽獎活動</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/lotteries/iphone8_week1"><i class="fa fa-space-shuttle"></i> OB嚴選送iphone8(第一周)</a></li>
             					<li><a href="/backend/lotteries/iphone8_week2"><i class="fa fa-space-shuttle"></i> OB嚴選送iphone8(第二周)</a></li>
             					<li><a href="/backend/lotteries/system"><i class="fa fa-star"></i> 抽獎系統</a></li>
-<?php if($this->flexi_auth->is_privileged(array('Lottery Config View', 'Lottery Config Add', 'Lottery Config Edit', 'Lottery Config Del'))) {?>
+<?php if($this->flexi_auth->is_privileged(array('Events Config View', 'Events Config Add', 'Events Config Edit', 'Events Config Del'))) {?>
             					<li><a href="/backend/lotteries/config"><i class="fa fa-cog"></i> 抽獎系統設定</a></li>
 <?php }?>
 							</ul>
             			</li>
 <?php }?>
-<?php if($this->flexi_auth->is_privileged(array('Pages View', 'Pages Add', 'Pages Edit', 'Pages Del'))) {?>
+<?php if($this->flexi_auth->is_privileged(array('Events View', 'Events Add', 'Events Edit', 'Events Del'))) {?>
             			<li class="Pages treeview"><a href="#"> <i class="fa fa-building-o"></i> <span>活動頁面</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/pages/landing_page"><i class="fa fa-building-o"></i> 登陸跳轉頁面</a></li>
