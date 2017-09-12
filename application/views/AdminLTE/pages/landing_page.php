@@ -236,7 +236,7 @@
                         $('.cancel_cache').off('click').on('click', function() {
                             if (confirm('清除cache？')) {
                                 $.ajax({
-                                    url: 'http://event.api.vidol.tv/v1/pages/landing_cached',
+                                    url: 'http://event.api.vidol.tv/v1/pages/landing_cached.jsonp',
                                     type: 'GET',
                                     cache: false,
                                     headers: {
