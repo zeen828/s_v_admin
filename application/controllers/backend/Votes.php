@@ -24,7 +24,7 @@ class Votes extends CI_Controller {
 		$this->data_view = format_helper_backend_view_data ( 'sdac_content' );
 		$this->data_view ['system'] ['action'] = 'Votes';
 		$this->data_view ['right_countent'] ['tags'] ['tag_2'] = array (
-				'title' => '玩很大進校園',
+				'title' => '投票活動',
 				'link' => '/backend/votes',
 				'class' => 'fa-line-chart' 
 		);
@@ -82,7 +82,7 @@ class Votes extends CI_Controller {
 			// 資料整理
 			$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/votes/vote';
 			$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
-					'title' => '投票系統',
+					'title' => '玩很大進校園',
 					'link' => '/backend/votes/mrplay',
 					'class' => 'fa-line-chart' 
 			);

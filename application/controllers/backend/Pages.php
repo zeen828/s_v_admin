@@ -22,7 +22,7 @@ class Pages extends CI_Controller {
 		$this->data_view = format_helper_backend_view_data ( 'orders_content' );
 		$this->data_view ['system'] ['action'] = 'Pages';
 		$this->data_view ['right_countent'] ['tags'] ['tag_2'] = array (
-				'title' => '活動頁面管理',
+				'title' => '活動頁面',
 				'link' => '/backend/pages',
 				'class' => 'fa-money' 
 		);
