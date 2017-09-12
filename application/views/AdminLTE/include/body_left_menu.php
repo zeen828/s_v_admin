@@ -54,8 +54,8 @@
             				<ul class="treeview-menu">
             					<li><a href="/backend/report_event/iphone8_week1"><i class="fa fa-bar-chart"></i> 得獎名單[OB嚴選送iphone8(第一周)]</a></li>
             					<li><a href="/backend/report_event/iphone8_week2"><i class="fa fa-bar-chart"></i> 得獎名單[OB嚴選送iphone8(第二周)]</a></li>
-            					<li><a href="/backend/lotteries/system"><i class="fa fa-star"></i> 抽獎系統</a></li>
 <?php if($this->flexi_auth->is_privileged(array('Events Config View', 'Events Config Add', 'Events Config Edit', 'Events Config Del'))) {?>
+            					<li><a href="/backend/lotteries/system"><i class="fa fa-star"></i> 抽獎系統</a></li>
             					<li><a href="/backend/lotteries/config"><i class="fa fa-cog"></i> 抽獎系統設定</a></li>
 <?php }?>
 							</ul>
