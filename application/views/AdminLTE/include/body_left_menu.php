@@ -13,7 +13,7 @@
             		<!-- sidebar menu: : style can be found in sidebar.less -->
             		<ul class="sidebar-menu">
             			<li class="header">MAIN NAVIGATION</li>
-<?php if($this->flexi_auth->is_privileged(array('Analytics View', 'Analytics Add', 'Analytics Edit', 'Analytics Del'))) {?>
+<?php if($this->flexi_auth->is_privileged(array('Charts View', 'Charts Add', 'Charts Edit', 'Charts Del'))) {?>
             			<li class="Charts treeview"><a href="#"> <i class="fa fa-bar-chart"></i> <span>數據報表</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/charts/registered_hour"><i class="fa fa-bar-chart"></i> 註冊數(小時)</a></li>
@@ -68,7 +68,7 @@
             				</ul>
             			</li>
 <?php }?>
-<?php if($this->flexi_auth->is_privileged(array('Analytics View', 'Analytics Add', 'Analytics Edit', 'Analytics Del'))) {?>
+<?php if($this->flexi_auth->is_privileged(array('Charts View', 'Charts Add', 'Charts Edit', 'Charts Del'))) {?>
             			<li class="Analytics treeview"><a href="#"> <i class="fa fa-jsfiddle"></i> <span>數據報表</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/analytics/brightcove"><i class="fa fa-jsfiddle"></i> Brightcove</a></li>
