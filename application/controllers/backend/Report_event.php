@@ -43,7 +43,7 @@ class Report_event extends CI_Controller {
 	 */
 	public function vote($config_id) {
 		try {
-			if ($this->flexi_auth->is_privileged ( 'Votes View' ) && ! empty ( $config_id )) {
+			if ($this->flexi_auth->is_privileged ( 'Analytics View' ) && ! empty ( $config_id )) {
 				// 寫log
 				$this->fun->logs ( '觀看活動報表' );
 				// 變數

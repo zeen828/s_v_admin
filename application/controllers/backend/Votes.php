@@ -142,7 +142,7 @@ class Votes extends CI_Controller {
 	
 	public function mrplay_list() {
 		try {
-			if ($this->flexi_auth->is_privileged('Votes View')) {
+			if ($this->flexi_auth->is_privileged('Analytics View')) {
 				// 寫log
 				$this->fun->logs('觀看投票報表');
 				// 變數
@@ -202,7 +202,7 @@ class Votes extends CI_Controller {
 	
 	public function mrplay_gifts_list() {
 		try {
-			if ($this->flexi_auth->is_privileged('Votes View')) {
+			if ($this->flexi_auth->is_privileged('Analytics View')) {
 				// 寫log
 				$this->fun->logs('觀看投票報表');
 				// 變數
@@ -262,7 +262,7 @@ class Votes extends CI_Controller {
 	
 	public function bromance_meetings_list() {
 		try {
-			if ($this->flexi_auth->is_privileged('Votes View')) {
+			if ($this->flexi_auth->is_privileged('Analytics View')) {
 				// 寫log
 				$this->fun->logs('觀看投票報表');
 				// 變數
@@ -322,7 +322,7 @@ class Votes extends CI_Controller {
 	
 	public function ob_iphone8_list() {
 		try {
-			if ($this->flexi_auth->is_privileged('Votes View')) {
+			if ($this->flexi_auth->is_privileged('Analytics View')) {
 				// 寫log
 				$this->fun->logs('觀看投票報表');
 				// 變數
