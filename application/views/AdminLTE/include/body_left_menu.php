@@ -21,10 +21,10 @@
             					<li><a href="/backend/charts/login_day"><i class="fa fa-bar-chart"></i> 登入數(每日)</a></li>
             					<li><a href="/backend/charts/login_month"><i class="fa fa-bar-chart"></i> 登入數(每月)</a></li>
 								<li><a href="/backend/report_event/vote/1"><i class="fa fa-bar-chart"></i> 活動報表[Now鬼了]</a></li>
-								<li><a href="/backend/votes/ob_iphone8_list"><i class="fa fa-bar-chart"></i> 活動報表[OB嚴選送iphone8]</a></li>
-								<li><a href="/backend/votes/bromance_meetings_list"><i class="fa fa-bar-chart"></i> 活動報表[愛上哥們贈東京票]</a></li>
-            					<li><a href="/backend/votes/mrplay_gifts_list"><i class="fa fa-bar-chart"></i> 活動報表[玩粉感恩大放送]</a></li>
-            					<li><a href="/backend/votes/mrplay_list"><i class="fa fa-bar-chart"></i> 活動報表[玩很大進校園]</a></li>
+								<li><a href="/backend/report_event/ob_iphone8_list"><i class="fa fa-bar-chart"></i> 活動報表[OB嚴選送iphone8]</a></li>
+								<li><a href="/backend/report_event/bromance_meetings_list"><i class="fa fa-bar-chart"></i> 活動報表[愛上哥們贈東京票]</a></li>
+            					<li><a href="/backend/report_event/mrplay_gifts_list"><i class="fa fa-bar-chart"></i> 活動報表[玩粉感恩大放送]</a></li>
+            					<li><a href="/backend/report_event/mrplay_list"><i class="fa fa-bar-chart"></i> 活動報表[玩很大進校園]</a></li>
             				</ul>
             			</li>
 <?php }?>
@@ -52,8 +52,8 @@
 <?php if($this->flexi_auth->is_privileged(array('Events View', 'Events Add', 'Events Edit', 'Events Del'))) {?>
             			<li class="Lottery treeview"><a href="#"> <i class="fa fa-star"></i> <span>抽獎活動</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
-            					<li><a href="/backend/report_event/iphone8_week1"><i class="fa fa-line-chart"></i> OB嚴選送iphone8(第一周)</a></li>
-            					<li><a href="/backend/report_event/iphone8_week2"><i class="fa fa-line-chart"></i> OB嚴選送iphone8(第二周)</a></li>
+            					<li><a href="/backend/report_event/iphone8_week1"><i class="fa fa-bar-chart"></i> 得獎名單[OB嚴選送iphone8(第一周)]</a></li>
+            					<li><a href="/backend/report_event/iphone8_week2"><i class="fa fa-bar-chart"></i> 得獎名單[OB嚴選送iphone8(第二周)]</a></li>
             					<li><a href="/backend/lotteries/system"><i class="fa fa-star"></i> 抽獎系統</a></li>
 <?php if($this->flexi_auth->is_privileged(array('Events Config View', 'Events Config Add', 'Events Config Edit', 'Events Config Del'))) {?>
             					<li><a href="/backend/lotteries/config"><i class="fa fa-cog"></i> 抽獎系統設定</a></li>

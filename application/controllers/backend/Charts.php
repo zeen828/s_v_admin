@@ -47,7 +47,7 @@ class Charts extends CI_Controller
 	public function registered_hour ()
 	{
 		try {
-			if ($this->flexi_auth->is_privileged('Users View')) {
+			if ($this->flexi_auth->is_privileged('Charts View')) {
 				// 寫log
 				$this->fun->logs('觀看註冊數(小時)');
 				// 變數
@@ -73,7 +73,7 @@ class Charts extends CI_Controller
 	public function registered_day ()
 	{
 		try {
-			if ($this->flexi_auth->is_privileged('Users View')) {
+			if ($this->flexi_auth->is_privileged('Charts View')) {
 				// 寫log
 				$this->fun->logs('觀看註冊數(每日)');
 				// 變數
@@ -99,7 +99,7 @@ class Charts extends CI_Controller
 	public function registered_month ()
 	{
 		try {
-			if ($this->flexi_auth->is_privileged('Users View')) {
+			if ($this->flexi_auth->is_privileged('Charts View')) {
 				// 寫log
 				$this->fun->logs('觀看註冊數(每月)');
 				// 變數
@@ -125,7 +125,7 @@ class Charts extends CI_Controller
 	public function login_day ()
 	{
 		try {
-			if ($this->flexi_auth->is_privileged('Users View')) {
+			if ($this->flexi_auth->is_privileged('Charts View')) {
 				// 寫log
 				$this->fun->logs('觀看登入數(每日)');
 				// 變數
@@ -153,7 +153,7 @@ class Charts extends CI_Controller
 	public function login_month ()
 	{
 		try {
-			if ($this->flexi_auth->is_privileged('Users View')) {
+			if ($this->flexi_auth->is_privileged('Charts View')) {
 				// 寫log
 				$this->fun->logs('觀看登入數(每月)');
 				// 變數
