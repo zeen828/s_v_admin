@@ -31,6 +31,16 @@ class Report_event extends CI_Controller {
 		// 效能檢查
 		// $this->output->enable_profiler(TRUE);
 	}
+	
+	public function index() {
+		//show_404();
+		$this->vote(1);
+	}
+	
+	/**
+	 * 投票系統報表
+	 * @param unknown $config_id
+	 */
 	public function vote($config_id) {
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Votes View' ) && ! empty ( $config_id )) {

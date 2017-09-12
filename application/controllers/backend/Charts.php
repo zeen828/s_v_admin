@@ -38,7 +38,7 @@ class Charts extends CI_Controller
 	public function index ()
 	{
 		//show_404();
-		$this->search();
+		$this->registered_hour();
 	}
 
 	/**
