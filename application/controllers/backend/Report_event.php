@@ -22,7 +22,7 @@ class Report_event extends CI_Controller {
 		// $this->config->load('vidol');
 		// 初始化
 		$this->data_view = format_helper_backend_view_data ( 'vote_config' );
-		$this->data_view ['system'] ['action'] = 'Votes';
+		$this->data_view ['system'] ['action'] = 'Charts';
 		$this->data_view ['right_countent'] ['tags'] ['tag_2'] = array (
 				'title' => '活動報表',
 				'link' => '/backend/charts',
@@ -88,6 +88,7 @@ class Report_event extends CI_Controller {
 				// 產生表單
 				$output = $crud->render ();
 				// 資料整理
+				$this->data_view ['system'] ['action'] = 'Votes';
 				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view ['right_countent'] ['view_data'] = $output;
 				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
@@ -143,6 +144,7 @@ class Report_event extends CI_Controller {
 				// 產生表單
 				$output = $crud->render();
 				// 資料整理
+				$this->data_view ['system'] ['action'] = 'Lottery';
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
@@ -198,6 +200,7 @@ class Report_event extends CI_Controller {
 				// 產生表單
 				$output = $crud->render();
 				// 資料整理
+				$this->data_view ['system'] ['action'] = 'Lottery';
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/lotters/iphone8';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
