@@ -53,7 +53,7 @@ class Charts extends CI_Controller
 				// 變數
 				$data_post = array();
 				// 資料整理
-				$this->data_view['right_countent']['view_path'] = 'AdminLTE/users/registered_hour';
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/charts/registered_hour';
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '註冊數(小時)',
 						'link' => '/backend/charts/registered_hour',
@@ -79,7 +79,7 @@ class Charts extends CI_Controller
 				// 變數
 				$data_post = array();
 				// 資料整理
-				$this->data_view['right_countent']['view_path'] = 'AdminLTE/users/registered_day';
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/charts/registered_day';
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '註冊數(每日)',
 						'link' => '/backend/charts/registered_day',
@@ -105,7 +105,7 @@ class Charts extends CI_Controller
 				// 變數
 				$data_post = array();
 				// 資料整理
-				$this->data_view['right_countent']['view_path'] = 'AdminLTE/users/registered_month';
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/charts/registered_month';
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '註冊數(每月)',
 						'link' => '/backend/charts/registered_month',
@@ -131,7 +131,7 @@ class Charts extends CI_Controller
 				// 變數
 				$data_post = array();
 				// 資料整理
-				$this->data_view['right_countent']['view_path'] = 'AdminLTE/users/login_day';
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/charts/login_day';
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '登入數(每日)',
 						'link' => '/backend/charts/login_day',
@@ -159,7 +159,7 @@ class Charts extends CI_Controller
 				// 變數
 				$data_post = array();
 				// 資料整理
-				$this->data_view['right_countent']['view_path'] = 'AdminLTE/users/login_month';
+				$this->data_view['right_countent']['view_path'] = 'AdminLTE/charts/login_month';
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '登入數(每月)',
 						'link' => '/backend/charts/login_month',

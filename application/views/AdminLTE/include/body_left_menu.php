@@ -14,7 +14,7 @@
             		<ul class="sidebar-menu">
             			<li class="header">MAIN NAVIGATION</li>
 <?php if($this->flexi_auth->is_privileged(array('Users View', 'Users Add', 'Users Edit', 'Users Del'))) {?>
-            			<li class="Chart treeview"><a href="#"> <i class="fa fa-bar-chart"></i> <span>數據報表</span> <i class="fa fa-angle-left pull-right"></i></a>
+            			<li class="Charts treeview"><a href="#"> <i class="fa fa-bar-chart"></i> <span>數據報表</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/charts/registered_hour"><i class="fa fa-bar-chart"></i> 註冊數(小時)</a></li>
             					<li><a href="/backend/charts/registered_day"><i class="fa fa-bar-chart"></i> 註冊數(每日)</a></li>
