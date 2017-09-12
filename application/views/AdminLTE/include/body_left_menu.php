@@ -25,7 +25,7 @@
             			</li>
 <?php }?>
 <?php if($this->flexi_auth->is_privileged(array('Users View', 'Users Add', 'Users Edit', 'Users Del'))) {?>
-            			<li class="Users treeview"><a href="#"> <i class="fa fa-users"></i> <span>會員資料</span> <i class="fa fa-angle-left pull-right"></i></a>
+            			<li class="Users treeview"><a href="#"> <i class="fa fa-users"></i> <span>會員查詢</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
             					<li><a href="/backend/users/search"><i class="fa fa-search"></i> 會員查詢</a></li>
             					<li><a href="/backend/users/login_log"><i class="fa fa-align-center"></i> 會員登入紀錄</a></li>
@@ -38,11 +38,11 @@
 <?php if($this->flexi_auth->is_privileged(array('Votes View', 'Votes Add', 'Votes Edit', 'Votes Del'))) {?>
             			<li class="Votes treeview"><a href="#"> <i class="fa fa-line-chart"></i> <span>投票系統</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
-            					<li><a href="/backend/votes/mrplay"><i class="fa fa-qrcode"></i> 玩很大進校園</a></li>
-            					<li><a href="/backend/votes/mrplay_list"><i class="fa fa-bar-chart"></i> 玩很大進校園報表</a></li>
-            					<li><a href="/backend/votes/mrplay_gifts_list"><i class="fa fa-bar-chart"></i> 玩粉感恩大放送</a></li>
-            					<li><a href="/backend/votes/bromance_meetings_list"><i class="fa fa-bar-chart"></i> 愛上哥們贈東京票</a></li>
-            					<li><a href="/backend/votes/ob_iphone8_list"><i class="fa fa-bar-chart"></i> OB嚴選送iphone8</a></li>
+            					<li><a href="/backend/votes/mrplay"><i class="fa fa-line-chart"></i> 玩很大進校園</a></li>
+            					<li><a href="/backend/votes/mrplay_list"><i class="fa fa-line-chart"></i> 玩很大進校園報表</a></li>
+            					<li><a href="/backend/votes/mrplay_gifts_list"><i class="fa fa-line-chart"></i> 玩粉感恩大放送</a></li>
+            					<li><a href="/backend/votes/bromance_meetings_list"><i class="fa fa-line-chartt"></i> 愛上哥們贈東京票</a></li>
+            					<li><a href="/backend/votes/ob_iphone8_list"><i class="fa fa-line-chart"></i> OB嚴選送iphone8</a></li>
 <?php if($this->flexi_auth->is_privileged(array('Votes Config View', 'Votes Config Add', 'Votes Config Edit', 'Votes Config Del'))) {?>
             					<li><a href="/backend/vote_config/config"><i class="fa fa-cog"></i> 投票系統設定</a></li>
 <?php }?>

@@ -84,7 +84,7 @@ class Votes extends CI_Controller {
 			$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
 					'title' => '投票系統',
 					'link' => '/backend/votes/mrplay',
-					'class' => 'fa-qrcode' 
+					'class' => 'fa-line-chart' 
 			);
 			// 套版
 			$this->load->view ( 'AdminLTE/include/html5', $this->data_view );
@@ -190,7 +190,7 @@ class Votes extends CI_Controller {
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '玩很大進校園報表',
 						'link' => '/backend/votes/mrplay_list',
-						'class' => 'fa-bar-chart'
+						'class' => 'fa-line-chart'
 				);
 				// 套版
 				$this->load->view('AdminLTE/include/html5', $this->data_view);
@@ -250,7 +250,7 @@ class Votes extends CI_Controller {
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '玩粉感恩大放送',
 						'link' => '/backend/votes/mrplay_gifts_list',
-						'class' => 'fa-bar-chart'
+						'class' => 'fa-line-chart'
 				);
 				// 套版
 				$this->load->view('AdminLTE/include/html5', $this->data_view);
@@ -310,7 +310,7 @@ class Votes extends CI_Controller {
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => '愛上哥們贈東京票',
 						'link' => '/backend/votes/bromance_meetings_list',
-						'class' => 'fa-bar-chart'
+						'class' => 'fa-line-chart'
 				);
 				// 套版
 				$this->load->view('AdminLTE/include/html5', $this->data_view);
@@ -371,7 +371,7 @@ class Votes extends CI_Controller {
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
 						'title' => 'OB嚴選送iphone8',
 						'link' => '/backend/votes/ob_iphone8_list',
-						'class' => 'fa-bar-chart'
+						'class' => 'fa-line-chart'
 				);
 				// 套版
 				$this->load->view('AdminLTE/include/html5', $this->data_view);
