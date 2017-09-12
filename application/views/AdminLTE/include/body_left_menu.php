@@ -14,20 +14,24 @@
             		<ul class="sidebar-menu">
             			<li class="header">MAIN NAVIGATION</li>
 <?php if($this->flexi_auth->is_privileged(array('Users View', 'Users Add', 'Users Edit', 'Users Del'))) {?>
+            			<li class="Chart treeview"><a href="#"> <i class="fa fa-bar-chart"></i> <span>數據報表</span> <i class="fa fa-angle-left pull-right"></i></a>
+            				<ul class="treeview-menu">
+            					<li><a href="/backend/charts/registered_hour"><i class="fa fa-bar-chart"></i> 註冊數(小時)</a></li>
+            					<li><a href="/backend/charts/registered_day"><i class="fa fa-bar-chart"></i> 註冊數(每日)</a></li>
+            					<li><a href="/backend/charts/login_day"><i class="fa fa-bar-chart"></i> 登入數(每日)</a></li>
+            					<li><a href="/backend/charts/login_month"><i class="fa fa-bar-chart"></i> 登入數(每月)</a></li>
+								<li><a href="/backend/report_event/vote/1"><i class="fa fa-bar-chart"></i> 活動報表[Now鬼了]</a></li>
+            				</ul>
+            			</li>
+<?php }?>
+<?php if($this->flexi_auth->is_privileged(array('Users View', 'Users Add', 'Users Edit', 'Users Del'))) {?>
             			<li class="Users treeview"><a href="#"> <i class="fa fa-users"></i> <span>會員資料</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
-            					<li><a href="/backend/users/registered_hour"><i class="fa fa-bar-chart"></i> 註冊數(小時)</a></li>
-            					<li><a href="/backend/users/registered_day"><i class="fa fa-bar-chart"></i> 註冊數(每日)</a></li>
-<!-- <li><a href="/backend/users/registered_month"><i class="fa fa-bar-chart"></i> 註冊數(每月)</a></li> -->
-<!-- <li><a href="/backend/users/age"><i class="fa fa-bar-chart"></i> 年齡層</a></li> -->
-            					<li><a href="/backend/users/login_day"><i class="fa fa-bar-chart"></i> 登入數(每日)</a></li>
-            					<li><a href="/backend/users/login_month"><i class="fa fa-bar-chart"></i> 登入數(每月)</a></li>
             					<li><a href="/backend/users/search"><i class="fa fa-search"></i> 會員查詢</a></li>
             					<li><a href="/backend/users/login_log"><i class="fa fa-align-center"></i> 會員登入紀錄</a></li>
 <?php if($this->flexi_auth->is_privileged(array('Orders View', 'Orders Add', 'Orders Edit', 'Orders Del'))) {?>
             					<li><a href="/backend/users/order"><i class="fa fa-credit-card"></i> 會員訂單紀錄</a></li>
 <?php }?>
-								<li><a href="/backend/report_event/vote/1"><i class="fa fa-align-center"></i> 活動報表[Now鬼了]</a></li>
             				</ul>
             			</li>
 <?php }?>
