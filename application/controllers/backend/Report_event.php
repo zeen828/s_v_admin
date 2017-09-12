@@ -22,11 +22,11 @@ class Report_event extends CI_Controller {
 		// $this->config->load('vidol');
 		// 初始化
 		$this->data_view = format_helper_backend_view_data ( 'vote_config' );
-		$this->data_view ['system'] ['action'] = 'Report_event';
+		$this->data_view ['system'] ['action'] = 'Charts';
 		$this->data_view ['right_countent'] ['tags'] ['tag_2'] = array (
 				'title' => '活動報表',
-				'link' => '/backend/report_event',
-				'class' => 'fa-line-chart' 
+				'link' => '/backend/charts',
+				'class' => 'fa-bar-chart' 
 		);
 		// 效能檢查
 		// $this->output->enable_profiler(TRUE);
@@ -84,7 +84,7 @@ class Report_event extends CI_Controller {
 				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
 						'title' => '活動成效報表',
 						'link' => '/backend/report_event/vote/' . $config_id,
-						'class' => 'fa-cog' 
+						'class' => 'fa-bar-chart' 
 				);
 				// 套版
 				$this->load->view ( 'AdminLTE/include/html5', $this->data_view );
