@@ -53,7 +53,7 @@ class Event_vote_select_model extends CI_Model {
 		$this->r_db->where ( 'created_at <', $end_date );
 		$this->r_db->from ( $this->table_name );
 		$count = $this->r_db->count_all_results ();
-		// echo $this->r_db->last_query ();
+		echo $this->r_db->last_query ();
 		return $count;
 	}
 	// 第一次投票會員
