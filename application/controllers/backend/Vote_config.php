@@ -78,7 +78,8 @@ class Vote_config extends CI_Controller {
 						'callback_config_to_item_url' 
 				) );
 				
-				$crud->field_type('login_where','enum',array('0'=>'不需登入','1'=>'需要登入','2'=>'FB登入','3'=>'V登入'));
+				$crud->field_type('login_where','dropdown',array('0'=>'不需登入','1'=>'需要登入','2'=>'FB登入','3'=>'V登入'));
+				$crud->field_type('vote_where','multiselect',array('0'=>'不需登入','1'=>'需要登入','2'=>'FB登入','3'=>'V登入'));
 				
 				// 資料庫欄位文字替換
 				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
