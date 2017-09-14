@@ -32,12 +32,15 @@ class Pages extends CI_Controller {
 	public function index() {
 		show_404 ();
 	}
+	/**
+	 * 登陸跳轉頁面
+	 */
 	public function landing_page() {
 		// $this->output->enable_profiler(TRUE);
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Events View' )) {
 				// 寫log
-				$this->fun->logs ( '觀看中繼頁' );
+				$this->fun->logs ( '觀看[登陸跳轉頁面]' );
 				// 引入
 				$this->load->model ( 'vidol_event/page_landing_model' );
 				// 變數
@@ -61,7 +64,7 @@ class Pages extends CI_Controller {
 				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/pages/landing_page';
 				$this->data_view ['right_countent'] ['view_data'] = $output;
 				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
-						'title' => '中繼頁',
+						'title' => '登陸跳轉頁面',
 						'link' => '/backend/pages/landing_page',
 						'class' => 'fa-building-o' 
 				);
@@ -72,12 +75,15 @@ class Pages extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	/**
+	 * 登陸跳轉頁面-channel修改
+	 */
 	public function landing_page_channel() {
 		// $this->output->enable_profiler(TRUE);
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Events Edit' )) {
 				// 寫log
-				$this->fun->logs ( '觀看中繼頁' );
+				$this->fun->logs ( '觀看[登陸跳轉頁面-channel修改]' );
 				// 引入
 				$this->load->model ( 'vidol_event/page_landing_model' );
 				// 變數
@@ -135,12 +141,15 @@ class Pages extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	/**
+	 * 登陸跳轉頁面-video修改
+	 */
 	public function landing_page_video() {
 		// $this->output->enable_profiler(TRUE);
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Events Edit' )) {
 				// 寫log
-				$this->fun->logs ( '觀看中繼頁' );
+				$this->fun->logs ( '觀看[登陸跳轉頁面-video修改]' );
 				// 引入
 				$this->load->model ( 'vidol_event/page_landing_model' );
 				// 變數
@@ -225,12 +234,15 @@ class Pages extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	/**
+	 * 登陸跳轉頁面-event修改
+	 */
 	public function landing_page_event() {
 		// $this->output->enable_profiler(TRUE);
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Events Edit' )) {
 				// 寫log
-				$this->fun->logs ( '觀看中繼頁' );
+				$this->fun->logs ( '觀看[登陸跳轉頁面-event修改]' );
 				// 引入
 				$this->load->model ( 'vidol_event/page_landing_model' );
 				// 變數

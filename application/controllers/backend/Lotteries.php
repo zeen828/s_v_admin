@@ -33,14 +33,14 @@ class Lotteries extends CI_Controller {
 	}
 
 	/**
-	 * 抽獎清單
+	 * 抽獎系統-開獎頁
 	 * @param unknown $pk
 	 */
 	public function lottery_list($pk) {
 		try {
 			if ($this->flexi_auth->is_privileged('Events Config View')) {
 				// 寫log
-				$this->fun->logs('觀看抽獎系統設定結果');
+				$this->fun->logs('觀看[抽獎系統-開獎頁]');
 				// 變數
 				$data_post = array();
 				// 強制切換資料庫
@@ -59,7 +59,7 @@ class Lotteries extends CI_Controller {
 				$crud->where('lw_lc_pk', $pk);
 				$crud->where('lw_status', 1);
 				// 標題
-				$crud->set_subject('抽獎系統-抽獎清單');
+				$crud->set_subject('抽獎系統-開獎頁');
 				// 移除新增
 				$crud->unset_add();
 				// 移除編輯
@@ -82,7 +82,7 @@ class Lotteries extends CI_Controller {
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/lotters/winners_list';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '抽獎系統-抽獎清單',
+						'title' => '抽獎系統-開獎頁',
 						'link' => '/backend/lotteries/lottery_list',
 						'class' => 'fa-cog'
 				);
@@ -95,14 +95,14 @@ class Lotteries extends CI_Controller {
 	}
 
 	/**
-	 * 中獎清單
+	 * 抽獎系統-開獎名單
 	 * @param unknown $pk
 	 */
 	public function winners_list($pk) {
 		try {
 			if ($this->flexi_auth->is_privileged('Events Config View')) {
 				// 寫log
-				$this->fun->logs('觀看抽獎系統設定結果');
+				$this->fun->logs('觀看[抽獎系統-開獎名單]');
 				// 變數
 				$data_post = array();
 				// 強制切換資料庫
@@ -144,7 +144,7 @@ class Lotteries extends CI_Controller {
 				$this->data_view['right_countent']['view_path'] = 'AdminLTE/include/content_grocery_crud';
 				$this->data_view['right_countent']['view_data'] = $output;
 				$this->data_view['right_countent']['tags']['tag_3'] = array(
-						'title' => '抽獎系統-中獎名單',
+						'title' => '抽獎系統-開獎名單',
 						'link' => '/backend/lotteries/winners_list',
 						'class' => 'fa-cog'
 				);
@@ -163,7 +163,7 @@ class Lotteries extends CI_Controller {
 		try {
 			if ($this->flexi_auth->is_privileged('Events Config View')) {
 				// 寫log
-				$this->fun->logs('觀看抽獎系統設定結果');
+				$this->fun->logs('觀看[抽獎系統]');
 				// 變數
 				$data_post = array();
 				// 強制切換資料庫
@@ -233,7 +233,7 @@ class Lotteries extends CI_Controller {
 		try {
 			if ($this->flexi_auth->is_privileged('Events Config View')) {
 				// 寫log
-				$this->fun->logs('觀看抽獎系統設定結果');
+				$this->fun->logs('觀看[抽獎系統設定]');
 				// 變數
 				$data_post = array();
 				// 強制切換資料庫
@@ -249,16 +249,16 @@ class Lotteries extends CI_Controller {
 				// 表格
 				$crud->set_table('lotters_config_tbl');
 				// 標題
-				$crud->set_subject('抽獎系統設定檔');
-				if (! $this->flexi_auth->is_privileged('Lottery Config Add')) {
+				$crud->set_subject('抽獎系統設定');
+				if (! $this->flexi_auth->is_privileged('Events Config Add')) {
 					// 移除新增
 					$crud->unset_add();
 				}
-				if (! $this->flexi_auth->is_privileged('Lottery Config Edit')) {
+				if (! $this->flexi_auth->is_privileged('Events Config Edit')) {
 					// 移除編輯
 					$crud->unset_edit();
 				}
-				if (! $this->flexi_auth->is_privileged('Lottery Config Del')) {
+				if (! $this->flexi_auth->is_privileged('Events Config Del')) {
 					// 移除刪除
 					$crud->unset_delete();
 				}

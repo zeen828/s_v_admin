@@ -1,6 +1,6 @@
                     <div class="callout callout-info">
                         <h4>提示</h4>
-                        <p><a href="http://event.vidol.tv/landingPage/index.html" target="_blank">中繼頁</a></p>
+                        <p><a href="http://event.vidol.tv/landingPage/index.html" target="_blank">登陸跳轉頁面</a></p>
                         <p>api有做20分鐘的cache,更新需<a href="#" class="cancel_cache">清除cache</a>重整.</p>
                     </div>
 					<div class="box box-default">

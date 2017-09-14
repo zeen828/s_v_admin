@@ -24,7 +24,7 @@ class Vote_config extends CI_Controller {
 		$this->data_view = format_helper_backend_view_data ( 'vote_config' );
 		$this->data_view ['system'] ['action'] = 'Votes';
 		$this->data_view ['right_countent'] ['tags'] ['tag_2'] = array (
-				'title' => '投票系統',
+				'title' => '投票活動',
 				'link' => '/backend/vote_config',
 				'class' => 'fa-line-chart' 
 		);
@@ -35,7 +35,7 @@ class Vote_config extends CI_Controller {
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Events Config View' )) {
 				// 寫log
-				$this->fun->logs ( '觀看投票系統設定' );
+				$this->fun->logs ( '觀看[投票系統設定]' );
 				// 變數
 				$data_post = array ();
 				// 強制切換資料庫
@@ -52,16 +52,16 @@ class Vote_config extends CI_Controller {
 				// 表格
 				$crud->set_table ( 'event_vote_config_tbl' );
 				// 標題
-				$crud->set_subject ( '抽獎系統設定檔' );
-				if (! $this->flexi_auth->is_privileged ( 'Votes Config Add' )) {
+				$crud->set_subject ( '投票系統設定' );
+				if (! $this->flexi_auth->is_privileged ( 'Events Config Add' )) {
 					// 移除新增
 					$crud->unset_add ();
 				}
-				if (! $this->flexi_auth->is_privileged ( 'Votes Config Edit' )) {
+				if (! $this->flexi_auth->is_privileged ( 'Events Config Edit' )) {
 					// 移除編輯
 					$crud->unset_edit ();
 				}
-				if (! $this->flexi_auth->is_privileged ( 'Votes Config Del' )) {
+				if (! $this->flexi_auth->is_privileged ( 'Events Config Del' )) {
 					// 移除刪除
 					$crud->unset_delete ();
 				}
@@ -110,7 +110,7 @@ class Vote_config extends CI_Controller {
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Events Config View' ) && ! empty ( $config_id )) {
 				// 寫log
-				$this->fun->logs ( '觀看投票項目設定' );
+				$this->fun->logs ( '觀看[投票項目設定]' );
 				// 變數
 				$data_post = array ();
 				// 強制切換資料庫
@@ -127,16 +127,16 @@ class Vote_config extends CI_Controller {
 				$crud->set_table ( 'event_vote_item_tbl' );
 				$crud->where ( 'config_id', $config_id );
 				// 標題
-				$crud->set_subject ( '抽獎系統設定檔' );
-				if (! $this->flexi_auth->is_privileged ( 'Votes Config Add' )) {
+				$crud->set_subject ( '投票項目設定' );
+				if (! $this->flexi_auth->is_privileged ( 'Events Config Add' )) {
 					// 移除新增
 					$crud->unset_add ();
 				}
-				if (! $this->flexi_auth->is_privileged ( 'Votes Config Edit' )) {
+				if (! $this->flexi_auth->is_privileged ( 'Events Config Edit' )) {
 					// 移除編輯
 					$crud->unset_edit ();
 				}
-				if (! $this->flexi_auth->is_privileged ( 'Votes Config Del' )) {
+				if (! $this->flexi_auth->is_privileged ( 'Events Config Del' )) {
 					// 移除刪除
 					$crud->unset_delete ();
 				}

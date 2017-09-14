@@ -524,7 +524,11 @@ class Votes extends CI_Controller {
 		}
 	}
 	
-	//
+	/**
+	 * 投票系統統計報表,單選
+	 * @param unknown $config_id
+	 * @param string $date
+	 */
 	public function config_report($config_id, $date = '') {
 		try {
 			//
