@@ -59,7 +59,7 @@ var UsersRegistered = function UsersRegistered() {
 								"<div>[格林威治]&nbsp;" + row.date_utc + "</div>" +
 								"<div><span class='fa fa-vimeo' style='color: #FF8800;'>[一般註冊]&nbsp;" +  formatNumber(row.count_re) + " 人</span></div>" +
 								"<div><span class='fa fa-facebook-square' style='color: #0000FF;'>[FB註冊]&nbsp;" +  formatNumber(row.count_fb) + " 人</span></div>" +
-								"<div><span class='fa fa-facebook-square' style='color: #00DB00;'>[電話註冊]&nbsp;" +  formatNumber(row.count_mobile) + " 人</span></div>" +
+								"<div><span class='fa fa-phone' style='color: #00DB00;'>[電話註冊]&nbsp;" +  formatNumber(row.count_mobile) + " 人</span></div>" +
 								"<div><span class='fa fa-line-chart' style='color: #FF0000;'>[所有註冊]&nbsp;" +  formatNumber(row.count) + " 人</span></div>" +
 								"</div>";
 							}
@@ -83,7 +83,7 @@ var UsersRegistered = function UsersRegistered() {
 								"<div>[格林威治]&nbsp;" + row.date_utc + "</div>" +
 								"<div><span class='fa fa-vimeo' style='color: #FF8800;'>[一般註冊]&nbsp;" +  formatNumber(row.count_re) + " 人</span></div>" +
 								"<div><span class='fa fa-facebook-square' style='color: #0000FF;'>[FB註冊]&nbsp;" +  formatNumber(row.count_fb) + " 人</span></div>" +
-								"<div><span class='fa fa-facebook-square' style='color: #00DB00;'>[電話註冊]&nbsp;" +  formatNumber(row.count_mobile) + " 人</span></div>" +
+								"<div><span class='fa fa-phone' style='color: #00DB00;'>[電話註冊]&nbsp;" +  formatNumber(row.count_mobile) + " 人</span></div>" +
 								"<div><span class='fa fa-line-chart' style='color: #FF0000;'>[所有註冊]&nbsp;" +  formatNumber(row.count) + " 人</span></div>" +
 								"</div>";
 							}
