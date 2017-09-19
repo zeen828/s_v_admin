@@ -180,7 +180,38 @@ class Mongo_model extends CI_Model
         $result = $Users->find($find)->count();
         return $result;
     }
-
+    /**
+     * 查詢mongo會員註建立時間(手機有資料的)
+     *
+     * @param unknown $start_date
+     *            起始時間
+     * @param unknown $end_date
+     *            結束時間
+     */
+    public function get_user_mobile_count_by_createdat ($start_date, $end_date)
+    {
+    	if (empty($start_date) || empty($end_date)) {
+    		return false;
+    	}
+    	$find = array();
+    	$dbname = $this->mongo_config[$this->activate]['database'];
+    	$user_table = '_User';
+    	// 選擇資料庫
+    	$this->db = $this->mongo->$dbname;
+    	$Users = $this->db->$user_table;
+    	$start = new MongoDate(strtotime($start_date));
+    	$end = new MongoDate(strtotime($end_date));
+    	$find['_created_at'] = array(
+    			'$gt' => $start,
+    			'$lte' => $end
+    	);
+    	$find['mobile'] = array(
+    			'$ne' => null
+    	);
+    	$result = $Users->find($find)->count();
+    	return $result;
+    }
+    
     /**
      * 查詢mongo會員FB總數
      */

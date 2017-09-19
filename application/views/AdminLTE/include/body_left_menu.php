@@ -127,7 +127,7 @@
             					<li><a href="/backend/tools/board"><i class="fa fa-refresh"></i> 留言轉移</a></li>
 <?php }?>
 								<li><a href="/backend/tools/tmp"><i class="fa fa-refresh"></i> 臨時上傳</a></li>
-								<li><a href="/backend/tools/cron_url"><i class="fa fa-refresh"></i> 觀看排程網址</a></li>
+								<!-- li><a href="/backend/tools/cron_url"><i class="fa fa-refresh"></i> 觀看排程網址</a></li -->
             				</ul>
             			</li>
 <?php }?>
