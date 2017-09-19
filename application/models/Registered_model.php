@@ -38,7 +38,7 @@ class Registered_model extends CI_Model
         $end_date['date_tw'] = date("Y-m-d 23:59:59", strtotime($end));
         $end_date['time_tw'] = strtotime($end_date['date_tw']);
         $end_date['time_utc'] = $end_date['time_tw'] + (8 * 60 * 60);
-        $this->r_db->select("r_date_utc as date_utc, r_date_tw as date_tw, r_time as time, sum(`r_re_count`) as count_re, sum(`r_fb_count`) as count_fb, sum(`r_count`) as count");
+        $this->r_db->select("r_date_utc as date_utc, r_date_tw as date_tw, r_time as time, sum(`r_re_count`) as count_re, sum(`r_fb_count`) as count_fb, sum(`r_mobile_count`) as count_mobile, sum(`r_count`) as count");
         $this->r_db->where(sprintf("`r_time` BETWEEN %d AND %d", $start_date['time_utc'], $end_date['time_utc']));
         $this->r_db->group_by("r_year_utc, r_month_utc, r_day_utc");
         $this->r_db->order_by('r_time', 'ASC');
@@ -65,7 +65,7 @@ class Registered_model extends CI_Model
         $end_date['date_tw'] = date("Y-m-d H:59:59", strtotime($end));
         $end_date['time_tw'] = strtotime($end_date['date_tw']);
         $end_date['time_utc'] = $end_date['time_tw'] + (8 * 60 * 60);
-        $this->r_db->select("r_date_utc as date_utc, r_date_tw as date_tw, r_time as time, sum(`r_re_count`) as count_re, sum(`r_fb_count`) as count_fb, sum(`r_count`) as count");
+        $this->r_db->select("r_date_utc as date_utc, r_date_tw as date_tw, r_time as time, sum(`r_re_count`) as count_re, sum(`r_fb_count`) as count_fb, sum(`r_mobile_count`) as count_mobile, sum(`r_count`) as count");
         $this->r_db->where(sprintf("`r_time` BETWEEN %d AND %d", $start_date['time_utc'], $end_date['time_utc']));
         $this->r_db->group_by("r_year_utc, r_month_utc, r_day_utc, r_hour_utc");
         $this->r_db->order_by('r_time', 'ASC');
@@ -90,7 +90,7 @@ class Registered_model extends CI_Model
         $end_date = array();
         $end_date['date_tw'] = date("Y-m-d 23:59:59", strtotime($end));
         $end_date['time_tw'] = strtotime($end_date['date_tw']);
-        $this->r_db->select("r_date_utc as date_utc, r_date_tw as date_tw, r_time as time, sum(`r_re_count`) as count_re, sum(`r_fb_count`) as count_fb, sum(`r_count`) as count");
+        $this->r_db->select("r_date_utc as date_utc, r_date_tw as date_tw, r_time as time, sum(`r_re_count`) as count_re, sum(`r_fb_count`) as count_fb, sum(`r_mobile_count`) as count_mobile, sum(`r_count`) as count");
         $this->r_db->where(sprintf("`r_time` BETWEEN %d AND %d", $start_date['time_tw'], $end_date['time_tw']));
         $this->r_db->group_by("r_year_tw, r_month_tw, r_day_tw");
         $this->r_db->order_by('r_time', 'ASC');
@@ -115,7 +115,7 @@ class Registered_model extends CI_Model
         $end_date = array();
         $end_date['date_tw'] = date("Y-m-d H:59:59", strtotime($end));
         $end_date['time_tw'] = strtotime($end_date['date_tw']);
-        $this->r_db->select("r_date_utc as date_utc, r_date_tw as date_tw, r_time as time, sum(`r_re_count`) as count_re, sum(`r_fb_count`) as count_fb, sum(`r_count`) as count");
+        $this->r_db->select("r_date_utc as date_utc, r_date_tw as date_tw, r_time as time, sum(`r_re_count`) as count_re, sum(`r_fb_count`) as count_fb, sum(`r_mobile_count`) as count_mobile, sum(`r_count`) as count");
         $this->r_db->where(sprintf("`r_time` BETWEEN %d AND %d", $start_date['time_tw'], $end_date['time_tw']));
         $this->r_db->group_by("r_year_tw, r_month_tw, r_day_tw, r_hour_tw");
         $this->r_db->order_by('r_time', 'ASC');

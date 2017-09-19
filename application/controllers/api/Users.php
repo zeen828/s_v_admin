@@ -68,6 +68,7 @@ class Users extends REST_Controller
                             'date_tw' => date($date_str, $val->time),
                             'count_re' => $val->count_re,
                             'count_fb' => $val->count_fb,
+                    		'count_mobile' => $val->count_mobile,
                             'count' => $val->count
                     );
                 }
