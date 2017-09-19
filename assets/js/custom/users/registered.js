@@ -50,16 +50,16 @@ var UsersRegistered = function UsersRegistered() {
 							xLabelAngle: 45,
 							ykeys: ['count_re', 'count_fb', 'count_mobile', 'count'],
 							labels: ['一般註冊', 'FB註冊', '電話註冊', '所有註冊'],
-							lineColors: ['#FF8800', '#0000FF', '#00DB00', '#FF0000'],
+							lineColors: ['#FFFF00', '#0000FF', '#FF0088', '#FF0000'],
 							units: '人',
 							smooth: false,
 							hoverCallback: function (index, options, content, row) {
 								return "<div>" +
 								"<div>[台灣時間]&nbsp;" + row.date_tw + "</div>" +
 								"<div>[格林威治]&nbsp;" + row.date_utc + "</div>" +
-								"<div><span class='fa fa-vimeo' style='color: #FF8800;'>[一般註冊]&nbsp;" +  formatNumber(row.count_re) + " 人</span></div>" +
+								"<div><span class='fa fa-vimeo' style='color: #FFFF00;'>[一般註冊]&nbsp;" +  formatNumber(row.count_re) + " 人</span></div>" +
 								"<div><span class='fa fa-facebook-square' style='color: #0000FF;'>[FB註冊]&nbsp;" +  formatNumber(row.count_fb) + " 人</span></div>" +
-								"<div><span class='fa fa-phone' style='color: #00DB00;'>[電話註冊]&nbsp;" +  formatNumber(row.count_mobile) + " 人</span></div>" +
+								"<div><span class='fa fa-phone' style='color: #FF0088;'>[電話註冊]&nbsp;" +  formatNumber(row.count_mobile) + " 人</span></div>" +
 								"<div><span class='fa fa-line-chart' style='color: #FF0000;'>[所有註冊]&nbsp;" +  formatNumber(row.count) + " 人</span></div>" +
 								"</div>";
 							}
@@ -74,16 +74,16 @@ var UsersRegistered = function UsersRegistered() {
 							xLabelAngle: 45,
 							ykeys: ['count_re', 'count_fb', 'count_mobile', 'count'],
 							labels: ['一般註冊', 'FB註冊', '電話註冊', '所有註冊'],
-							lineColors: ['#FF8800', '#0000FF', '#00DB00', '#FF0000'],
+							lineColors: ['#FFFF00', '#0000FF', '#FF0088', '#FF0000'],
 							units: '人',
 							smooth: false,
 							hoverCallback: function (index, options, content, row) {
 								return "<div>" +
 								"<div>[台灣時間]&nbsp;" + row.date_tw + "</div>" +
 								"<div>[格林威治]&nbsp;" + row.date_utc + "</div>" +
-								"<div><span class='fa fa-vimeo' style='color: #FF8800;'>[一般註冊]&nbsp;" +  formatNumber(row.count_re) + " 人</span></div>" +
+								"<div><span class='fa fa-vimeo' style='color: #FFFF00;'>[一般註冊]&nbsp;" +  formatNumber(row.count_re) + " 人</span></div>" +
 								"<div><span class='fa fa-facebook-square' style='color: #0000FF;'>[FB註冊]&nbsp;" +  formatNumber(row.count_fb) + " 人</span></div>" +
-								"<div><span class='fa fa-phone' style='color: #00DB00;'>[電話註冊]&nbsp;" +  formatNumber(row.count_mobile) + " 人</span></div>" +
+								"<div><span class='fa fa-phone' style='color: #FF0088;'>[電話註冊]&nbsp;" +  formatNumber(row.count_mobile) + " 人</span></div>" +
 								"<div><span class='fa fa-line-chart' style='color: #FF0000;'>[所有註冊]&nbsp;" +  formatNumber(row.count) + " 人</span></div>" +
 								"</div>";
 							}
