@@ -251,6 +251,7 @@ class Users extends CI_Controller
                 // 查詢
                 $data_mongo_user_count = $this->mongo_model->get_user_count_by_createdat($start_date, $end_date);
                 $data_mongo_user_fb_count = $this->mongo_model->get_user_fb_count_by_createdat($start_date, $end_date);
+                $data_mongo_user_mobile_count = $this->mongo_model->get_user_mobile_count_by_createdat($start_date, $end_date);
                 // 寫入資料庫用
                 // Y年,n月,j日,G時
                 $data['r_date_utc'] = date("Y-m-d H:i:s", strtotime($tmp_data . "-8 hour"));
@@ -271,9 +272,6 @@ class Users extends CI_Controller
                 // 組合
                 $sql = "INSERT INTO `Registered_tbl` (`r_date_utc`, `r_year_utc`, `r_month_utc`, `r_day_utc`, `r_hour_utc`, `r_date_tw`, `r_year_tw`, `r_month_tw`, `r_day_tw`, `r_hour_tw`, `r_time`, `r_re_count`, `r_fb_count`, `r_mobile_count`, `r_count`) VALUES ('%s', '%d', '%d', '%d', '%d', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d') ON DUPLICATE KEY UPDATE `r_time` = '%s', `r_re_count` = '%s', `r_fb_count` = '%s', `r_mobile_count` = '%s', `r_count` = '%s';";
                 $sql = sprintf($sql, $data['r_date_utc'], $data['r_year_utc'], $data['r_month_utc'], $data['r_day_utc'], $data['r_hour_utc'], $data['r_date_tw'], $data['r_year_tw'], $data['r_month_tw'], $data['r_day_tw'], $data['r_hour_tw'], $data['r_time'], $data['r_re_count'], $data['r_fb_count'], $data['r_mobile_count'], $data['r_count'], $data['r_time'], $data['r_re_count'], $data['r_fb_count'], $data['r_mobile_count'], $data['r_count']);
-                echo $sql;
-                echo "<br/>";
-                echo "<br/>";
                 if ($this->db->simple_query($sql)) {
                     trigger_error(sprintf("統計註冊數[%s].", $tmp_data), 1024);
                     $this->data_result['status'] = true;
