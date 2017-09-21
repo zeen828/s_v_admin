@@ -42,8 +42,20 @@ class Event_vote_select_model extends CI_Model {
 		}
 		return false;
 	}
-	public function get_($config_id, $start, $end) {
-		return 'OX';
+	//取得會員資料
+	public function get_user_by_condifid_date($select, $config_id, $start_date=null, $end_date=null) {
+		if (! empty ( $select )) {
+			$this->r_db->select ( $select );
+		}
+		$this->r_db->where ( 'config_id', $config_id );
+		if(empty($start_date)){
+			$this->r_db->where ( 'created_at >=', $start_date );
+		}
+		if(empty($end_date)){
+			$this->r_db->where ( 'created_at <', $end_date );
+		}
+		$query = $this->r_db->get ( $this->table_name );
+		return $query;
 	}
 	// 投票數
 	public function get_vote_count_by_configid_date($config_id, $start_date, $end_date) {
