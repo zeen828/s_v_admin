@@ -8,11 +8,11 @@ var running = false;
 var start_date = '';
 var end_date = ''
 function getLottery(start_date, end_date){
-	console.log('getLottery');
+	console.log('起始第一次取得抽獎名單');
 }
 
 function writeLotteryList(){
-	console.log('writeLotteryList');
+	console.log('紀錄得獎者');
 }
 
 function getRandomArrayElements(arr, count) {
@@ -32,13 +32,13 @@ function beginRndNum(trigger){
 	if(running){
 		if(g_Lottery.length >= 1){
 			var user = getRandomArrayElements(g_Lottery, 1);
-			$('#ResultNum').html(user[0].member_id);
+			$('#ResultNum').html(user[0]);
 		}
 		//
 		var lottery = $('#ResultNum').html();
 		if($.inArray(lottery, g_LotteryArray) != -1){
 			var user = getRandomArrayElements(g_LotteryList, 1);
-			$('#ResultNum').html(user[0].member_id);
+			$('#ResultNum').html(user[0]);
 		}
 		running = false;
 		clearTimeout(g_Timer);
@@ -58,7 +58,7 @@ function beginRndNum(trigger){
 function updateRndNum(){
 	console.log('updateRndNum');
 	var user = getRandomArrayElements(g_LotteryList, 1);
-	$('#ResultNum').html(user[0].member_id);
+	$('#ResultNum').html(user[0]);
 }
 
 function beginTimer(){
