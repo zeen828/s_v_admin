@@ -32,6 +32,7 @@ class Events extends CI_Controller {
 			// 設定檔
 			$data_config = $this->event_vote_config_model->get_row_by_pk ( '*', $config_id );
 			//print_r ( $data_config );
+			$this->data_view['config_id'] = $data_config->id;
 			$this->data_view['title'] = $data_config->title;
 			$this->data_view['count'] = 60;
 			$this->data_view['start_at'] = $data_config->start_at;
