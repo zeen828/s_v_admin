@@ -55,6 +55,7 @@ class Event_vote_select_model extends CI_Model {
 			$this->r_db->where ( 'created_at <', $end_date );
 		}
 		$query = $this->r_db->get ( $this->table_name );
+		// echo $this->r_db->last_query();
 		return $query;
 	}
 	// 投票數
