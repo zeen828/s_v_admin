@@ -28,7 +28,7 @@ class Events extends CI_Controller {
 			}
 			$this->load->model ( 'vidol_event/event_vote_config_model' );
 			$this->load->model ( 'vidol_event/event_vote_select_model' );
-			$data_config = $this->event_vote_config_model->get_row_by_pk ( $config_id );
+			$data_config = $this->event_vote_config_model->get_row_by_pk ( '*', $config_id );
 			print_r ( $data_config );
 			// 套版
 			$this->load->view ( 'Events/lottery/lottery', $this->data_view );
