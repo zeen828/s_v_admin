@@ -34,6 +34,7 @@ class Events extends CI_Controller {
 			print_r ( $data_config );
 			// 參加者
 			$query = $this->event_vote_select_model->get_user_by_condifid_date ( 'user_id', $config_id , null, null);
+			print_r($query);
 			//if ($query->num_rows () > 0) {
 				//foreach ( $query->result () as $row ) {
 					//print_r($row);
