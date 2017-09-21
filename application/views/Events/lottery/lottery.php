@@ -49,8 +49,8 @@
 			#Result {
 				position: relative;
 				top: 45%;
-				left: 58%;
-				width: 20%;
+				left: 54%;
+				width: 30%;
 			}
 			
 			#ResultNum {
