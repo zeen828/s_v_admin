@@ -104,18 +104,6 @@ class Report_event extends CI_Controller {
 	}
 	
 	/**
-	 * 投票名單抽獎
-	 */
-	public function lotters($config_id) {
-		try {
-			// 套版
-			$this->load->view('Events/lotters/lotters', $this->data_view);
-		} catch ( Exception $e ) {
-			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
-		}
-	}
-	
-	/**
 	 * 活動報表[玩很大進校園]
 	 */
 	public function mrplay_list() {
