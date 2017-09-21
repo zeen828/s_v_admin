@@ -31,14 +31,14 @@ class Events extends CI_Controller {
 			$this->load->model ( 'vidol_event/event_vote_select_model' );
 			// 設定檔
 			$data_config = $this->event_vote_config_model->get_row_by_pk ( '*', $config_id );
-			print_r ( $data_config );
+			//print_r ( $data_config );
 			$this->data_view['title'] = $data_config->title;
 			$this->data_view['count'] = 60;
 			$this->data_view['start_at'] = $data_config->start_at;
 			$this->data_view['end_at'] = $data_config->end_at;
 			// 參加者
 			$query = $this->event_vote_select_model->get_user_by_condifid_date ( 'user_id', $config_id , null, null);
-			print_r($query);
+			//print_r($query);
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
 					$this->data_view['user_json'][] = $row->user_id;
