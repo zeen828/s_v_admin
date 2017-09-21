@@ -21,7 +21,7 @@ class Report_event extends CI_Controller {
 		try {
 			
 			// 套版
-			$this->load->view ( 'Events/lotters/lotters', $this->data_view );
+			$this->load->view ( 'Events/lottery/lottery', $this->data_view );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
