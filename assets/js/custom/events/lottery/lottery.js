@@ -2,6 +2,7 @@ var g_Interval = 1;//間隔
 var g_Lottery = [];//抽獎
 var g_LotteryList = [];//預設抽獎名單避免AJAX錯誤沒名單
 var g_LotteryArray = new Array();//中獎清單避開重副
+var g_lottery_count = '0';
 var g_Timer;//計時器
 var running = false;
 var start_date = '';

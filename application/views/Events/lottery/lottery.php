@@ -8,7 +8,7 @@
 		<script type="text/javascript" src="/assets/js/custom/events/lottery/lottery.js?<?php echo time();?>"></script>
 		<script type="text/javascript">
 			g_LotteryList = <?php echo $user_json;?>;//預設抽獎名單避免AJAX錯誤沒名單
-			count = '<?php echo $count;?>';
+			g_lottery_count = '<?php echo $count;?>';
 			start_date = '<?php echo $start_at;?>';
 			end_date = '<?php echo $end_at;?>';
 		</script>
