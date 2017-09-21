@@ -66,10 +66,10 @@ class Vote_config extends CI_Controller {
 					$crud->unset_delete ();
 				}
 				// 清單顯示欄位
-				$crud->columns ( 'id', 'title', 'login_where', 'vote_where', 'vote_int', 'status', 'start_at', 'end_at' );
+				$crud->columns ( 'id', 'title', 'login_where', 'vote_where', 'vote_int', 'lottery_int', 'status', 'start_at', 'end_at' );
 				// 欄位控制
-				$crud->add_fields ( 'title', 'login_where', 'vote_where', 'vote_int', 'status', 'start_at', 'end_at' );
-				$crud->edit_fields ( 'title', 'login_where', 'vote_where', 'vote_int', 'status', 'start_at', 'end_at' );
+				$crud->add_fields ( 'title', 'login_where', 'vote_where', 'vote_int', 'lottery_int', 'status', 'start_at', 'end_at' );
+				$crud->edit_fields ( 'title', 'login_where', 'vote_where', 'vote_int', 'lottery_int', 'status', 'start_at', 'end_at' );
 				// 表單必填欄位
 				$crud->required_fields ( 'title', 'login_where', 'vote_where', 'status', 'start_at', 'end_at' );
 				// 事件
@@ -94,6 +94,7 @@ class Vote_config extends CI_Controller {
 				$crud->display_as ( 'login_where', '登入規則' );
 				$crud->display_as ( 'vote_where', '投票規則' );
 				$crud->display_as ( 'vote_int', '每天可投票次數' );
+				$crud->display_as ( 'lottery_int', '抽獎數' );
 				$crud->display_as ( 'status', '狀態' );
 				$crud->display_as ( 'start_at', '開始時間(+8)' );
 				$crud->display_as ( 'end_at', '結束時間(+8)' );
