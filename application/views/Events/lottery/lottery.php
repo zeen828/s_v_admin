@@ -20,7 +20,7 @@
 			body {
 				text-align: center;
 				position: static;
-				background-image: url(/assets/img/lottery/OB_iphone8/background.jpg);
+				background-image: url(/assets/img/events/lottery/gba52/background.jpg);
 				background-repeat: no-repeat;
 				background-attachment: fixed;
 				background-position: left bottom;
