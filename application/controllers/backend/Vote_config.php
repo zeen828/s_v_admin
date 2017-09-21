@@ -77,6 +77,10 @@ class Vote_config extends CI_Controller {
 						$this->grocery_callback,
 						'callback_config_to_item_url' 
 				) );
+				$crud->add_action ( '投票活動抽獎', '/assets/grocery_crud/themes/flexigrid/css/images/print.png', '', '', array (
+						$this->grocery_callback,
+						'callback_config_to_lottery_url'
+				) );
 				$crud->field_type ( 'login_where', 'dropdown', array (
 						'0' => '不需登入',
 						'1' => '需要登入',

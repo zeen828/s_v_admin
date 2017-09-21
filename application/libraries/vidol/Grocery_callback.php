@@ -99,8 +99,23 @@ class Grocery_callback {
 		}
 		return $result;
 	}
+	/**
+	 * 投票系統->項目網址
+	 * @param unknown $primary_key
+	 * @param unknown $row
+	 * @return unknown
+	 */
 	function callback_config_to_item_url($primary_key, $row) {
 		return site_url ( '/backend/vote_config/config_item/' . $primary_key );
+	}
+	/**
+	 * 投票系統->開講網址
+	 * @param unknown $primary_key
+	 * @param unknown $row
+	 * @return unknown
+	 */
+	function callback_config_to_lottery_url($primary_key, $row) {
+		return site_url ( '/events/lottery/' . $primary_key );
 	}
 	function callback_config_to_lotters_url($primary_key, $row) {
 		switch ($row->lc_method) {
