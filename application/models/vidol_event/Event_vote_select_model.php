@@ -48,10 +48,10 @@ class Event_vote_select_model extends CI_Model {
 			$this->r_db->select ( $select );
 		}
 		$this->r_db->where ( 'config_id', $config_id );
-		if(empty($start_date)){
+		if(!empty($start_date)){
 			$this->r_db->where ( 'created_at >=', $start_date );
 		}
-		if(empty($end_date)){
+		if(!empty($end_date)){
 			$this->r_db->where ( 'created_at <', $end_date );
 		}
 		$query = $this->r_db->get ( $this->table_name );
