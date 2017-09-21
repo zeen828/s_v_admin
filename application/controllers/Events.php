@@ -35,11 +35,11 @@ class Events extends CI_Controller {
 			// 參加者
 			$query = $this->event_vote_select_model->get_user_by_condifid_date ( 'user_id', $config_id , null, null);
 			print_r($query);
-			//if ($query->num_rows () > 0) {
-				//foreach ( $query->result () as $row ) {
-					//print_r($row);
-				//}
-			//}
+			if ($query->num_rows () > 0) {
+				foreach ( $query->result () as $row ) {
+					print_r($row);
+				}
+			}
 			// 套版
 			$this->load->view ( 'Events/lottery/lottery', $this->data_view );
 			// 結束時間標記
