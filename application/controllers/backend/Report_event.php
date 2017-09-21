@@ -74,11 +74,11 @@ class Report_event extends CI_Controller {
 				// 資料庫欄位文字替換
 				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
 				$crud->display_as ( 'config_id', '設定檔id' );
-				$crud->display_as ( 'vote', '當日投票數' );
-				$crud->display_as ( 'new_vote', '第一次投票數' );
+				$crud->display_as ( 'vote', '投票數' );
+				$crud->display_as ( 'new_vote', '首次投票數' );
 				$crud->display_as ( 'single_vote', '[累計]不重複投票數' );
 				$crud->display_as ( 'total_vote', '[累計]投票數' );
-				$crud->display_as ( 'registered', '投票增加註冊數' );
+				$crud->display_as ( 'registered', '投票註冊數' );
 				$crud->display_as ( 'total_registered', '[累計]投票註冊數' );
 				$crud->display_as ( 'vidol_registered', 'vidol當日總註冊數' );
 				$crud->display_as ( 'proportion', '投票註冊/投票數占比%' );
