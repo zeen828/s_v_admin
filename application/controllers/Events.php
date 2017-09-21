@@ -21,15 +21,24 @@ class Events extends CI_Controller {
 		try {
 			// 開始時間標記
 			$this->benchmark->mark ( 'code_start' );
-			// 限制公司IP
-			if ($this->IP != '61.216.83.7') {
+			// 限制公司IP || 活動編號
+			if ($this->IP != '61.216.83.7' || empty ( $config_id )) {
 				show_404 ();
 				exit ();
 			}
+			// 引用
 			$this->load->model ( 'vidol_event/event_vote_config_model' );
 			$this->load->model ( 'vidol_event/event_vote_select_model' );
+			// 設定檔
 			$data_config = $this->event_vote_config_model->get_row_by_pk ( '*', $config_id );
 			print_r ( $data_config );
+			// 參加者
+			$query = $this->event_vote_select_model->get_user_by_condifid_date ( '*', $config_id , null, null);
+			if ($query->num_rows () > 0) {
+				foreach ( $query->result () as $row ) {
+					print_r($row);
+				}
+			}
 			// 套版
 			$this->load->view ( 'Events/lottery/lottery', $this->data_view );
 			// 結束時間標記
