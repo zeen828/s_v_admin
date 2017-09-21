@@ -16,7 +16,7 @@ function writeLotteryList(){
 }
 
 function getRandomArrayElements(arr, count) {
-	console.log('getRandomArrayElements');
+	console.log('亂數取資料');
     var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
     while (i-- > min) {
         index = Math.floor((i + 1) * Math.random());
