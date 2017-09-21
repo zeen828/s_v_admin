@@ -1,6 +1,6 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
-class Report_event extends CI_Controller {
+class Events extends CI_Controller {
 	private $data_view;
 	private $vote_arr;
 	function __construct() {
