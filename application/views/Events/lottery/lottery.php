@@ -3,13 +3,13 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="robots" content="noindex,nofollow" />
-		<title>Vidol 抽獎活動</title>
+		<title>Vidol 抽獎活動 || <?php echo $title;?></title>
 		<script type="text/javascript" src="/assets/plugins/jQuery/2.2.3/jquery-2.2.3.min.js"></script>
 		<script type="text/javascript" src="/assets/js/custom/events/lottery/lottery.js?<?php echo time();?>"></script>
 		<script type="text/javascript">
-			g_LotteryList = <?php echo json_encode($lottery);?>;//預設抽獎名單避免AJAX錯誤沒名單
-			start_date = '<?php echo $start;?>';
-			end_date = '<?php echo $end;?>';
+			g_LotteryList = <?php echo $user_json;?>;//預設抽獎名單避免AJAX錯誤沒名單
+			start_date = '<?php echo $start_at;?>';
+			end_date = '<?php echo $end_at;?>';
 		</script>
 		<style type="text/css">
 			html {
