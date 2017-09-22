@@ -96,7 +96,7 @@ class Lotteries extends MY_REST_Controller {
 				$date_user = $this->whitelist_model->get_row_by_random ();
 				if (empty ( $date_user )) {
 					// 5.抽獎
-					$date_user = $this->event_vote_select_model->get_row_by_random($data_input ['config_id']);
+					$date_user = $this->event_vote_select_model->get_row_by_random ( $data_input ['config_id'] );
 				}
 				// 6.確認無重複
 				$tmp = false;
