@@ -51,8 +51,7 @@ class Event_vote_lottery_model extends CI_Model {
 	}
 	// 檢查重複
 	public function confirm_repeat($config_id, $mongo_id, $member_id) {
-		$this->r_db->select('*')
-		->where('a', 'a')
+		$this->r_db->where('a', 'a')
 		->group_start()
 		->where('b', 'b')
 		->or_where('c', 'c')
