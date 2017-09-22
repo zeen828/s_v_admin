@@ -21,6 +21,7 @@ echo $view_data->output;
 					</div>
 					<script type="text/javascript">
 					$(document).ready(function(){
+						// 另開新視窗
 						$('a.add_action_target_blank').attr("target", "_blank");
 					});
 					</script>
