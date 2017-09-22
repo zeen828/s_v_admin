@@ -65,7 +65,16 @@ class SwaggerDoc extends CI_Controller {
 														"in" => "formData",
 														"type" => "integer",
 														"required" => TRUE 
-												) 
+												),
+												array (
+														"name" => "debug",
+														"description" => "除錯用多列印出取得資料變數",
+														"in" => "formData",
+														"type" => "string",
+														"enum" => array (
+																'debug'
+														)
+												)
 										),
 										"responses" => array (
 												"200" => array (
