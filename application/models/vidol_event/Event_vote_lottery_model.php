@@ -51,13 +51,13 @@ class Event_vote_lottery_model extends CI_Model {
 	}
 	// 檢查重複
 	public function confirm_repeat($config_id, $mongo_id, $member_id) {
-		$this->r_db->where('a', 'a');
-		$this->r_db->group_start();
-		$this->r_db->where('b', 'b');
-		$this->r_db->or_where('c', 'c');
-		$this->r_db->group_end();
-		$this->r_db->get($this->table_name);
-		echo $this->r_db->last_query();
+		$this->r_db->where ( 'config_id', $config_id );
+		$this->r_db->group_start ();
+		$this->r_db->where ( 'mongo_id', $mongo_id );
+		$this->r_db->or_where ( 'member_id', $member_id );
+		$this->r_db->group_end ();
+		$this->r_db->get ( $this->table_name );
+		echo $this->r_db->last_query ();
 		if ($query->num_rows () > 0) {
 			return true;
 		}
