@@ -30,7 +30,7 @@ class Lotteries extends MY_REST_Controller {
 			// 引入
 			$this->load->model ( 'vidol_event/event_vote_config_model' );
 			$this->load->model ( 'vidol_event/event_vote_lottery_model' );
-			$this->load->model ( 'vidol_event/event_vote_lottery_model' );
+			$this->load->model ( 'vidol_event/event_vote_select_model' );
 			$this->load->model ( 'vidol_event/whitelist_model' );
 			$this->load->driver ( 'cache', array (
 					'adapter' => 'memcached',
