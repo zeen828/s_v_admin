@@ -51,13 +51,13 @@ class Event_vote_lottery_model extends CI_Model {
 	}
 	// 檢查重複
 	public function confirm_repeat($config_id, $mongo_id, $member_id) {
-		$this->r_db->select('*')->from($this->table_name)
+		$this->r_db->select('*')
 		->where('a', 'a')
 		->group_start()
 		->where('b', 'b')
 		->or_where('c', 'c')
 		->group_end()
-		->get();
+		->get($this->table_name);
 		echo $this->r_db->last_query();
 		if ($query->num_rows () > 0) {
 			return true;
