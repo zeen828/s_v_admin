@@ -2,7 +2,6 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 ini_set ( "display_errors", "On" ); // On, Off
 require_once APPPATH . '/libraries/MY_REST_Controller.php';
-
 class Lotteries extends MY_REST_Controller {
 	private $data_debug;
 	private $data_result;
@@ -28,7 +27,7 @@ class Lotteries extends MY_REST_Controller {
 			// 引入
 			$this->config->load ( 'restful_status_code' );
 			$this->lang->load ( 'restful_status_lang', 'traditional-chinese' );
-			$this->load->model('vidol_event/event_vote_config_model');
+			$this->load->model ( 'vidol_event/event_vote_config_model' );
 			$this->load->driver ( 'cache', array (
 					'adapter' => 'memcached',
 					'backup' => 'dummy' 
@@ -42,7 +41,7 @@ class Lotteries extends MY_REST_Controller {
 					'time' => 0 
 			);
 			// 接收變數
-			$data_input ['config_id'] = $this->get ( 'config_id' );
+			$data_input ['config_id'] = $this->post ( 'config_id' );
 			// Debug info
 			$data_input ['debug'] = $this->get ( 'debug' );
 			if ($data_input ['debug'] == 'debug') {

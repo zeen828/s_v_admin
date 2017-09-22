@@ -75,7 +75,7 @@ class SwaggerDoc extends CI_Controller {
 																"type" => "object",
 																"description" => "api result data",
 																"properties" => array (
-																		"result" => $this->__get_responses_data ( "ml_api_oauth_token" ),
+																		"result" => $this->__get_responses_data ( "vote_config_info" ),
 																		"code" => array (
 																				"type" => "string",
 																				"description" => "狀態碼" 
@@ -90,9 +90,6 @@ class SwaggerDoc extends CI_Controller {
 																		) 
 																) 
 														) 
-												),
-												"401" => array (
-														"description" => "會員登入錯誤" 
 												),
 												"403" => array (
 														"description" => "token未授權" 
