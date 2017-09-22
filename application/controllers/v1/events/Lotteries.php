@@ -115,7 +115,7 @@ class Lotteries extends MY_REST_Controller {
 					$date_user = $this->event_vote_select_model->get_row_by_random ( $data_input ['config_id'], 1 );
 				}
 				// 6.確認無重複
-				$confirm_repeat = $this->event_vote_lottery_model->confirm_repeat ( $data_input ['config_id'], $date_user->mongo_id, $date_user->member_id );
+				$confirm_repeat = $this->event_vote_lottery_model->confirm_repeat ( $data_input ['config_id'], $date_user->user_id, $date_user->member_id );
 				if ($insurance == 0) {
 					$confirm_repeat = false;
 				}
@@ -126,8 +126,7 @@ class Lotteries extends MY_REST_Controller {
 					'config_id' => $data_config->id,
 					'title' => $data_config->title,
 					'award_number' => $data_count ['now'],
-					'mongo_id' => $date_user->mongo_id,
-					'member_id' => $date_user->member_id,
+					'user_id' => $date_user->user_id,
 					'user_ip' => $this->input->ip_address () 
 			) );
 			// 結束時間標記
