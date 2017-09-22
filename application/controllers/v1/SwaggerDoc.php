@@ -37,7 +37,7 @@ class SwaggerDoc extends CI_Controller {
 						"http" 
 				),
 				"paths" => array (
-						"/events/lotteries/lottery" => array (
+						"/events/lotteries/lottery.json" => array (
 								"post" => array (
 										"tags" => array (
 												"1.Lottery" 
