@@ -28,12 +28,15 @@ class Lotteries extends MY_REST_Controller {
 			$this->config->load ( 'restful_status_code' );
 			$this->lang->load ( 'restful_status_lang', 'traditional-chinese' );
 			$this->load->model ( 'vidol_event/event_vote_config_model' );
+			$this->load->model ( 'vidol_event/event_vote_lottery_model' );
+			$this->load->model ( 'vidol_event/whitelist_model' );
 			$this->load->driver ( 'cache', array (
 					'adapter' => 'memcached',
 					'backup' => 'dummy' 
 			) );
 			// 變數
 			$data_input = array ();
+			$data_count = array ();
 			$this->data_result = array (
 					'result' => array (),
 					'code' => $this->config->item ( 'system_default' ),
@@ -55,6 +58,7 @@ class Lotteries extends MY_REST_Controller {
 				$this->response ( $this->data_result, 416 );
 				return;
 			}
+			// 1.取得活動設定-獎項名額
 			// cache name key
 			$data_cache ['name'] = sprintf ( '%s_event_vote_config_%d', ENVIRONMENT, $data_input ['config_id'] );
 			// $this->cache->memcached->delete ( $data_cache['name_1'] );
@@ -64,7 +68,13 @@ class Lotteries extends MY_REST_Controller {
 				$this->cache->memcached->save ( $data_cache ['name'], $data_cache [$data_cache ['name']], 90000 );
 			}
 			//
-			$this->data_result ['result'] = $data_cache [$data_cache ['name']];
+			$this->data_result ['config_info'] = $data_cache [$data_cache ['name']];
+			$data_count['max'] = $this->data_result ['config_info']->lottery_int;
+			// 2.取得目前得獎名額
+			$data_count['now'] = $this->event_vote_lottery_model->get_count_by_configid ( $data_input ['config_id'] );
+			
+			$this->data_result ['count'] = $data_count;
+			// $this->data_result ['result'] = $data_cache [$data_cache ['name']];
 			// 結束時間標記
 			$this->benchmark->mark ( 'code_end' );
 			// 標記時間計算
