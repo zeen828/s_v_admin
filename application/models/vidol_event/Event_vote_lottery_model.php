@@ -55,9 +55,8 @@ class Event_vote_lottery_model extends CI_Model {
 		->where('a', 'a')
 		->group_start()
 		->where('b', 'b')
-		->where('c', 'c')
+		->or_where('c', 'c')
 		->group_end()
-		->where('d', 'd')
 		->get();
 		echo $this->r_db->last_query();
 		if ($query->num_rows () > 0) {
