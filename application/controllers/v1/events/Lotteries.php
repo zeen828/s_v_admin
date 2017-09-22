@@ -39,12 +39,12 @@ class Lotteries extends MY_REST_Controller {
 			// 變數
 			$data_input = array ();
 			$data_config = array ();
+			$date_user = array ();
 			$data_count = array (
 					'max' => '0',
 					'lottery' => '0',
 					'now' => '0' 
 			);
-			$date_user = array ();
 			$this->data_result = array (
 					'result' => array (),
 					'code' => $this->config->item ( 'system_default' ),
@@ -66,6 +66,10 @@ class Lotteries extends MY_REST_Controller {
 				// 必填錯誤
 				$this->data_result ['message'] = $this->lang->line ( 'input_required_error' );
 				$this->data_result ['code'] = $this->config->item ( 'input_required_error' );
+				// 時間標記
+				$this->benchmark->mark ( 'error_required' );
+				// 標記時間計算
+				$this->data_result ['time'] = $this->benchmark->elapsed_time ( 'code_start', 'error_required' );
 				$this->response ( $this->data_result, 416 );
 				return;
 			}
@@ -78,7 +82,6 @@ class Lotteries extends MY_REST_Controller {
 				$data_cache [$data_cache ['name']] = $this->event_vote_config_model->get_row_by_pk ( '*', $data_input ['config_id'] );
 				$this->cache->memcached->save ( $data_cache ['name'], $data_cache [$data_cache ['name']], 90000 );
 			}
-			//
 			$data_config = $data_cache [$data_cache ['name']];
 			$data_count ['max'] = $data_config->lottery_int;
 			// 2.取得目前得獎名額
@@ -89,16 +92,20 @@ class Lotteries extends MY_REST_Controller {
 				// 抽獎名額已滿
 				$this->data_result ['message'] = $this->lang->line ( 'database_full_error' );
 				$this->data_result ['code'] = $this->config->item ( 'database_full_error' );
+				// 時間標記
+				$this->benchmark->mark ( 'error_full' );
+				// 標記時間計算
+				$this->data_result ['time'] = $this->benchmark->elapsed_time ( 'code_start', 'error_full' );
 				$this->response ( $this->data_result, 416 );
 				return;
 			}
-			// 保險淤
-			$insurance = 5;
+			// 保險避免無線迴圈
+			$insurance = 10;
 			do {
 				$insurance --;
-				$this->data_result ['result'] = '進迴圈' . $insurance;
 				// 4.白單
 				$date_user = $this->whitelist_model->get_row_by_random ( 1 );
+				// 8.白名單消除
 				if (empty ( $date_user )) {
 					// 5.抽獎
 					$date_user = $this->event_vote_select_model->get_row_by_random ( $data_input ['config_id'], 1 );
