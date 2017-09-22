@@ -43,6 +43,7 @@ class Lotteries extends MY_REST_Controller {
 					'lottery' => '0',
 					'now' => '0' 
 			);
+			$date_user = array ();
 			$this->data_result = array (
 					'result' => array (),
 					'code' => $this->config->item ( 'system_default' ),
@@ -55,6 +56,8 @@ class Lotteries extends MY_REST_Controller {
 			$data_input ['debug'] = $this->get ( 'debug' );
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['input'] = &$data_input;
+				$this->data_result ['debug'] ['count'] = &$data_count;
+				$this->data_result ['debug'] ['user'] = &$date_user;
 			}
 			// 必填檢查
 			if (empty ( $data_input ['config_id'] )) {
@@ -80,19 +83,22 @@ class Lotteries extends MY_REST_Controller {
 			$data_count ['lottery'] = $this->event_vote_lottery_model->get_count_by_configid ( $data_input ['config_id'] );
 			// 3.檢查名額
 			$data_count ['now'] = $data_count ['max'] - $data_count ['lottery'];
-			if($data_count ['now'] <= 0){
+			if ($data_count ['now'] <= 0) {
 				// 抽獎名額已滿
 				$this->data_result ['message'] = $this->lang->line ( 'database_full_error' );
 				$this->data_result ['code'] = $this->config->item ( 'database_full_error' );
 				$this->response ( $this->data_result, 416 );
 				return;
 			}
-			do{
+			do {
 				// 4.白單
-				$this->whitelist_model->();
-				// 5.抽獎
-				$this->whitelist_model->();
+				$user = $this->whitelist_model->get_user ();
+				if (empty ( $user )) {
+					// 5.抽獎
+					// $this->whitelist_model->();
+				}
 				// 6.確認無重複
+				$tmp = false;
 			} while ( $tmp );
 			$this->data_result ['count'] = $data_count;
 			// $this->data_result ['result'] = $data_cache [$data_cache ['name']];

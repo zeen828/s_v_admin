@@ -42,4 +42,17 @@ class Whitelist_model extends CI_Model {
 		}
 		return false;
 	}
+	/**
+	 * 亂數取白名單
+	 */
+	public function get_user() {
+		$this->r_db->where ( 'status', '1' );
+		$this->r_db->order_by ( 'title', 'RANDOM' );
+		$query = $this->r_db->get ( $this->table_name );
+		// echo $this->r_db->last_query();
+		if ($query->num_rows () > 0) {
+			return $query->row ();
+		}
+		return false;
+	}
 }
