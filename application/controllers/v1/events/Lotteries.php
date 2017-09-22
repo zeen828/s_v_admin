@@ -38,6 +38,7 @@ class Lotteries extends MY_REST_Controller {
 			) );
 			// 變數
 			$data_input = array ();
+			$data_config = array ();
 			$data_count = array (
 					'max' => '0',
 					'lottery' => '0',
@@ -56,6 +57,7 @@ class Lotteries extends MY_REST_Controller {
 			$data_input ['debug'] = $this->post ( 'debug' );
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['input'] = &$data_input;
+				$this->data_result ['debug'] ['vote_config'] = $data_config;
 				$this->data_result ['debug'] ['count'] = &$data_count;
 				$this->data_result ['debug'] ['user'] = &$date_user;
 			}
@@ -77,8 +79,8 @@ class Lotteries extends MY_REST_Controller {
 				$this->cache->memcached->save ( $data_cache ['name'], $data_cache [$data_cache ['name']], 90000 );
 			}
 			//
-			$this->data_result ['config_info'] = $data_cache [$data_cache ['name']];
-			$data_count ['max'] = $this->data_result ['config_info']->lottery_int;
+			$data_config = $data_cache [$data_cache ['name']];
+			$data_count ['max'] = $data_config->lottery_int;
 			// 2.取得目前得獎名額
 			$data_count ['lottery'] = $this->event_vote_lottery_model->get_count_by_configid ( $data_input ['config_id'] );
 			// 3.檢查名額
@@ -108,6 +110,15 @@ class Lotteries extends MY_REST_Controller {
 				}
 			} while ( $confirm_repeat );
 			// $this->data_result ['result'] = $data_cache [$data_cache ['name']];
+			// 7.紀錄
+			$this->event_vote_lottery_model->insert_data ( array (
+					'config_id' => $data_config->id,
+					'title' => $data_config->title,
+					'award_number' => $data_count ['now'],
+					'mongo_id' => $date_user->mongo_id,
+					'member_id' => $date_user->member_id,
+					'user_ip' => $this->input->ip_address () 
+			) );
 			// 結束時間標記
 			$this->benchmark->mark ( 'code_end' );
 			// 標記時間計算
