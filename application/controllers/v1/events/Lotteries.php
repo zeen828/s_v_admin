@@ -60,7 +60,8 @@ class Lotteries extends MY_REST_Controller {
 			// $this->cache->memcached->delete ( $data_cache['name_1'] );
 			$data_cache [$data_cache ['name']] = $this->cache->memcached->get ( $data_cache ['name'] );
 			if ($data_cache [$data_cache ['name']] == false) {
-				$data_cache [$data_cache ['name']] = $this->cache->memcached->get ( $data_cache ['name'] );
+				$data_cache [$data_cache ['name']] = $this->event_vote_config_model->get_row_by_pk ( '*', $data_input ['config_id'] );
+				$this->cache->memcached->save ( $data_cache ['name'], $data_cache [$data_cache ['name']], 90000 );
 			}
 			//
 			$this->data_result ['result'] = $data_cache [$data_cache ['name']];
