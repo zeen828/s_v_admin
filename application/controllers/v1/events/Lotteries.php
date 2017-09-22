@@ -36,7 +36,11 @@ class Lotteries extends MY_REST_Controller {
 			) );
 			// 變數
 			$data_input = array ();
-			$data_count = array ();
+			$data_count = array (
+					'max' => '0',
+					'lottery' => '0',
+					'now' => '0' 
+			);
 			$this->data_result = array (
 					'result' => array (),
 					'code' => $this->config->item ( 'system_default' ),
@@ -69,9 +73,18 @@ class Lotteries extends MY_REST_Controller {
 			}
 			//
 			$this->data_result ['config_info'] = $data_cache [$data_cache ['name']];
-			$data_count['max'] = $this->data_result ['config_info']->lottery_int;
+			$data_count ['max'] = $this->data_result ['config_info']->lottery_int;
 			// 2.取得目前得獎名額
-			$data_count['now'] = $this->event_vote_lottery_model->get_count_by_configid ( $data_input ['config_id'] );
+			$data_count ['lottery'] = $this->event_vote_lottery_model->get_count_by_configid ( $data_input ['config_id'] );
+			// 3.
+			$data_count ['now'] = $data_count ['max'] - $data_count ['lottery'];
+			if($data_count ['now'] <= 0){
+				// 抽獎名額已滿
+				$this->data_result ['message'] = $this->lang->line ( 'input_required_error' );
+				$this->data_result ['code'] = $this->config->item ( 'input_required_error' );
+				$this->response ( $this->data_result, 416 );
+				return;
+			}
 			
 			$this->data_result ['count'] = $data_count;
 			// $this->data_result ['result'] = $data_cache [$data_cache ['name']];
