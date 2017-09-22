@@ -90,8 +90,11 @@ class Lotteries extends MY_REST_Controller {
 				$this->response ( $this->data_result, 416 );
 				return;
 			}
+			// 保險淤
+			$insurance = 5;
 			do {
-				$this->data_result ['result'] = '進迴圈';
+				$insurance --;
+				$this->data_result ['result'] = '進迴圈' . $insurance;
 				// 4.白單
 				$date_user = $this->whitelist_model->get_row_by_random ( 1 );
 				if (empty ( $date_user )) {
@@ -99,8 +102,11 @@ class Lotteries extends MY_REST_Controller {
 					$date_user = $this->event_vote_select_model->get_row_by_random ( $data_input ['config_id'], 1 );
 				}
 				// 6.確認無重複
-				$tmp = false;
-			} while ( $tmp );
+				$confirm_repeat = $this->event_vote_lottery_model->confirm_repeat ( $data_input ['config_id'], $date_user->mongo_id, $date_user->member_id );
+				if ($insurance == 0) {
+					$confirm_repeat = false;
+				}
+			} while ( $confirm_repeat );
 			// $this->data_result ['result'] = $data_cache [$data_cache ['name']];
 			// 結束時間標記
 			$this->benchmark->mark ( 'code_end' );
