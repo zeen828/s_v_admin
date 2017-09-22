@@ -92,6 +92,7 @@ class Lotteries extends MY_REST_Controller {
 				return;
 			}
 			do {
+				$this->data_result ['result'] = '進迴圈';
 				// 4.白單
 				$date_user = $this->whitelist_model->get_user ();
 				if (empty ( $date_user )) {
