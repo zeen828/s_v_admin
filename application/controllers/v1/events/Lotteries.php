@@ -30,6 +30,7 @@ class Lotteries extends MY_REST_Controller {
 			// 引入
 			$this->load->model ( 'vidol_event/event_vote_config_model' );
 			$this->load->model ( 'vidol_event/event_vote_lottery_model' );
+			$this->load->model ( 'vidol_event/event_vote_lottery_model' );
 			$this->load->model ( 'vidol_event/whitelist_model' );
 			$this->load->driver ( 'cache', array (
 					'adapter' => 'memcached',
@@ -86,7 +87,13 @@ class Lotteries extends MY_REST_Controller {
 				$this->response ( $this->data_result, 416 );
 				return;
 			}
-			
+			do{
+				// 4.白單
+				$this->whitelist_model->();
+				// 5.抽獎
+				$this->whitelist_model->();
+				// 6.確認無重複
+			} while ( $tmp );
 			$this->data_result ['count'] = $data_count;
 			// $this->data_result ['result'] = $data_cache [$data_cache ['name']];
 			// 結束時間標記
