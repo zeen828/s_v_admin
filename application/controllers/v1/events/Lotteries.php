@@ -10,6 +10,9 @@ class Lotteries extends MY_REST_Controller {
 		$this->_my_logs_start = true;
 		$this->_my_logs_type = 'auth';
 		$this->data_debug = true;
+		// 引入
+		$this->config->load ( 'restful_status_code' );
+		$this->lang->load ( 'restful_status_lang', 'traditional-chinese' );
 		// 資料庫
 		// $this->load->database ( 'vidol_billing_write' );
 		// 效能檢查
@@ -25,8 +28,6 @@ class Lotteries extends MY_REST_Controller {
 			// 開始時間標記
 			$this->benchmark->mark ( 'code_start' );
 			// 引入
-			$this->config->load ( 'restful_status_code' );
-			$this->lang->load ( 'restful_status_lang', 'traditional-chinese' );
 			$this->load->model ( 'vidol_event/event_vote_config_model' );
 			$this->load->model ( 'vidol_event/event_vote_lottery_model' );
 			$this->load->model ( 'vidol_event/whitelist_model' );
@@ -76,12 +77,12 @@ class Lotteries extends MY_REST_Controller {
 			$data_count ['max'] = $this->data_result ['config_info']->lottery_int;
 			// 2.取得目前得獎名額
 			$data_count ['lottery'] = $this->event_vote_lottery_model->get_count_by_configid ( $data_input ['config_id'] );
-			// 3.
+			// 3.檢查名額
 			$data_count ['now'] = $data_count ['max'] - $data_count ['lottery'];
 			if($data_count ['now'] <= 0){
 				// 抽獎名額已滿
-				$this->data_result ['message'] = $this->lang->line ( 'input_required_error' );
-				$this->data_result ['code'] = $this->config->item ( 'input_required_error' );
+				$this->data_result ['message'] = $this->lang->line ( 'database_full_error' );
+				$this->data_result ['code'] = $this->config->item ( 'database_full_error' );
 				$this->response ( $this->data_result, 416 );
 				return;
 			}
