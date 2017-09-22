@@ -105,8 +105,12 @@ class Lotteries extends MY_REST_Controller {
 				$insurance --;
 				// 4.白單
 				$date_user = $this->whitelist_model->get_row_by_random ( 1 );
-				// 8.白名單消除
-				if (empty ( $date_user )) {
+				if ($date_user != false && isset ( $date_user->id )) {
+					// 4.消白單
+					$this->whitelist_model->update_data ( $date_user->id, array (
+							'status' => '0' 
+					) );
+				} else {
 					// 5.抽獎
 					$date_user = $this->event_vote_select_model->get_row_by_random ( $data_input ['config_id'], 1 );
 				}
