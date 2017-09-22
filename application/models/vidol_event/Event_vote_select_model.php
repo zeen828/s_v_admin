@@ -145,12 +145,12 @@ class Event_vote_select_model extends CI_Model {
 		return $count;
 	}
 	// 隨機抽獎
-	public function get_row_by_random($config_id) {
+	public function get_row_by_random($config_id, $limit = 1) {
 		$this->r_db->where ( 'config_id', $config_id );
-		$this->r_db->where ( 'status', '1' );
 		$this->r_db->order_by ( 'title', 'RANDOM' );
+		$this->r_db->limit ( $limit );
 		$query = $this->r_db->get ( $this->table_name );
-		echo $this->r_db->last_query();
+		// echo $this->r_db->last_query ();
 		if ($query->num_rows () > 0) {
 			return $query->row ();
 		}

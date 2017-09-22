@@ -93,10 +93,10 @@ class Lotteries extends MY_REST_Controller {
 			do {
 				$this->data_result ['result'] = '進迴圈';
 				// 4.白單
-				$date_user = $this->whitelist_model->get_row_by_random ();
+				$date_user = $this->whitelist_model->get_row_by_random ( 1 );
 				if (empty ( $date_user )) {
 					// 5.抽獎
-					$date_user = $this->event_vote_select_model->get_row_by_random ( $data_input ['config_id'] );
+					$date_user = $this->event_vote_select_model->get_row_by_random ( $data_input ['config_id'], 1 );
 				}
 				// 6.確認無重複
 				$tmp = false;

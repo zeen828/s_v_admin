@@ -45,9 +45,10 @@ class Whitelist_model extends CI_Model {
 	/**
 	 * 亂數取白名單
 	 */
-	public function get_row_by_random() {
+	public function get_row_by_random($limit = 1) {
 		$this->r_db->where ( 'status', '1' );
 		$this->r_db->order_by ( 'title', 'RANDOM' );
+		$this->r_db->limit ( $limit );
 		$query = $this->r_db->get ( $this->table_name );
 		// echo $this->r_db->last_query();
 		if ($query->num_rows () > 0) {
