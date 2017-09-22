@@ -56,8 +56,8 @@ class Event_vote_lottery_model extends CI_Model {
 		$this->r_db->where ( 'mongo_id', $mongo_id );
 		$this->r_db->or_where ( 'member_id', $member_id );
 		$this->r_db->group_end ();
-		$this->r_db->get ( $this->table_name );
-		echo $this->r_db->last_query ();
+		$query = $this->r_db->get ( $this->table_name );
+		// echo $this->r_db->last_query ();
 		if ($query->num_rows () > 0) {
 			return true;
 		}
