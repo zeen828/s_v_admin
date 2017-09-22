@@ -52,9 +52,8 @@ class Lotteries extends MY_REST_Controller {
 			);
 			// 接收變數
 			$data_input ['config_id'] = $this->post ( 'config_id' );
-			$data_input ['debug'] = $this->post ( 'debug' );
 			// Debug info
-			$data_input ['debug'] = $this->get ( 'debug' );
+			$data_input ['debug'] = $this->post ( 'debug' );
 			if ($data_input ['debug'] == 'debug') {
 				$this->data_result ['debug'] ['input'] = &$data_input;
 				$this->data_result ['debug'] ['count'] = &$data_count;
