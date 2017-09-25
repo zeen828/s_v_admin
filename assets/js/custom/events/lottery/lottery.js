@@ -28,6 +28,7 @@ function getLottery(start_date, end_date){
 		statusCode: {
 			200: function(json, statusText, xhr) {
 				console.log(json);
+				g_Lottery = json.result;
 			}
 		}
 	});
