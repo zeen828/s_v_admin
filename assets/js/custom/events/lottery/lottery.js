@@ -29,6 +29,7 @@ function getRandomArrayElements(arr, count) {
 
 function beginRndNum(trigger){
 	console.log('beginRndNum');
+	console.log(trigger);
 	if(running){
 		if(g_Lottery.length >= 1){
 			var user = getRandomArrayElements(g_Lottery, 1);
