@@ -11,10 +11,6 @@ function getLottery(start_date, end_date){
 	console.log('起始第一次取得抽獎名單');
 }
 
-function writeLotteryList(){
-	console.log('紀錄得獎者');
-}
-
 function getRandomArrayElements(arr, count) {
 	console.log('亂數取資料');
     var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
@@ -31,6 +27,7 @@ function beginRndNum(trigger){
 	console.log('beginRndNum');
 	console.log(trigger);
 	if(running){
+		console.log('A');
 		if(g_Lottery.length >= 1){
 			var user = getRandomArrayElements(g_Lottery, 1);
 			$('#ResultNum').html(user[0]);
@@ -43,11 +40,11 @@ function beginRndNum(trigger){
 		}
 		running = false;
 		clearTimeout(g_Timer);
-//		writeLotteryList();//
 		g_LotteryArray.push($('#ResultNum').html());
 		$(trigger).val("開始抽獎");
 		$('#ResultNum').css('color','red');
 	}else{
+		console.log('B');
 		getLottery();
 		running = true;
 		$('#ResultNum').css('color','black');
