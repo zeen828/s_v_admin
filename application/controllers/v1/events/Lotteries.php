@@ -102,7 +102,6 @@ class Lotteries extends MY_REST_Controller {
 			// 保險避免無線迴圈
 			$insurance = 10;
 			do {
-				$insurance --;
 				// 4.白單
 				$date_user = $this->whitelist_model->get_row_by_random ( 1 );
 				if ($date_user != false && isset ( $date_user->id )) {
@@ -116,19 +115,24 @@ class Lotteries extends MY_REST_Controller {
 				}
 				// 6.確認無重複
 				$confirm_repeat = $this->event_vote_lottery_model->confirm_repeat ( $data_input ['config_id'], $date_user->user_id, $date_user->member_id );
+				// 保險避免無線迴圈
 				if ($insurance == 0) {
 					$confirm_repeat = false;
+				} else {
+					$insurance --;
 				}
 			} while ( $confirm_repeat );
-			// $this->data_result ['result'] = $data_cache [$data_cache ['name']];
 			// 7.紀錄
 			$this->event_vote_lottery_model->insert_data ( array (
 					'config_id' => $data_config->id,
 					'title' => $data_config->title,
 					'award_number' => $data_count ['now'],
-					'user_id' => $date_user->user_id,
+					'mongo_id' => $date_user->mongo_id,
+					'member_id' => $date_user->member_id,
 					'user_ip' => $this->input->ip_address () 
 			) );
+			// 8.得獎名單
+			$this->data_result ['result'] = $date_user->member_id;
 			// 結束時間標記
 			$this->benchmark->mark ( 'code_end' );
 			// 標記時間計算
