@@ -1,3 +1,4 @@
+var run_obj;
 var g_Interval = 1;//間隔
 var g_Lottery = [];//抽獎
 var g_LotteryList = [];//預設抽獎名單避免AJAX錯誤沒名單
@@ -8,90 +9,65 @@ var running = false;
 var start_date = '';
 var end_date = ''
 
-function getLottery(start_date, end_date){
-	console.log('起始第一次取得抽獎名單');
-	$.ajax({
-		url: '/v1/events/lotteries/lottery.json',
-		type: 'POST',
-		cache: false,
-		headers: {
-			'Authorization' : 'sw84sc888kkcg0ogo8cw4swgkswkw048cc48swk8'
-		},
-		dataType: 'json',
-		data: {
-			'random' : $.now(),
-			'config_id' : '2',
-			'tmp' : 'tmp'
-		},
-		error: function(xhr){
-			console.log('Ajax request error');
-			console.log(xhr);
-		},
-		success: function(response) {
-			console.log('Ajax OK');
-			console.log(response);
-		},
-		statusCode: {
-			200: function(json, statusText, xhr) {
-				console.log('statusCode 200');
-				console.log(json);
-				g_Lottery[0] = json.result;
+var EventVote = function EventVote() {
+	var myClass = '.Lottery';
+	var _this = this;
+	//讀資料
+	this.load_data = function (){
+		console.log('load_json');
+		$.ajax({
+			url: '/v1/events/lotteries/lottery.json',
+			type: 'POST',
+			cache: false,
+			headers: {
+				'Authorization' : 'sw84sc888kkcg0ogo8cw4swgkswkw048cc48swk8'
+			},
+			dataType: 'json',
+			data: {
+				'random' : $.now(),
+				'config_id' : '2',
+				'tmp' : 'tmp'
+			},
+			error: function(xhr){
+				console.log('Ajax request error');
+				console.log(xhr);
+			},
+			success: function(response) {
+				console.log('Ajax OK');
+				console.log(response);
+			},
+			statusCode: {
+				200: function(json, statusText, xhr) {
+					console.log('statusCode 200');
+					console.log(json);
+					g_Lottery[0] = json.result;
+				}
 			}
-		}
-	});
-}
+		});
+	}
+	//開始跑亂數
+	this.random = function (){
 
-function getRandomArrayElements(arr, count) {
-	console.log('亂數取資料');
-    var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
-    while (i-- > min) {
-        index = Math.floor((i + 1) * Math.random());
-        temp = shuffled[index];
-        shuffled[index] = shuffled[i];
-        shuffled[i] = temp;
-    }
-    return shuffled.slice(min);
-}
+	}
+	//開獎
+	this.opne = function (){
 
-function beginRndNum(trigger){
-	console.log('beginRndNum');
-	console.log(trigger);
-	if(running){
-		console.log('抽獎');
-		if(g_Lottery.length >= 1){
-			var user = getRandomArrayElements(g_Lottery, 1);
-			$('#ResultNum').html(user[0]);
-		}
-		//
-		var lottery = $('#ResultNum').html();
-		if($.inArray(lottery, g_LotteryArray) != -1){
-			var user = getRandomArrayElements(g_LotteryList, 1);
-			$('#ResultNum').html(user[0]);
-		}
-		running = false;
-		clearTimeout(g_Timer);
-		g_LotteryArray.push($('#ResultNum').html());
-		$(trigger).val("開始抽獎");
-		$('#ResultNum').css('color','red');
-	}else{
-		console.log('開獎');
-		getLottery();
-		running = true;
-		$('#ResultNum').css('color','black');
-		$(trigger).val("幸運得主");
-		beginTimer();
+	}
+	this.restart_event = function (){
+		$('.my_but').click(function(e) {
+			console.log('my_but click');
+			console.log(running);
+			if(running == true){
+				running = false;
+			}else{
+				running = true;
+			}
+		});
 	}
 }
 
-function updateRndNum(){
-	console.log('更新資料');
-	var user = getRandomArrayElements(g_LotteryList, 1);
-	console.log(user);
-	$('#ResultNum').html(user[0]);
-}
-
-function beginTimer(){
-	console.log('開始計時器');
-	g_Timer = setTimeout(beginTimer, g_Interval);
-	updateRndNum();
-}
+$(document).ready(function(){
+	run_obj = new EventVote();
+	run_obj.load_data();
+	run_obj.restart_event();
+});

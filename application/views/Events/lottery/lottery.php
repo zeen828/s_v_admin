@@ -75,12 +75,12 @@
 		</style>
 	</head>
 	<body>
-		<div id="main">
+		<div id="main" class="Lottery">
 			<div id="Result">
 				<span id="ResultNum">Vidol</span>
 			</div>
 			<div id="Button">
-				<input type='button' id="btn" value='開始抽獎' onclick='beginRndNum(this)' />
+				<input type='button' id="btn" class="my_but" value='開始抽獎' />
 			</div>
 		</div>
 	</body>
