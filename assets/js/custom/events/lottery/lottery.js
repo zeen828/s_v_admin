@@ -89,7 +89,7 @@ function updateRndNum(){
 
 function beginTimer(){
 	console.log('beginTimer');
-	g_Timer = setTimeout(beat, g_Interval);
+	g_Timer = setTimeout(beginTimer, g_Interval);
 }
 
 function beat() {
