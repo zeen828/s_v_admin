@@ -23,12 +23,17 @@ function getLottery(start_date, end_date){
 			'tmp' : 'tmp'
 		},
 		error: function(xhr){
-			alert('Ajax request error');
+			console.log('Ajax request error');
+			console.log(xhr);
+		},
+		success: function(response) {
+			console.log('Ajax OK');
+			console.log(response);
 		},
 		statusCode: {
 			200: function(json, statusText, xhr) {
+				console.log('statusCode 200');
 				console.log(json);
-				g_Lottery = json.result;
 			}
 		}
 	});
