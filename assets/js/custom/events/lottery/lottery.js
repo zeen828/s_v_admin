@@ -43,7 +43,7 @@ function beginRndNum(trigger){
 		}
 		running = false;
 		clearTimeout(g_Timer);
-		writeLotteryList();//
+//		writeLotteryList();//
 		g_LotteryArray.push($('#ResultNum').html());
 		$(trigger).val("開始抽獎");
 		$('#ResultNum').css('color','red');
