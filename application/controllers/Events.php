@@ -34,7 +34,7 @@ class Events extends CI_Controller {
 			//print_r ( $data_config );
 			$this->data_view['config_id'] = $data_config->id;
 			$this->data_view['title'] = $data_config->title;
-			$this->data_view['count'] = 60;
+			$this->data_view['count'] = $data_config->lottery_int;
 			$this->data_view['start_at'] = $data_config->start_at;
 			$this->data_view['end_at'] = $data_config->end_at;
 			// 參加者

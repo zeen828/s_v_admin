@@ -57,7 +57,7 @@ function beginRndNum(trigger){
 	console.log('beginRndNum');
 	console.log(trigger);
 	if(running){
-		console.log('A');
+		console.log('抽獎');
 		if(g_Lottery.length >= 1){
 			var user = getRandomArrayElements(g_Lottery, 1);
 			$('#ResultNum').html(user[0]);
@@ -74,7 +74,7 @@ function beginRndNum(trigger){
 		$(trigger).val("開始抽獎");
 		$('#ResultNum').css('color','red');
 	}else{
-		console.log('B');
+		console.log('開獎');
 		getLottery();
 		running = true;
 		$('#ResultNum').css('color','black');
