@@ -88,8 +88,9 @@ function updateRndNum(){
 }
 
 function beginTimer(){
-	console.log('beginTimer');
+	console.log('開始計時器');
 	g_Timer = setTimeout(beginTimer, g_Interval);
+	updateRndNum();
 }
 
 function beat() {
