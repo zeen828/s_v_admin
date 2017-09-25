@@ -9,6 +9,28 @@ var start_date = '';
 var end_date = ''
 function getLottery(start_date, end_date){
 	console.log('起始第一次取得抽獎名單');
+	$.ajax({
+		url: '/v1/events/lotteries/lottery.json',
+		type: 'POST',
+		cache: false,
+		headers: {
+			'Authorization' : 'sw84sc888kkcg0ogo8cw4swgkswkw048cc48swk8'
+		},
+		dataType: 'json',
+		data: {
+			'random' : $.now(),
+			'config_id' : '2',
+			'tmp' : 'tmp'
+		},
+		error: function(xhr){
+			alert('Ajax request error');
+		},
+		statusCode: {
+			200: function(json, statusText, xhr) {
+				console.log(json);
+			}
+		}
+	});
 }
 
 function getRandomArrayElements(arr, count) {
