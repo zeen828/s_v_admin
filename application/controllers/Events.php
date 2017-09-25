@@ -38,11 +38,11 @@ class Events extends CI_Controller {
 			$this->data_view['start_at'] = $data_config->start_at;
 			$this->data_view['end_at'] = $data_config->end_at;
 			// 參加者
-			$query = $this->event_vote_select_model->get_user_by_condifid_date ( 'user_id', $config_id , null, null);
+			$query = $this->event_vote_select_model->get_user_by_condifid_date ( 'member_id', $config_id , null, null);
 			//print_r($query);
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
-					$this->data_view['user_json'][] = $row->user_id;
+					$this->data_view['user_json'][] = $row->member_id;
 					unset($row);
 				}
 			}
