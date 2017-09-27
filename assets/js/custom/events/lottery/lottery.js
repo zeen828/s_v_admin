@@ -25,7 +25,7 @@ var EventVote = function EventVote() {
 		if(g_running == true){
 			g_loop = setTimeout(_this.random_show, 5);
 		}
-		$('#ResultNum').text(g_LotteryArray[g_Interval]);
+		$('#ResultNum').text(g_LotteryList[g_Interval]);
 	}
 	//開獎
 	this.lottery = function (){
