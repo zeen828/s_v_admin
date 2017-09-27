@@ -98,7 +98,7 @@ if(count($view_data['text'])>=1){
 ?>
 						</div>
 						<div class="box-footer">
-							<button type="button" class="btn btn-default">add</button>
+							<button type="button" class="btn btn-default text_add">add</button>
 							<input type="submit" value="Submit" class="btn btn-info pull-right">
 						</div>
 						</form>
@@ -236,6 +236,9 @@ if(count($view_data['event'])>=1){
                                     } 
                                 });
                             }
+                        });
+                        $('.text_add').off('click').on('click', function() {
+                            console.log('增加表單');
                         });
                     });
                     </script>

@@ -164,13 +164,10 @@ class Pages extends CI_Controller {
 				$data_input ['text_title'] = $this->input->post ( 'text_title' );
 				$data_input ['text_url'] = $this->input->post ( 'text_url' );
 				$data_input ['text_delete'] = $this->input->post ( 'text_delete' );
-				print_r ( $data_input );
 				// 改資料
 				for($i = 0; $i < count ( $data_input ['text_pk'] ); $i ++) {
 					if (isset ( $data_input ['text_delete'] [$i] )) {
-						echo 'DEL';
-						$a = $this->page_landing_model->del_by_pk_position ( $data_input ['text_delete'] [$i], 'text' );
-						echo $a;
+						$this->page_landing_model->del_by_pk_position ( $data_input ['text_delete'] [$i], 'text' );
 					} else {
 						$data_text = array (
 								'title' => $data_input ['text_title'] [$i],
@@ -186,7 +183,7 @@ class Pages extends CI_Controller {
 				}
 				unset ( $data_input );
 			}
-			// redirect ( '/backend/pages/landing_page' );
+			redirect ( '/backend/pages/landing_page' );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
