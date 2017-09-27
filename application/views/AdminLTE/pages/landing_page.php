@@ -103,6 +103,21 @@ if(count($view_data['text'])>=1){
 						</div>
 						</form>
 					</div>
+					<div class="text_add_html">
+						<div class="box box-warning">
+							<div class="box-body">
+								<input type="hidden" name="text_pk[]" value="">
+								<div class="row">
+									<div class="col-xs-6">
+										<input type="text" name="text_title[]" value="" class="form-control" placeholder="標題">
+									</div>
+									<div class="col-xs-6">
+										<input type="text" name="text_url[]" value="" class="form-control" placeholder="連結位置">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 <!-- 影音 -->
 					<div class="box box-default">
 						<form action="/backend/pages/landing_page_video" method="post">
