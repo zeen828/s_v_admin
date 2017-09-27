@@ -1,16 +1,13 @@
 var run_obj;
-var g_loop = {};
 var g_Interval = 1;//間隔
-var g_Lottery = [];//抽獎
 var g_LotteryList = [];//預設抽獎名單避免AJAX錯誤沒名單
-var g_LotteryArray = new Array();//中獎清單避開重副
 var g_lottery_count = '0';
-var g_Timer;//計時器
+var g_Timer = {};//計時器
 var g_running = false;
 var start_date = '';
 var end_date = ''
 
-	var EventVote = function EventVote() {
+var EventVote = function EventVote() {
 	var myClass = '.Lottery';
 	var _this = this;
 	//開始跑亂數
@@ -20,12 +17,12 @@ var end_date = ''
 			g_Interval = g_Interval - g_lottery_count;
 		}
 		g_Interval = g_Interval + 33;
-		console.log(g_Interval);
+		//console.log(g_Interval);
 		//是否繼續亂數
 		if(g_running == true){
-			g_loop = setTimeout(_this.random_show, 5);
+			g_Timer = setTimeout(_this.random_show, 5);
 		}else{
-			clearTimeout(g_loop);
+			clearTimeout(g_Timer);
 		}
 		$('#ResultNum').text(g_LotteryList[g_Interval]);
 	}
@@ -49,19 +46,19 @@ var end_date = ''
 				console.log('Ajax request error');
 				console.log(xhr);
 				g_running = false;
-				clearTimeout(g_loop);
+				clearTimeout(g_Timer);
 			},
 			success: function(response) {
 				console.log('Ajax OK');
-				console.log(response);
+				//console.log(response);
 				g_running = false;
-				clearTimeout(g_loop);
+				clearTimeout(g_Timer);
 			},
 			statusCode: {
 				200: function(json, statusText, xhr) {
 					console.log('statusCode 200');
 					g_running = false;
-					clearTimeout(g_loop);
+					clearTimeout(g_Timer);
 					console.log(json);
 					$('#ResultNum').text(json.result);
 					$('#ResultNum').css('color','red');
@@ -69,7 +66,7 @@ var end_date = ''
 				416: function(json, statusText, xhr) {
 					console.log('statusCode 416');
 					g_running = false;
-					clearTimeout(g_loop);
+					clearTimeout(g_Timer);
 					$('#ResultNum').text('開獎數已額滿');
 					$('#ResultNum').css('color','red');
 				}
