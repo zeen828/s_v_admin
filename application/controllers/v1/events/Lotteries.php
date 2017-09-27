@@ -122,6 +122,18 @@ class Lotteries extends MY_REST_Controller {
 					$insurance --;
 				}
 			} while ( $confirm_repeat );
+			//沒有資料
+			if (empty ( $date_user->mongo_id ) || empty ( $date_user->member_id )) {
+				// 必填錯誤
+				$this->data_result ['message'] = $this->lang->line ( 'database_not_data' );
+				$this->data_result ['code'] = $this->config->item ( 'database_not_data' );
+				// 時間標記
+				$this->benchmark->mark ( 'error_not_data' );
+				// 標記時間計算
+				$this->data_result ['time'] = $this->benchmark->elapsed_time ( 'code_start', 'error_not_data' );
+				$this->response ( $this->data_result, 404 );
+				return;
+			}
 			// 7.紀錄
 			$this->event_vote_lottery_model->insert_data ( array (
 					'config_id' => $data_config->id,

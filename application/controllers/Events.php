@@ -31,22 +31,29 @@ class Events extends CI_Controller {
 			$this->load->model ( 'vidol_event/event_vote_select_model' );
 			// 設定檔
 			$data_config = $this->event_vote_config_model->get_row_by_pk ( '*', $config_id );
-			//print_r ( $data_config );
-			$this->data_view['config_id'] = $data_config->id;
-			$this->data_view['title'] = $data_config->title;
-			$this->data_view['count'] = $data_config->lottery_int;
-			$this->data_view['start_at'] = $data_config->start_at;
-			$this->data_view['end_at'] = $data_config->end_at;
+			// print_r ( $data_config );
+			$this->data_view ['config_id'] = $data_config->id;
+			$this->data_view ['title'] = $data_config->title;
+			$this->data_view ['count'] = $data_config->lottery_int;
+			$this->data_view ['start_at'] = $data_config->start_at;
+			$this->data_view ['end_at'] = $data_config->end_at;
 			// 參加者
-			$query = $this->event_vote_select_model->get_user_by_condifid_date ( 'member_id', $config_id , null, null);
-			//print_r($query);
+			switch (_id) {
+				case 3 ://2017-09-27例外陳伯寧要求一隻抽假的
+					$query = $this->event_vote_select_model->get_user_by_condifid_date ( 'member_id', 2, null, null );
+					break;
+				default :
+					$query = $this->event_vote_select_model->get_user_by_condifid_date ( 'member_id', $config_id, null, null );
+					break;
+			}
+			// print_r($query);
 			if ($query->num_rows () > 0) {
 				foreach ( $query->result () as $row ) {
-					$this->data_view['user_json'][] = $row->member_id;
-					unset($row);
+					$this->data_view ['user_json'] [] = $row->member_id;
+					unset ( $row );
 				}
 			}
-			$this->data_view['user_json'] = json_encode($this->data_view['user_json']);
+			$this->data_view ['user_json'] = json_encode ( $this->data_view ['user_json'] );
 			// 套版
 			$this->load->view ( 'Events/lottery/lottery', $this->data_view );
 			// 結束時間標記
