@@ -91,6 +91,7 @@ if(count($view_data['text'])>=1){
 ?>
 						</div>
 						<div class="box-footer">
+							<button type="button" class="btn btn-default">add</button>
 							<input type="submit" value="Submit" class="btn btn-info pull-right">
 						</div>
 						</form>
