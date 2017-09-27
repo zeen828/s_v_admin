@@ -67,7 +67,7 @@ if(count($view_data['channel'])>=1){
 								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
 							</div>
 						</div>
-						<div class="box-body">
+						<div class="box-body text_form">
 <?php
 if(count($view_data['text'])>=1){
 	foreach ($view_data['text'] as $key=>$text){
