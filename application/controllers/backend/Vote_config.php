@@ -73,6 +73,10 @@ class Vote_config extends CI_Controller {
 				// 表單必填欄位
 				$crud->required_fields ( 'title', 'login_where', 'vote_where', 'status', 'start_at', 'end_at' );
 				// 事件
+				$crud->add_action ( '投票開獎名單', '/assets/grocery_crud/themes/flexigrid/css/images/export.png', '', 'add_action_target_blank', array (
+						$this->grocery_callback,
+						'callback_config_to_lottery_url'
+				) );
 				$crud->add_action ( '投票活動抽獎', '/assets/grocery_crud/themes/flexigrid/css/images/print.png', '', 'add_action_target_blank', array (
 						$this->grocery_callback,
 						'callback_config_to_lottery_url'
@@ -121,6 +125,11 @@ class Vote_config extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	
+	/**
+	 * 設定投票項目
+	 * @param unknown $config_id
+	 */
 	public function config_item($config_id) {
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Events Config View' ) && ! empty ( $config_id )) {
@@ -186,6 +195,67 @@ class Vote_config extends CI_Controller {
 						'title' => '投票項目設定',
 						'link' => '/backend/vote_config/config_item/' . $config_id,
 						'class' => 'fa-cog' 
+				);
+				// 套版
+				$this->load->view ( 'AdminLTE/include/html5', $this->data_view );
+			}
+		} catch ( Exception $e ) {
+			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
+		}
+	}
+	
+	/**
+	 * 投票-開獎名單
+	 * @param unknown $config_id
+	 */
+	public function lottery_list($config_id) {
+		try {
+			if ($this->flexi_auth->is_privileged ( 'Events Config View' ) && ! empty ( $config_id )) {
+				// 寫log
+				$this->fun->logs ( '觀看[投票-開獎名單]' );
+				// 變數
+				$data_post = array ();
+				// 強制切換資料庫
+				unset ( $this->db );
+				$this->db = $this->load->database ( 'vidol_event_write', true );
+				// grocery_CRUD 自產表單
+				$this->load->library ( 'grocery_CRUD' ); // CI整合表單http://www.grocerycrud.com/
+				$crud = new grocery_CRUD ();
+				// 語系
+				$crud->set_language ( 'taiwan' );
+				// 版型
+				$crud->set_theme ( 'flexigrid' );
+				// 表格
+				$crud->set_table ( 'event_vote_lottery_tbl' );
+				$crud->where ( 'config_id', $config_id );
+				// 標題
+				$crud->set_subject ( '投票活動-得獎名單' );
+				// 移除新增
+				$crud->unset_add ();
+				// 移除編輯
+				$crud->unset_edit ();
+				// 移除刪除
+				$crud->unset_delete ();
+				// 清單顯示欄位
+				$crud->columns ( 'award_number', 'title', 'member_id', 'user_ip', 'created_at' );
+				// 資料庫欄位文字替換
+				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
+				$crud->display_as ( 'config_id', '設定檔id' );
+				$crud->display_as ( 'title', '標題' );
+				$crud->display_as ( 'award_number', '獎項號碼' );
+				$crud->display_as ( 'mongo_id', '_id' );
+				$crud->display_as ( 'member_id', 'member_id' );
+				$crud->display_as ( 'user_ip', '抽獎者IP' );
+				$crud->display_as ( 'created_at', '抽獎時間' );
+				// 產生表單
+				$output = $crud->render ();
+				// 資料整理
+				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/include/content_grocery_crud';
+				$this->data_view ['right_countent'] ['view_data'] = $output;
+				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
+						'title' => '投票-開獎名單',
+						'link' => '/backend/vote_config/lottery_list/' . $config_id,
+						'class' => 'fa-cog'
 				);
 				// 套版
 				$this->load->view ( 'AdminLTE/include/html5', $this->data_view );

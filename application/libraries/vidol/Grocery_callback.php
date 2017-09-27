@@ -117,6 +117,15 @@ class Grocery_callback {
 	function callback_config_to_lottery_url($primary_key, $row) {
 		return site_url ( '/events/lottery/' . $primary_key );
 	}
+	/**
+	 * 投票系統->開獎名單
+	 * @param unknown $primary_key
+	 * @param unknown $row
+	 * @return unknown
+	 */
+	function callback_config_to_lottery_list_url($primary_key, $row) {
+		return site_url ( '/backend/vote_config/lottery_list/' . $primary_key );
+	}
 	function callback_config_to_lotters_url($primary_key, $row) {
 		switch ($row->lc_method) {
 			case 'one' :
