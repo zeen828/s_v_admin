@@ -74,19 +74,18 @@ if(count($view_data['text'])>=1){
 ?>
 							<div class="box box-warning">
 								<div class="box-body">
-									<input type="hidden" name="text_pk[]" value="<?php echo $text['pk'];?>">
+									<input type="hidden" name="text_pk[<?php echo $key;?>]" value="<?php echo $text['pk'];?>">
 									<div class="row">
 										<div class="col-xs-5">
-											<input type="text" name="text_title[]" value="<?php echo $text['title'];?>" class="form-control" placeholder="標題">
+											<input type="text" name="text_title[<?php echo $key;?>]" value="<?php echo $text['title'];?>" class="form-control" placeholder="標題">
 										</div>
 										<div class="col-xs-5">
-											<input type="text" name="text_url[]" value="<?php echo $text['url'];?>" class="form-control" placeholder="連結位置">
+											<input type="text" name="text_url[<?php echo $key;?>]" value="<?php echo $text['url'];?>" class="form-control" placeholder="連結位置">
 										</div>
 										<div class="col-xs-2">
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" name="text_delete[]">
-													del
+													<input type="checkbox" name="text_delete[<?php echo $key;?>]" value="<?php echo $text['pk'];?>">del
 												</label>
 											</div>
 										</div>
