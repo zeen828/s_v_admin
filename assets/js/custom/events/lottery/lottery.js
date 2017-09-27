@@ -14,9 +14,8 @@ var EventVote = function EventVote() {
 	var _this = this;
 	//開始跑亂數
 	this.random = function (){
-		g_Timer = setTimeout(random, g_Interval);
+		g_Timer = setTimeout(_this.random(), g_Interval);
 		console.log(g_Timer);
-		_this.random();
 	}
 	//開獎
 	this.lottery = function (){
