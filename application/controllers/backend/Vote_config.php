@@ -75,7 +75,7 @@ class Vote_config extends CI_Controller {
 				// 事件
 				$crud->add_action ( '投票開獎名單', '/assets/grocery_crud/themes/flexigrid/css/images/export.png', '', 'add_action_target_blank', array (
 						$this->grocery_callback,
-						'callback_config_to_lottery_url'
+						'callback_config_to_lottery_list_url'
 				) );
 				$crud->add_action ( '投票活動抽獎', '/assets/grocery_crud/themes/flexigrid/css/images/print.png', '', 'add_action_target_blank', array (
 						$this->grocery_callback,
