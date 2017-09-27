@@ -21,6 +21,7 @@ if(count($view_data['channel'])>=1){
 							<div class="box box-info">
 								<div class="box-body">
 									<div class="media">
+										<input type="hidden" name="channel_pk[]" value="<?php echo $channel['pk'];?>">
 										<div class="media-left">
 											<a href="<?php echo $channel['url'];?>" target="_blank">
 												<img src="<?php echo $channel['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
@@ -29,7 +30,6 @@ if(count($view_data['channel'])>=1){
 										<div class="media-body">
 											<div class="row">
 												<div class="col-xs-12">
-													<input type="hidden" name="channel_pk[]" value="<?php echo $channel['pk'];?>">
 													<input type="text" name="channel_title[]" value="<?php echo $channel['title'];?>" class="form-control" disabled>
 												</div>
 											</div>
@@ -72,9 +72,10 @@ if(count($view_data['channel'])>=1){
 if(count($view_data['text'])>=1){
 	foreach ($view_data['text'] as $key=>$text){
 ?>
-							<div class="box box-info">
+							<div class="box box-warning">
 								<div class="box-body">
 									<div class="media">
+										<input type="hidden" name="text_pk[]" value="<?php echo $text['pk'];?>">
 										<div class="media-left">
 											<a href="<?php echo $text['url'];?>" target="_blank">
 												<img src="<?php echo $text['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
@@ -82,19 +83,19 @@ if(count($view_data['text'])>=1){
 										</div>
 										<div class="media-body">
 											<div class="row">
-												<div class="col-xs-12">
-													<input type="hidden" name="text_pk[]" value="<?php echo $text['video_id'];?>">
-													<input type="text" name="text_title[]" value="<?php echo $text['title'];?>" class="form-control" disabled>
+												<div class="col-xs-6">
+													<input type="text" name="text_title[]" value="<?php echo $text['title'];?>" class="form-control" placeholder="標題">
+												</div>
+												<div class="col-xs-6">
+													<input type="text" name="text_des[]" value="<?php echo $text['des'];?>" class="form-control" placeholder="描述">
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-xs-6">
-													<select name="text_type[]" class="form-control">
-														<option value="text"<?php if($text['video_type'] == 'text'){ echo ' selected'; }?>>text</option>
-													</select>
+													<input type="text" name="text_img[]" value="<?php echo $text['image'];?>" class="form-control" placeholder="圖片網址">
 												</div>
 												<div class="col-xs-6">
-													<input type="text" name="text_id[]" value="<?php echo $text['video_id'];?>" class="form-control" placeholder="影片編號">
+													<input type="text" name="text_url[]" value="<?php echo $text['url'];?>" class="form-control" placeholder="連結位置">
 												</div>
 											</div>
 										</div>
@@ -129,6 +130,7 @@ if(count($view_data['video'])>=1){
 							<div class="box box-success">
 								<div class="box-body">
 									<div class="media">
+										<input type="hidden" name="video_pk[]" value="<?php echo $video['pk'];?>">
 										<div class="media-left">
 											<a href="<?php echo $video['url'];?>" target="_blank">
 												<img src="<?php echo $video['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
@@ -137,7 +139,6 @@ if(count($view_data['video'])>=1){
 										<div class="media-body">
 											<div class="row">
 												<div class="col-xs-12">
-													<input type="hidden" name="video_pk[]" value="<?php echo $video['pk'];?>">
 													<input type="text" name="video_title[]" value="<?php echo $video['title'];?>" class="form-control" disabled>
 												</div>
 											</div>
@@ -177,36 +178,44 @@ if(count($view_data['video'])>=1){
 							</div>
 						</div>
 						<div class="box-body">
+<?php
+if(count($view_data['event'])>=1){
+	foreach ($view_data['event'] as $key=>$event){
+?>
 							<div class="box box-warning">
 								<div class="box-body">
 									<div class="media">
+										<input type="hidden" name="event_pk[]" value="<?php echo $event['pk'];?>">
 										<div class="media-left">
-											<a href="<?php echo $view_data['6']['url'];?>" target="_blank">
-												<img src="<?php echo $view_data['6']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											<a href="<?php echo $event['url'];?>" target="_blank">
+												<img src="<?php echo $event['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
 											</a>
 										</div>
 										<div class="media-body">
 											<div class="row">
-												<input type="hidden" name="event_pk[]" value="6">
 												<div class="col-xs-6">
-													<input type="text" name="event_title[]" value="<?php echo $view_data['6']['title'];?>" class="form-control" placeholder="標題">
+													<input type="text" name="event_title[]" value="<?php echo $event['title'];?>" class="form-control" placeholder="標題">
 												</div>
 												<div class="col-xs-6">
-													<input type="text" name="event_des[]" value="<?php echo $view_data['6']['des'];?>" class="form-control" placeholder="描述">
+													<input type="text" name="event_des[]" value="<?php echo $event['des'];?>" class="form-control" placeholder="描述">
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-xs-6">
-													<input type="text" name="event_img[]" value="<?php echo $view_data['6']['image'];?>" class="form-control" placeholder="圖片網址">
+													<input type="text" name="event_img[]" value="<?php echo $event['image'];?>" class="form-control" placeholder="圖片網址">
 												</div>
 												<div class="col-xs-6">
-													<input type="text" name="event_url[]" value="<?php echo $view_data['6']['url'];?>" class="form-control" placeholder="連結位置">
+													<input type="text" name="event_url[]" value="<?php echo $event['url'];?>" class="form-control" placeholder="連結位置">
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+<?php
+	}
+}
+?>
 						</div>
 						<div class="box-footer">
 							<input type="submit" value="Submit" class="btn btn-info pull-right">
