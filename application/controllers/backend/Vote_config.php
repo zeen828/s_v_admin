@@ -73,7 +73,7 @@ class Vote_config extends CI_Controller {
 				// 表單必填欄位
 				$crud->required_fields ( 'title', 'login_where', 'vote_where', 'status', 'start_at', 'end_at' );
 				// 事件
-				$crud->add_action ( '投票開獎名單', '/assets/grocery_crud/themes/flexigrid/css/images/export.png', '', 'add_action_target_blank', array (
+				$crud->add_action ( '投票開獎名單', '/assets/grocery_crud/themes/flexigrid/css/images/export.png', '', '', array (
 						$this->grocery_callback,
 						'callback_config_to_lottery_list_url'
 				) );
