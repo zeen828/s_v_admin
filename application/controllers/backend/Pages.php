@@ -44,12 +44,17 @@ class Pages extends CI_Controller {
 				// 引入
 				$this->load->model ( 'vidol_event/page_landing_model' );
 				// 變數
-				$output = array ();
+				$output = array (
+						'channel'=>array(),
+						'video'=>array(),
+						'event'=>array(),
+						'text'=>array(),
+				);
 				// 取資料
 				$query = $this->page_landing_model->get_query_limit ( '*', '30' );
 				if ($query->num_rows () > 0) {
 					foreach ( $query->result () as $row ) {
-						$output [$row->id] = array (
+						$output [$row->video_type] [] = array (
 								'pk' => $row->id,
 								'video_type' => $row->video_type,
 								'video_id' => $row->video_id,

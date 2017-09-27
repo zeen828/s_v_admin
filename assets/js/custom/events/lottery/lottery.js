@@ -12,8 +12,13 @@ var end_date = ''
 var EventVote = function EventVote() {
 	var myClass = '.Lottery';
 	var _this = this;
-	//讀資料
-	this.load_data = function (){
+	//開始跑亂數
+	this.random = function (){
+		g_Timer = setTimeout(beat, g_Interval);
+		_this.random();
+	}
+	//開獎
+	this.lottery = function (){
 		console.log('load_json');
 		$.ajax({
 			url: '/v1/events/lotteries/lottery.json',
@@ -40,18 +45,11 @@ var EventVote = function EventVote() {
 				200: function(json, statusText, xhr) {
 					console.log('statusCode 200');
 					console.log(json);
+					running = false;
 					g_Lottery[0] = json.result;
 				}
 			}
 		});
-	}
-	//開始跑亂數
-	this.random = function (){
-
-	}
-	//開獎
-	this.opne = function (){
-
 	}
 	this.restart_event = function (){
 		$('.my_but').click(function(e) {
@@ -68,6 +66,5 @@ var EventVote = function EventVote() {
 
 $(document).ready(function(){
 	run_obj = new EventVote();
-	run_obj.load_data();
 	run_obj.restart_event();
 });

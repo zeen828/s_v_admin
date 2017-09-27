@@ -3,6 +3,119 @@
                         <p><a href="http://event.vidol.tv/landingPage/index.html" target="_blank">登陸跳轉頁面</a></p>
                         <p>api有做20分鐘的cache,更新需<a href="#" class="cancel_cache">清除cache</a>重整.</p>
                     </div>
+<!-- 頻道 -->
+					<div class="box box-default">
+						<form action="/backend/pages/landing_page_channel" method="post">
+						<div class="box-header with-border">
+							<h3 class="box-title">頻道</h3>
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+							</div>
+						</div>
+						<div class="box-body">
+<?php
+if(count($view_data['channel'])>=1){
+	foreach ($view_data['channel'] as $key=>$channel){
+?>
+							<div class="box box-info">
+								<div class="box-body">
+									<div class="media">
+										<div class="media-left">
+											<a href="<?php echo $channel['url'];?>" target="_blank">
+												<img src="<?php echo $channel['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											</a>
+										</div>
+										<div class="media-body">
+											<div class="row">
+												<div class="col-xs-12">
+													<input type="hidden" name="channel_pk[]" value="<?php echo $channel['video_id'];?>">
+													<input type="text" name="channel_title[]" value="<?php echo $channel['title'];?>" class="form-control" disabled>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-xs-6">
+													<select name="channel_type[]" class="form-control">
+														<option value="channel"<?php if($channel['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
+													</select>
+												</div>
+												<div class="col-xs-6">
+													<input type="text" name="channel_id[]" value="<?php echo $channel['video_id'];?>" class="form-control" placeholder="影片編號">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+<?php
+	}
+}
+?>
+							<div class="box box-info">
+								<div class="box-body">
+									<div class="media">
+										<div class="media-left">
+											<a href="<?php echo $view_data['1']['url'];?>" target="_blank">
+												<img src="<?php echo $view_data['1']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											</a>
+										</div>
+										<div class="media-body">
+											<div class="row">
+												<div class="col-xs-12">
+													<input type="text" name="channel_title[]" value="<?php echo $view_data['1']['title'];?>" class="form-control" disabled>
+												</div>
+											</div>
+											<div class="row">
+												<input type="hidden" name="channel_pk[]" value="1">
+												<div class="col-xs-6">
+													<select name="channel_type[]" class="form-control">
+														<option value="channel"<?php if($view_data['1']['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
+													</select>
+												</div>
+												<div class="col-xs-6">
+													<input type="text" name="channel_id[]" value="<?php echo $view_data['1']['video_id'];?>" class="form-control" placeholder="影片編號">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="box box-info">
+								<div class="box-body">
+									<div class="media">
+										<div class="media-left">
+											<a href="<?php echo $view_data['2']['url'];?>" target="_blank">
+												<img src="<?php echo $view_data['2']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											</a>
+										</div>
+										<div class="media-body">
+											<div class="row">
+												<div class="col-xs-12">
+													<input type="text" name="channel_title[]" value="<?php echo $view_data['2']['title'];?>" class="form-control" disabled>
+												</div>
+											</div>
+											<div class="row">
+												<input type="hidden" name="channel_pk[]" value="2">
+												<div class="col-xs-6">
+													<select name="channel_type[]" class="form-control">
+														<option value="channel"<?php if($view_data['2']['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
+													</select>
+												</div>
+												<div class="col-xs-6">
+													<input type="text" name="channel_id[]" value="<?php echo $view_data['2']['video_id'];?>" class="form-control" placeholder="影片編號">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="box-footer">
+							<input type="submit" value="Submit" class="btn btn-info pull-right">
+						</div>
+						</form>
+					</div>
+<!-- 跑馬燈 -->
 					<div class="box box-default">
 						<form action="/backend/pages/landing_page_channel" method="post">
 						<div class="box-header with-border">
@@ -77,7 +190,7 @@
 						</div>
 						</form>
 					</div>
-					
+<!-- 影音 -->
 					<div class="box box-default">
 						<form action="/backend/pages/landing_page_video" method="post">
 						<div class="box-header with-border">
@@ -184,7 +297,7 @@
 						</div>
 						</form>
 					</div>
-					
+<!-- 活動 -->
 					<div class="box box-default">
 						<form action="/backend/pages/landing_page_event" method="post">
 						<div class="box-header with-border">
@@ -231,6 +344,7 @@
 						</div>
 						</form>
 					</div>
+
                     <script type="text/javascript">
                     $(document).ready(function(){
                         $('.cancel_cache').off('click').on('click', function() {
