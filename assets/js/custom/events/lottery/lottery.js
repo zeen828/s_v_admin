@@ -49,16 +49,19 @@ var end_date = ''
 				console.log('Ajax request error');
 				console.log(xhr);
 				g_running = false;
+				clearTimeout(g_loop);
 			},
 			success: function(response) {
 				console.log('Ajax OK');
 				console.log(response);
 				g_running = false;
+				clearTimeout(g_loop);
 			},
 			statusCode: {
 				200: function(json, statusText, xhr) {
 					console.log('statusCode 200');
 					g_running = false;
+					clearTimeout(g_loop);
 					console.log(json);
 					$('#ResultNum').text(json.result);
 					$('#ResultNum').css('color','red');
@@ -66,6 +69,7 @@ var end_date = ''
 				416: function(json, statusText, xhr) {
 					console.log('statusCode 416');
 					g_running = false;
+					clearTimeout(g_loop);
 					$('#ResultNum').text('開獎數已額滿');
 					$('#ResultNum').css('color','red');
 				}
