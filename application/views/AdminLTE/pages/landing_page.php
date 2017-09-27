@@ -72,7 +72,7 @@ if(count($view_data['channel'])>=1){
 if(count($view_data['text'])>=1){
 	foreach ($view_data['text'] as $key=>$text){
 ?>
-							<div class="box box-warning">
+							<div class="box box-danger">
 								<div class="box-body">
 									<input type="hidden" name="text_pk[<?php echo $key;?>]" value="<?php echo $text['pk'];?>">
 									<div class="row">
@@ -103,7 +103,7 @@ if(count($view_data['text'])>=1){
 						</div>
 						</form>
 					</div>
-					<div class="text_add_html">
+					<div class="text_add_html" style="display:none">
 						<div class="box box-warning">
 							<div class="box-body">
 								<input type="hidden" name="text_pk[]" value="">
