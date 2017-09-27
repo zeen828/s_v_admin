@@ -14,7 +14,8 @@ var EventVote = function EventVote() {
 	var _this = this;
 	//開始跑亂數
 	this.random = function (){
-		g_Timer = setTimeout(beat, g_Interval);
+		g_Timer = setTimeout(random, g_Interval);
+		console.log(g_Timer);
 		_this.random();
 	}
 	//開獎
@@ -47,6 +48,12 @@ var EventVote = function EventVote() {
 					console.log(json);
 					running = false;
 					g_Lottery[0] = json.result;
+				},
+				200: function(json, statusText, xhr) {
+					console.log('statusCode 200');
+					console.log(json);
+					running = false;
+					g_Lottery[0] = json.result;
 				}
 			}
 		});
@@ -56,11 +63,14 @@ var EventVote = function EventVote() {
 			console.log('my_but click');
 			console.log(running);
 			if(running == true){
-				running = false;
 				console.log('開獎');
+				_this.lottery();
+				running = false;
+				
 			}else{
-				running = true;
 				console.log('啟動');
+				_this.random();
+				running = true;
 			}
 		});
 	}
