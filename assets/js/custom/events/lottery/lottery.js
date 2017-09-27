@@ -78,17 +78,15 @@ var end_date = ''
 	}
 	this.restart_event = function (){
 		$('.my_but').click(function(e) {
+			$('#ResultNum').css('color','black');
 			g_lottery_count = g_LotteryList.length;
 			if(g_running == true){
 				console.log('開獎');
-				$('#ResultNum').css('color','black');
 				_this.lottery();
-				//clearTimeout(g_loop);
 			}else{
 				console.log('啟動');
 				g_running = true;
 				_this.random_show();
-
 			}
 		});
 	}
