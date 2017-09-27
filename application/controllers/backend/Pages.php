@@ -45,10 +45,10 @@ class Pages extends CI_Controller {
 				$this->load->model ( 'vidol_event/page_landing_model' );
 				// 變數
 				$output = array (
-						'channel'=>array(),
-						'text'=>array(),
-						'video'=>array(),
-						'event'=>array(),
+						'channel' => array (),
+						'text' => array (),
+						'video' => array (),
+						'event' => array () 
 				);
 				// 取資料
 				$query = $this->page_landing_model->get_query_limit ( '*', '30' );
@@ -139,6 +139,43 @@ class Pages extends CI_Controller {
 				}
 				unset ( $output );
 				unset ( $data_tmp );
+				unset ( $data_input );
+			}
+			redirect ( '/backend/pages/landing_page' );
+		} catch ( Exception $e ) {
+			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
+		}
+	}
+	/**
+	 * 登陸跳轉頁面-text修改
+	 */
+	public function landing_page_text() {
+		// $this->output->enable_profiler(TRUE);
+		try {
+			if ($this->flexi_auth->is_privileged ( 'Events Edit' )) {
+				// 寫log
+				$this->fun->logs ( '觀看[登陸跳轉頁面-text修改]' );
+				// 引入
+				$this->load->model ( 'vidol_event/page_landing_model' );
+				// 變數
+				$data_input = array ();
+				// 接收變數
+				$data_input ['text_pk'] = $this->input->post ( 'text_pk' );
+				$data_input ['text_title'] = $this->input->post ( 'text_title' );
+				$data_input ['text_des'] = $this->input->post ( 'text_des' );
+				$data_input ['text_img'] = $this->input->post ( 'text_img' );
+				$data_input ['text_url'] = $this->input->post ( 'text_url' );
+				// 改資料
+				for($i = 0; $i < count ( $data_input ['text_pk'] ); $i ++) {
+					$data_update = array (
+							'title' => $data_input ['text_title'] [$i],
+							'des' => $data_input ['text_des'] [$i],
+							'image' => $data_input ['text_img'] [$i],
+							'url' => $data_input ['text_url'] [$i] 
+					);
+					$this->page_landing_model->update_data ( $data_input ['text_pk'] [$i], $data_update );
+					unset ( $data_update );
+				}
 				unset ( $data_input );
 			}
 			redirect ( '/backend/pages/landing_page' );

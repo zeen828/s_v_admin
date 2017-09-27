@@ -59,7 +59,7 @@ if(count($view_data['channel'])>=1){
 					</div>
 <!-- 跑馬燈 -->
 					<div class="box box-default">
-						<form action="/backend/pages/landing_page_channel" method="post">
+						<form action="/backend/pages/landing_page_text" method="post">
 						<div class="box-header with-border">
 							<h3 class="box-title">頻道</h3>
 							<div class="box-tools pull-right">
@@ -78,14 +78,6 @@ if(count($view_data['text'])>=1){
 									<div class="row">
 										<div class="col-xs-6">
 											<input type="text" name="text_title[]" value="<?php echo $text['title'];?>" class="form-control" placeholder="標題">
-										</div>
-										<div class="col-xs-6">
-											<input type="text" name="text_des[]" value="<?php echo $text['des'];?>" class="form-control" placeholder="描述">
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-6">
-											<input type="text" name="text_img[]" value="<?php echo $text['image'];?>" class="form-control" placeholder="圖片網址">
 										</div>
 										<div class="col-xs-6">
 											<input type="text" name="text_url[]" value="<?php echo $text['url'];?>" class="form-control" placeholder="連結位置">
