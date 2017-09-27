@@ -38,8 +38,8 @@ class Events extends CI_Controller {
 			$this->data_view ['start_at'] = $data_config->start_at;
 			$this->data_view ['end_at'] = $data_config->end_at;
 			// 參加者
-			switch (_id) {
-				case 3 ://2017-09-27例外陳伯寧要求一隻抽假的
+			switch ($config_id) {
+				case 3 : // 2017-09-27例外陳伯寧要求一隻抽假的
 					$query = $this->event_vote_select_model->get_user_by_condifid_date ( 'member_id', 2, null, null );
 					break;
 				default :
