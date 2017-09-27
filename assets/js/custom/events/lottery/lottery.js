@@ -46,13 +46,13 @@ var EventVote = function EventVote() {
 				200: function(json, statusText, xhr) {
 					console.log('statusCode 200');
 					console.log(json);
-					running = false;
+					g_running = false;
 					g_Lottery[0] = json.result;
 				},
 				200: function(json, statusText, xhr) {
 					console.log('statusCode 200');
 					console.log(json);
-					running = false;
+					g_running = false;
 					g_Lottery[0] = json.result;
 				}
 			}
@@ -61,8 +61,8 @@ var EventVote = function EventVote() {
 	this.restart_event = function (){
 		$('.my_but').click(function(e) {
 			console.log('my_but click');
-			console.log(running);
-			if(running == true){
+			console.log(g_running);
+			if(g_running == true){
 				console.log('開獎');
 				_this.lottery();
 				g_running = false;
