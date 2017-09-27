@@ -20,8 +20,8 @@ if(count($view_data['channel'])>=1){
 ?>
 							<div class="box box-info">
 								<div class="box-body">
+									<input type="hidden" name="channel_pk[]" value="<?php echo $channel['pk'];?>">
 									<div class="media">
-										<input type="hidden" name="channel_pk[]" value="<?php echo $channel['pk'];?>">
 										<div class="media-left">
 											<a href="<?php echo $channel['url'];?>" target="_blank">
 												<img src="<?php echo $channel['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
@@ -74,30 +74,21 @@ if(count($view_data['text'])>=1){
 ?>
 							<div class="box box-warning">
 								<div class="box-body">
-									<div class="media">
-										<input type="hidden" name="text_pk[]" value="<?php echo $text['pk'];?>">
-										<div class="media-left">
-											<a href="<?php echo $text['url'];?>" target="_blank">
-												<img src="<?php echo $text['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
-											</a>
+									<input type="hidden" name="text_pk[]" value="<?php echo $text['pk'];?>">
+									<div class="row">
+										<div class="col-xs-6">
+											<input type="text" name="text_title[]" value="<?php echo $text['title'];?>" class="form-control" placeholder="標題">
 										</div>
-										<div class="media-body">
-											<div class="row">
-												<div class="col-xs-6">
-													<input type="text" name="text_title[]" value="<?php echo $text['title'];?>" class="form-control" placeholder="標題">
-												</div>
-												<div class="col-xs-6">
-													<input type="text" name="text_des[]" value="<?php echo $text['des'];?>" class="form-control" placeholder="描述">
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-xs-6">
-													<input type="text" name="text_img[]" value="<?php echo $text['image'];?>" class="form-control" placeholder="圖片網址">
-												</div>
-												<div class="col-xs-6">
-													<input type="text" name="text_url[]" value="<?php echo $text['url'];?>" class="form-control" placeholder="連結位置">
-												</div>
-											</div>
+										<div class="col-xs-6">
+											<input type="text" name="text_des[]" value="<?php echo $text['des'];?>" class="form-control" placeholder="描述">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-6">
+											<input type="text" name="text_img[]" value="<?php echo $text['image'];?>" class="form-control" placeholder="圖片網址">
+										</div>
+										<div class="col-xs-6">
+											<input type="text" name="text_url[]" value="<?php echo $text['url'];?>" class="form-control" placeholder="連結位置">
 										</div>
 									</div>
 								</div>
@@ -129,8 +120,8 @@ if(count($view_data['video'])>=1){
 ?>
 							<div class="box box-success">
 								<div class="box-body">
+									<input type="hidden" name="video_pk[]" value="<?php echo $video['pk'];?>">
 									<div class="media">
-										<input type="hidden" name="video_pk[]" value="<?php echo $video['pk'];?>">
 										<div class="media-left">
 											<a href="<?php echo $video['url'];?>" target="_blank">
 												<img src="<?php echo $video['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
@@ -184,8 +175,8 @@ if(count($view_data['event'])>=1){
 ?>
 							<div class="box box-warning">
 								<div class="box-body">
+									<input type="hidden" name="event_pk[]" value="<?php echo $event['pk'];?>">
 									<div class="media">
-										<input type="hidden" name="event_pk[]" value="<?php echo $event['pk'];?>">
 										<div class="media-left">
 											<a href="<?php echo $event['url'];?>" target="_blank">
 												<img src="<?php echo $event['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
