@@ -7,6 +7,7 @@
 		<script type="text/javascript" src="/assets/plugins/jQuery/2.2.3/jquery-2.2.3.min.js"></script>
 		<script type="text/javascript" src="/assets/js/custom/events/lottery/lottery.js?<?php echo time();?>"></script>
 		<script type="text/javascript">
+			g_config_id = <?php echo $config_id;?>;
 			g_LotteryList = <?php echo $user_json;?>;//預設抽獎名單避免AJAX錯誤沒名單
 			g_lottery_count = '<?php echo $count;?>';
 			start_date = '<?php echo $start_at;?>';

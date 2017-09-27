@@ -1,4 +1,5 @@
 var run_obj;
+var g_config_id = 1;
 var g_Interval = 10;//間隔
 var g_index = 0;//陣列索引
 var g_LotteryList = [];//預設抽獎名單避免AJAX錯誤沒名單
@@ -39,7 +40,7 @@ var EventVote = function EventVote() {
 			dataType: 'json',
 			data: {
 				'random' : $.now(),
-				'config_id' : '2',
+				'config_id' : g_config_id,
 				'tmp' : 'tmp'
 			},
 			error: function(xhr){
