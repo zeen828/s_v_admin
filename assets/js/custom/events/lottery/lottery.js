@@ -57,8 +57,10 @@ var EventVote = function EventVote() {
 			console.log(running);
 			if(running == true){
 				running = false;
+				console.log('開獎');
 			}else{
 				running = true;
+				console.log('啟動');
 			}
 		});
 	}
