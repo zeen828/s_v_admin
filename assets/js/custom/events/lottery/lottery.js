@@ -1,5 +1,6 @@
 var run_obj;
-var g_Interval = 1;//間隔
+var g_Interval = 10;//間隔
+var g_index = 0;//陣列索引
 var g_LotteryList = [];//預設抽獎名單避免AJAX錯誤沒名單
 var g_lottery_count = '0';
 var g_Timer = {};//計時器
@@ -13,14 +14,13 @@ var EventVote = function EventVote() {
 	//開始跑亂數
 	this.random_show = function (){
 		//迴圈不超過資料算法
-		if(g_Interval > g_lottery_count){
-			g_Interval = g_Interval - g_lottery_count;
+		if(g_index > g_lottery_count){
+			g_index = g_index - g_lottery_count;
 		}
-		g_Interval = g_Interval + 33;
-		//console.log(g_Interval);
+		g_index = g_index + 33;
 		//是否繼續亂數
 		if(g_running == true){
-			g_Timer = setTimeout(_this.random_show, 5);
+			g_Timer = setTimeout(_this.random_show, g_Interval);
 		}else{
 			clearTimeout(g_Timer);
 		}
@@ -79,9 +79,11 @@ var EventVote = function EventVote() {
 			g_lottery_count = g_LotteryList.length;
 			if(g_running == true){
 				console.log('開獎');
+				g_Interval = 10;
 				_this.lottery();
 			}else{
 				console.log('啟動');
+				g_Interval = 50;//減速
 				g_running = true;
 				_this.random_show();
 			}
