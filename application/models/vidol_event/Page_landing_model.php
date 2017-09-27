@@ -42,7 +42,7 @@ class Page_landing_model extends CI_Model {
 		}
 		return false;
 	}
-	public function get_query_limit($select, $limit=30) {
+	public function get_query_limit($select, $limit = 30) {
 		if (! empty ( $select )) {
 			$this->r_db->select ( $select );
 		}
@@ -50,5 +50,13 @@ class Page_landing_model extends CI_Model {
 		$query = $this->r_db->get ( $this->table_name );
 		// echo $this->r_db->last_query();
 		return $query;
+	}
+	public function del_by_pk_position($pk, $position) {
+		$this->w_db->where ( $this->fields_pk, $pk );
+		$this->w_db->where ( 'position', $position );
+		$this->w_db->delete ( $this->table_name );
+		$result = $this->w_db->affected_rows ();
+		// echo $this->w_db->last_query();
+		return $result;
 	}
 }
