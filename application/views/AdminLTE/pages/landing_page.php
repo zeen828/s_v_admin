@@ -254,6 +254,7 @@ if(count($view_data['event'])>=1){
                         });
                         $('.text_add').off('click').on('click', function() {
                             console.log('增加表單');
+                            $('.text_form').append($('.text_add_html').html());
                         });
                     });
                     </script>

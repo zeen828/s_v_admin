@@ -169,16 +169,23 @@ class Pages extends CI_Controller {
 					if (isset ( $data_input ['text_delete'] [$i] )) {
 						$this->page_landing_model->del_by_pk_position ( $data_input ['text_delete'] [$i], 'text' );
 					} else {
-						$data_text = array (
-								'title' => $data_input ['text_title'] [$i],
-								'url' => $data_input ['text_url'] [$i] 
-						);
 						if (empty ( $data_input ['text_pk'] [$i] )) {
-							$this->page_landing_model->insert_data ( $data_text );
+							$data_insert = array (
+									'position' => 'text',
+									'video_type' => 'text',
+									'title' => $data_input ['text_title'] [$i],
+									'url' => $data_input ['text_url'] [$i]
+							);
+							$this->page_landing_model->insert_data ( $data_insert );
+							unset ( $data_insert );
 						} else {
-							$this->page_landing_model->update_data ( $data_input ['text_pk'] [$i], $data_text );
+							$data_update = array (
+									'title' => $data_input ['text_title'] [$i],
+									'url' => $data_input ['text_url'] [$i]
+							);
+							$this->page_landing_model->update_data ( $data_input ['text_pk'] [$i], $data_update );
+							unset ( $data_update );
 						}
-						unset ( $data_text );
 					}
 				}
 				unset ( $data_input );
