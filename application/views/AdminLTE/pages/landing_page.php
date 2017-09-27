@@ -51,64 +51,6 @@ if(count($view_data['channel'])>=1){
 	}
 }
 ?>
-							<div class="box box-info">
-								<div class="box-body">
-									<div class="media">
-										<div class="media-left">
-											<a href="<?php echo $view_data['1']['url'];?>" target="_blank">
-												<img src="<?php echo $view_data['1']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
-											</a>
-										</div>
-										<div class="media-body">
-											<div class="row">
-												<div class="col-xs-12">
-													<input type="text" name="channel_title[]" value="<?php echo $view_data['1']['title'];?>" class="form-control" disabled>
-												</div>
-											</div>
-											<div class="row">
-												<input type="hidden" name="channel_pk[]" value="1">
-												<div class="col-xs-6">
-													<select name="channel_type[]" class="form-control">
-														<option value="channel"<?php if($view_data['1']['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
-													</select>
-												</div>
-												<div class="col-xs-6">
-													<input type="text" name="channel_id[]" value="<?php echo $view_data['1']['video_id'];?>" class="form-control" placeholder="影片編號">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="box box-info">
-								<div class="box-body">
-									<div class="media">
-										<div class="media-left">
-											<a href="<?php echo $view_data['2']['url'];?>" target="_blank">
-												<img src="<?php echo $view_data['2']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
-											</a>
-										</div>
-										<div class="media-body">
-											<div class="row">
-												<div class="col-xs-12">
-													<input type="text" name="channel_title[]" value="<?php echo $view_data['2']['title'];?>" class="form-control" disabled>
-												</div>
-											</div>
-											<div class="row">
-												<input type="hidden" name="channel_pk[]" value="2">
-												<div class="col-xs-6">
-													<select name="channel_type[]" class="form-control">
-														<option value="channel"<?php if($view_data['2']['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
-													</select>
-												</div>
-												<div class="col-xs-6">
-													<input type="text" name="channel_id[]" value="<?php echo $view_data['2']['video_id'];?>" class="form-control" placeholder="影片編號">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 						<div class="box-footer">
 							<input type="submit" value="Submit" class="btn btn-info pull-right">
@@ -126,64 +68,43 @@ if(count($view_data['channel'])>=1){
 							</div>
 						</div>
 						<div class="box-body">
+<?php
+if(count($view_data['text'])>=1){
+	foreach ($view_data['text'] as $key=>$text){
+?>
 							<div class="box box-info">
 								<div class="box-body">
 									<div class="media">
 										<div class="media-left">
-											<a href="<?php echo $view_data['1']['url'];?>" target="_blank">
-												<img src="<?php echo $view_data['1']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											<a href="<?php echo $text['url'];?>" target="_blank">
+												<img src="<?php echo $text['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
 											</a>
 										</div>
 										<div class="media-body">
 											<div class="row">
 												<div class="col-xs-12">
-													<input type="text" name="channel_title[]" value="<?php echo $view_data['1']['title'];?>" class="form-control" disabled>
+													<input type="hidden" name="text_pk[]" value="<?php echo $text['video_id'];?>">
+													<input type="text" name="text_title[]" value="<?php echo $text['title'];?>" class="form-control" disabled>
 												</div>
 											</div>
 											<div class="row">
-												<input type="hidden" name="channel_pk[]" value="1">
 												<div class="col-xs-6">
-													<select name="channel_type[]" class="form-control">
-														<option value="channel"<?php if($view_data['1']['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
+													<select name="text_type[]" class="form-control">
+														<option value="text"<?php if($text['video_type'] == 'text'){ echo ' selected'; }?>>text</option>
 													</select>
 												</div>
 												<div class="col-xs-6">
-													<input type="text" name="channel_id[]" value="<?php echo $view_data['1']['video_id'];?>" class="form-control" placeholder="影片編號">
+													<input type="text" name="text_id[]" value="<?php echo $text['video_id'];?>" class="form-control" placeholder="影片編號">
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="box box-info">
-								<div class="box-body">
-									<div class="media">
-										<div class="media-left">
-											<a href="<?php echo $view_data['2']['url'];?>" target="_blank">
-												<img src="<?php echo $view_data['2']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
-											</a>
-										</div>
-										<div class="media-body">
-											<div class="row">
-												<div class="col-xs-12">
-													<input type="text" name="channel_title[]" value="<?php echo $view_data['2']['title'];?>" class="form-control" disabled>
-												</div>
-											</div>
-											<div class="row">
-												<input type="hidden" name="channel_pk[]" value="2">
-												<div class="col-xs-6">
-													<select name="channel_type[]" class="form-control">
-														<option value="channel"<?php if($view_data['2']['video_type'] == 'channel'){ echo ' selected'; }?>>channel</option>
-													</select>
-												</div>
-												<div class="col-xs-6">
-													<input type="text" name="channel_id[]" value="<?php echo $view_data['2']['video_id'];?>" class="form-control" placeholder="影片編號">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+<?php
+	}
+}
+?>
 						</div>
 						<div class="box-footer">
 							<input type="submit" value="Submit" class="btn btn-info pull-right">

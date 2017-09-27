@@ -46,9 +46,9 @@ class Pages extends CI_Controller {
 				// 變數
 				$output = array (
 						'channel'=>array(),
+						'text'=>array(),
 						'video'=>array(),
 						'event'=>array(),
-						'text'=>array(),
 				);
 				// 取資料
 				$query = $this->page_landing_model->get_query_limit ( '*', '30' );
