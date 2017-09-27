@@ -56,7 +56,7 @@ class Page_landing_model extends CI_Model {
 		$this->w_db->where ( 'position', $position );
 		$this->w_db->delete ( $this->table_name );
 		$result = $this->w_db->affected_rows ();
-		// echo $this->w_db->last_query();
+		echo $this->w_db->last_query();
 		return $result;
 	}
 }

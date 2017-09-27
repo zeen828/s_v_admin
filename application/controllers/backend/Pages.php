@@ -169,7 +169,8 @@ class Pages extends CI_Controller {
 				for($i = 0; $i < count ( $data_input ['text_pk'] ); $i ++) {
 					if (! isset ( $data_input ['text_delete'] [$i] )) {
 						echo 'DEL';
-						$this->page_landing_model->del_by_pk_position ( $data_input ['text_delete'] [$i], 'text' );
+						$a = $this->page_landing_model->del_by_pk_position ( $data_input ['text_delete'] [$i], 'text' );
+						echo $a;
 					} else {
 						$data_text = array (
 								'title' => $data_input ['text_title'] [$i],
