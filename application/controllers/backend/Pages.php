@@ -162,15 +162,11 @@ class Pages extends CI_Controller {
 				// 接收變數
 				$data_input ['text_pk'] = $this->input->post ( 'text_pk' );
 				$data_input ['text_title'] = $this->input->post ( 'text_title' );
-				$data_input ['text_des'] = $this->input->post ( 'text_des' );
-				$data_input ['text_img'] = $this->input->post ( 'text_img' );
 				$data_input ['text_url'] = $this->input->post ( 'text_url' );
 				// 改資料
 				for($i = 0; $i < count ( $data_input ['text_pk'] ); $i ++) {
 					$data_update = array (
 							'title' => $data_input ['text_title'] [$i],
-							'des' => $data_input ['text_des'] [$i],
-							'image' => $data_input ['text_img'] [$i],
 							'url' => $data_input ['text_url'] [$i] 
 					);
 					$this->page_landing_model->update_data ( $data_input ['text_pk'] [$i], $data_update );
