@@ -10,7 +10,7 @@ var g_running = false;
 var start_date = '';
 var end_date = ''
 
-var EventVote = function EventVote() {
+	var EventVote = function EventVote() {
 	var myClass = '.Lottery';
 	var _this = this;
 	//開始跑亂數
@@ -24,6 +24,8 @@ var EventVote = function EventVote() {
 		//是否繼續亂數
 		if(g_running == true){
 			g_loop = setTimeout(_this.random_show, 5);
+		}else{
+			clearTimeout(g_loop);
 		}
 		$('#ResultNum').text(g_LotteryList[g_Interval]);
 	}
@@ -72,18 +74,17 @@ var EventVote = function EventVote() {
 	}
 	this.restart_event = function (){
 		$('.my_but').click(function(e) {
-			console.log('my_but click');
-			console.log(g_running);
 			g_lottery_count = g_LotteryList.length;
 			if(g_running == true){
 				console.log('開獎');
+				$('#ResultNum').css('color','black');
 				_this.lottery();
 				//clearTimeout(g_loop);
 			}else{
 				console.log('啟動');
 				g_running = true;
 				_this.random_show();
-				
+
 			}
 		});
 	}
