@@ -82,7 +82,7 @@ if(count($view_data['text'])>=1){
 										<div class="col-xs-5">
 											<input type="text" name="text_url[]" value="<?php echo $text['url'];?>" class="form-control" placeholder="連結位置">
 										</div>
-										<div class="col-xs-5">
+										<div class="col-xs-2">
 											<div class="checkbox">
 												<label>
 													<input type="checkbox" name="text_delete[]">
