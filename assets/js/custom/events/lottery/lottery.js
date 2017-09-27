@@ -15,7 +15,11 @@ var EventVote = function EventVote() {
 	var _this = this;
 	//開始跑亂數
 	this.random_show = function (){
-		console.log('random_show');
+		if(g_Interval > g_lottery_count){
+			g_Interval = g_Interval - g_lottery_count;
+		}
+		g_Interval = g_Interval + 33;
+		console.log(g_Interval);
 		if(g_running == true){
 			g_loop = setTimeout(_this.random_show, 5);
 		}
@@ -39,10 +43,12 @@ var EventVote = function EventVote() {
 			error: function(xhr){
 				console.log('Ajax request error');
 				console.log(xhr);
+				g_running = false;
 			},
 			success: function(response) {
 				console.log('Ajax OK');
 				console.log(response);
+				g_running = false;
 			},
 			statusCode: {
 				200: function(json, statusText, xhr) {
@@ -51,11 +57,9 @@ var EventVote = function EventVote() {
 					g_running = false;
 					g_Lottery[0] = json.result;
 				},
-				200: function(json, statusText, xhr) {
-					console.log('statusCode 200');
+				416: function(json, statusText, xhr) {
+					console.log('statusCode 416');
 					console.log(json);
-					g_running = false;
-					g_Lottery[0] = json.result;
 				}
 			}
 		});
@@ -64,6 +68,7 @@ var EventVote = function EventVote() {
 		$('.my_but').click(function(e) {
 			console.log('my_but click');
 			console.log(g_running);
+			g_lottery_count = g_LotteryList.length;
 			if(g_running == true){
 				console.log('開獎');
 				_this.lottery();
