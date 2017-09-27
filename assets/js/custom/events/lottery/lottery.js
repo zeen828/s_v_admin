@@ -16,7 +16,9 @@ var EventVote = function EventVote() {
 	//開始跑亂數
 	this.random_show = function (){
 		console.log('random_show');
-		g_loop = setTimeout(_this.random_show, 2000);
+		if(g_running == true){
+			g_loop = setTimeout(_this.random_show, 5);
+		}
 	}
 	//開獎
 	this.lottery = function (){
