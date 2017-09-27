@@ -56,13 +56,16 @@ var EventVote = function EventVote() {
 			statusCode: {
 				200: function(json, statusText, xhr) {
 					console.log('statusCode 200');
-					console.log(json);
 					g_running = false;
-					g_Lottery[0] = json.result;
+					console.log(json);
+					$('#ResultNum').text(json.result);
+					$('#ResultNum').css('color','red');
 				},
 				416: function(json, statusText, xhr) {
 					console.log('statusCode 416');
-					console.log(json);
+					g_running = false;
+					$('#ResultNum').text('開獎數已額滿');
+					$('#ResultNum').css('color','red');
 				}
 			}
 		});
@@ -75,7 +78,6 @@ var EventVote = function EventVote() {
 			if(g_running == true){
 				console.log('開獎');
 				_this.lottery();
-				g_running = false;
 				//clearTimeout(g_loop);
 			}else{
 				console.log('啟動');
