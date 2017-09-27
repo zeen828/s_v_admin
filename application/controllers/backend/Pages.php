@@ -165,11 +165,15 @@ class Pages extends CI_Controller {
 				$data_input ['text_url'] = $this->input->post ( 'text_url' );
 				// 改資料
 				for($i = 0; $i < count ( $data_input ['text_pk'] ); $i ++) {
-					$data_update = array (
+					$data_text = array (
 							'title' => $data_input ['text_title'] [$i],
 							'url' => $data_input ['text_url'] [$i] 
 					);
-					$this->page_landing_model->update_data ( $data_input ['text_pk'] [$i], $data_update );
+					if(empty($data_input ['text_pk'] [$i])){
+						$this->page_landing_model->insert_data ( $data_text );
+					}else{
+						$this->page_landing_model->update_data ( $data_input ['text_pk'] [$i], $data_text );
+					}
 					unset ( $data_update );
 				}
 				unset ( $data_input );
