@@ -168,6 +168,7 @@ class Pages extends CI_Controller {
 				// 改資料
 				for($i = 0; $i < count ( $data_input ['text_pk'] ); $i ++) {
 					if (! isset ( $data_input ['text_delete'] [$i] )) {
+						echo 'DEL';
 						$this->page_landing_model->del_by_pk_position ( $data_input ['text_delete'] [$i], 'text' );
 					} else {
 						$data_text = array (
@@ -184,7 +185,7 @@ class Pages extends CI_Controller {
 				}
 				unset ( $data_input );
 			}
-			redirect ( '/backend/pages/landing_page' );
+			//redirect ( '/backend/pages/landing_page' );
 		} catch ( Exception $e ) {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
