@@ -24,7 +24,7 @@ var EventVote = function EventVote() {
 		}else{
 			clearTimeout(g_Timer);
 		}
-		$('#ResultNum').text(g_LotteryList[g_Interval]);
+		$('#ResultNum').text(g_LotteryList[g_index]);
 	}
 	//開獎
 	this.lottery = function (){
