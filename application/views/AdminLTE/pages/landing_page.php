@@ -29,7 +29,7 @@ if(count($view_data['channel'])>=1){
 										<div class="media-body">
 											<div class="row">
 												<div class="col-xs-12">
-													<input type="hidden" name="channel_pk[]" value="<?php echo $channel['video_id'];?>">
+													<input type="hidden" name="channel_pk[]" value="<?php echo $channel['pk'];?>">
 													<input type="text" name="channel_title[]" value="<?php echo $channel['title'];?>" class="form-control" disabled>
 												</div>
 											</div>
@@ -122,96 +122,44 @@ if(count($view_data['text'])>=1){
 							</div>
 						</div>
 						<div class="box-body">
+<?php
+if(count($view_data['video'])>=1){
+	foreach ($view_data['video'] as $key=>$video){
+?>
 							<div class="box box-success">
 								<div class="box-body">
 									<div class="media">
 										<div class="media-left">
-											<a href="<?php echo $view_data['3']['url'];?>" target="_blank">
-												<img src="<?php echo $view_data['3']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
+											<a href="<?php echo $video['url'];?>" target="_blank">
+												<img src="<?php echo $video['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
 											</a>
 										</div>
 										<div class="media-body">
 											<div class="row">
 												<div class="col-xs-12">
-													<input type="text" name="video_title[]" value="<?php echo $view_data['3']['title'];?>" class="form-control" disabled>
+													<input type="hidden" name="video_pk[]" value="<?php echo $video['pk'];?>">
+													<input type="text" name="video_title[]" value="<?php echo $video['title'];?>" class="form-control" disabled>
 												</div>
 											</div>
 											<div class="row">
-												<input type="hidden" name="video_pk[]" value="3">
 												<div class="col-xs-6">
 													<select name="video_type[]" class="form-control">
-														<option value="programme"<?php if($view_data['3']['video_type'] == 'programme'){ echo ' selected'; }?>>programme</option>
-														<option value="episode"<?php if($view_data['3']['video_type'] == 'episode'){ echo ' selected'; }?>>episode</option>
+														<option value="programme"<?php if($video['video_type'] == 'programme'){ echo ' selected'; }?>>programme</option>
+														<option value="episode"<?php if($video['video_type'] == 'episode'){ echo ' selected'; }?>>episode</option>
 													</select>
 												</div>
 												<div class="col-xs-6">
-													<input type="text" name="video_id[]" value="<?php echo $view_data['3']['video_id'];?>" class="form-control" placeholder="影片編號">
+													<input type="text" name="video_id[]" value="<?php echo $video['video_id'];?>" class="form-control" placeholder="影片編號">
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="box box-success">
-								<div class="box-body">
-									<div class="media">
-										<div class="media-left">
-											<a href="<?php echo $view_data['4']['url'];?>" target="_blank">
-												<img src="<?php echo $view_data['4']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
-											</a>
-										</div>
-										<div class="media-body">
-											<div class="row">
-												<div class="col-xs-12">
-													<input type="text" name="video_title[]" value="<?php echo $view_data['4']['title'];?>" class="form-control" disabled>
-												</div>
-											</div>
-											<div class="row">
-												<input type="hidden" name="video_pk[]" value="4">
-												<div class="col-xs-6">
-													<select name="video_type[]" class="form-control">
-														<option value="programme"<?php if($view_data['4']['video_type'] == 'programme'){ echo ' selected'; }?>>programme</option>
-														<option value="episode"<?php if($view_data['4']['video_type'] == 'episode'){ echo ' selected'; }?>>episode</option>
-													</select>
-												</div>
-												<div class="col-xs-6">
-													<input type="text" name="video_id[]" value="<?php echo $view_data['4']['video_id'];?>" class="form-control" placeholder="影片編號">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="box box-success">
-								<div class="box-body">
-									<div class="media">
-										<div class="media-left">
-											<a href="<?php echo $view_data['5']['url'];?>" target="_blank">
-												<img src="<?php echo $view_data['5']['image'];?>" alt="Edura" class="media-object" style="width: 150px;height: auto;border-radius: 4px;box-shadow: 0 1px 3px rgba(0,0,0,.15);">
-											</a>
-										</div>
-										<div class="media-body">
-											<div class="row">
-												<div class="col-xs-12">
-													<input type="text" name="video_title[]" value="<?php echo $view_data['5']['title'];?>" class="form-control" disabled>
-												</div>
-											</div>
-											<div class="row">
-												<input type="hidden" name="video_pk[]" value="5">
-												<div class="col-xs-6">
-													<select name="video_type[]" class="form-control">
-														<option value="programme"<?php if($view_data['5']['video_type'] == 'programme'){ echo ' selected'; }?>>programme</option>
-														<option value="episode"<?php if($view_data['5']['video_type'] == 'episode'){ echo ' selected'; }?>>episode</option>
-													</select>
-												</div>
-												<div class="col-xs-6">
-													<input type="text" name="video_id[]" value="<?php echo $view_data['5']['video_id'];?>" class="form-control" placeholder="影片編號">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+<?php
+	}
+}
+?>
 						</div>
 						<div class="box-footer">
 							<input type="submit" value="Submit" class="btn btn-info pull-right">
