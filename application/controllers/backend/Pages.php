@@ -54,7 +54,7 @@ class Pages extends CI_Controller {
 				$query = $this->page_landing_model->get_query_limit ( '*', '30' );
 				if ($query->num_rows () > 0) {
 					foreach ( $query->result () as $row ) {
-						$output [$row->video_type] [] = array (
+						$output [$row->position] [] = array (
 								'pk' => $row->id,
 								'video_type' => $row->video_type,
 								'video_id' => $row->video_id,
