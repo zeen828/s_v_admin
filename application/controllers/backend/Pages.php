@@ -163,6 +163,9 @@ class Pages extends CI_Controller {
 				$data_input ['text_pk'] = $this->input->post ( 'text_pk' );
 				$data_input ['text_title'] = $this->input->post ( 'text_title' );
 				$data_input ['text_url'] = $this->input->post ( 'text_url' );
+				$data_input ['text_delete'] = $this->input->post ( 'text_delete' );
+				print_r($data_input);
+				exit();
 				// 改資料
 				for($i = 0; $i < count ( $data_input ['text_pk'] ); $i ++) {
 					$data_text = array (
