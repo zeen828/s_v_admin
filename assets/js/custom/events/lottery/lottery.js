@@ -15,14 +15,17 @@ var EventVote = function EventVote() {
 	var _this = this;
 	//開始跑亂數
 	this.random_show = function (){
+		//迴圈不超過資料算法
 		if(g_Interval > g_lottery_count){
 			g_Interval = g_Interval - g_lottery_count;
 		}
 		g_Interval = g_Interval + 33;
 		console.log(g_Interval);
+		//是否繼續亂數
 		if(g_running == true){
 			g_loop = setTimeout(_this.random_show, 5);
 		}
+		$('#ResultNum').text(g_LotteryArray[g_Interval]);
 	}
 	//開獎
 	this.lottery = function (){
