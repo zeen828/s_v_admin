@@ -79,11 +79,11 @@ var EventVote = function EventVote() {
 			g_lottery_count = g_LotteryList.length;
 			if(g_running == true){
 				console.log('開獎');
-				g_Interval = 10;
+				g_Interval = 50;
 				_this.lottery();
 			}else{
 				console.log('啟動');
-				g_Interval = 50;//減速
+				g_Interval = 10;//減速
 				g_running = true;
 				_this.random_show();
 			}
