@@ -102,8 +102,11 @@ class Lotteries extends MY_REST_Controller {
 			// 保險避免無線迴圈
 			$insurance = 10;
 			do {
+				$date_user = false;
 				// 4.白單
-				$date_user = $this->whitelist_model->get_row_by_random ( 1 );
+				if($data_config->whitelist == 1){
+					$date_user = $this->whitelist_model->get_row_by_random ( 1 );
+				}
 				if ($date_user != false && isset ( $date_user->id )) {
 					// 4.消白單
 					$this->whitelist_model->update_data ( $date_user->id, array (
