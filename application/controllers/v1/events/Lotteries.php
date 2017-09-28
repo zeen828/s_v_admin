@@ -75,14 +75,15 @@ class Lotteries extends MY_REST_Controller {
 			}
 			// 1.取得活動設定-獎項名額
 			// cache name key
-			$data_cache ['name'] = sprintf ( '%s_event_vote_config_%d', ENVIRONMENT, $data_input ['config_id'] );
+			//$data_cache ['name'] = sprintf ( '%s_event_vote_config_%d', ENVIRONMENT, $data_input ['config_id'] );
 			// $this->cache->memcached->delete ( $data_cache['name_1'] );
-			$data_cache [$data_cache ['name']] = $this->cache->memcached->get ( $data_cache ['name'] );
-			if ($data_cache [$data_cache ['name']] == false) {
-				$data_cache [$data_cache ['name']] = $this->event_vote_config_model->get_row_by_pk ( '*', $data_input ['config_id'] );
-				$this->cache->memcached->save ( $data_cache ['name'], $data_cache [$data_cache ['name']], 90000 );
-			}
-			$data_config = $data_cache [$data_cache ['name']];
+			//$data_cache [$data_cache ['name']] = $this->cache->memcached->get ( $data_cache ['name'] );
+			//if ($data_cache [$data_cache ['name']] == false) {
+				//$data_cache [$data_cache ['name']] = $this->event_vote_config_model->get_row_by_pk ( '*', $data_input ['config_id'] );
+				//$this->cache->memcached->save ( $data_cache ['name'], $data_cache [$data_cache ['name']], 90000 );
+			//}
+			//$data_config = $data_cache [$data_cache ['name']];
+			$data_config = $this->event_vote_config_model->get_row_by_pk ( '*', $data_input ['config_id'] );
 			$data_count ['max'] = $data_config->lottery_int;
 			// 2.取得目前得獎名額
 			$data_count ['lottery'] = $this->event_vote_lottery_model->get_count_by_configid ( $data_input ['config_id'] );
