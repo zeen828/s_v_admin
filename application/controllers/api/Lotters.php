@@ -185,7 +185,7 @@ class Lotters extends MY_REST_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
-	public function whitelist_tbl_post() {
+	public function whitelist_post() {
 		try {
 			// 開始時間標記
 			$this->benchmark->mark ( 'code_start' );
