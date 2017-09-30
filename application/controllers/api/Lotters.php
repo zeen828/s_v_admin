@@ -200,7 +200,7 @@ class Lotters extends MY_REST_Controller {
 					'time' => 0 
 			);
 			// 接收變數
-			$data_input ['mongo_id'] = $this->post ( 'config_id' );
+			$data_input ['mongo_id'] = $this->post ( 'mongo_id' );
 			$data_input ['member_id'] = $this->post ( 'member_id' );
 			$data_input ['status'] = $this->post ( 'status' );
 			// Debug info
