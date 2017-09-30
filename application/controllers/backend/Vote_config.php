@@ -171,6 +171,8 @@ class Vote_config extends CI_Controller {
 				$crud->edit_fields ( 'group_no', 'sort', 'title', 'des', 'img_url', 'click_url', 'status' );
 				// 表單必填欄位
 				$crud->required_fields ( 'cs_title', 'cs_type', 'cs_word', 'cs_count', 'cs_repeat', 'cs_user_repeat', 'cs_time_start', 'cs_time_end' );
+				// 隱藏欄位
+				$crud->field_type('config_id', 'hidden', $config_id);
 				// 資料庫欄位文字替換
 				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
 				$crud->display_as ( 'config_id', '設定檔id' );
