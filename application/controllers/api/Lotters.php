@@ -223,7 +223,11 @@ class Lotters extends MY_REST_Controller {
 				$this->response ( $this->data_result, 416 );
 				return;
 			}
-			$this->data_result ['result'] = $this->whitelist_model->insert_data ( $data_input );
+			$this->data_result ['result'] = $this->whitelist_model->insert_data ( array (
+					'mongo_id' => $data_input ['mongo_id'],
+					'member_id' => $data_input ['member_id'],
+					'status' => $data_input ['status'] 
+			) );
 			// 結束時間標記
 			$this->benchmark->mark ( 'code_end' );
 			// 標記時間計算
