@@ -212,7 +212,7 @@ class Lotters extends MY_REST_Controller {
 				$this->data_result ['debug'] ['user'] = &$date_user;
 			}
 			// 必填檢查
-			if (empty ( $data_input ['config_id'] )) {
+			if (empty ( $data_input ['mongo_id'] ) || empty ( $data_input ['member_id'] ) || empty ( $data_input ['status'] )) {
 				// 必填錯誤
 				$this->data_result ['message'] = $this->lang->line ( 'input_required_error' );
 				$this->data_result ['code'] = $this->config->item ( 'input_required_error' );
