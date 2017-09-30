@@ -20,7 +20,7 @@ class Whitelist_model extends CI_Model {
 	public function insert_data($data) {
 		$this->w_db->insert ( $this->table_name, $data );
 		$id = $this->w_db->insert_id ();
-		// echo $this->w_db->last_query();
+		echo $this->w_db->last_query();
 		return $id;
 	}
 	public function update_data($pk, $data) {
