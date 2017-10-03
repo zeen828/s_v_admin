@@ -266,4 +266,72 @@ class Vote_config extends CI_Controller {
 			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
 		}
 	}
+	
+	/**
+	 * 投票-投票名單
+	 * @param unknown $config_id
+	 */
+	public function select_list($config_id) {
+		try {
+			if ($this->flexi_auth->is_privileged ( 'Events Config View' ) && ! empty ( $config_id )) {
+				// 寫log
+				$this->fun->logs ( '觀看[投票-投票名單]' );
+				// 變數
+				$data_post = array ();
+				// 強制切換資料庫
+				unset ( $this->db );
+				$this->db = $this->load->database ( 'vidol_event_write', true );
+				// grocery_CRUD 自產表單
+				$this->load->library ( 'grocery_CRUD' ); // CI整合表單http://www.grocerycrud.com/
+				$crud = new grocery_CRUD ();
+				// 語系
+				$crud->set_language ( 'taiwan' );
+				// 版型
+				$crud->set_theme ( 'flexigrid' );
+				// 表格
+				$crud->set_table ( 'event_vote_select_tbl' );
+				$crud->where ( 'config_id', $config_id );
+				// 標題
+				$crud->set_subject ( '投票活動-得獎名單' );
+				// 移除新增
+				$crud->unset_add ();
+				// 移除編輯
+				$crud->unset_edit ();
+				// 移除刪除
+				$crud->unset_delete ();
+				// 清單顯示欄位
+				$crud->columns ( 'item_id', 'member_id' );
+				$crud->set_relation( 'item_id', 'event_vote_item_tbl', 'title' );
+				// 資料庫欄位文字替換
+				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
+				$crud->display_as ( 'config_id', '設定檔id' );
+				$crud->display_as ( 'data_no', '截取順序' );
+				$crud->display_as ( 'item_id', '項目id' );
+				$crud->display_as ( 'mongo_id', '_id' );
+				$crud->display_as ( 'member_id', 'member_id' );
+				$crud->display_as ( 'user_created_at', '會原創建日(UTC)' );
+				$crud->display_as ( 'ticket', '票數' );
+				$crud->display_as ( 'year_at', '年(+8)' );
+				$crud->display_as ( 'month_at', '月(+8)' );
+				$crud->display_as ( 'day_at', '日(+8)' );
+				$crud->display_as ( 'hour_at', '時(+8)' );
+				$crud->display_as ( 'minute_at', '分(+8)' );
+				$crud->display_as ( 'created_at', '建立時間(+8)' );
+				// 產生表單
+				$output = $crud->render ();
+				// 資料整理
+				$this->data_view ['right_countent'] ['view_path'] = 'AdminLTE/include/content_grocery_crud';
+				$this->data_view ['right_countent'] ['view_data'] = $output;
+				$this->data_view ['right_countent'] ['tags'] ['tag_3'] = array (
+						'title' => '投票-投票名單',
+						'link' => '/backend/vote_config/select_list/' . $config_id,
+						'class' => 'fa-cog'
+				);
+				// 套版
+				$this->load->view ( 'AdminLTE/include/html5', $this->data_view );
+			}
+		} catch ( Exception $e ) {
+			show_error ( $e->getMessage () . ' --- ' . $e->getTraceAsString () );
+		}
+	}
 }
