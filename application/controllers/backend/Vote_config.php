@@ -280,7 +280,7 @@ class Vote_config extends CI_Controller {
 				$data_post = array ();
 				// 強制切換資料庫
 				unset ( $this->db );
-				$this->db = $this->load->database ( 'vidol_event_write', true );
+				//$this->db = $this->load->database ( 'vidol_event_write', true );
 				// grocery_CRUD 自產表單
 				$this->load->library ( 'grocery_CRUD' ); // CI整合表單http://www.grocerycrud.com/
 				$crud = new grocery_CRUD ();
@@ -302,7 +302,7 @@ class Vote_config extends CI_Controller {
 				// 清單顯示欄位
 				$crud->columns ( 'item_id', 'member_id' );
 				// 關聯
-				$crud->set_relation('item_id', 'vidol_event.event_vote_item_tbl', '{title}', array(), 'id');
+				//$crud->set_relation('item_id', 'vidol_event.event_vote_item_tbl', '{title}', array(), 'id');
 				// 資料庫欄位文字替換
 				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
 				$crud->display_as ( 'config_id', '設定檔id' );
@@ -318,6 +318,11 @@ class Vote_config extends CI_Controller {
 				$crud->display_as ( 'hour_at', '時(+8)' );
 				$crud->display_as ( 'minute_at', '分(+8)' );
 				$crud->display_as ( 'created_at', '建立時間(+8)' );
+				//
+				//$crud->callback_field('item_id', array(
+						//$this->grocery_callback,
+						//'form_account_password'
+				//));
 				// 產生表單
 				$output = $crud->render ();
 				// 資料整理
