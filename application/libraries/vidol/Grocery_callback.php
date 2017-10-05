@@ -138,8 +138,6 @@ class Grocery_callback {
 		}
 	}
 	function callback_vote_config_item_title($primary_key, $row) {
-		print_r($primary_key);
-		print_r($row);
 		switch ($row->item_id) {
 			case '60' :
 				return '0分';
