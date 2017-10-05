@@ -280,8 +280,7 @@ class Vote_config extends CI_Controller {
 				$data_post = array ();
 				// 強制切換資料庫
 				unset ( $this->db );
-				//$this->db = $this->load->database ( 'vidol_event_write', true );
-				$this->load->database ();
+				$this->db = $this->load->database ( 'vidol_event_write', true );
 				// grocery_CRUD 自產表單
 				$this->load->library ( 'grocery_CRUD' ); // CI整合表單http://www.grocerycrud.com/
 				$this->load->library('vidol/grocery_callback');
