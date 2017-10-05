@@ -303,7 +303,7 @@ class Vote_config extends CI_Controller {
 				// 清單顯示欄位
 				$crud->columns ( 'item_id', 'member_id' );
 				// 關聯
-				$crud->set_relation('item_id', 'vidol_event.event_vote_item_tbl', '{title}', array(), 'id');
+				$crud->set_relation('item_id', 'event_vote_item_tbl', '{title}', array(), 'id');
 				// 資料庫欄位文字替換
 				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
 				$crud->display_as ( 'config_id', '設定檔id' );
