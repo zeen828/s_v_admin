@@ -284,6 +284,7 @@ class Vote_config extends CI_Controller {
 				$this->load->database ();
 				// grocery_CRUD 自產表單
 				$this->load->library ( 'grocery_CRUD' ); // CI整合表單http://www.grocerycrud.com/
+				$this->load->library('vidol/grocery_callback');
 				$crud = new grocery_CRUD ();
 				// 語系
 				$crud->set_language ( 'taiwan' );
