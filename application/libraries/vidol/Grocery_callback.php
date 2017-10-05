@@ -137,4 +137,44 @@ class Grocery_callback {
 				break;
 		}
 	}
+	function callback_vote_config_4_item_title($primary_key, $row) {
+		switch ($row->item_id) {
+			case '60' :
+				return '0分';
+				break;
+			case '61' :
+				return '10分';
+				break;
+			case '62' :
+				return '20分';
+				break;
+			case '63' :
+				return '30分';
+				break;
+			case '64' :
+				return '40分';
+				break;
+			case '65' :
+				return '50分';
+				break;
+			case '66' :
+				return '60分';
+				break;
+			case '67' :
+				return '70分';
+				break;
+			case '68' :
+				return '80分';
+				break;
+			case '69' :
+				return '90分';
+				break;
+			case '70' :
+				return '100分';
+				break;
+			default :
+				return '0分';
+				break;
+		}
+	}
 }

@@ -304,7 +304,7 @@ class Vote_config extends CI_Controller {
 				$crud->columns ( 'item_id', 'member_id' );
 				// 關聯
 				//$crud->set_relation('item_id', 'event_vote_config_tbl', '{title}', array(), 'id');
-				$crud->set_relation('item_id', 'event_vote_item_tbl', '{group_title}{title}', array('config'=>'2'), 'sort');
+				//$crud->set_relation('item_id', 'event_vote_item_tbl', '{group_title}{title}', array('config'=>'2'), 'sort');
 				//$crud->set_relation('item_id', 'vidol.user_groups', '{ugrp_name}', array(), 'ugrp_id');
 				// 資料庫欄位文字替換
 				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
@@ -322,10 +322,10 @@ class Vote_config extends CI_Controller {
 				$crud->display_as ( 'minute_at', '分(+8)' );
 				$crud->display_as ( 'created_at', '建立時間(+8)' );
 				//
-// 				$crud->callback_field('item_id', array(
-// 						$this->grocery_callback,
-// 						'form_account_password'
-// 				));
+				$crud->callback_field('item_id', array(
+						$this->grocery_callback,
+						'callback_vote_config_4_item_title'
+				));
 				// 產生表單
 				$output = $crud->render ();
 				// 資料整理
