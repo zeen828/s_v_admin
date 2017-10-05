@@ -275,7 +275,7 @@ class Vote_config extends CI_Controller {
 		try {
 			if ($this->flexi_auth->is_privileged ( 'Events Config View' ) && ! empty ( $config_id )) {
 				// 寫log
-				$this->fun->logs ( '觀看[投票-投票名單]' );
+				//$this->fun->logs ( '觀看[投票-投票名單]' );
 				// 變數
 				$data_post = array ();
 				// 強制切換資料庫
