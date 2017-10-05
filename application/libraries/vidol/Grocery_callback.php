@@ -137,7 +137,7 @@ class Grocery_callback {
 				break;
 		}
 	}
-	function callback_vote_config_4_item_title($primary_key, $row) {
+	function callback_vote_config_item_title($primary_key, $row) {
 		return site_url ( '/backend/lotteries/lottery_list/' . $primary_key );
 // 		print_r($primary_key);
 // 		print_r($row);

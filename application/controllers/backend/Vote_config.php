@@ -322,10 +322,10 @@ class Vote_config extends CI_Controller {
 // 				$crud->display_as ( 'minute_at', '分(+8)' );
 // 				$crud->display_as ( 'created_at', '建立時間(+8)' );
 				//
-// 				$crud->callback_field('item_id', array(
-// 						$this->grocery_callback,
-// 						'callback_vote_config_4_item_title'
-// 				));
+ 				$crud->callback_column('item_id', array(
+ 						$this->grocery_callback,
+ 						'callback_vote_config_item_title'
+ 				));
 				// 產生表單
 				$output = $crud->render ();
 				// 資料整理
