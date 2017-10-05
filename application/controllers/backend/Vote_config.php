@@ -301,26 +301,26 @@ class Vote_config extends CI_Controller {
 				// 移除刪除
 				$crud->unset_delete ();
 				// 清單顯示欄位
-				$crud->columns ( 'config_id', 'item_id', 'member_id' );
+				//$crud->columns ( 'config_id', 'item_id', 'member_id' );
 				// 關聯
 				$crud->set_relation('config_id', 'event_vote_config_tbl', 'title', array(), 'id');
-				$crud->set_relation('item_id', 'event_vote_item_tbl', 'title', array('config_id'=>$config_id), 'sort');
+				//$crud->set_relation('item_id', 'event_vote_item_tbl', 'title', array('config_id'=>$config_id), 'sort');
 				//$crud->set_relation('item_id', 'vidol.user_groups', '{ugrp_name}', array(), 'ugrp_id');
 				// 資料庫欄位文字替換
-				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
-				$crud->display_as ( 'config_id', '設定檔id' );
-				$crud->display_as ( 'data_no', '截取順序' );
-				$crud->display_as ( 'item_id', '項目id' );
-				$crud->display_as ( 'mongo_id', '_id' );
-				$crud->display_as ( 'member_id', 'member_id' );
-				$crud->display_as ( 'user_created_at', '會原創建日(UTC)' );
-				$crud->display_as ( 'ticket', '票數' );
-				$crud->display_as ( 'year_at', '年(+8)' );
-				$crud->display_as ( 'month_at', '月(+8)' );
-				$crud->display_as ( 'day_at', '日(+8)' );
-				$crud->display_as ( 'hour_at', '時(+8)' );
-				$crud->display_as ( 'minute_at', '分(+8)' );
-				$crud->display_as ( 'created_at', '建立時間(+8)' );
+// 				$crud->display_as ( 'id', $this->lang->line ( 'fields_pk' ) );
+// 				$crud->display_as ( 'config_id', '設定檔id' );
+// 				$crud->display_as ( 'data_no', '截取順序' );
+// 				$crud->display_as ( 'item_id', '項目id' );
+// 				$crud->display_as ( 'mongo_id', '_id' );
+// 				$crud->display_as ( 'member_id', 'member_id' );
+// 				$crud->display_as ( 'user_created_at', '會原創建日(UTC)' );
+// 				$crud->display_as ( 'ticket', '票數' );
+// 				$crud->display_as ( 'year_at', '年(+8)' );
+// 				$crud->display_as ( 'month_at', '月(+8)' );
+// 				$crud->display_as ( 'day_at', '日(+8)' );
+// 				$crud->display_as ( 'hour_at', '時(+8)' );
+// 				$crud->display_as ( 'minute_at', '分(+8)' );
+// 				$crud->display_as ( 'created_at', '建立時間(+8)' );
 				//
 // 				$crud->callback_field('item_id', array(
 // 						$this->grocery_callback,
