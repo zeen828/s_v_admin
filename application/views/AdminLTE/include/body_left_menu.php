@@ -51,8 +51,9 @@
             			</li>
 <?php }?>
 <?php if($this->flexi_auth->is_privileged(array('Events View', 'Events Add', 'Events Edit', 'Events Del'))) {?>
-            			<li class="Lottery treeview"><a href="#"> <i class="fa fa-star"></i> <span>抽獎活動</span> <i class="fa fa-angle-left pull-right"></i></a>
+            			<li class="Lottery treeview"><a href="#"> <i class="fa fa-star"></i> <span>綜合活動</span> <i class="fa fa-angle-left pull-right"></i></a>
             				<ul class="treeview-menu">
+            					<li><a href="/backend/vote_config/select_list/4"><i class="fa fa-bar-chart"></i> 未來難有活動名單</a></li>
             					<li><a href="/backend/report_event/iphone8_week1"><i class="fa fa-bar-chart"></i> 得獎名單[OB嚴選送iphone8(第一周)]</a></li>
             					<li><a href="/backend/report_event/iphone8_week2"><i class="fa fa-bar-chart"></i> 得獎名單[OB嚴選送iphone8(第二周)]</a></li>
 <?php if($this->flexi_auth->is_privileged(array('Events Config View', 'Events Config Add', 'Events Config Edit', 'Events Config Del'))) {?>
